@@ -359,6 +359,9 @@
                   <li>
                     <a href="#get-task" class="toc-h2 toc-link" data-title="Get Task">Get Task</a>
                   </li>
+                  <li>
+                    <a href="#create-task" class="toc-h2 toc-link" data-title="Create Task">Create Task</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -366,6 +369,34 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#get-protocols" class="toc-h2 toc-link" data-title="Get Protocols">Get Protocols</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#protocol-steps" class="toc-h1 toc-link" data-title="Protocol Steps">Protocol Steps</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-steps" class="toc-h2 toc-link" data-title="Get Steps">Get Steps</a>
+                  </li>
+                  <li>
+                    <a href="#get-step" class="toc-h2 toc-link" data-title="Get Step">Get Step</a>
+                  </li>
+                  <li>
+                    <a href="#create-step" class="toc-h2 toc-link" data-title="Create Step">Create Step</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#attachments" class="toc-h1 toc-link" data-title="Attachments">Attachments</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-attachments" class="toc-h2 toc-link" data-title="Get Attachments">Get Attachments</a>
+                  </li>
+                  <li>
+                    <a href="#get-attachment" class="toc-h2 toc-link" data-title="Get Attachment">Get Attachment</a>
+                  </li>
+                  <li>
+                    <a href="#create-attachment" class="toc-h2 toc-link" data-title="Create Attachment">Create Attachment</a>
                   </li>
               </ul>
           </li>
@@ -421,6 +452,9 @@
                   </li>
                   <li>
                     <a href="#create-result" class="toc-h2 toc-link" data-title="Create Result">Create Result</a>
+                  </li>
+                  <li>
+                    <a href="#update-result" class="toc-h2 toc-link" data-title="Update Result">Update Result</a>
                   </li>
               </ul>
           </li>
@@ -655,7 +689,7 @@ You must replace <code>qwerty123456...</code> with your API access token.
 </tr>
 </thead><tbody>
 <tr>
-<td>page</td>
+<td>page_number</td>
 <td>1</td>
 <td>Number of requested page.</td>
 </tr>
@@ -1284,19 +1318,25 @@ If submitted attributes are the same and no changes are made for the identity ma
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"activities"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"attributes"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"type_of"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create_project"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;i&gt;Admin&lt;/i&gt; created project &lt;strong&gt;Demo project - qPCR&lt;/strong&gt;."</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type_of"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create_module"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Admin created task New task.&lt;/p&gt;"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"relationships"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"project"</span><span class="p">:{</span><span class="w">
-          </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"projects"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"user"</span><span class="p">:{</span><span class="w">
-          </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tasks"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
           </span><span class="p">}</span><span class="w">
@@ -1306,19 +1346,25 @@ If submitted attributes are the same and no changes are made for the identity ma
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"activities"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"attributes"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"type_of"</span><span class="p">:</span><span class="w"> </span><span class="s2">"add_comment_to_project"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;i&gt;Admin&lt;/i&gt; commented on project &lt;strong&gt;Demo project - qPCR&lt;/strong&gt;."</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type_of"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update_protocol_in_task_from_repository"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Admin updated protocol on task New Task with version from Protocol repository Main Repository.&lt;/p&gt;"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"relationships"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"project"</span><span class="p">:{</span><span class="w">
-          </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"projects"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"user"</span><span class="p">:{</span><span class="w">
-          </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"protocols"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
           </span><span class="p">}</span><span class="w">
@@ -2034,6 +2080,115 @@ If submitted attributes are the same and no changes are made for the identity ma
 <td>The ID of the task to retrieve</td>
 </tr>
 </tbody></table>
+<h2 id='create-task'>Create Task</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "data": {
+      "type": "tasks",
+      "attributes": {
+        "name": "My task 1",
+        "description": "Description of the task",
+        "x": 1,
+        "y": 8
+      }
+    }
+  }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tasks"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My task 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description of the task"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uncompleted"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"outputs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"inputs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint creates new task in the experiment.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve projects from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiments from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tasks"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My task 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description of the task"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='inventory-attributes'>Inventory attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Name of the task</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Description of the task</td>
+</tr>
+<tr>
+<td>x</td>
+<td>yes</td>
+<td>x position on canvas</td>
+</tr>
+<tr>
+<td>y</td>
+<td>yes</td>
+<td>y position on canvas</td>
+</tr>
+</tbody></table>
 <h1 id='protocols'>Protocols</h1><h2 id='get-protocols'>Get Protocols</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols"</span>
   -H <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre>
@@ -2087,6 +2242,542 @@ If submitted attributes are the same and no changes are made for the identity ma
 <tr>
 <td>TASK_ID</td>
 <td>The ID of the task to retrieve protocols from</td>
+</tr>
+</tbody></table>
+<h1 id='protocol-steps'>Protocol Steps</h1><h2 id='get-steps'>Get Steps</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps"</span>
+  -H <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4196"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steps"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Step name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description about step"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"completed_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-16T13:47:22.069Z"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"protocols"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4195"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steps"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Step name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description about step"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"protocols"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4194"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steps"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Step name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description about step"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"protocols"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps?page%5Bnumber%5D=2&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps?page%5Bnumber%5D=4&amp;page%5Bsize%5D=10"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves steps from specific protocol.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiment from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve task from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve protocol from</td>
+</tr>
+<tr>
+<td>PROTOCOL_ID</td>
+<td>The ID of the protocol to retrieve steps from</td>
+</tr>
+</tbody></table>
+<h2 id='get-step'>Get Step</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1"</span>
+  -H <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steps"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Step name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description about step"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-16T13:47:22.069Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"protocols"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves specific step from the protocol.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiment from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve task from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve protocol from</td>
+</tr>
+<tr>
+<td>PROTOCOL_ID</td>
+<td>The ID of the protocol to retrieve steps from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the step</td>
+</tr>
+</tbody></table>
+<h2 id='create-step'>Create Step</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "data": {
+        "type": "steps",
+        "attributes": {
+            "name": "Step name",
+            "description": "Description about step"
+        }
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steps"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Step name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description about step"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"protocols"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates new step in the protocol.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiment from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve task from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve protocol from</td>
+</tr>
+<tr>
+<td>PROTOCOL_ID</td>
+<td>The ID of the protocol to retrieve steps from</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steps"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Step name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description about step"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='inventory-item-attributes'>Inventory item attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Name of the step</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Description of the step</td>
+</tr>
+</tbody></table>
+<h1 id='attachments'>Attachments</h1><h2 id='get-attachments'>Get Attachments</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments"</span>
+  -H <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_image1.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">132441</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c7010e1f76e1c0774a9235a2ccbdcb0ca026e58/my_image1?disposition=attachment"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steps"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_image2.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">270369</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBjUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--88ea367f0aa8633ab4cb8a504839bb782164d89b/my_image2?disposition=attachment"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steps"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_image3.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">91435</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBjQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4b51f1e346342d2bdf9b1b781f5fc8214c5e0994/my_image3?disposition=attachment"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steps"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves attachments from specific step.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/attachments</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiment from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve task from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve protocol from</td>
+</tr>
+<tr>
+<td>PROTOCOL_ID</td>
+<td>The ID of the protocol to retrieve steps from</td>
+</tr>
+<tr>
+<td>STEP_ID</td>
+<td>The ID of the step to retrieve attachments from</td>
+</tr>
+</tbody></table>
+<h2 id='get-attachment'>Get Attachment</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments/1"</span>
+  -H <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_image1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">35038</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBjUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--88ea367f0aa8633ab4cb8a504839bb782164d89b/my_image1?disposition=attachment"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steps"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves specific attachment from the step.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/attachments/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiment from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve task from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve protocol from</td>
+</tr>
+<tr>
+<td>PROTOCOL_ID</td>
+<td>The ID of the protocol to retrieve steps from</td>
+</tr>
+<tr>
+<td>STEP_ID</td>
+<td>The ID of the step to retrieve attachments from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the attachment</td>
+</tr>
+</tbody></table>
+<h2 id='create-attachment'>Create Attachment</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: multipart/form-data'</span> <span class="se">\</span>
+  -F <span class="s1">'data[attributes][file]=@/path/to/the/file/my_image1.png'</span> <span class="se">\</span>
+  -F <span class="s1">'data[type]=attachments'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_image1.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">35038</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBkdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f6847b21ffb44a71c6c88957255f513775da5a82/my_image1.png?disposition=attachment"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steps"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint uploads new attachment to the step.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiment from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve task from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve protocol from</td>
+</tr>
+<tr>
+<td>PROTOCOL_ID</td>
+<td>The ID of the protocol to retrieve steps from</td>
+</tr>
+<tr>
+<td>STEP_ID</td>
+<td>The ID of the step to retrieve attachments from</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attachments"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="err">FILE</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attachment-attributes'>Attachment attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file</td>
+<td>yes</td>
+<td>File for upload</td>
 </tr>
 </tbody></table>
 <h1 id='task-users'>Task Users</h1><h2 id='get-task-users'>Get Task Users</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/users"</span>
@@ -2209,31 +2900,25 @@ If submitted attributes are the same and no changes are made for the identity ma
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"activities"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"attributes"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"type_of"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create_module"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;i&gt;Admin&lt;/i&gt; created task &lt;strong&gt;Experiment design&lt;/strong&gt;."</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type_of"</span><span class="p">:</span><span class="w"> </span><span class="s2">"export_protocol_from_task"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Admin exported protocol from task Sampling biological material&lt;/p&gt;"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"relationships"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"project"</span><span class="p">:{</span><span class="w">
-          </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"projects"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"task"</span><span class="p">:{</span><span class="w">
-          </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tasks"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"experiment"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"experiments"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"user"</span><span class="p">:{</span><span class="w">
-          </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
           </span><span class="p">}</span><span class="w">
@@ -2243,31 +2928,25 @@ If submitted attributes are the same and no changes are made for the identity ma
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"activities"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"attributes"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"type_of"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assign_user_to_module"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;i&gt;Admin&lt;/i&gt; was added to task &lt;strong&gt;Experiment design&lt;/strong&gt; by &lt;i&gt;Admin&lt;/i&gt;."</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type_of"</span><span class="p">:</span><span class="w"> </span><span class="s2">"add_result"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Admin added file result (example.png).&lt;/p&gt;"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"relationships"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"project"</span><span class="p">:{</span><span class="w">
-          </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"projects"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"task"</span><span class="p">:{</span><span class="w">
-          </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tasks"</span><span class="w">
+        </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"results"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"experiment"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"experiments"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"user"</span><span class="p">:{</span><span class="w">
-          </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
           </span><span class="p">}</span><span class="w">
@@ -2828,7 +3507,7 @@ If submitted attributes are the same and no changes are made for the identity ma
 <td>The ID of the result</td>
 </tr>
 </tbody></table>
-<h2 id='create-result'>Create Result</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<h2 id='create-result'>Create Result</h2><h3 id='with-text-result-and-tinymce-images'>with Text Result and TinyMCE images</h3><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
   https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/results <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
   -d <span class="s1">'{
@@ -2897,6 +3576,67 @@ If submitted attributes are the same and no changes are made for the identity ma
 
 <p>Images should be base64 encoded in such format: <code>data:image/png;base64,&lt;FILE_CONTENT&gt;</code>, where FILE_CONTENT is base64 encoded image file. It should be referenced inside result text with unique token using this format: <code>[~tiny_mce_id:&lt;TOKEN&gt;]</code>.
 Token should be string without special symbols.</p>
+<h3 id='with-file-result'>with File Result</h3><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/results <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "data": {
+      "type": "results",
+      "attributes": {
+        "name": "Result 1"
+      }
+    },
+    "included": [
+      {
+        "type": "result_files",
+        "attributes": {
+          "file": FILE
+        }
+      }
+    ]
+  }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"results"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Result 1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result_files"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result_files"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"file_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_file.txt"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4213"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c7010e1f76e1c0774a9235a2ccbdcb0ca026e58/my_file?disposition=attachment"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates new result, also result file can be added inside &quot;included&quot; section in the same request. Please reference to the sample request.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/results</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
@@ -2925,7 +3665,7 @@ Token should be string without special symbols.</p>
 </tbody></table>
 
 <blockquote>
-<p>Request body</p>
+<p>Request body with ResultText</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2947,6 +3687,26 @@ Token should be string without special symbols.</p>
         </span><span class="s2">"file_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data:image/png;base64,qwerty123456..."</span><span class="p">,</span><span class="w">
         </span><span class="s2">"file_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.png"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Request body with ResultFile</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Result 1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result_files"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="err">FILE</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -3001,6 +3761,159 @@ Token should be string without special symbols.</p>
 <td>file_name</td>
 <td>yes</td>
 <td>Name of the file</td>
+</tr>
+</tbody></table>
+<h3 id='result-file-attributes'>Result file attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file</td>
+<td>yes</td>
+<td>File attached to the result</td>
+</tr>
+</tbody></table>
+<h2 id='update-result'>Update Result</h2><h3 id='with-file-result-2'>with File Result</h3><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/results/1 <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "data": {
+      "type": "results",
+      "attributes": {
+        "name": "Result with new name"
+      }
+    },
+    "included": [
+      {
+        "type": "result_files",
+        "attributes": {
+          "file": FILE
+        }
+      }
+    ]
+  }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"results"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Result with new name"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result_files"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result_files"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"file_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_file.txt"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4213"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c7010e1f76e1c0774a9235a2ccbdcb0ca026e58/my_file?disposition=attachment"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates result, also result file can be added inside &quot;included&quot; section in the same request. Please reference to the sample request.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/results/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the result</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Result with new name"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result_files"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="err">FILE</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='result-attributes-2'>Result attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Name of the result</td>
+</tr>
+</tbody></table>
+<h3 id='result-file-attributes-2'>Result file attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file</td>
+<td>no</td>
+<td>File attached to the result</td>
 </tr>
 </tbody></table>
 <h1 id='reports'>Reports</h1><h2 id='get-reports'>Get Reports</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/reports"</span>
