@@ -530,6 +530,26 @@
               </ul>
           </li>
           <li>
+            <a href="#inventory-column-status-items" class="toc-h1 toc-link" data-title="Inventory Column Status Items">Inventory Column Status Items</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-status-items" class="toc-h2 toc-link" data-title="Get Status Items">Get Status Items</a>
+                  </li>
+                  <li>
+                    <a href="#get-status-item" class="toc-h2 toc-link" data-title="Get Status Item">Get Status Item</a>
+                  </li>
+                  <li>
+                    <a href="#create-status-item" class="toc-h2 toc-link" data-title="Create Status Item">Create Status Item</a>
+                  </li>
+                  <li>
+                    <a href="#update-status-item" class="toc-h2 toc-link" data-title="Update Status Item">Update Status Item</a>
+                  </li>
+                  <li>
+                    <a href="#delete-status-item" class="toc-h2 toc-link" data-title="Delete Status Item">Delete Status Item</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#inventory-items" class="toc-h1 toc-link" data-title="Inventory Items">Inventory Items</a>
               <ul class="toc-list-h2">
                   <li>
@@ -4931,6 +4951,310 @@ If submitted attributes are the same and no changes are made for the item, serve
 <tr>
 <td>ID</td>
 <td>The ID of the list item</td>
+</tr>
+</tbody></table>
+<h1 id='inventory-column-status-items'>Inventory Column Status Items</h1><h2 id='get-status-items'>Get Status Items</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/status_items"</span>
+  -H <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_status_items"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status 1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon 1"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_status_items"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status 2"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon 2"</span><span class="w">            
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_status_items"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status 3"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon 3"</span><span class="w">            
+             </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/status_items?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/status_items?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/status_items?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves status items from specific inventory column, only valid for columns with &#39;status&#39; data type.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/columns/&lt;COLUMN_ID&gt;/status_items</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve inventory from</td>
+</tr>
+<tr>
+<td>INVENTORY_ID</td>
+<td>The ID of the inventory to retrieve column from</td>
+</tr>
+<tr>
+<td>COLUMN_ID</td>
+<td>The ID of the column(with status data type) in specified inventory to retrieve status items from</td>
+</tr>
+</tbody></table>
+<h2 id='get-status-item'>Get Status Item</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/status_items/1"</span>
+  -H <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_status_items"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status 1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon 1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves specific status item from inventory column, only valid for columns with &#39;status&#39; data type.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/columns/&lt;COLUMN_ID&gt;/status_items/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve inventory from</td>
+</tr>
+<tr>
+<td>INVENTORY_ID</td>
+<td>The ID of the inventory to retrieve column from</td>
+</tr>
+<tr>
+<td>COLUMN_ID</td>
+<td>The ID of the column(with status data type) in specified inventory to retrieve status items from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the status item</td>
+</tr>
+</tbody></table>
+<h2 id='create-status-item'>Create Status Item</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/status_items <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "data": {
+        "type": "inventory_status_items",
+        "attributes": {
+            "status": "status 1",
+            "icon": "icon"
+        }
+    }
+  }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_status_items"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status 1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates new status item in selected inventory column, only valid for columns with &#39;status&#39; data type.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/columns/&lt;COLUMN_ID&gt;/status_items</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve inventory from</td>
+</tr>
+<tr>
+<td>INVENTORY_ID</td>
+<td>The ID of the inventory to retrieve column from</td>
+</tr>
+<tr>
+<td>COLUMN_ID</td>
+<td>The ID of the column(with status data type) in specified inventory to retrieve status items from</td>
+</tr>
+</tbody></table>
+<h3 id='request-body'>Request body</h3>
+<p><code>{
+    &quot;data&quot;: {
+        &quot;type&quot;: &quot;inventory_status_items&quot;,
+        &quot;attributes&quot;: {
+            &quot;status&quot;: &quot;status 1&quot;,
+            &quot;icon&quot;: &quot;icon&quot;
+        }
+    }
+}</code></p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>yes</td>
+<td>Name of the status item</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>yes</td>
+<td>Icon of the status item</td>
+</tr>
+</tbody></table>
+<h2 id='update-status-item'>Update Status Item</h2><pre class="highlight shell tab-shell"><code>curl -X PATCH <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/status_items/1 <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "data": {
+        "id": "1",
+        "type": "inventory_status_items",
+        "attributes": {
+            "status": "status 2"
+        }
+    }
+  }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_status_items"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status 2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates existing status item in selected inventory column.
+If submitted attributes are the same and no changes are made for the item, server returns empty body with response code 204.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PATCH https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/columns/&lt;COLUMN_ID&gt;/status_items/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve inventory from</td>
+</tr>
+<tr>
+<td>INVENTORY_ID</td>
+<td>The ID of the inventory to retrieve column from</td>
+</tr>
+<tr>
+<td>COLUMN_ID</td>
+<td>The ID of the column(with status data type) in specified inventory to retrieve status items from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the status item</td>
+</tr>
+</tbody></table>
+<h3 id='request-body-2'>Request body</h3>
+<p><code>{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;1&quot;,
+        &quot;type&quot;: &quot;inventory_status_items&quot;,
+        &quot;attributes&quot;: {
+            &quot;status&quot;: &quot;status 2&quot;
+        }
+    }
+}</code></p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>yes</td>
+<td>Name of the status item</td>
+</tr>
+</tbody></table>
+<h2 id='delete-status-item'>Delete Status Item</h2><pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/status_items/1 <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre>
+<blockquote>
+<p>The above command returns empty body with status code 200</p>
+</blockquote>
+
+<p>This endpoint deletes specific status item from inventory column.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/columns/&lt;COLUMN_ID&gt;/status_items/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve inventory from</td>
+</tr>
+<tr>
+<td>INVENTORY_ID</td>
+<td>The ID of the inventory to retrieve column from</td>
+</tr>
+<tr>
+<td>COLUMN_ID</td>
+<td>The ID of the column(with status data type) in specified inventory to retrieve status items from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the status item</td>
 </tr>
 </tbody></table>
 <h1 id='inventory-items'>Inventory Items</h1><h2 id='get-items'>Get Items</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/items"</span>
