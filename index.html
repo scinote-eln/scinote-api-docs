@@ -550,6 +550,26 @@
               </ul>
           </li>
           <li>
+            <a href="#inventory-column-checklist-items" class="toc-h1 toc-link" data-title="Inventory Column Checklist Items">Inventory Column Checklist Items</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-checklist-items" class="toc-h2 toc-link" data-title="Get Checklist Items">Get Checklist Items</a>
+                  </li>
+                  <li>
+                    <a href="#get-checklist-item" class="toc-h2 toc-link" data-title="Get Checklist Item">Get Checklist Item</a>
+                  </li>
+                  <li>
+                    <a href="#create-checklist-item" class="toc-h2 toc-link" data-title="Create Checklist Item">Create Checklist Item</a>
+                  </li>
+                  <li>
+                    <a href="#update-checklist-item" class="toc-h2 toc-link" data-title="Update Checklist Item">Update Checklist Item</a>
+                  </li>
+                  <li>
+                    <a href="#delete-checklist-item" class="toc-h2 toc-link" data-title="Delete Checklist Item">Delete Checklist Item</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#inventory-items" class="toc-h1 toc-link" data-title="Inventory Items">Inventory Items</a>
               <ul class="toc-list-h2">
                   <li>
@@ -616,7 +636,7 @@
 
 <p>This API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>.</p>
 
-<p><em>By accessing or using SciNote API, you agree to <a href="https://scinote.net/wp-content/uploads/2018/12/SCINOTE_API_TERMS.pdf">SciNote API Terms</a>.</em> </p>
+<p><em>By accessing or using SciNote API, you agree to <a href="https://scinote.net/wp-content/uploads/2018/12/SCINOTE_API_TERMS.pdf">SciNote API Terms</a>.</em></p>
 <h1 id='authentication'>Authentication</h1>
 <p>SciNote uses JWT tokens to allow access to the API and OAuth 2 protocol for token generation using authorization code flow.</p>
 
@@ -4553,7 +4573,7 @@ If submitted attributes are the same and no changes are made for the inventory, 
 <tr>
 <td>data_type</td>
 <td>yes</td>
-<td>Data type of the column - one of the following: <code>text</code>, <code>list</code> or <code>file</code></td>
+<td>Data type of the column - one of the following: <code>text</code>, <code>number</code>, <code>file</code>, <code>list</code>, <code>checklist</code>, <code>status</code>, <code>date</code>, <code>time</code>, <code>date_time</code>, <code>date_range</code>, <code>time_range</code>, <code>date_time_range</code></td>
 </tr>
 </tbody></table>
 <h2 id='update-column'>Update Column</h2><pre class="highlight shell tab-shell"><code>curl -X PATCH <span class="se">\</span>
@@ -5255,6 +5275,297 @@ If submitted attributes are the same and no changes are made for the item, serve
 <tr>
 <td>ID</td>
 <td>The ID of the status item</td>
+</tr>
+</tbody></table>
+<h1 id='inventory-column-checklist-items'>Inventory Column Checklist Items</h1><h2 id='get-checklist-items'>Get Checklist Items</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/checklist_items"</span>
+  -H <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_checklist_items"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item 1"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_checklist_items"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item 2"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_checklist_items"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item 3"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/checklist_items?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/checklist_items?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/checklist_items?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves checklist items from specific inventory column, only valid for columns with &#39;checklist&#39; data type.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/columns/&lt;COLUMN_ID&gt;/checklist_items</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve inventory from</td>
+</tr>
+<tr>
+<td>INVENTORY_ID</td>
+<td>The ID of the inventory to retrieve column from</td>
+</tr>
+<tr>
+<td>COLUMN_ID</td>
+<td>The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from</td>
+</tr>
+</tbody></table>
+<h2 id='get-checklist-item'>Get Checklist Item</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/checklist_items/1"</span>
+  -H <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_checklist_items"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item 1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves specific checklist item from inventory column, only valid for columns with &#39;checklist&#39; data type.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/columns/&lt;COLUMN_ID&gt;/checklist_items/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve inventory from</td>
+</tr>
+<tr>
+<td>INVENTORY_ID</td>
+<td>The ID of the inventory to retrieve column from</td>
+</tr>
+<tr>
+<td>COLUMN_ID</td>
+<td>The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the checklist item</td>
+</tr>
+</tbody></table>
+<h2 id='create-checklist-item'>Create Checklist Item</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/checklist_items <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "data": {
+        "type": "inventory_checklist_items",
+        "attributes": {
+            "data": "Item 1"
+        }
+    }
+  }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_checklist_items"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item 1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates new checklist item in selected inventory column, only valid for columns with &#39;checklist&#39; data type.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/columns/&lt;COLUMN_ID&gt;/checklist_items</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve inventory from</td>
+</tr>
+<tr>
+<td>INVENTORY_ID</td>
+<td>The ID of the inventory to retrieve column from</td>
+</tr>
+<tr>
+<td>COLUMN_ID</td>
+<td>The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from</td>
+</tr>
+</tbody></table>
+<h3 id='request-body'>Request body</h3>
+<p><code>{
+    &quot;data&quot;: {
+        &quot;type&quot;: &quot;inventory_checklist_items&quot;,
+        &quot;attributes&quot;: {
+            &quot;data&quot;: &quot;Item 1&quot;
+        }
+    }
+}</code></p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>yes</td>
+<td>Text value of the checklist item</td>
+</tr>
+</tbody></table>
+<h2 id='update-checklist-item'>Update Checklist Item</h2><pre class="highlight shell tab-shell"><code>curl -X PATCH <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/checklist_items/1 <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "data": {
+        "id": "1",
+        "type": "inventory_checklist_items",
+        "attributes": {
+            "data": "Item 2"
+        }
+    }
+  }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_checklist_items"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item 2"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates existing checklist item in selected inventory column.
+If submitted attributes are the same and no changes are made for the item, server returns empty body with response code 204.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PATCH https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/columns/&lt;COLUMN_ID&gt;/checklist_items/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve inventory from</td>
+</tr>
+<tr>
+<td>INVENTORY_ID</td>
+<td>The ID of the inventory to retrieve column from</td>
+</tr>
+<tr>
+<td>COLUMN_ID</td>
+<td>The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the checklist item</td>
+</tr>
+</tbody></table>
+<h3 id='request-body-2'>Request body</h3>
+<p><code>{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;1&quot;,
+        &quot;type&quot;: &quot;inventory_checklist_items&quot;,
+        &quot;attributes&quot;: {
+            &quot;data&quot;: &quot;Item 2&quot;
+        }
+    }
+}</code></p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>yes</td>
+<td>Text value of the checklist item</td>
+</tr>
+</tbody></table>
+<h2 id='delete-checklist-item'>Delete Checklist Item</h2><pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/columns/1/checklist_items/1 <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre>
+<blockquote>
+<p>The above command returns empty body with status code 200</p>
+</blockquote>
+
+<p>This endpoint deletes specific checklist item from inventory column.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/columns/&lt;COLUMN_ID&gt;/checklist_items/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve inventory from</td>
+</tr>
+<tr>
+<td>INVENTORY_ID</td>
+<td>The ID of the inventory to retrieve column from</td>
+</tr>
+<tr>
+<td>COLUMN_ID</td>
+<td>The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the checklist item</td>
 </tr>
 </tbody></table>
 <h1 id='inventory-items'>Inventory Items</h1><h2 id='get-items'>Get Items</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories/1/items"</span>
