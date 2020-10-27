@@ -766,6 +766,25 @@
               </ul>
           </li>
           <li>
+            <a href="#workflows" class="toc-h1 toc-link" data-title="Workflows">Workflows</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-workflows" class="toc-h2 toc-link" data-title="Get Workflows">Get Workflows</a>
+                  </li>
+                  <li>
+                    <a href="#get-workflow" class="toc-h2 toc-link" data-title="Get Workflow">Get Workflow</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#workflow-statuses" class="toc-h1 toc-link" data-title="Workflow statuses">Workflow statuses</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-workflow-statuses" class="toc-h2 toc-link" data-title="Get Workflow statuses">Get Workflow statuses</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
           <li>
@@ -2124,7 +2143,13 @@ If submitted attributes are the same and no changes are made for the identity ma
         </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-25T13:30:54.315Z"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uncompleted"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In progress"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"prev_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"prev_status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Backlog"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"next_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"next_status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"outputs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2146,7 +2171,13 @@ If submitted attributes are the same and no changes are made for the identity ma
         </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-08T13:30:54.520Z"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uncompleted"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"prev_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"prev_status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Backlog"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"next_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"next_status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In review"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"outputs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2176,7 +2207,13 @@ If submitted attributes are the same and no changes are made for the identity ma
         </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-22T13:30:54.594Z"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uncompleted"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In progress"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"prev_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"prev_status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Backlog"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"next_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"next_status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"inputs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2239,7 +2276,13 @@ Optional URL parameter &#39;render_rte=true&#39; can be added in order to reques
       </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-25T13:30:54.315Z"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uncompleted"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In progress"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"prev_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"prev_status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Backlog"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"next_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"next_status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"outputs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2403,7 +2446,7 @@ Optional URL parameter &#39;render_rte=true&#39; can be added in order to reques
           "attributes": {
             "name": "Task 2",
             "description": "Task 2 description",
-            "state": "completed"
+            "my_module_status_id": "2"
           }
       }
   }'</span>
@@ -2421,7 +2464,13 @@ Optional URL parameter &#39;render_rte=true&#39; can be added in order to reques
           </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
           </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task 2 description"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"in progress"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"prev_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"prev_status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"backlog"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"next_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"next_status_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"review"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"outputs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2469,7 +2518,7 @@ If submitted attributes are the same and no changes are made for the task, serve
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task 2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task 2 description"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="w">
+      </span><span class="nl">"my_module_status_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2502,9 +2551,9 @@ If submitted attributes are the same and no changes are made for the task, serve
 <td>y position on canvas</td>
 </tr>
 <tr>
-<td>state</td>
+<td>my_module_status_id</td>
 <td>no</td>
-<td>State of the task (uncompleted/completed)</td>
+<td>New status ID</td>
 </tr>
 </tbody></table>
 <h1 id='protocols'>Protocols</h1><h2 id='get-protocols'>Get Protocols</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols"</span>
@@ -8207,6 +8256,140 @@ If submitted attributes are the same and no changes are made for the cell, serve
 <tr>
 <td>ID</td>
 <td>The ID of the cell</td>
+</tr>
+</tbody></table>
+<h1 id='workflows'>Workflows</h1><h2 id='get-workflows'>Get Workflows</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/workflows"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default workflow"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default SciNote workflow"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"global"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all wrokflows from instance.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/workflows</code></p>
+<h2 id='get-workflow'>Get Workflow</h2>
+<p>This endpoint retrieves a specific workflow.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/workflows/1"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default workflow"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default SciNote workflow"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"global"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/workflows/&lt;WORKFLOW_ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>WORKFLOW_ID</td>
+<td>The ID of the workflow to retrieve</td>
+</tr>
+</tbody></table>
+<h1 id='workflow-statuses'>Workflow statuses</h1><h2 id='get-workflow-statuses'>Get Workflow statuses</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/workflows/1/statuses"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow_statuses"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Backlog"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#42f557"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"previous_status_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow_statuses"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In progress"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#b9f542"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"previous_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow_statuses"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#f5e342"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"previous_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow_statuses"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In review"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#f59c42"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"previous_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow_statuses"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Done"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#f59c42"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"previous_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves wrokflow statuses from selected workflow.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/workflows/WORKFLOW_ID/statuses</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>WORKFLOW_ID</td>
+<td>The ID of the workflow</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
