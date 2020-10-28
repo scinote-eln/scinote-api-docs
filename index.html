@@ -372,6 +372,12 @@
                   <li>
                     <a href="#get-project" class="toc-h2 toc-link" data-title="Get Project">Get Project</a>
                   </li>
+                  <li>
+                    <a href="#create-project" class="toc-h2 toc-link" data-title="Create Project">Create Project</a>
+                  </li>
+                  <li>
+                    <a href="#update-project" class="toc-h2 toc-link" data-title="Update Project">Update Project</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -382,6 +388,15 @@
                   </li>
                   <li>
                     <a href="#get-project-user" class="toc-h2 toc-link" data-title="Get Project User">Get Project User</a>
+                  </li>
+                  <li>
+                    <a href="#create-project-user-assignment" class="toc-h2 toc-link" data-title="Create Project User assignment">Create Project User assignment</a>
+                  </li>
+                  <li>
+                    <a href="#update-project-user" class="toc-h2 toc-link" data-title="Update Project User">Update Project User</a>
+                  </li>
+                  <li>
+                    <a href="#delete-project-user-assignment" class="toc-h2 toc-link" data-title="Delete Project User assignment">Delete Project User assignment</a>
                   </li>
               </ul>
           </li>
@@ -412,6 +427,12 @@
                   </li>
                   <li>
                     <a href="#get-experiment" class="toc-h2 toc-link" data-title="Get Experiment">Get Experiment</a>
+                  </li>
+                  <li>
+                    <a href="#create-experiment" class="toc-h2 toc-link" data-title="Create Experiment">Create Experiment</a>
+                  </li>
+                  <li>
+                    <a href="#update-experiment" class="toc-h2 toc-link" data-title="Update Experiment">Update Experiment</a>
                   </li>
               </ul>
           </li>
@@ -1395,7 +1416,179 @@ If submitted attributes are the same and no changes are made for the identity ma
 <td>The ID of the project to retrieve</td>
 </tr>
 </tbody></table>
-<h1 id='project-users'>Project Users</h1><h2 id='get-project-users'>Get Project Users</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/users"</span>
+<h2 id='create-project'>Create Project</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "data": {
+      "type": "projects",
+      "attributes": {
+        "name": "My project 1",
+        "visibility": "visible",
+        "archived": false
+      }
+    }
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"projects"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My project 1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2020 10:30"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<p>This endpoint creates a new project in the team.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve projects from</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"projects"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My project 1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='project-attributes'>Project attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Name of the project</td>
+</tr>
+<tr>
+<td>visibility</td>
+<td>no</td>
+<td>Visibility of the project</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>no</td>
+<td>Archived flag</td>
+</tr>
+</tbody></table>
+<h2 id='update-project'>Update Project</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1 <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+        "data": {
+          "id": "1",
+          "type": "projects",
+          "attributes": {
+            "name": "Project 2",
+            "visibility": "hidden",
+            "archived": true
+          }
+      }
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"projects"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project 2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2020 10:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint updates existing project in the selected team.
+If submitted attributes are the same and no changes are made for the project, server returns empty body with response code 204.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PATCH https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the project</td>
+</tr>
+</tbody></table>
+<h3 id='request-body'>Request body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"projects"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project 2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='project-attributes-2'>Project attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Name of the project</td>
+</tr>
+<tr>
+<td>visibility</td>
+<td>no</td>
+<td>Visibility of the project</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>no</td>
+<td>Archived flag</td>
+</tr>
+</tbody></table>
+<h1 id='project-users'>Project Users</h1><h2 id='get-project-users'>Get Project Users</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/users"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
 <blockquote>
@@ -1434,11 +1627,11 @@ If submitted attributes are the same and no changes are made for the identity ma
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"links"</span><span class="p">:{</span><span class="w">
-    </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/users?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/users?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/users?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/users?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/users?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
+    </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/users?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -1461,7 +1654,7 @@ If submitted attributes are the same and no changes are made for the identity ma
 <td>The ID of the project to retrieve users from</td>
 </tr>
 </tbody></table>
-<h2 id='get-project-user'>Get Project User</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/users/1"</span>
+<h2 id='get-project-user'>Get Project User</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/users/1"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
 <blockquote>
@@ -1520,6 +1713,207 @@ If submitted attributes are the same and no changes are made for the identity ma
 <tr>
 <td>USER_ID</td>
 <td>The ID of the user to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='create-project-user-assignment'>Create Project User assignment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/users <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "data": {
+      "type": "user_projects",
+      "attributes": {
+        "user_id": "1",
+        "role": "normal_user"
+      }
+    }
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:
+<code>json
+{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;type&quot;: &quot;user_projects&quot;,
+    &quot;attributes&quot;: {
+      &quot;role&quot;: &quot;normal_user&quot;
+    },
+    &quot;relationships&quot;: {
+      &quot;user&quot;: {
+        &quot;data&quot;: {
+          &quot;id&quot;: &quot;1&quot;,
+          &quot;type&quot;: &quot;users&quot;}
+        }
+      }
+    }
+  }
+}
+</code>
+This endpoint creates a new user assignment in the project.</p>
+</blockquote>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/users</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to assign user to</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body
+<code>json
+{
+  &quot;data&quot;: {
+    &quot;type&quot;: &quot;user_projects&quot;,
+    &quot;attributes&quot;: {
+      &quot;user_id&quot;: &quot;1&quot;,
+      &quot;role&quot;: &quot;normal_user&quot;
+    }
+  }
+}
+</code></p>
+<h3 id='project-user-attributes'>Project User attributes</h3></blockquote>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_id</td>
+<td>yes</td>
+<td>ID of the user</td>
+</tr>
+<tr>
+<td>role</td>
+<td>yes</td>
+<td>Role on the project</td>
+</tr>
+</tbody></table>
+<h2 id='update-project-user'>Update Project User</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/users/1 <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+        "data": {
+          "type": "user_projects",
+          "attributes": {
+            "role": "technician"
+          }
+      }
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:
+<code>json
+{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;type&quot;: &quot;user_projects&quot;,
+    &quot;attributes&quot;: {
+      &quot;role&quot;: &quot;technician&quot;
+    },
+    &quot;relationships&quot;: {
+      &quot;user&quot;: {
+        &quot;data&quot;: {
+          &quot;id&quot;: &quot;1&quot;,
+          &quot;type&quot;: &quot;users&quot;}
+        }
+      }
+    }
+  }
+}
+</code>
+This endpoint updates existing user assignment in the project.
+If submitted attributes are the same and no changes are made for the user assignment, server returns empty body with response code 204.</p>
+</blockquote>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PATCH https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/users/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve user assignment from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the user assignment</td>
+</tr>
+</tbody></table>
+<h3 id='request-body'>Request body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_projects"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"technician"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='project-user-attributes-2'>Project User attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>role</td>
+<td>yes</td>
+<td>Role on the project</td>
+</tr>
+</tbody></table>
+<h2 id='delete-project-user-assignment'>Delete Project User assignment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/users/1 <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns empty body with status code 200</p>
+</blockquote>
+
+<p>This endpoint deletes specific user assignment from the project.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/users/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve user assignment from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the user assignment</td>
 </tr>
 </tbody></table>
 <h1 id='project-activities'>Project Activities</h1><h2 id='get-project-activities'>Get Project Activities</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/activities"</span>
@@ -1813,6 +2207,189 @@ If submitted attributes are the same and no changes are made for the identity ma
 <tr>
 <td>EXPERIMENT_ID</td>
 <td>The ID of the experiment to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='create-experiment'>Create Experiment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "data": {
+      "type": "experiments",
+      "attributes": {
+        "name": "My experiment 1",
+        "description": "This is my very first experiment",
+        "archived": false
+      }
+    }
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:
+<code>json
+{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;type&quot;: &quot;experiments&quot;,
+    &quot;attributes&quot;: {
+      &quot;name&quot;: &quot;My first experiment&quot;,
+      &quot;description&quot;: &quot;This is my very first experiment&quot;,
+      &quot;archived&quot;: false
+    }
+  }
+}
+</code></p>
+</blockquote>
+
+<p>This endpoint creates a new experiment in the team.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve projects from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiment from</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body
+<code>json
+{
+  &quot;data&quot;: {
+    &quot;type&quot;: &quot;experiments&quot;,
+    &quot;attributes&quot;: {
+      &quot;name&quot;: &quot;My first experiment&quot;,
+      &quot;description&quot;: &quot;This is my very first experiment&quot;,
+      &quot;archived&quot;: false
+    }
+  }
+}
+</code></p>
+</blockquote>
+<h3 id='experiment-attributes'>Experiment attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Name of the experiment</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Description of the experiment</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>no</td>
+<td>Archived flag</td>
+</tr>
+</tbody></table>
+<h2 id='update-experiment'>Update Experiment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1 <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+        "data": {
+          "id": "1",
+          "type": "experiments",
+          "attributes": {
+            "name": "Experiment 2",
+            "description": "New description",
+            "archived": true
+          }
+      }
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:
+<code>json
+{
+    &quot;data&quot;: {
+      &quot;id&quot;: &quot;1&quot;,
+      &quot;type&quot;: &quot;experiments&quot;,
+      &quot;attributes&quot;: {
+        &quot;name&quot;: &quot;Experiment 2&quot;,
+        &quot;description&quot;: &quot;New description&quot;,
+        &quot;archived&quot;: true
+      }
+    }
+}
+</code></p>
+</blockquote>
+
+<p>This endpoint updates existing experiment in the selected project.
+If submitted attributes are the same and no changes are made for the experiment, server returns empty body with response code 204.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PATCH https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiment from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the experiment</td>
+</tr>
+</tbody></table>
+<h3 id='request-body'>Request body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"experiments"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Experiment 2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New description"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='experiment-attributes-2'>Experiment attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Name of the experiment</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Description of the experiment</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>no</td>
+<td>Archived flag</td>
 </tr>
 </tbody></table>
 <h1 id='task-groups'>Task Groups</h1><h2 id='get-task-groups'>Get Task Groups</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/task_groups"</span>
