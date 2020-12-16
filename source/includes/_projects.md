@@ -121,6 +121,10 @@ curl -X POST \
 
 This endpoint creates a new project in the team.
 
+<aside class="notice">
+  Created project has no automatically assigned users, therefore in order to access this project it is needed to create [user_projects](#project_users) record for it.
+</aside>
+
 ### HTTP Request
 
 `POST https://<server-name>/api/v1/teams/<TEAM_ID>/projects`
