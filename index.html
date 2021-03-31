@@ -420,6 +420,23 @@
               </ul>
           </li>
           <li>
+            <a href="#project-folders" class="toc-h1 toc-link" data-title="Project Folders">Project Folders</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-project-folders" class="toc-h2 toc-link" data-title="Get Project Folders">Get Project Folders</a>
+                  </li>
+                  <li>
+                    <a href="#get-project-folder" class="toc-h2 toc-link" data-title="Get Project Folder">Get Project Folder</a>
+                  </li>
+                  <li>
+                    <a href="#create-project-folder" class="toc-h2 toc-link" data-title="Create Project Folder">Create Project Folder</a>
+                  </li>
+                  <li>
+                    <a href="#update-project-folder" class="toc-h2 toc-link" data-title="Update Project Folder">Update Project Folder</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#experiments" class="toc-h1 toc-link" data-title="Experiments">Experiments</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1350,6 +1367,11 @@ If submitted attributes are the same and no changes are made for the identity ma
         </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"project_folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -1393,6 +1415,11 @@ If submitted attributes are the same and no changes are made for the identity ma
       </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"project_folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1426,7 +1453,8 @@ If submitted attributes are the same and no changes are made for the identity ma
       "attributes": {
         "name": "My project 1",
         "visibility": "visible",
-        "archived": false
+        "archived": false,
+        "project_folder_id": 1
       }
     }
   }'</span>
@@ -1443,12 +1471,24 @@ If submitted attributes are the same and no changes are made for the identity ma
       </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2020 10:30"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"project_folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_folders"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div>
 <p>This endpoint creates a new project in the team.</p>
+
+<aside class="notice">
+  Created project has no automatically assigned users, therefore in order to access this project it is needed to create [user_projects](#project_users) record for it.
+</aside>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
@@ -1473,7 +1513,8 @@ If submitted attributes are the same and no changes are made for the identity ma
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My project 1"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"project_folder_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1500,37 +1541,51 @@ If submitted attributes are the same and no changes are made for the identity ma
 <td>no</td>
 <td>Archived flag</td>
 </tr>
+<tr>
+<td>project_folder_id</td>
+<td>no</td>
+<td>Reference to project folder, if null it is on root level</td>
+</tr>
 </tbody></table>
 <h2 id='update-project'>Update Project</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
   https://&lt;server-name&gt;/api/v1/teams/1/projects/1 <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
-        "data": {
-          "id": "1",
-          "type": "projects",
-          "attributes": {
-            "name": "Project 2",
-            "visibility": "hidden",
-            "archived": true
-          }
+    "data": {
+      "id": "1",
+      "type": "projects",
+      "attributes": {
+        "name": "Project 2",
+        "visibility": "hidden",
+        "archived": true,
+        "project_folder_id": 5
       }
+    }
   }'</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"projects"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project 2"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2020 10:30"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"projects"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project 2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2020 10:30"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"project_folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_folders"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates existing project in the selected team.
@@ -1560,7 +1615,8 @@ If submitted attributes are the same and no changes are made for the project, se
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project 2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"project_folder_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1586,6 +1642,11 @@ If submitted attributes are the same and no changes are made for the project, se
 <td>archived</td>
 <td>no</td>
 <td>Archived flag</td>
+</tr>
+<tr>
+<td>project_folder_id</td>
+<td>no</td>
+<td>Reference to project folder, if null it is on root level</td>
 </tr>
 </tbody></table>
 <h1 id='project-users'>Project Users</h1><h2 id='get-project-users'>Get Project Users</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/users"</span>
@@ -2120,6 +2181,305 @@ If submitted attributes are the same and no changes are made for the user assign
 <tr>
 <td>COMMENT_ID</td>
 <td>The ID of the comment to retrieve</td>
+</tr>
+</tbody></table>
+<h1 id='project-folders'>Project Folders</h1><h2 id='get-project-folders'>Get Project Folders</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/project_folders"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_folders"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020 Projects"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teams"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"parent_folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"project_folders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"links"</span><span class="p">:{</span><span class="w">
+    </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/project_folders/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/project_folders/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/project_folders/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<p>This endpoint retrieves all project folders from the specified team.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/project_folders</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project folders from</td>
+</tr>
+</tbody></table>
+<h2 id='get-project-folder'>Get Project Folder</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/project_folders/1"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_folders"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020 Projects"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teams"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"parent_folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"project_folders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves a specific project folder from a specific team.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/project_folders/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project folders from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the project folder to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='create-project-folder'>Create Project Folder</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/project_folders <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "data": {
+      "type": "project_folders",
+      "attributes": {
+        "name": "My new Folder",
+        "parent_folder_id": 1
+      }
+    }
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_folders"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My new Folder"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teams"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"parent_folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_folders"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"project_folders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<p>This endpoint creates a new project folder in the team.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/project_folders</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project folders from</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_folders"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My new Folder"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"parent_folder_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='project-folder-attributes'>Project folder attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Name of the project folder</td>
+</tr>
+<tr>
+<td>parent_folder_id</td>
+<td>no</td>
+<td>Reference to parent folder, if null it is on root level</td>
+</tr>
+</tbody></table>
+<h2 id='update-project-folder'>Update Project Folder</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/project_folders/1 <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "data": {
+      "type": "project_folders",
+      "attributes": {
+        "name": "My updated Folder",
+        "parent_folder_id": 3
+      }
+    }
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_folders"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My updated Folder"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teams"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"parent_folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_folders"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"project_folders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint updates existing project folder in the selected team.
+If submitted attributes are the same and no changes are made for the project, server returns empty body with response code 204.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PATCH https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/project_folders/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project folder from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the project folder</td>
+</tr>
+</tbody></table>
+<h3 id='request-body'>Request body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_folders"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My updated Folder"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"parent_folder_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='project-folder-attributes-2'>Project folder attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Name of the project folder</td>
+</tr>
+<tr>
+<td>parent_folder_id</td>
+<td>no</td>
+<td>Reference to parent folder, if null it is on root level</td>
 </tr>
 </tbody></table>
 <h1 id='experiments'>Experiments</h1><h2 id='get-experiments'>Get Experiments</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments"</span>
