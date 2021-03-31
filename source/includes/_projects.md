@@ -19,6 +19,11 @@ curl "http://<server-name>/api/v1/teams/1/projects"
         "visibility": "hidden",
         "start_date": null,
         "archived": false
+      },
+      "relationships": {
+        "project_folder": {
+          "data": null
+        }
       }
     }
   ],
@@ -64,6 +69,11 @@ curl "http://<server-name>/api/v1/teams/1/projects/1"
       "visibility": "hidden",
       "start_date": null,
       "archived": false
+    },
+    "relationships": {
+      "project_folder": {
+        "data": null
+      }
     }
   }
 }
@@ -95,7 +105,8 @@ curl -X POST \
       "attributes": {
         "name": "My project 1",
         "visibility": "visible",
-        "archived": false
+        "archived": false,
+        "project_folder_id": 1
       }
     }
   }'
@@ -113,6 +124,14 @@ curl -X POST \
       "visibility": "visible",
       "start_date": "01/01/2020 10:30",
       "archived": false
+    },
+    "relationships": {
+      "project_folder": {
+        "data": {
+          "id": "1",
+          "type": "project_folders"
+        }
+      }
     }
   }
 }
@@ -144,7 +163,8 @@ TEAM_ID       | The ID of the team to retrieve projects from
     "attributes": {
       "name": "My project 1",
       "visibility": "visible",
-      "archived": false
+      "archived": false,
+      "project_folder_id": 1
     }
   }
 }
@@ -157,6 +177,7 @@ Attribute   | Mandatory | Description
 name        | yes       | Name of the project
 visibility  | no        | Visibility of the project
 archived    | no        | Archived flag
+project_folder_id | no        | Reference to project folder, if null it is on root level
 
 ## Update Project
 
@@ -166,15 +187,16 @@ curl -X PATCH \
   -H 'Authorization: Bearer qwerty123456...' \
   -H 'Content-Type: application/vnd.api+json' \
   -d '{
-        "data": {
-          "id": "1",
-          "type": "projects",
-          "attributes": {
-            "name": "Project 2",
-            "visibility": "hidden",
-            "archived": true
-          }
+    "data": {
+      "id": "1",
+      "type": "projects",
+      "attributes": {
+        "name": "Project 2",
+        "visibility": "hidden",
+        "archived": true,
+        "project_folder_id": 5
       }
+    }
   }'
 ```
 
@@ -182,16 +204,24 @@ curl -X PATCH \
 
 ```json
 {
-    "data": {
-      "id": "1",
-      "type": "projects",
-      "attributes": {
-        "name": "Project 2",
-        "visibility": "hidden",
-        "start_date": "01/01/2020 10:30",
-        "archived": true
+  "data": {
+    "id": "1",
+    "type": "projects",
+    "attributes": {
+      "name": "Project 2",
+      "visibility": "hidden",
+      "start_date": "01/01/2020 10:30",
+      "archived": true
+    },
+    "relationships": {
+      "project_folder": {
+        "data": {
+          "type": "project_folders",
+          "id": "5"
+        }
       }
     }
+  }
 }
 ```
 
@@ -219,7 +249,8 @@ ID              | The ID of the project
     "attributes": {
       "name": "Project 2",
       "visibility": "hidden",
-      "archived": true
+      "archived": true,
+      "project_folder_id": 5
     }
   }
 }
@@ -232,3 +263,4 @@ Attribute   | Mandatory | Description
 name        | yes       | Name of the project
 visibility  | no        | Visibility of the project
 archived    | no        | Archived flag
+project_folder_id| no        | Reference to project folder, if null it is on root level

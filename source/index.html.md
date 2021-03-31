@@ -15,6 +15,7 @@ includes:
   - project_users
   - project_activities
   - project_comments
+  - project_folders
   - experiments
   - task_groups
   - task_connections
