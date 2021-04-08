@@ -117,6 +117,8 @@ SciNote expects for the API access token to be included in all API requests to t
 You must replace <code>qwerty123456...</code> with your API access token.
 </aside>
 
+You can also check a basic python code example [on our Github](https://github.com/biosistemika/scinote-python-api-client-example). Make sure you check the README first. 
+
 ### JWT payload claims
 
 By default tokens include such set of claims:
@@ -137,5 +139,25 @@ Default page size is 10.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-page_number | 1 | Number of requested page.
-page_size | 10 | Number of items returned per page.
+page[number] | 1 | Number of requested page.
+page[size] | 10 | Number of items returned per page.
+
+
+### How to make sure you retrieve all of the pages
+
+API response includes the 'links' sections, which you can check to see if there is a next_page connected to current result.
+The following code example is looping through pages and retrieving all of the tasks. 
+```
+// pseudocoude
+tasks = []
+next_url = 'https://SCINOTEURL/api/v1/teams/1/projects/1/experiments/1/tasks?page[number]=1&page[size]=100'
+while(next_url) {
+    response = http_request(next_url)
+    // you would want to do some error handling here
+    json = json_parse(response)
+    // and here
+    tasks.push(json['data'])
+    next_url = json['links']['next']
+}
+// After the loop is done, you have the whole list of taks tasks[] array. 
+```
