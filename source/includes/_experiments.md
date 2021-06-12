@@ -115,7 +115,7 @@ curl -X POST \
 }
 ```
 
-This endpoint creates a new experiment in the team.
+This endpoint creates a new experiment in the team. Please note that we will create the user assignments for this experiment asynchronous.
 
 ### HTTP Request
 

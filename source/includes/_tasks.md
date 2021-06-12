@@ -237,7 +237,7 @@ curl -X POST \
 
 ```
 
-This endpoint creates new task in the experiment.
+This endpoint creates new task in the experiment. Please note that we will create the user assignments for this task asynchronous.
 
 ### HTTP Request
 
