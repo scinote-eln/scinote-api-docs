@@ -197,7 +197,7 @@ curl -X POST \
   }
 }
 ```
-This endpoint creates a new user assignment in the project.
+This endpoint creates a new user assignment in the project. Please note that we will create the user assignments for the project child experiment and tasks asynchronous.
 
 ### HTTP Request
 
@@ -316,7 +316,7 @@ curl -X DELETE \
 
 > The above command returns empty body with status code 200
 
-This endpoint deletes specific user assignment from the project.
+This endpoint deletes specific user assignment from the project. Please note that we will delete the user assignments for the project child experiment and tasks asynchronous.
 
 ### HTTP Request
 
