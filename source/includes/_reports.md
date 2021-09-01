@@ -17,7 +17,11 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/reports"
       "type": "reports",
       "attributes":{
         "name": "Report 1",
-        "description": "My report"
+        "description": "My report",
+        "pdf_file_size": 1234,
+        "pdf_file_url": "http://example.com/report.pdf",
+        "docx_file_size": 1234,
+        "docx_file_url": "http://example.com/report.docx"
       },
       "relationships":{
         "user":{
@@ -39,7 +43,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/reports"
 }
 ```
 
-This endpoint retrieves reports from specific project.
+This endpoint retrieves reports from specific project. PDF and DOCX attributes will be included only if files are generated.
 
 ### HTTP Request
 
@@ -68,7 +72,11 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/reports/1"
     "type": "reports",
     "attributes":{
       "name": "Report 1",
-      "description": "My report"
+      "description": "My report",
+      "pdf_file_size": 1234,
+      "pdf_file_url": "http://example.com/report.pdf",
+      "docx_file_size": 1234,
+      "docx_file_url": "http://example.com/report.docx"
     },
     "relationships":{
       "user":{
@@ -96,7 +104,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/reports/1"
 }
 ```
 
-This endpoint retrieves a specific report from specific project.
+This endpoint retrieves a specific report from specific project. PDF and DOCX attributes will be included only if files are generated.
 
 ### HTTP Request
 
