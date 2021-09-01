@@ -322,6 +322,9 @@
                   <li>
                     <a href="#pagination-parameters" class="toc-h2 toc-link" data-title="Pagination Parameters">Pagination Parameters</a>
                   </li>
+                  <li>
+                    <a href="#how-to-make-sure-you-retrieve-all-of-the-pages" class="toc-h2 toc-link" data-title="How to make sure you retrieve all of the pages">How to make sure you retrieve all of the pages</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -907,6 +910,8 @@
 <aside class="notice">
 You must replace <code>qwerty123456...</code> with your API access token.
 </aside>
+
+<p>You can also check a basic python code example <a href="https://github.com/biosistemika/scinote-python-api-client-example">on our Github</a>. Make sure you check the README first. </p>
 <h3 id='jwt-payload-claims'>JWT payload claims</h3>
 <p>By default tokens include such set of claims:</p>
 
@@ -942,16 +947,33 @@ You must replace <code>qwerty123456...</code> with your API access token.
 </tr>
 </thead><tbody>
 <tr>
-<td>page_number</td>
+<td>page[number]</td>
 <td>1</td>
 <td>Number of requested page.</td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page[size]</td>
 <td>10</td>
 <td>Number of items returned per page.</td>
 </tr>
 </tbody></table>
+<h3 id='how-to-make-sure-you-retrieve-all-of-the-pages'>How to make sure you retrieve all of the pages</h3>
+<p>API response includes the &#39;links&#39; sections, which you can check to see if there is a next_page connected to current result.
+The following code example is looping through pages and retrieving all of the tasks. 
+<code>
+// pseudocoude
+tasks = []
+next_url = &#39;https://SCINOTEURL/api/v1/teams/1/projects/1/experiments/1/tasks?page[number]=1&amp;page[size]=100&#39;
+while(next_url) {
+    response = http_request(next_url)
+    // you would want to do some error handling here
+    json = json_parse(response)
+    // and here
+    tasks.push(json[&#39;data&#39;])
+    next_url = json[&#39;links&#39;][&#39;next&#39;]
+}
+// After the loop is done, you have the whole list of taks tasks[] array. 
+</code></p>
 <h1 id='teams'>Teams</h1><h2 id='get-all-teams'>Get All Teams</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
@@ -6651,7 +6673,11 @@ Token should be string without special symbols.</p>
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reports"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"attributes"</span><span class="p">:{</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Report 1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My report"</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My report"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pdf_file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pdf_file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/report.pdf"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"docx_file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"docx_file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/report.docx"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"relationships"</span><span class="p">:{</span><span class="w">
         </span><span class="nl">"user"</span><span class="p">:{</span><span class="w">
@@ -6672,7 +6698,7 @@ Token should be string without special symbols.</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves reports from specific project.</p>
+<p>This endpoint retrieves reports from specific project. PDF and DOCX attributes will be included only if files are generated.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/reports</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
@@ -6703,7 +6729,11 @@ Token should be string without special symbols.</p>
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reports"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Report 1"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My report"</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My report"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pdf_file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pdf_file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/report.pdf"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"docx_file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"docx_file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/report.docx"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"relationships"</span><span class="p">:{</span><span class="w">
       </span><span class="nl">"user"</span><span class="p">:{</span><span class="w">
@@ -6730,7 +6760,7 @@ Token should be string without special symbols.</p>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves a specific report from specific project.</p>
+<p>This endpoint retrieves a specific report from specific project. PDF and DOCX attributes will be included only if files are generated.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/reports/&lt;REPORT_ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
