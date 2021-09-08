@@ -248,8 +248,11 @@
 .highlight .kd {
   color: #cb4b16;
 }
-.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
   color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
 }
 .highlight .sr {
   color: #2aa198;
@@ -1407,9 +1410,10 @@ If submitted attributes are the same and no changes are made for the identity ma
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div>
-<p>This endpoint retrieves all projects from the specified team.</p>
+<p>This endpoint retrieves all projects from the specified team. If <code>?include=comments</code> PATH parameter is provided,
+the project comments are also included.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects</code></p>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects(?include=&lt;INCLUDES&gt;)</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1420,6 +1424,10 @@ If submitted attributes are the same and no changes are made for the identity ma
 <tr>
 <td>TEAM_ID</td>
 <td>The ID of the team to retrieve projects from</td>
+</tr>
+<tr>
+<td>INCLUDES</td>
+<td>if set to <code>comments</code>, project comments are also included</td>
 </tr>
 </tbody></table>
 <h2 id='get-project'>Get Project</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1"</span>
@@ -1446,9 +1454,10 @@ If submitted attributes are the same and no changes are made for the identity ma
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves a specific project from a specific team.</p>
+<p>This endpoint retrieves a specific project from a specific team. If <code>?include=comments</code> PATH parameter is provided,
+the project comments are also included.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;</code></p>
+<p><code>GET http://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;(?include=&lt;INCLUDES&gt;)</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1463,6 +1472,10 @@ If submitted attributes are the same and no changes are made for the identity ma
 <tr>
 <td>PROJECT_ID</td>
 <td>The ID of the project to retrieve</td>
+</tr>
+<tr>
+<td>INCLUDES</td>
+<td>if set to <code>comments</code>, project comments are also included</td>
 </tr>
 </tbody></table>
 <h2 id='create-project'>Create Project</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
@@ -3196,9 +3209,10 @@ If submitted attributes are the same and no changes are made for the experiment,
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all tasks from a specific experiment. Task inputs/outputs can be included as relationships.
-Optional URL parameter &#39;render_rte=true&#39; can be added in order to request rendering of RTE fields(embedded images, smart annotations).</p>
+Optional URL parameter &#39;render_rte=true&#39; can be added in order to request rendering of RTE fields(embedded images, smart annotations).
+If <code>?include=comments</code> PATH parameter is provided, task comments are also included.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks</code></p>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks(?include=&lt;INCLUDES&gt;)</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3217,6 +3231,10 @@ Optional URL parameter &#39;render_rte=true&#39; can be added in order to reques
 <tr>
 <td>EXPERIMENT_ID</td>
 <td>The ID of the experiment to retrieve tasks from</td>
+</tr>
+<tr>
+<td>INCLUDES</td>
+<td>if set to <code>comments</code>, task comments are also included</td>
 </tr>
 </tbody></table>
 <h2 id='get-task'>Get Task</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1"</span>
@@ -3257,9 +3275,10 @@ Optional URL parameter &#39;render_rte=true&#39; can be added in order to reques
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a specific task from a specific experiment. Task inputs/outputs can be included as relationships.
-Optional URL parameter &#39;render_rte=true&#39; can be added in order to request rendering of RTE fields(embedded images, smart annotations).</p>
+Optional URL parameter &#39;render_rte=true&#39; can be added in order to request rendering of RTE fields(embedded images, smart annotations).
+If <code>?include=comments</code> PATH parameter is provided, task comments are also included.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;</code></p>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;(?include=&lt;INCLUDES&gt;)</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3282,6 +3301,10 @@ Optional URL parameter &#39;render_rte=true&#39; can be added in order to reques
 <tr>
 <td>TASK_ID</td>
 <td>The ID of the task to retrieve</td>
+</tr>
+<tr>
+<td>INCLUDES</td>
+<td>if set to <code>comments</code>, task comments are also included</td>
 </tr>
 </tbody></table>
 <h2 id='create-task'>Create Task</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
@@ -3680,9 +3703,10 @@ If submitted attributes are the same and no changes are made for the task, serve
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves steps from specific protocol. It also supports inclusion of these elements: tables, assets, checklists, checklists.checklist_items, comments.
-Optional URL parameter &#39;render_rte=true&#39; can be added in order to request rendering of RTE fields(embedded images, smart annotations).</p>
+Optional URL parameter &#39;render_rte=true&#39; can be added in order to request rendering of RTE fields(embedded images, smart annotations).
+If <code>?include=comments</code> PATH parameter is provided, step comments are also included.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps</code></p>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps(?include=&lt;INCLUDES&gt;)</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3709,6 +3733,10 @@ Optional URL parameter &#39;render_rte=true&#39; can be added in order to reques
 <tr>
 <td>PROTOCOL_ID</td>
 <td>The ID of the protocol to retrieve steps from</td>
+</tr>
+<tr>
+<td>INCLUDES</td>
+<td>if set to <code>comments</code>, step comments are also included</td>
 </tr>
 </tbody></table>
 <h2 id='get-step'>Get Step</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1"</span>
@@ -3753,9 +3781,10 @@ Optional URL parameter &#39;render_rte=true&#39; can be added in order to reques
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves specific step from the protocol. It also supports inclusion of these elements: tables, assets, checklists, checklists.checklist_items, comments.
-Optional URL parameter &#39;render_rte=true&#39; can be added in order to request rendering of RTE fields(embedded images, smart annotations).</p>
+Optional URL parameter &#39;render_rte=true&#39; can be added in order to request rendering of RTE fields(embedded images, smart annotations).
+If <code>?include=comments</code> PATH parameter is provided, step comments are also included.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;ID&gt;</code></p>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;ID&gt;(?include=&lt;INCLUDES&gt;)</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3786,6 +3815,10 @@ Optional URL parameter &#39;render_rte=true&#39; can be added in order to reques
 <tr>
 <td>ID</td>
 <td>The ID of the step</td>
+</tr>
+<tr>
+<td>INCLUDES</td>
+<td>if set to <code>comments</code>, step comments are also included</td>
 </tr>
 </tbody></table>
 <h2 id='create-step'>Create Step</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
@@ -6125,9 +6158,10 @@ If submitted attributes are the same and no changes are made for the table, serv
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves all results from the task. Texts, files and tables are included by default.</p>
+<p>This endpoint retrieves all results from the task. Texts, files and tables are included by default.
+If <code>?include=comments</code> PATH parameter is provided, result comments are also included.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/results</code></p>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/results(?include=&lt;INCLUDES&gt;)</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -6150,6 +6184,10 @@ If submitted attributes are the same and no changes are made for the table, serv
 <tr>
 <td>TASK_ID</td>
 <td>The ID of the task</td>
+</tr>
+<tr>
+<td>INCLUDES</td>
+<td>if set to <code>comments</code>, result comments are also included</td>
 </tr>
 </tbody></table>
 <h2 id='get-result'>Get Result</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/results/1"</span>
@@ -6192,9 +6230,10 @@ If submitted attributes are the same and no changes are made for the table, serv
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves specific result. Text, file or table is included by default.</p>
+<p>This endpoint retrieves specific result. Text, file or table is included by default.
+If <code>?include=comments</code> PATH parameter is provided, result comments are also included.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/results/&lt;ID&gt;</code></p>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/results/&lt;ID&gt;(?include=&lt;INCLUDES&gt;)</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -6221,6 +6260,10 @@ If submitted attributes are the same and no changes are made for the table, serv
 <tr>
 <td>ID</td>
 <td>The ID of the result</td>
+</tr>
+<tr>
+<td>INCLUDES</td>
+<td>if set to <code>comments</code>, result comments are also included</td>
 </tr>
 </tbody></table>
 <h2 id='create-result'>Create Result</h2><h3 id='with-text-result-and-tinymce-images'>with Text Result and TinyMCE images</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
@@ -6602,7 +6645,7 @@ Token should be string without special symbols.</p>
 </tbody></table>
 
 <blockquote>
-<p>Request body </p>
+<p>Request body</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
