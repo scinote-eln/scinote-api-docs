@@ -117,10 +117,12 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/resu
 ```
 
 This endpoint retrieves all results from the task. Texts, files and tables are included by default.
+If `?include=comments` PATH parameter is provided, result comments are also included.
+
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/results`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/results(?include=<INCLUDES>)`
 
 ### URL Parameters
 
@@ -130,6 +132,7 @@ TEAM_ID | The ID of the team
 PROJECT_ID | The ID of the project
 EXPERIMENT_ID | The ID of the experiment
 TASK_ID | The ID of the task
+INCLUDES | if set to `comments`, result comments are also included
 
 ## Get Result
 
@@ -177,10 +180,11 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/resu
 ```
 
 This endpoint retrieves specific result. Text, file or table is included by default.
+If `?include=comments` PATH parameter is provided, result comments are also included.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/results/<ID>`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/results/<ID>(?include=<INCLUDES>)`
 
 ### URL Parameters
 
@@ -191,6 +195,7 @@ PROJECT_ID | The ID of the project
 EXPERIMENT_ID | The ID of the experiment
 TASK_ID | The ID of the task
 ID | The ID of the result
+INCLUDES | if set to `comments`, result comments are also included
 
 ## Create Result
 
@@ -520,7 +525,7 @@ EXPERIMENT_ID | The ID of the experiment
 TASK_ID | The ID of the task
 ID | The ID of the result
 
-> Request body 
+> Request body
 
 ```json
 {

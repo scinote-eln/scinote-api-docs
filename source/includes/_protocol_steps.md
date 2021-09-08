@@ -116,10 +116,11 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
 
 This endpoint retrieves steps from specific protocol. It also supports inclusion of these elements: tables, assets, checklists, checklists.checklist_items, comments.
 Optional URL parameter 'render_rte=true' can be added in order to request rendering of RTE fields(embedded images, smart annotations).
+If `?include=comments` PATH parameter is provided, step comments are also included.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps(?include=<INCLUDES>)`
 ### URL Parameters
 
 Parameter       | Description
@@ -129,6 +130,7 @@ PROJECT_ID      | The ID of the project to retrieve experiment from
 EXPERIMENT_ID   | The ID of the experiment to retrieve task from
 TASK_ID         | The ID of the task to retrieve protocol from
 PROTOCOL_ID     | The ID of the protocol to retrieve steps from
+INCLUDES | if set to `comments`, step comments are also included
 
 ## Get Step
 
@@ -178,10 +180,11 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
 
 This endpoint retrieves specific step from the protocol. It also supports inclusion of these elements: tables, assets, checklists, checklists.checklist_items, comments.
 Optional URL parameter 'render_rte=true' can be added in order to request rendering of RTE fields(embedded images, smart annotations).
+If `?include=comments` PATH parameter is provided, step comments are also included.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<ID>`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<ID>(?include=<INCLUDES>)`
 
 ### URL Parameters
 
@@ -193,6 +196,7 @@ EXPERIMENT_ID   | The ID of the experiment to retrieve task from
 TASK_ID         | The ID of the task to retrieve protocol from
 PROTOCOL_ID     | The ID of the protocol to retrieve steps from
 ID              | The ID of the step
+INCLUDES | if set to `comments`, step comments are also included
 
 ## Create Step
 

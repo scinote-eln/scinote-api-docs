@@ -117,10 +117,11 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks"
 
 This endpoint retrieves all tasks from a specific experiment. Task inputs/outputs can be included as relationships.
 Optional URL parameter 'render_rte=true' can be added in order to request rendering of RTE fields(embedded images, smart annotations).
+If `?include=comments` PATH parameter is provided, task comments are also included.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks(?include=<INCLUDES>)`
 
 ### URL Parameters
 
@@ -129,6 +130,7 @@ Parameter | Description
 TEAM_ID | The ID of the team to retrieve project from
 PROJECT_ID | The ID of the project to retrieve experiment from
 EXPERIMENT_ID | The ID of the experiment to retrieve tasks from
+INCLUDES | if set to `comments`, task comments are also included
 
 ## Get Task
 
@@ -174,10 +176,11 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1"
 
 This endpoint retrieves a specific task from a specific experiment. Task inputs/outputs can be included as relationships.
 Optional URL parameter 'render_rte=true' can be added in order to request rendering of RTE fields(embedded images, smart annotations).
+If `?include=comments` PATH parameter is provided, task comments are also included.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>(?include=<INCLUDES>)`
 
 ### URL Parameters
 
@@ -187,6 +190,7 @@ TEAM_ID | The ID of the team to retrieve project from
 PROJECT_ID | The ID of the project to retrieve experiment from
 EXPERIMENT_ID | The ID of the experiment to retrieve task from.
 TASK_ID | The ID of the task to retrieve
+INCLUDES | if set to `comments`, task comments are also included
 
 
 ## Create Task

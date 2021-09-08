@@ -38,17 +38,19 @@ curl "http://<server-name>/api/v1/teams/1/projects"
 
 ```
 
-This endpoint retrieves all projects from the specified team.
+This endpoint retrieves all projects from the specified team. If `?include=comments` PATH parameter is provided,
+the project comments are also included.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects(?include=<INCLUDES>)`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
 TEAM_ID | The ID of the team to retrieve projects from
+INCLUDES | if set to `comments`, project comments are also included
 
 ## Get Project
 
@@ -79,11 +81,12 @@ curl "http://<server-name>/api/v1/teams/1/projects/1"
 }
 ```
 
-This endpoint retrieves a specific project from a specific team.
+This endpoint retrieves a specific project from a specific team. If `?include=comments` PATH parameter is provided,
+the project comments are also included.
 
 ### HTTP Request
 
-`GET http://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>`
+`GET http://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>(?include=<INCLUDES>)`
 
 ### URL Parameters
 
@@ -91,6 +94,7 @@ Parameter | Description
 --------- | -----------
 TEAM_ID | The ID of the team to retrieve project from
 PROJECT_ID | The ID of the project to retrieve
+INCLUDES | if set to `comments`, project comments are also included
 
 ## Create Project
 
