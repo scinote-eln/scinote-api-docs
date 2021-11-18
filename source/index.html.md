@@ -12,7 +12,7 @@ includes:
   - users
   - user_identities
   - projects
-  - project_users
+  - project_user_assignments
   - project_activities
   - project_comments
   - project_folders
@@ -117,7 +117,7 @@ SciNote expects for the API access token to be included in all API requests to t
 You must replace <code>qwerty123456...</code> with your API access token.
 </aside>
 
-You can also check a basic python code example [on our Github](https://github.com/biosistemika/scinote-python-api-client-example). Make sure you check the README first. 
+You can also check a basic python code example [on our Github](https://github.com/biosistemika/scinote-python-api-client-example). Make sure you check the README first.
 
 ### JWT payload claims
 
@@ -146,7 +146,7 @@ page[size] | 10 | Number of items returned per page.
 ### How to make sure you retrieve all of the pages
 
 API response includes the 'links' sections, which you can check to see if there is a next_page connected to current result.
-The following code example is looping through pages and retrieving all of the tasks. 
+The following code example is looping through pages and retrieving all of the tasks.
 ```
 // pseudocoude
 tasks = []
@@ -159,5 +159,5 @@ while(next_url) {
     tasks.push(json['data'])
     next_url = json['links']['next']
 }
-// After the loop is done, you have the whole list of taks tasks[] array. 
+// After the loop is done, you have the whole list of taks tasks[] array.
 ```
