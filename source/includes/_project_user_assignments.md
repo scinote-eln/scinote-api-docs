@@ -1,6 +1,6 @@
-# Project Users
+# Project Users Assignments
 
-## Get Project Users
+## Get Project User Assignments
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/users"
@@ -14,9 +14,10 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/users"
   "data":[
     {
       "id": "1",
-      "type": "user_projects",
+      "type": "user_assignments",
       "attributes":{
-        "role": "owner"
+        "created_at": "2021-11-11T13:25:53.910Z",
+        "updated_at": "2021-11-15T10:30:33.415Z"
       },
       "relationships":{
         "user":{
@@ -24,21 +25,19 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/users"
             "id": "1",
             "type": "users"
           }
+        },
+        "user_role": {
+          "data": {
+            "id": "1",
+            "type": "user_roles"
+          }
+        },
+        "assignable": {
+          "data": {
+            "id": "1",
+            "type": "projects"
+          }
         }
-      }
-    }
-  ],
-  "included":[
-    {
-      "id": "1",
-      "type": "users",
-      "attributes":{
-        "full_name": "Admin",
-        "initials": "A",
-        "email": "admin@scinote.net",
-        "avatar_url" : "http://example.com/avatar.png",
-        "avatar_file_size" : 16181,
-        "avatar_file_name" : "avatar.png"
       }
     }
   ],
@@ -64,6 +63,7 @@ Parameter | Description
 --------- | -----------
 TEAM_ID | The ID of the team to retrieve project from
 PROJECT_ID | The ID of the project to retrieve users from
+INCLUDES | can include `user`, `user_roles`, and `assignable` (on this endpoint assignable is a project)
 
 ## Get Project User
 
@@ -78,9 +78,10 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/users/1"
 {
   "data":{
     "id": "1",
-    "type": "user_projects",
+    "type": "user_assignments",
     "attributes":{
-      "role": "owner"
+      "created_at": "2021-11-11T13:25:53.910Z",
+      "updated_at": "2021-11-15T10:30:33.415Z"
     },
     "relationships":{
       "user":{
@@ -88,23 +89,21 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/users/1"
           "id": "1",
           "type": "users"
         }
+      },
+      "user_role": {
+        "data": {
+          "id": "1",
+          "type": "user_roles"
+        }
+      },
+      "assignable": {
+        "data": {
+          "id": "1",
+          "type": "projects"
+        }
       }
     }
-  },
-  "included":[
-    {
-      "id": "1",
-      "type": "users",
-      "attributes":{
-        "full_name": "Admin",
-        "initials": "A",
-        "email": "admin@scinote.net",
-        "avatar_url" : "http://example.com/avatar.png",
-        "avatar_file_size" : 16181,
-        "avatar_file_name" : "avatar.png"
-      }
-    }
-  ]
+  }
 }
 ```
 
@@ -112,7 +111,7 @@ This endpoint retrieves a specific user who is a member of the specified project
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/users/<USER_ID>`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/users/<USER_ASSIGMENT_ID>`
 
 ### URL Parameters
 
@@ -120,8 +119,8 @@ Parameter | Description
 --------- | -----------
 TEAM_ID | The ID of the team to retrieve project from
 PROJECT_ID | The ID of the project to retrieve user from
-USER_ID | The ID of the user to retrieve
-
+USER_ASSIGNMENT_ID | The ID of the user assignment to retrieve
+INCLUDES | can include `user`, `user_role`, and `assignable` (on this endpoint assignable is a project)
 
 ## Create Project User assignment
 
@@ -132,10 +131,10 @@ curl -X POST \
   -H 'Content-Type: application/vnd.api+json' \
   -d '{
     "data": {
-      "type": "user_projects",
+      "type": "user_assignments",
       "attributes": {
         "user_id": "1",
-        "role": "normal_user"
+        "user_role_id": "1"
       }
     }
   }'
@@ -146,22 +145,35 @@ curl -X POST \
 {
   "data": {
     "id": "1",
-    "type": "user_projects",
+    "type": "user_assignments",
     "attributes": {
-      "role": "normal_user"
+      "created_at": "2021-11-11T13:25:53.910Z",
+      "updated_at": "2021-11-15T10:30:33.415Z"
     },
-    "relationships": {
-      "user": {
+    "relationships":{
+      "user":{
+        "data":{
+          "id": "1",
+          "type": "users"
+        }
+      },
+      "user_role": {
         "data": {
           "id": "1",
-          "type": "users"}
+          "type": "user_roles"
+        }
+      },
+      "assignable": {
+        "data": {
+          "id": "1",
+          "type": "projects"
         }
       }
     }
   }
 }
 ```
-This endpoint creates a new user assignment in the project.
+This endpoint creates a new user assignment in the project. Please note that we will create the user assignments for the project child experiment and tasks asynchronous.
 
 ### HTTP Request
 
@@ -178,22 +190,22 @@ PROJECT_ID    | The ID of the project to assign user to
 ```json
 {
   "data": {
-    "type": "user_projects",
+    "type": "user_assignments",
     "attributes": {
       "user_id": "1",
-      "role": "normal_user"
+      "user_role_id": "1"
     }
   }
 }
 ```
-### Project User attributes
+### Project User Assignment attributes
 
 Attribute   | Mandatory | Description
 ----------- | --------- | -----------
 user_id     | yes       | ID of the user
-role        | yes       | Role on the project
+user_role_id | yes       | ID of the UserRole on the project
 
-## Update Project User
+## Update Project User Assignment attributes
 
 ```shell
 curl -X PATCH \
@@ -202,9 +214,9 @@ curl -X PATCH \
   -H 'Content-Type: application/vnd.api+json' \
   -d '{
         "data": {
-          "type": "user_projects",
+          "type": "user_assignments",
           "attributes": {
-            "role": "technician"
+            "user_role_id": "2"
           }
       }
   }'
@@ -215,15 +227,28 @@ curl -X PATCH \
 {
   "data": {
     "id": "1",
-    "type": "user_projects",
+    "type": "user_assignments",
     "attributes": {
-      "role": "technician"
+      "created_at": "2021-11-11T13:25:53.910Z",
+      "updated_at": "2021-11-15T10:30:33.415Z"
     },
     "relationships": {
-      "user": {
+      "user":{
+        "data":{
+          "id": "1",
+          "type": "users"
+        }
+      },
+      "user_role": {
+        "data": {
+          "id": "2",
+          "type": "user_roles"
+        }
+      },
+      "assignable": {
         "data": {
           "id": "1",
-          "type": "users"}
+          "type": "projects"
         }
       }
     }
@@ -235,7 +260,7 @@ If submitted attributes are the same and no changes are made for the user assign
 
 ### HTTP Request
 
-`PATCH https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/users/<ID>`
+`PATCH https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/users/<USER_ASSIGMENT_ID>`
 
 ### URL Parameters
 
@@ -243,28 +268,28 @@ Parameter       | Description
 --------------- | -----------
 TEAM_ID         | The ID of the team to retrieve project from
 PROJECT_ID      | The ID of the project to retrieve user assignment from
-ID              | The ID of the user assignment
+USER_ASSIGNMENT_ID | The ID of the user assignment
 
 ### Request body
 
 ```json
 {
   "data": {
-    "type": "user_projects",
+    "type": "user_assignments",
     "attributes": {
-      "role": "technician"
+      "user_role_id": "2"
     }
   }
 }
 ```
 
-### Project User attributes
+### Project User Assignments attributes
 
 Attribute   | Mandatory | Description
 ----------- | --------- | -----------
-role        | yes       | Role on the project
+user_role_id | yes       | Role on the project
 
-## Delete Project User assignment
+## Delete Project User Assignment
 
 ```shell
 curl -X DELETE \
@@ -274,11 +299,11 @@ curl -X DELETE \
 
 > The above command returns empty body with status code 200
 
-This endpoint deletes specific user assignment from the project.
+This endpoint deletes specific user assignment from the project. Please note that we will delete the user assignments for the project child experiment and tasks asynchronous.
 
 ### HTTP Request
 
-`DELETE https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/users/<ID>`
+`DELETE https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/users/<USER_ASSIGMENT_ID>`
 
 ### URL Parameters
 
@@ -286,4 +311,4 @@ Parameter       | Description
 --------------- | -----------
 TEAM_ID         | The ID of the team to retrieve project from
 PROJECT_ID      | The ID of the project to retrieve user assignment from
-ID              | The ID of the user assignment
+USER_ASSIGNMENT_ID | The ID of the user assignment
