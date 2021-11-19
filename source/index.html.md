@@ -17,6 +17,8 @@ includes:
   - project_comments
   - project_folders
   - experiments
+  - experiment_user_assignments
+  - connections
   - task_groups
   - task_connections
   - tasks
@@ -30,6 +32,7 @@ includes:
   - task_activities
   - task_tags
   - task_inventory_items
+  - task_user_assignments
   - results
   - reports
   - inventories
