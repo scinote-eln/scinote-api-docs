@@ -44,6 +44,7 @@ includes:
   - inventory_cells
   - workflows
   - workflow_statuses
+  - webhooks
   - errors
   - status
 
