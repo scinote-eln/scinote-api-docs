@@ -177,8 +177,17 @@ column_id | yes | ID of the column
 Column data type | Format of the value
 --------- | -----------
 text | string containing textual value
+number | string containing number value
 list | id of the inventory list item from the selected column
+checklist | an array of ids of the inventory checklist items from the selected column
+status | id of the status item from the selected column
 file | hash containing 2 attributes: file_name and file_data. File data is base64 encoded file content in such format: "data:text/plain;base64,dGVzdAo=", mime type should match file content.
+date | string containing date in format DD.MM.YYYY
+time | string containing time in format HH:mm
+date_time | string containing date and time in format "DD.MM.YYYY HH:mm"
+date_range | json in format {"start_time":"DD.MM.YYYY", "end_time":"DD.MM.YYYY"}
+time_range | json in format {"start_time":"HH:mm", "end_time":"HH:mm"}
+date_time_range | json in format {"start_time":"DD.MM.YYY HH:mm", "end_time":"DD.MM.YYYY HH:mm"}
 
 ## Update Cell
 
@@ -260,8 +269,17 @@ column_id | yes | ID of the column
 Column data type | Format of the value
 --------- | -----------
 text | string containing textual value
+number | string containing number value
 list | id of the inventory list item from the selected column
+checklist | an array of ids of the inventory checklist items from the selected column
+status | id of the status item from the selected column
 file | hash containing 2 attributes: file_name and file_data. File data is base64 encoded file content in such format: "data:text/plain;base64,dGVzdAo=", mime type should match file content.
+date | string containing date in format DD.MM.YYYY
+time | string containing time in format HH:mm
+date_time | string containing date and time in format "DD.MM.YYYY HH:mm"
+date_range | json in format {"start_time":"DD.MM.YYYY", "end_time":"DD.MM.YYYY"}
+time_range | json in format {"start_time":"HH:mm", "end_time":"HH:mm"}
+date_time_range | json in format {"start_time":"DD.MM.YYY HH:mm", "end_time":"DD.MM.YYYY HH:mm"}
 
 
 ## Delete Cell
