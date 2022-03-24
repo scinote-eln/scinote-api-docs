@@ -179,6 +179,7 @@ Column data type | Format of the value
 text | string containing textual value
 list | id of the inventory list item from the selected column
 file | hash containing 2 attributes: file_name and file_data. File data is base64 encoded file content in such format: "data:text/plain;base64,dGVzdAo=", mime type should match file content.
+stock_value | hash containing 2 attributes: amount and unit_item_id. Unit_item_id present stock unit id.
 
 ## Update Cell
 
@@ -262,6 +263,7 @@ Column data type | Format of the value
 text | string containing textual value
 list | id of the inventory list item from the selected column
 file | hash containing 2 attributes: file_name and file_data. File data is base64 encoded file content in such format: "data:text/plain;base64,dGVzdAo=", mime type should match file content.
+stock_value | hash containing 2 attributes: amount and unit_item_id. Unit_item_id present stock unit id.
 
 
 ## Delete Cell
@@ -274,7 +276,7 @@ curl -X DELETE \
 
 > The above command returns empty body with status code 200
 
-This endpoint deletes specific cell from the inventory item.
+This endpoint deletes specific cell from the inventory item. Stock related cells can not be deleted at this point.
 
 ### HTTP Request
 
