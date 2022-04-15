@@ -44,7 +44,7 @@ curl "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/stock_unit_it
 }
 ```
 
-This endpoint retrieves stock unit items from specific inventory column, only valid for columns with 'stock_value' data type.
+This endpoint retrieves stock unit items from specific inventory column, only valid for columns with 'stock' data type.
 
 ### HTTP Request
 
@@ -56,7 +56,7 @@ Parameter | Description
 --------- | -----------
 TEAM_ID | The ID of the team to retrieve inventory from
 INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with stock_value data type) in specified inventory to retrieve stock unit items from
+COLUMN_ID | The ID of the column(with stock data type) in specified inventory to retrieve stock unit items from
 
 ## Get Stock Unit Item
 
@@ -79,7 +79,7 @@ curl "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/stock_unit_it
 }
 ```
 
-This endpoint retrieves specific stock unit item from inventory column, only valid for columns with 'stock_value' data type.
+This endpoint retrieves specific stock unit item from inventory column, only valid for columns with 'stock' data type.
 
 ### HTTP Request
 
@@ -91,7 +91,7 @@ Parameter | Description
 --------- | -----------
 TEAM_ID | The ID of the team to retrieve inventory from
 INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with stock_value data type) in specified inventory to retrieve stock unit items from
+COLUMN_ID | The ID of the column(with stock data type) in specified inventory to retrieve stock unit items from
 ID | The ID of the stock unit item
 
 ## Create Stock Unit Item
@@ -125,7 +125,7 @@ curl -X POST \
 }
 ```
 
-This endpoint creates new stock unit item in selected inventory column, only valid for columns with 'stock_value' data type.
+This endpoint creates new stock unit item in selected inventory column, only valid for columns with 'stock' data type.
 
 ### HTTP Request
 
@@ -137,7 +137,7 @@ Parameter | Description
 --------- | -----------
 TEAM_ID | The ID of the team to retrieve inventory from
 INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with stock_value data type) in specified inventory to retrieve stock unit items from
+COLUMN_ID | The ID of the column(with stock data type) in specified inventory to retrieve stock unit items from
 
 ### Request body
 
@@ -199,7 +199,7 @@ Parameter | Description
 --------- | -----------
 TEAM_ID | The ID of the team to retrieve inventory from
 INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with stock_value data type) in specified inventory to retrieve stock unit items from
+COLUMN_ID | The ID of the column(with stock data type) in specified inventory to retrieve stock unit items from
 ID | The ID of the stock unit item
 
 ### Request body
@@ -240,5 +240,5 @@ Parameter | Description
 --------- | -----------
 TEAM_ID | The ID of the team to retrieve inventory from
 INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with stock_value data type) in specified inventory to retrieve stock unit items from
+COLUMN_ID | The ID of the column(with stock data type) in specified inventory to retrieve stock unit items from
 ID | The ID of the stock unit item
