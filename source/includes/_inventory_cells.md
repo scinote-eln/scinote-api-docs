@@ -182,12 +182,12 @@ list | id of the inventory list item from the selected column
 checklist | an array of ids of the inventory checklist items from the selected column
 status | id of the status item from the selected column
 file | hash containing 2 attributes: file_name and file_data. File data is base64 encoded file content in such format: "data:text/plain;base64,dGVzdAo=", mime type should match file content.
-date | string containing date in format DD.MM.YYYY
-time | string containing time in format HH:mm
-date_time | string containing date and time in format "DD.MM.YYYY HH:mm"
-date_range | json in format {"start_time":"DD.MM.YYYY", "end_time":"DD.MM.YYYY"}
-time_range | json in format {"start_time":"HH:mm", "end_time":"HH:mm"}
-date_time_range | json in format {"start_time":"DD.MM.YYY HH:mm", "end_time":"DD.MM.YYYY HH:mm"}
+date | string containing date in the format "DD.MM.YYYY".
+time | string containing time in the format "HH:mm".
+date_time | string containing date and time in the format "DD.MM.YYYY HH:mm".
+date_range | hash containing 2 attributes: start_time and end_time. Start_time and end_time are strings containing date in the format "DD.MM.YYYY".
+time_range | hash containing 2 attributes: start_time and end_time. Start_time and end_time are strings containing time in the format "HH:mm".
+date_time_range | hash containing 2 attributes: start_time and end_time. Start_time and end_time are strings containing date and time in the format "DD.MM.YYY HH:mm".
 
 ## Update Cell
 
@@ -274,12 +274,12 @@ list | id of the inventory list item from the selected column
 checklist | an array of ids of the inventory checklist items from the selected column
 status | id of the status item from the selected column
 file | hash containing 2 attributes: file_name and file_data. File data is base64 encoded file content in such format: "data:text/plain;base64,dGVzdAo=", mime type should match file content.
-date | string containing date in format DD.MM.YYYY
-time | string containing time in format HH:mm
-date_time | string containing date and time in format "DD.MM.YYYY HH:mm"
-date_range | json in format {"start_time":"DD.MM.YYYY", "end_time":"DD.MM.YYYY"}
-time_range | json in format {"start_time":"HH:mm", "end_time":"HH:mm"}
-date_time_range | json in format {"start_time":"DD.MM.YYY HH:mm", "end_time":"DD.MM.YYYY HH:mm"}
+date | string containing date in the format "DD.MM.YYYY".
+time | string containing time in the format "HH:mm".
+date_time | string containing date and time in the format "DD.MM.YYYY HH:mm".
+date_range | hash containing 2 attributes: start_time and end_time. Start_time and end_time are strings containing date in the format "DD.MM.YYYY".
+time_range | hash containing 2 attributes: start_time and end_time. Start_time and end_time are strings containing time in the format "HH:mm".
+date_time_range | hash containing 2 attributes: start_time and end_time. Start_time and end_time are strings containing date and time in the format "DD.MM.YYY HH:mm".
 
 
 ## Delete Cell
