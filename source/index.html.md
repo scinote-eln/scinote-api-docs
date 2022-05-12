@@ -40,6 +40,7 @@ includes:
   - inventory_column_list_items
   - inventory_column_status_items
   - inventory_column_checklist_items
+  - inventory_column_stock_unit_items
   - inventory_items
   - inventory_cells
   - workflows
