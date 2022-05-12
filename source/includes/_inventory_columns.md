@@ -197,14 +197,14 @@ INVENTORY_ID | The ID of the inventory to retrieve column from
 Attribute | Mandatory| Description
 --------- | -------- | -----------
 name | yes | Name of the column
-data_type | yes | Data type of the column - one of the following: `text`, `number`, `file`, `list`, `checklist`, `status`, `date`, `time`, `date_time`, `date_range`, `time_range`, `date_time_range`
-metadata | no | Metadata for specific data type (now available only for number data_type)
+data_type | yes | Data type of the column - one of the following: `text`, `number`, `file`, `list`, `checklist`, `status`, `date`, `time`, `stock`, `date_time`, `date_range`, `time_range`, `date_time_range`
+metadata | no | Metadata for specific data type (now available only for number and stock data_type)
 
 ### Inventory column metadata attribute for number data_type
 
 Attribute | Mandatory| Description
 --------- | -------- | -----------
-decimals | no | Number of decimals (only for number data_type)
+decimals | no | Number of decimals (only for number and stock data_type)
 
 
 ## Update Column
@@ -277,13 +277,13 @@ ID | The ID of the column
 Attribute | Mandatory| Description
 --------- | -------- | -----------
 name | no | Name of the column
-metadata | no | Metadata for specific data type (now available only for number data_type)
+metadata | no | Metadata for specific data type (now available only for number and stock data_type)
 
 ### Inventory column metadata attribute for number data_type
 
 Attribute | Mandatory| Description
 --------- | -------- | -----------
-decimals | no | Number of decimals (only for number data_type)
+decimals | no | Number of decimals (only for number and stock data_type)
 
 ## Delete Column
 

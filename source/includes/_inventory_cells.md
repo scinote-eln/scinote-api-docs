@@ -188,6 +188,7 @@ date_time | string containing date and time in the format "DD.MM.YYYY HH:mm".
 date_range | hash containing 2 attributes: start_time and end_time. Start_time and end_time are strings containing date in the format "DD.MM.YYYY".
 time_range | hash containing 2 attributes: start_time and end_time. Start_time and end_time are strings containing time in the format "HH:mm".
 date_time_range | hash containing 2 attributes: start_time and end_time. Start_time and end_time are strings containing date and time in the format "DD.MM.YYY HH:mm".
+stock | hash containing 3 attributes: amount, unit_item_id and low_stock_threshold. Unit_item_id present stock unit id.
 
 ## Update Cell
 
@@ -280,6 +281,7 @@ date_time | string containing date and time in the format "DD.MM.YYYY HH:mm".
 date_range | hash containing 2 attributes: start_time and end_time. Start_time and end_time are strings containing date in the format "DD.MM.YYYY".
 time_range | hash containing 2 attributes: start_time and end_time. Start_time and end_time are strings containing time in the format "HH:mm".
 date_time_range | hash containing 2 attributes: start_time and end_time. Start_time and end_time are strings containing date and time in the format "DD.MM.YYY HH:mm".
+stock | hash containing 3 attributes: amount, unit_item_id and low_stock_threshold. Unit_item_id present stock unit id.
 
 
 ## Delete Cell
