@@ -27,6 +27,10 @@ Depending on the type of activity, you will receive a request with a JSON payloa
 
 The optional Secret key is sent via the webhook-secret-key header, for purposes of authentication of the request on your end.
 
+### Testing webhooks
+
+During development you might want to test the requests and get the various webhook payloads. We suggest using an HTTP request capture tool, such as [mockbin](https://mockbin.org/) for such purposes.
+
 ### Example payloads
 
 To the right are example payloads for different types of activities:
