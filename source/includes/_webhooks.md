@@ -1,5 +1,8 @@
 # Webhooks
 
+### NOTE
+Webhooks are currently in the testing phase. If you would like to enable them, add ENABLE_WEBHOOKS=true to your environment variables, or, if using our cloud setup, ask SciNote support to enable it for you.
+
 ## Setup
 
 For integration purposes, SciNote offers setting up webhooks, which get triggered by certain activities. The first step is setting up an **activity filter** available at the global activities view (https://[YOUR-DOMAN].scinote.net/global_activities), where you need to save a filter by clicking the *Save filter* button in the top right corner.
