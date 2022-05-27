@@ -33,6 +33,7 @@ includes:
   - task_tags
   - task_inventory_items
   - task_user_assignments
+  - task_assignments
   - results
   - reports
   - inventories
