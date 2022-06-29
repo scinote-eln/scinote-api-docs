@@ -27,6 +27,7 @@ includes:
   - checklists
   - checklist_items
   - tables
+  - step_texts
   - attachments
   - task_users
   - task_activities
