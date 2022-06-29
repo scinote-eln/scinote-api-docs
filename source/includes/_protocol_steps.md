@@ -118,6 +118,9 @@ This endpoint retrieves steps from specific protocol. It also supports inclusion
 Optional URL parameter 'render_rte=true' can be added in order to request rendering of RTE fields(embedded images, smart annotations).
 If `?include=comments` PATH parameter is provided, step comments are also included.
 
+### NOTE REGARDING STEP DESCRIPTION:
+After the step editing revamp, the step description is fetched from, and written to the first step_text element of the protocol step, and as such only exists as a virtual attribute. Usage of the step_texts endpoints should be preferred instead.
+
 ### HTTP Request
 
 `GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps(?include=<INCLUDES>)`
