@@ -279,7 +279,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-9963254b.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-45f7a2e7.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-e9bde216.js"></script>
 
@@ -296,7 +296,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-8b2c309d.png" class="logo" alt="" />
+      <img src="images/logo-de2a5912.png?v2" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
         </div>
@@ -615,6 +615,26 @@
               </ul>
           </li>
           <li>
+            <a href="#step-step_texts" class="toc-h1 toc-link" data-title="Step step_texts">Step step_texts</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-step_texts" class="toc-h2 toc-link" data-title="Get step_texts">Get step_texts</a>
+                  </li>
+                  <li>
+                    <a href="#get-table" class="toc-h2 toc-link" data-title="Get Table">Get Table</a>
+                  </li>
+                  <li>
+                    <a href="#create-table" class="toc-h2 toc-link" data-title="Create Table">Create Table</a>
+                  </li>
+                  <li>
+                    <a href="#update-table" class="toc-h2 toc-link" data-title="Update Table">Update Table</a>
+                  </li>
+                  <li>
+                    <a href="#delete-table" class="toc-h2 toc-link" data-title="Delete Table">Delete Table</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#attachments" class="toc-h1 toc-link" data-title="Attachments">Attachments</a>
               <ul class="toc-list-h2">
                   <li>
@@ -683,6 +703,20 @@
                   </li>
                   <li>
                     <a href="#update-task-user-assignment-attributes" class="toc-h2 toc-link" data-title="Update Task User Assignment attributes">Update Task User Assignment attributes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#task-assignment" class="toc-h1 toc-link" data-title="Task Assignment">Task Assignment</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-task-assignments" class="toc-h2 toc-link" data-title="Get Task Assignments">Get Task Assignments</a>
+                  </li>
+                  <li>
+                    <a href="#create-task-assignment" class="toc-h2 toc-link" data-title="Create Task Assignment">Create Task Assignment</a>
+                  </li>
+                  <li>
+                    <a href="#remove-task-assignment" class="toc-h2 toc-link" data-title="Remove Task Assignment">Remove Task Assignment</a>
                   </li>
               </ul>
           </li>
@@ -4321,6 +4355,8 @@ If submitted attributes are the same and no changes are made for the task, serve
 <p>This endpoint retrieves steps from specific protocol. It also supports inclusion of these elements: tables, assets, checklists, checklists.checklist_items, comments.
 Optional URL parameter &#39;render_rte=true&#39; can be added in order to request rendering of RTE fields(embedded images, smart annotations).
 If <code>?include=comments</code> PATH parameter is provided, step comments are also included.</p>
+<h3 id='note-regarding-step-description'>NOTE REGARDING STEP DESCRIPTION:</h3>
+<p>After the step editing revamp, the step description is fetched from, and written to the first step_text element of the protocol step, and as such only exists as a virtual attribute. Usage of the step_texts endpoints should be preferred instead.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps(?include=&lt;INCLUDES&gt;)</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
@@ -5858,6 +5894,366 @@ If submitted attributes are the same and no changes are made for the table, serv
 <td>The ID of the table</td>
 </tr>
 </tbody></table>
+<h1 id='step-step_texts'>Step step_texts</h1><h2 id='get-step_texts'>Get step_texts</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"text"</span><span class="p">:</span><span class="w">  </span><span class="s2">"&lt;p&gt;Some text.&lt;/p&gt;"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Some text.&lt;/p&gt;"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves step_texts from specific step.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/step_texts</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiment from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve task from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve protocol from</td>
+</tr>
+<tr>
+<td>PROTOCOL_ID</td>
+<td>The ID of the protocol to retrieve step from</td>
+</tr>
+<tr>
+<td>STEP_ID</td>
+<td>The ID of the step to retrieve step_texts from</td>
+</tr>
+</tbody></table>
+<h2 id='get-table'>Get Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts/1"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"text"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">]]}"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves specific table from the step.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/step_texts/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiment from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve task from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve protocol from</td>
+</tr>
+<tr>
+<td>PROTOCOL_ID</td>
+<td>The ID of the protocol to retrieve steps from</td>
+</tr>
+<tr>
+<td>STEP_ID</td>
+<td>The ID of the step to retrieve table from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the table</td>
+</tr>
+</tbody></table>
+<h2 id='create-table'>Create Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "data": {
+        "type": "step_texts",
+        "attributes": {
+            "name": "New table",
+            "text":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}"
+        }
+    }
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New table"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"text"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">]]}"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint creates new table in the step.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiment from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve task from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve protocol from</td>
+</tr>
+<tr>
+<td>PROTOCOL_ID</td>
+<td>The ID of the protocol to retrieve steps from</td>
+</tr>
+<tr>
+<td>STEP_ID</td>
+<td>The ID of the step to create table in</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Request body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New table"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"text"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">]]}"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='table-attributes'>Table attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Name of the table</td>
+</tr>
+<tr>
+<td>text</td>
+<td>no</td>
+<td>Serialized JSON representation of the table data</td>
+</tr>
+</tbody></table>
+<h2 id='update-table'>Update Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts/1 <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+        "data": {
+          "id": "1",
+          "type": "step_texts",
+          "attributes": {
+            "text":  "&lt;p&gt;Some text.&lt;/p&gt;"
+          }
+      }
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"text"</span><span class="p">:</span><span class="w">  </span><span class="s2">"&lt;p&gt;Some text.&lt;/p&gt;"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint updates existing table in the selected step.
+If submitted attributes are the same and no changes are made for the table, server returns empty body with response code 204.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PATCH https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/step_texts/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiment from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve task from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve protocol from</td>
+</tr>
+<tr>
+<td>PROTOCOL_ID</td>
+<td>The ID of the protocol to retrieve steps from</td>
+</tr>
+<tr>
+<td>STEP_ID</td>
+<td>The ID of the step to retrieve table from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the table</td>
+</tr>
+</tbody></table>
+<h3 id='request-body'>Request body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"text"</span><span class="p">:</span><span class="w">  </span><span class="s2">"&lt;p&gt;Some text.&lt;/p&gt;"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='table-attributes-2'>Table attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>no</td>
+<td>Name of the table</td>
+</tr>
+<tr>
+<td>text</td>
+<td>no</td>
+<td>Serialized JSON representation of the table data</td>
+</tr>
+</tbody></table>
+<h2 id='delete-table'>Delete Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts/1 <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns empty body with status code 200</p>
+</blockquote>
+
+<p>This endpoint deletes specific table from the step.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/step_texts/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve experiment from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve task from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve protocol from</td>
+</tr>
+<tr>
+<td>PROTOCOL_ID</td>
+<td>The ID of the protocol to retrieve steps from</td>
+</tr>
+<tr>
+<td>STEP_ID</td>
+<td>The ID of the step to retrieve step_texts from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the table</td>
+</tr>
+</tbody></table>
 <h1 id='attachments'>Attachments</h1><h2 id='get-attachments'>Get Attachments</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
@@ -7079,6 +7475,192 @@ If submitted attributes are the same and no changes are made for the user assign
 <td>user_role_id</td>
 <td>yes</td>
 <td>Role on the task</td>
+</tr>
+</tbody></table>
+<h1 id='task-assignment'>Task Assignment</h1><h2 id='get-task-assignments'>Get Task Assignments</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/task_assignments"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"users"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample User"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"initials"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SU"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2022-05-26T12:47:01.586Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2022-05-27T08:19:54.704Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"links"</span><span class="p">:{</span><span class="w">
+    </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/task_assignments?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/task_assignments?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/task_assignments?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all users who are assigned to the specified task.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/task_assignments</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve users from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve users from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve users from</td>
+</tr>
+</tbody></table>
+<h2 id='create-task-assignment'>Create Task Assignment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/task_assignment/ <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+        "data": {
+          "type": "task_assignments",
+          "attributes": {
+            "user_id": "1"
+          }
+      }
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"task_assignments"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-11T13:25:53.910Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-15T10:30:33.415Z"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"relationships"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"user"</span><span class="p">:{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"tasks"</span><span class="p">:{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"tasks"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint assign user to the task.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/task_assignments</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve user assignment from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve user from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve</td>
+</tr>
+</tbody></table>
+<h3 id='request-body'>Request body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"task_assignments"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='task-assignment-attributes'>Task Assignment attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_id</td>
+<td>yes</td>
+<td>Role on the task</td>
+</tr>
+</tbody></table>
+<h2 id='remove-task-assignment'>Remove Task Assignment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/task_assignment/1 <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns empty body with status code 200</p>
+</blockquote>
+
+<p>This endpoint unassign user from task</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/task_assignments/&lt;USER_ID&gt;</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>PROJECT_ID</td>
+<td>The ID of the project to retrieve user assignment from</td>
+</tr>
+<tr>
+<td>EXPERIMENT_ID</td>
+<td>The ID of the experiment to retrieve user from</td>
+</tr>
+<tr>
+<td>TASK_ID</td>
+<td>The ID of the task to retrieve</td>
+</tr>
+<tr>
+<td>USER_ID</td>
+<td>The ID of the user</td>
 </tr>
 </tbody></table>
 <h1 id='results'>Results</h1><h2 id='get-results'>Get Results</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/results"</span>
