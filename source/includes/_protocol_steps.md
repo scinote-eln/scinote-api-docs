@@ -420,3 +420,299 @@ EXPERIMENT_ID   | The ID of the experiment to retrieve task from
 TASK_ID         | The ID of the task to retrieve protocol from
 PROTOCOL_ID     | The ID of the protocol to retrieve steps from
 ID              | The ID of the step
+
+## Reorder step elements
+```shell
+curl -X POST \
+  https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/reorder_elements \
+  -H 'Authorization: Bearer qwerty123456...' \
+  -H 'Content-Type: application/vnd.api+json' \
+  -d '{
+	"step_element_order": [
+		{ "id": 29570, "position": 0 },
+		{ "id": 29290, "position": 1 }
+	]
+}'
+```
+
+### HTTP Request
+
+`POST https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/reorder_elements`
+
+### URL Parameters
+
+Parameter       | Description
+--------------- | -----------
+TEAM_ID         | The ID of the team to retrieve project from
+PROJECT_ID      | The ID of the project to retrieve experiment from
+EXPERIMENT_ID   | The ID of the experiment to retrieve task from
+TASK_ID         | The ID of the task to retrieve protocol from
+PROTOCOL_ID     | The ID of the protocol to retrieve steps from
+
+> Request body
+
+```json
+{
+	"step_element_order": [
+		{ "id": 29570, "position": 0 },
+		{ "id": 29290, "position": 1 }
+	]
+}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+	"data": [
+		{
+			"id": "29290",
+			"type": "step_orderable_elements",
+			"attributes": {
+				"position": 1,
+				"element": {
+					"id": 6854,
+					"name": "Checklist 1",
+					"created_at": "2022-05-12T11:58:58.163Z",
+					"updated_at": "2022-05-12T11:58:58.163Z",
+					"checklist_items": [
+						{
+							"id": 26930,
+							"text": "one",
+							"checked": true,
+							"position": 1,
+							"created_at": "2022-05-12T11:59:02.285Z",
+							"updated_at": "2022-05-12T11:59:20.223Z"
+						},
+						{
+							"id": 26931,
+							"text": "two",
+							"checked": true,
+							"position": 2,
+							"created_at": "2022-05-12T11:59:03.042Z",
+							"updated_at": "2022-05-12T11:59:21.131Z"
+						},
+						{
+							"id": 26929,
+							"text": "three",
+							"checked": false,
+							"position": 3,
+							"created_at": "2022-05-12T11:59:01.380Z",
+							"updated_at": "2022-05-12T11:59:01.380Z"
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": "29570",
+			"type": "step_orderable_elements",
+			"attributes": {
+				"position": 0,
+				"element": {
+					"id": 19968,
+					"text": "<div>Some text.</div>",
+					"created_at": "2022-06-27T09:12:36.703Z",
+					"updated_at": "2022-06-27T09:12:45.714Z"
+				}
+			}
+		}
+	]
+}
+```
+
+This endpoint is used for changing the order of step elements.
+
+## Reorder steps
+```shell
+curl -X POST \
+  https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/reorder_steps \
+  -H 'Authorization: Bearer qwerty123456...' \
+  -H 'Content-Type: application/vnd.api+json' \
+  -d '{
+	"step_order": [
+		{ "id": 21803, "position": 1 },
+		{ "id": 21802, "position": 0 },
+		{ "id": 21801, "position": 2 }
+	]
+}'
+```
+
+### HTTP Request
+
+`POST https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/reorder_steps`
+
+### URL Parameters
+
+Parameter       | Description
+--------------- | -----------
+TEAM_ID         | The ID of the team to retrieve project from
+PROJECT_ID      | The ID of the project to retrieve experiment from
+EXPERIMENT_ID   | The ID of the experiment to retrieve task from
+TASK_ID         | The ID of the task to retrieve protocol from
+PROTOCOL_ID     | The ID of the protocol to retrieve steps from
+
+> Request body
+
+```json
+{
+	"step_order": [
+		{ "id": 21803, "position": 1 },
+		{ "id": 21802, "position": 0 },
+		{ "id": 21801, "position": 2 }
+	]
+}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+	"data": [
+		{
+			"id": "21802",
+			"type": "steps",
+			"attributes": {
+				"name": "Step 2",
+				"description": null,
+				"position": 0,
+				"completed": false,
+				"created_at": "2022-05-11T14:21:13.984Z",
+				"updated_at": "2022-05-11T14:21:16.501Z"
+			},
+			"relationships": {
+				"user": {
+					"data": {
+						"id": "9",
+						"type": "users"
+					}
+				},
+				"protocol": {
+					"data": {
+						"id": "11200",
+						"type": "protocols"
+					}
+				},
+				"assets": {
+					"data": []
+				},
+				"checklists": {
+					"data": []
+				},
+				"tables": {
+					"data": []
+				},
+				"step_texts": {
+					"data": []
+				},
+				"comments": {
+					"data": []
+				},
+				"step_elements": {
+					"data": [
+						{
+							"id": "29289",
+							"type": "step_orderable_elements"
+						}
+					]
+				}
+			}
+		},
+    {
+			"id": "21803",
+			"type": "steps",
+			"attributes": {
+				"name": "Step 1",
+				"description": null,
+				"position": 0,
+				"completed": false,
+				"created_at": "2022-05-11T14:21:13.984Z",
+				"updated_at": "2022-05-11T14:21:16.501Z"
+			},
+			"relationships": {
+				"user": {
+					"data": {
+						"id": "9",
+						"type": "users"
+					}
+				},
+				"protocol": {
+					"data": {
+						"id": "11200",
+						"type": "protocols"
+					}
+				},
+				"assets": {
+					"data": []
+				},
+				"checklists": {
+					"data": []
+				},
+				"tables": {
+					"data": []
+				},
+				"step_texts": {
+					"data": []
+				},
+				"comments": {
+					"data": []
+				},
+				"step_elements": {
+					"data": [
+						{
+							"id": "29289",
+							"type": "step_orderable_elements"
+						}
+					]
+				}
+			}
+		},
+    {
+			"id": "21801",
+			"type": "steps",
+			"attributes": {
+				"name": "Step 3",
+				"description": null,
+				"position": 0,
+				"completed": false,
+				"created_at": "2022-05-11T14:21:13.984Z",
+				"updated_at": "2022-05-11T14:21:16.501Z"
+			},
+			"relationships": {
+				"user": {
+					"data": {
+						"id": "9",
+						"type": "users"
+					}
+				},
+				"protocol": {
+					"data": {
+						"id": "11200",
+						"type": "protocols"
+					}
+				},
+				"assets": {
+					"data": []
+				},
+				"checklists": {
+					"data": []
+				},
+				"tables": {
+					"data": []
+				},
+				"step_texts": {
+					"data": []
+				},
+				"comments": {
+					"data": []
+				},
+				"step_elements": {
+					"data": []
+				}
+			}
+		}
+	]
+}
+```
+
+This endpoint is used for changing the order of steps.
