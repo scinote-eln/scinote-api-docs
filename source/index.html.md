@@ -37,6 +37,7 @@ includes:
   - task_assignments
   - results
   - reports
+  - protocol_templates
   - inventories
   - inventory_columns
   - inventory_column_list_items
