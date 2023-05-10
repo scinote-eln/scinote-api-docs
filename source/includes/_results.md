@@ -92,7 +92,13 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/resu
             "type": "result_tables",
             "attributes": {
                 "table_id": 1,
-                "table_contents": <table-contents>
+                "table_contents": <table-contents>,
+                "metadata": {
+                  "cells": [
+                    {"col": 0, "row": 0, "className": ""},
+                    {"col": 0, "row": 1, "className": ""}
+                  ]
+                }
             }
         },
         {
