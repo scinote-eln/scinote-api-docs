@@ -424,7 +424,7 @@ ID              | The ID of the step
 ## Reorder step elements
 ```shell
 curl -X POST \
-  https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/reorder_elements \
+  https://<server-name>/api/service/teams/1/steps/1/reorder_elements \
   -H 'Authorization: Bearer qwerty123456...' \
   -H 'Content-Type: application/vnd.api+json' \
   -d '{
@@ -437,7 +437,7 @@ curl -X POST \
 
 ### HTTP Request
 
-`POST https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/reorder_elements`
+`POST https://<server-name>/api/service/teams/1/steps/1/reorder_elements`
 
 ### URL Parameters
 
@@ -526,7 +526,7 @@ This endpoint is used for changing the order of step elements.
 ## Reorder steps
 ```shell
 curl -X POST \
-  https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/reorder_steps \
+  https://<server-name>/api/service/teams/1/protocols/1/reorder_steps \
   -H 'Authorization: Bearer qwerty123456...' \
   -H 'Content-Type: application/vnd.api+json' \
   -d '{
@@ -540,7 +540,7 @@ curl -X POST \
 
 ### HTTP Request
 
-`POST https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/reorder_steps`
+`POST https://<server-name>/api/service/teams/1/protocols/1/reorder_steps`
 
 ### URL Parameters
 
