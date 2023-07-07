@@ -4765,7 +4765,7 @@ If submitted attributes are the same and no changes are made for the step, serve
 </tr>
 </tbody></table>
 <h2 id='reorder-step-elements'>Reorder step elements</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
-  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/reorder_elements <span class="se">\</span>
+  https://&lt;server-name&gt;/api/service/teams/1/steps/1/reorder_elements <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
@@ -4775,7 +4775,7 @@ If submitted attributes are the same and no changes are made for the step, serve
     ]
 }'</span>
 </code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
-<p><code>POST https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/reorder_elements</code></p>
+<p><code>POST https://&lt;server-name&gt;/api/service/teams/1/steps/1/reorder_elements</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -4877,7 +4877,7 @@ If submitted attributes are the same and no changes are made for the step, serve
 </span></code></pre></div>
 <p>This endpoint is used for changing the order of step elements.</p>
 <h2 id='reorder-steps'>Reorder steps</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
-  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/reorder_steps <span class="se">\</span>
+  https://&lt;server-name&gt;/api/service/teams/1/protocols/1/reorder_steps <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
@@ -4888,7 +4888,7 @@ If submitted attributes are the same and no changes are made for the step, serve
     ]
 }'</span>
 </code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
-<p><code>POST https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/reorder_steps</code></p>
+<p><code>POST https://&lt;server-name&gt;/api/service/teams/1/protocols/1/reorder_steps</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
 <tr>
