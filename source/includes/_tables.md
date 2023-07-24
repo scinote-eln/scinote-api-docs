@@ -17,7 +17,16 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
       "type": "tables",
       "attributes": {
         "name": "Table 1",
-        "contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}"
+        "contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}",
+        "metadata": {
+          "cells": [{"col": 0, "row": 0, "className": "htCenter"},
+                    {"col": 0, "row": 1, "className": "htRight"},
+                    {"col": 1, "row": 0, "className": "htLeft"},
+                    {"col": 1, "row": 1, "className": "htJustify"}
+                    {"col": 2, "row": 0, "className": "htMiddle htRight"},
+                    {"col": 2, "row": 1, "className": "htBottom"}],
+          "plateTemplate": true
+        }
       }
     },
     {
@@ -25,7 +34,15 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
       "type": "tables",
       "attributes": {
         "name": "Table 2",
-        "contents": "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}"
+        "contents": "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}",
+        "metadata": {
+          "cells": [{"col": 0, "row": 0, "className": "htCenter"},
+                    {"col": 0, "row": 1, "className": "htRight"},
+                    {"col": 1, "row": 0, "className": "htLeft"},
+                    {"col": 1, "row": 1, "className": "htJustify"}
+                    {"col": 2, "row": 0, "className": "htMiddle htRight"},
+                    {"col": 2, "row": 1, "className": "htBottom"}]
+        }
       }
     }
   ],
@@ -72,7 +89,16 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
     "type": "tables",
     "attributes": {
       "name": "Table 1",
-      "contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}"
+      "contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}",
+      "metadata": {
+        "cells": [{"col": 0, "row": 0, "className": "htCenter"},
+                  {"col": 0, "row": 1, "className": "htRight"},
+                  {"col": 1, "row": 0, "className": "htLeft"},
+                  {"col": 1, "row": 1, "className": "htJustify"}
+                  {"col": 2, "row": 0, "className": "htMiddle htRight"},
+                  {"col": 2, "row": 1, "className": "htBottom"}],
+        "plateTemplate": true
+      }
     }
   }
 }
@@ -108,7 +134,16 @@ curl -X POST \
 		"type": "tables",
 		"attributes": {
 			"name": "New table",
-			"contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}"
+			"contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}",
+      "metadata": {
+        "cells": [{"col": 0, "row": 0, "className": ""},
+                  {"col": 0, "row": 1, "className": "htRight"},
+                  {"col": 1, "row": 0, "className": ""},
+                  {"col": 1, "row": 1, "className": "htJustify"}
+                  {"col": 2, "row": 0, "className": "htMiddle htRight"},
+                  {"col": 2, "row": 1, "className": "htBottom"}],
+        "plateTemplate": true
+      }
 		}
 	}
 }'
@@ -123,7 +158,16 @@ curl -X POST \
     "type": "tables",
     "attributes": {
       "name": "New table",
-      "contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}"
+      "contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}",
+      "metadata": {
+        "cells": [{"col": 0, "row": 0, "className": ""},
+                  {"col": 0, "row": 1, "className": "htRight"},
+                  {"col": 1, "row": 0, "className": ""},
+                  {"col": 1, "row": 1, "className": "htJustify"}
+                  {"col": 2, "row": 0, "className": "htMiddle htRight"},
+                  {"col": 2, "row": 1, "className": "htBottom"}],
+        "plateTemplate": true
+      }
     }
   }
 }
@@ -154,7 +198,16 @@ STEP_ID         | The ID of the step to create table in
     "type": "tables",
     "attributes": {
       "name": "New table",
-			"contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}"
+			"contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}",
+      "metadata": {
+        "cells": [{"col": 0, "row": 0, "className": ""},
+                  {"col": 0, "row": 1, "className": "htRight"},
+                  {"col": 1, "row": 0, "className": ""},
+                  {"col": 1, "row": 1, "className": "htJustify"}
+                  {"col": 2, "row": 0, "className": "htMiddle htRight"},
+                  {"col": 2, "row": 1, "className": "htBottom"}],
+        "plateTemplate": true
+      }
     }
   }
 }
@@ -166,6 +219,7 @@ Attribute   | Mandatory| Description
 ---------   | -------- | -----------
 name        | yes      | Name of the table
 contents    | no       | Serialized JSON representation of the table data
+metadata    | no       | JSON representation of the table metadata. `cells` represent the alignment of the specific table cell. Available `className` are `htCenter`, `htRight`, `htLeft`, `htJustify` for horizontal alignment, and `htTop`, `htMiddle`, `htBottom` for vertical alignment. `plateTemplate` field mark if table is a plate template
 
 
 ## Update Table
@@ -181,7 +235,16 @@ curl -X PATCH \
           "type": "tables",
           "attributes": {
             "name": "Table 2",
-            "contents":  "{\"data\":[[\"6\",\"5\",\"4\"],[\"3\",\"2\",\"1\"]]}"
+            "contents":  "{\"data\":[[\"6\",\"5\",\"4\"],[\"3\",\"2\",\"1\"]]}",
+            "metadata": {
+              "cells": [{"col": 0, "row": 0, "className": ""},
+                        {"col": 0, "row": 1, "className": "htRight"},
+                        {"col": 1, "row": 0, "className": ""},
+                        {"col": 1, "row": 1, "className": "htJustify"}
+                        {"col": 2, "row": 0, "className": "htMiddle htRight"},
+                        {"col": 2, "row": 1, "className": "htBottom"}],
+              "plateTemplate": true
+            }
           }
       }
   }'
@@ -196,7 +259,16 @@ curl -X PATCH \
       "type": "tables",
       "attributes": {
         "name": "Table 2",
-        "contents":  "{\"data\":[[\"6\",\"5\",\"4\"],[\"3\",\"2\",\"1\"]]}"
+        "contents":  "{\"data\":[[\"6\",\"5\",\"4\"],[\"3\",\"2\",\"1\"]]}",
+        "metadata": {
+          "cells": [{"col": 0, "row": 0, "className": ""},
+                    {"col": 0, "row": 1, "className": "htRight"},
+                    {"col": 1, "row": 0, "className": ""},
+                    {"col": 1, "row": 1, "className": "htJustify"}
+                    {"col": 2, "row": 0, "className": "htMiddle htRight"},
+                    {"col": 2, "row": 1, "className": "htBottom"}],
+          "plateTemplate": true
+        }
       }
     }
 }
@@ -230,7 +302,16 @@ ID              | The ID of the table
     "type": "tables",
     "attributes": {
       "name": "Table 2",
-      "contents":  "{\"data\":[[\"6\",\"5\",\"4\"],[\"3\",\"2\",\"1\"]]}"
+      "contents":  "{\"data\":[[\"6\",\"5\",\"4\"],[\"3\",\"2\",\"1\"]]}",
+      "metadata": {
+        "cells": [{"col": 0, "row": 0, "className": ""},
+                  {"col": 0, "row": 1, "className": "htRight"},
+                  {"col": 1, "row": 0, "className": ""},
+                  {"col": 1, "row": 1, "className": "htJustify"}
+                  {"col": 2, "row": 0, "className": "htMiddle htRight"},
+                  {"col": 2, "row": 1, "className": "htBottom"}],
+        "plateTemplate": true
+      }
     }
   }
 }
@@ -242,6 +323,7 @@ Attribute   | Mandatory| Description
 ----------- | -------- | -----------
 name        | no      | Name of the table
 contents    | no       | Serialized JSON representation of the table data
+metadata    | no       | JSON representation of the table metadata. `cells` represent the alignment of the specific table cell. Available `className` are `htCenter`, `htRight`, `htLeft`, `htJustify` for horizontal alignment, and `htTop`, `htMiddle`, `htBottom` for vertical alignment. `plateTemplate` field mark if table is a plate template
 
 ## Delete Table
 
