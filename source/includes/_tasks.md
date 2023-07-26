@@ -121,7 +121,7 @@ If `?include=comments` PATH parameter is provided, task comments are also includ
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks(?include=<INCLUDES>)`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks(?include=<INCLUDES>&filter%5Barchived%5D=<ARCHIVED>)`
 
 ### URL Parameters
 
@@ -131,6 +131,7 @@ TEAM_ID | The ID of the team to retrieve project from
 PROJECT_ID | The ID of the project to retrieve experiment from
 EXPERIMENT_ID | The ID of the experiment to retrieve tasks from
 INCLUDES | if set to `comments`, task comments are also included
+ARCHIVED | If set to `true` return only archived tasks. If set to `false` return only active tasks. 
 
 ## Get Task
 

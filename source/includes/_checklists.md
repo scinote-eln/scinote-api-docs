@@ -16,7 +16,8 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
       "id": "1",
       "type": "checklists",
       "attributes": {
-        "name": "Checklist 1"
+        "name": "Checklist 1",
+        "position": 0
       },
       "relationships": {
         "checklist_items": {
@@ -28,7 +29,8 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
       "id": "2",
       "type": "checklists",
       "attributes": {
-        "name": "Checklist 2"
+        "name": "Checklist 2",
+        "position": 1
       },
       "relationships": {
         "checklist_items": {
@@ -80,7 +82,8 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
     "id": "1",
     "type": "checklists",
     "attributes": {
-      "name": "Checklist 1"
+      "name": "Checklist 1",
+      "position": 0
     },
     "relationships": {
       "checklist_items": {
@@ -134,7 +137,8 @@ curl -X POST \
     "id": "3",
     "type": "checklists",
     "attributes": {
-      "name": "Checklist 3"
+      "name": "Checklist 3",
+      "position": 0
     },
     "relationships": {
       "checklist_items": {
@@ -169,7 +173,8 @@ STEP_ID         | The ID of the step to create checklist in
   "data": {
     "type": "checklists",
     "attributes": {
-      "name": "New checklist"
+      "name": "New checklist",
+      "position": 0
     }
   }
 }
@@ -207,7 +212,8 @@ curl -X PATCH \
       "id": "1",
       "type": "checklists",
       "attributes": {
-        "name": "Checklist 2"
+        "name": "Checklist 2",
+        "position": 0
       }
     }
 }

@@ -16,14 +16,16 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
       "id": "1",
       "type": "step_texts",
       "attributes": {
-        "text":  "<p>Some text.</p>"
+        "text":  "<p>Some text.</p>",
+        "position": 0
       }
     },
     {
       "id": "2",
       "type": "step_texts",
       "attributes": {
-        "text": "<p>Some text.</p>"
+        "text": "<p>Some text.</p>",
+        "position": 1
       }
     }
   ],
@@ -53,7 +55,7 @@ TASK_ID         | The ID of the task to retrieve protocol from
 PROTOCOL_ID     | The ID of the protocol to retrieve step from
 STEP_ID         | The ID of the step to retrieve step_texts from
 
-## Get Table
+## Get step_text
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts/1"
@@ -69,13 +71,14 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
     "id": "1",
     "type": "step_texts",
     "attributes": {
-      "text":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}"
+      "text": "<p>Some text.</p>",
+      "position": 0
     }
   }
 }
 ```
 
-This endpoint retrieves specific table from the step.
+This endpoint retrieves specific step_text from the step.
 
 ### HTTP Request
 
@@ -90,10 +93,10 @@ PROJECT_ID      | The ID of the project to retrieve experiment from
 EXPERIMENT_ID   | The ID of the experiment to retrieve task from
 TASK_ID         | The ID of the task to retrieve protocol from
 PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to retrieve table from
-ID              | The ID of the table
+STEP_ID         | The ID of the step to retrieve step_text from
+ID              | The ID of the step_text
 
-## Create Table
+## Create step_text
 
 ```shell
 curl -X POST \
@@ -104,8 +107,7 @@ curl -X POST \
 	"data": {
 		"type": "step_texts",
 		"attributes": {
-			"name": "New table",
-			"text":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}"
+			"text": "<p>Some text.</p>"
 		}
 	}
 }'
@@ -119,14 +121,14 @@ curl -X POST \
     "id": "3",
     "type": "step_texts",
     "attributes": {
-      "name": "New table",
-      "text":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}"
+      "text": "<p>Some text.</p>",
+      "position": 0
     }
   }
 }
 ```
 
-This endpoint creates new table in the step.
+This endpoint creates new step_text in the step.
 
 ### HTTP Request
 
@@ -141,7 +143,7 @@ PROJECT_ID      | The ID of the project to retrieve experiment from
 EXPERIMENT_ID   | The ID of the experiment to retrieve task from
 TASK_ID         | The ID of the task to retrieve protocol from
 PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to create table in
+STEP_ID         | The ID of the step to create step_text in
 
 > Request body
 
@@ -150,22 +152,20 @@ STEP_ID         | The ID of the step to create table in
   "data": {
     "type": "step_texts",
     "attributes": {
-      "name": "New table",
-			"text":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}"
+      "text": "<p>Some text.</p>"
     }
   }
 }
 ```
 
-### Table attributes
+### Step_text attributes
 
 Attribute   | Mandatory| Description
 ---------   | -------- | -----------
-name        | yes      | Name of the table
-text    | no       | Serialized JSON representation of the table data
+text    | yes       | String representation of the step_text data
 
 
-## Update Table
+## Update step_text
 
 ```shell
 curl -X PATCH \
@@ -191,14 +191,15 @@ curl -X PATCH \
       "id": "1",
       "type": "step_texts",
       "attributes": {
-        "text":  "<p>Some text.</p>"
+        "text":  "<p>Some text.</p>",
+        "position": 0
       }
     }
 }
 ```
 
-This endpoint updates existing table in the selected step.
-If submitted attributes are the same and no changes are made for the table, server returns empty body with response code 204.
+This endpoint updates existing step_Text in the selected step.
+If submitted attributes are the same and no changes are made for the step_text, server returns empty body with response code 204.
 
 ### HTTP Request
 
@@ -213,8 +214,8 @@ PROJECT_ID      | The ID of the project to retrieve experiment from
 EXPERIMENT_ID   | The ID of the experiment to retrieve task from
 TASK_ID         | The ID of the task to retrieve protocol from
 PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to retrieve table from
-ID              | The ID of the table
+STEP_ID         | The ID of the step to retrieve step_text from
+ID              | The ID of the step_text
 
 ### Request body
 
@@ -230,14 +231,13 @@ ID              | The ID of the table
 }
 ```
 
-### Table attributes
+### Step_text attributes
 
 Attribute   | Mandatory| Description
 ----------- | -------- | -----------
-name        | no      | Name of the table
-text    | no       | Serialized JSON representation of the table data
+text    | yes       | String representation of the step_text data
 
-## Delete Table
+## Delete step_text
 
 ```shell
 curl -X DELETE \
@@ -247,7 +247,7 @@ curl -X DELETE \
 
 > The above command returns empty body with status code 200
 
-This endpoint deletes specific table from the step.
+This endpoint deletes specific step_text from the step.
 
 ### HTTP Request
 
@@ -263,4 +263,4 @@ EXPERIMENT_ID   | The ID of the experiment to retrieve task from
 TASK_ID         | The ID of the task to retrieve protocol from
 PROTOCOL_ID     | The ID of the protocol to retrieve steps from
 STEP_ID         | The ID of the step to retrieve step_texts from
-ID              | The ID of the table
+ID              | The ID of the step_text

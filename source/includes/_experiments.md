@@ -35,7 +35,7 @@ This endpoint retrieves all experiments from the specified project.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments(?filter%5Barchived%5D=<ARCHIVED>)`
 
 ### URL Parameters
 
@@ -43,6 +43,7 @@ Parameter | Description
 --------- | -----------
 TEAM_ID | The ID of the team to retrieve project from
 PROJECT_ID | The ID of the project to retrieve experiments from
+ARCHIVED | If set to `true` return only archived experiments. If set to `false` return only active experiments.
 
 ## Get Experiment
 
