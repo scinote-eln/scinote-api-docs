@@ -755,6 +755,17 @@
               </ul>
           </li>
           <li>
+            <a href="#protocol-templates" class="toc-h1 toc-link" data-title="Protocol templates">Protocol templates</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-protocol-templates" class="toc-h2 toc-link" data-title="Get Protocol templates">Get Protocol templates</a>
+                  </li>
+                  <li>
+                    <a href="#get-protocol-template" class="toc-h2 toc-link" data-title="Get Protocol template">Get Protocol template</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#inventories" class="toc-h1 toc-link" data-title="Inventories">Inventories</a>
               <ul class="toc-list-h2">
                   <li>
@@ -5863,7 +5874,16 @@ If submitted attributes are the same and no changes are made for the item, serve
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tables"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Table 1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"contents"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">]]}"</span><span class="w">
+        </span><span class="nl">"contents"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">]]}"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"cells"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htCenter"</span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htRight"</span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htLeft"</span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htJustify"</span><span class="p">}</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htMiddle htRight"</span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htBottom"</span><span class="p">}],</span><span class="w">
+          </span><span class="nl">"plateTemplate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -5871,7 +5891,15 @@ If submitted attributes are the same and no changes are made for the item, serve
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tables"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Table 2"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"contents"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">]]}"</span><span class="w">
+        </span><span class="nl">"contents"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">]]}"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"cells"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htCenter"</span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htRight"</span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htLeft"</span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htJustify"</span><span class="p">}</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htMiddle htRight"</span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htBottom"</span><span class="p">}]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -5932,7 +5960,16 @@ If submitted attributes are the same and no changes are made for the item, serve
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tables"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Table 1"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"contents"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">]]}"</span><span class="w">
+      </span><span class="nl">"contents"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">]]}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"cells"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htCenter"</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htRight"</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htLeft"</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htJustify"</span><span class="p">}</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htMiddle htRight"</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htBottom"</span><span class="p">}],</span><span class="w">
+        </span><span class="nl">"plateTemplate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5985,7 +6022,16 @@ If submitted attributes are the same and no changes are made for the item, serve
         "type": "tables",
         "attributes": {
             "name": "New table",
-            "contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}"
+            "contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}",
+      "metadata": {
+        "cells": [{"col": 0, "row": 0, "className": ""},
+                  {"col": 0, "row": 1, "className": "htRight"},
+                  {"col": 1, "row": 0, "className": ""},
+                  {"col": 1, "row": 1, "className": "htJustify"}
+                  {"col": 2, "row": 0, "className": "htMiddle htRight"},
+                  {"col": 2, "row": 1, "className": "htBottom"}],
+        "plateTemplate": true
+      }
         }
     }
 }'</span>
@@ -5999,7 +6045,16 @@ If submitted attributes are the same and no changes are made for the item, serve
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tables"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New table"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"contents"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">]]}"</span><span class="w">
+      </span><span class="nl">"contents"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">]]}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"cells"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htRight"</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htJustify"</span><span class="p">}</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htMiddle htRight"</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htBottom"</span><span class="p">}],</span><span class="w">
+        </span><span class="nl">"plateTemplate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6048,7 +6103,16 @@ If submitted attributes are the same and no changes are made for the item, serve
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tables"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New table"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"contents"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">]]}"</span><span class="w">
+            </span><span class="nl">"contents"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">]]}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"cells"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htRight"</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htJustify"</span><span class="p">}</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htMiddle htRight"</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htBottom"</span><span class="p">}],</span><span class="w">
+        </span><span class="nl">"plateTemplate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6070,6 +6134,11 @@ If submitted attributes are the same and no changes are made for the item, serve
 <td>no</td>
 <td>Serialized JSON representation of the table data</td>
 </tr>
+<tr>
+<td>metadata</td>
+<td>no</td>
+<td>JSON representation of the table metadata. <code>cells</code> represent the alignment of the specific table cell. Available <code>className</code> are <code>htCenter</code>, <code>htRight</code>, <code>htLeft</code>, <code>htJustify</code> for horizontal alignment, and <code>htTop</code>, <code>htMiddle</code>, <code>htBottom</code> for vertical alignment. <code>plateTemplate</code> field mark if table is a plate template</td>
+</tr>
 </tbody></table>
 <h2 id='update-table'>Update Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
   https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables/1 <span class="se">\</span>
@@ -6081,7 +6150,16 @@ If submitted attributes are the same and no changes are made for the item, serve
           "type": "tables",
           "attributes": {
             "name": "Table 2",
-            "contents":  "{\"data\":[[\"6\",\"5\",\"4\"],[\"3\",\"2\",\"1\"]]}"
+            "contents":  "{\"data\":[[\"6\",\"5\",\"4\"],[\"3\",\"2\",\"1\"]]}",
+            "metadata": {
+              "cells": [{"col": 0, "row": 0, "className": ""},
+                        {"col": 0, "row": 1, "className": "htRight"},
+                        {"col": 1, "row": 0, "className": ""},
+                        {"col": 1, "row": 1, "className": "htJustify"}
+                        {"col": 2, "row": 0, "className": "htMiddle htRight"},
+                        {"col": 2, "row": 1, "className": "htBottom"}],
+              "plateTemplate": true
+            }
           }
       }
   }'</span>
@@ -6095,7 +6173,16 @@ If submitted attributes are the same and no changes are made for the item, serve
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tables"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Table 2"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"contents"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">]]}"</span><span class="w">
+        </span><span class="nl">"contents"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">]]}"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"cells"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htRight"</span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htJustify"</span><span class="p">}</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htMiddle htRight"</span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htBottom"</span><span class="p">}],</span><span class="w">
+          </span><span class="nl">"plateTemplate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6146,7 +6233,16 @@ If submitted attributes are the same and no changes are made for the table, serv
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tables"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Table 2"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"contents"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">]]}"</span><span class="w">
+      </span><span class="nl">"contents"</span><span class="p">:</span><span class="w">  </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:[[</span><span class="se">\"</span><span class="s2">6</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">4</span><span class="se">\"</span><span class="s2">],[</span><span class="se">\"</span><span class="s2">3</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">]]}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"cells"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htRight"</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htJustify"</span><span class="p">}</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htMiddle htRight"</span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"htBottom"</span><span class="p">}],</span><span class="w">
+        </span><span class="nl">"plateTemplate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6167,6 +6263,11 @@ If submitted attributes are the same and no changes are made for the table, serv
 <td>contents</td>
 <td>no</td>
 <td>Serialized JSON representation of the table data</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>no</td>
+<td>JSON representation of the table metadata. <code>cells</code> represent the alignment of the specific table cell. Available <code>className</code> are <code>htCenter</code>, <code>htRight</code>, <code>htLeft</code>, <code>htJustify</code> for horizontal alignment, and <code>htTop</code>, <code>htMiddle</code>, <code>htBottom</code> for vertical alignment. <code>plateTemplate</code> field mark if table is a plate template</td>
 </tr>
 </tbody></table>
 <h2 id='delete-table'>Delete Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
@@ -8073,7 +8174,13 @@ If submitted attributes are the same and no changes are made for the user assign
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result_tables"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"table_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"table_contents"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;table-contents&gt;</span><span class="w">
+                </span><span class="nl">"table_contents"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;table-contents&gt;</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"cells"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nl">"row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+                  </span><span class="p">]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -8762,6 +8869,111 @@ Token should be string without special symbols.</p>
 <tr>
 <td>REPORT_ID</td>
 <td>The ID of the report to retrieve</td>
+</tr>
+</tbody></table>
+<h1 id='protocol-templates'>Protocol templates</h1><h2 id='get-protocol-templates'>Get Protocol templates</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/protocol_templates"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"protocols"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Protocol name"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"authors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"protocol_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"in_repository_published_original"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2023-03-27T12:32:41.387Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2023-03-27T12:33:23.481Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"version_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"version_comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"published_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-22T13:48:58.226Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"published_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"links"</span><span class="p">:{</span><span class="w">
+    </span><span class="nl">"self"</span><span class="p">:</span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/protocol_templates/?page%5Bnumber%5D=1</span><span class="se">\u</span><span class="s2">0026page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first"</span><span class="p">:</span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/protocol_templates/?page%5Bnumber%5D=1</span><span class="se">\u</span><span class="s2">0026page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prev"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"next"</span><span class="p">:</span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/protocol_templates/?page%5Bnumber%5D=2</span><span class="se">\u</span><span class="s2">0026page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last"</span><span class="p">:</span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/protocol_templates/?page%5Bnumber%5D=3</span><span class="se">\u</span><span class="s2">0026page%5Bsize%5D=10"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all protocol templates from the specified team.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/protocol_templates</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+</tbody></table>
+<h2 id='get-protocol-template'>Get Protocol template</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/protocol_templates/1"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"protocols"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Protocol name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"authors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"protocol_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"in_repository_draft"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2023-03-27T12:32:41.387Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2023-03-27T12:33:23.481Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"version_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"version_comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"published_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-22T13:48:58.226Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"published_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all protocol templates from the specified team.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/protocol_templates/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM_ID</td>
+<td>The ID of the team to retrieve project from</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the protocol template</td>
 </tr>
 </tbody></table>
 <h1 id='inventories'>Inventories</h1><h2 id='get-inventories'>Get Inventories</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories"</span>
