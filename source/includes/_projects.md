@@ -43,7 +43,7 @@ the project comments are also included.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects(?include=<INCLUDES>)`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects(?include=<INCLUDES>&filter%5Barchived%5D=<ARCHIVED>)`
 
 ### URL Parameters
 
@@ -51,6 +51,7 @@ Parameter | Description
 --------- | -----------
 TEAM_ID | The ID of the team to retrieve projects from
 INCLUDES | if set to `comments`, project comments are also included
+ARCHIVED | If set to `true` return only archived projects. If set to `false` return only active projects. 
 
 ## Get Project
 
