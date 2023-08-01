@@ -12,13 +12,13 @@ curl "https://<server-name>/api/v1/teams/1/protocol_templates"
 {
   "data":[
     {
-      "id": "1",
+      "id": "2",
       "type": "protocols",
       "attributes":{
         "name": "Protocol name",
         "authors": null,
         "description": null,
-        "protocol_type": "in_repository_published_original",
+        "protocol_type": "in_repository_published_version",
         "created_at":"2023-03-27T12:32:41.387Z",
         "updated_at":"2023-03-27T12:33:23.481Z",
         "version_number": 1,
@@ -26,10 +26,26 @@ curl "https://<server-name>/api/v1/teams/1/protocol_templates"
         "published_on": "2023-03-22T13:48:58.226Z",
         "archived": false
       },
-      "published_by": {
-        "data": {
-          "id": "1",
-          "type": "users"
+      "relationships": {
+        "parent": {
+          "data": {
+            "id": "1",
+            "type": "protocols"
+          }
+        },
+        "linked_tasks": {
+          "data": [
+            {
+              "id": "1",
+              "type": "tasks"
+            }
+          ]
+        },
+        "published_by": {
+          "data": {
+            "id": "1",
+            "type": "users"
+          }
         }
       }
     }
@@ -68,13 +84,13 @@ curl "https://<server-name>/api/v1/teams/1/protocol_templates/1"
 ```json
 {
   "data":{
-    "id": "1",
+    "id": "2",
     "type": "protocols",
     "attributes":{
       "name": "Protocol name",
       "authors": null,
       "description": null,
-      "protocol_type": "in_repository_draft",
+      "protocol_type": "in_repository_published_version",
       "created_at":"2023-03-27T12:32:41.387Z",
       "updated_at":"2023-03-27T12:33:23.481Z",
       "version_number": 1,
@@ -82,10 +98,26 @@ curl "https://<server-name>/api/v1/teams/1/protocol_templates/1"
       "published_on": "2023-03-22T13:48:58.226Z",
       "archived": false
     },
-    "published_by": {
-      "data": {
-        "id": "1",
-        "type": "users"
+    "relationships": {
+      "parent": {
+        "data": {
+          "id": "1",
+          "type": "protocols"
+        }
+      },
+      "linked_tasks": {
+        "data": [
+          {
+            "id": "1",
+            "type": "tasks"
+          }
+        ]
+      },
+      "published_by": {
+        "data": {
+          "id": "1",
+          "type": "users"
+        }
       }
     }
   }
