@@ -11,7 +11,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/activ
 
 ```json
 {
-  "data":[
+  "data": [
     {
       "id": "3",
       "type": "activities",
@@ -69,7 +69,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/activ
       }
     }
   ],
-  "links":{
+  "links": {
     "self": "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/activities?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "first": "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/activities?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "prev": null,
@@ -83,13 +83,15 @@ This endpoint retrieves all activities from specific task.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/activities`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/activities(?created_at[from]=<FROM>&created_at[to]=<TO>&updated_at[from]=<FROM>&updated_at[to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve experiment from
-EXPERIMENT_ID | The ID of the experiment to retrieve task from
-TASK_ID | The ID of the task to retrieve activities from
+| Parameter     | Description                                                                          |
+| ------------- | ------------------------------------------------------------------------------------ |
+| TEAM_ID       | The ID of the team to retrieve project from                                          |
+| PROJECT_ID    | The ID of the project to retrieve experiment from                                    |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from                                       |
+| TASK_ID       | The ID of the task to retrieve activities from                                       |
+| FROM          | If present will filter task activities corresponding timestamp above or equals value |
+| TO            | If present will filter task activities corresponding timestamp below or equals value |

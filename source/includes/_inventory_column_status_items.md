@@ -11,39 +11,39 @@ curl "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/status_items"
 
 ```json
 {
-    "data": [
-        {
-            "id": "1",
-            "type": "inventory_status_items",
-            "attributes": {
-                "status": "status 1",
-                "icon": "icon 1"
-            }
-        },
-        {
-            "id": "2",
-            "type": "inventory_status_items",
-            "attributes": {
-                "status": "status 2",
-                "icon": "icon 2"            
-            }
-        },
-        {
-            "id": "3",
-            "type": "inventory_status_items",
-            "attributes": {
-                "status": "status 3",
-                "icon": "icon 3"            
-             }
-        }
-    ],
-    "links": {
-        "self": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/status_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
-        "first": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/status_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
-        "prev": null,
-        "next": null,
-        "last": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/status_items?page%5Bnumber%5D=1&page%5Bsize%5D=10"
+  "data": [
+    {
+      "id": "1",
+      "type": "inventory_status_items",
+      "attributes": {
+        "status": "status 1",
+        "icon": "icon 1"
+      }
+    },
+    {
+      "id": "2",
+      "type": "inventory_status_items",
+      "attributes": {
+        "status": "status 2",
+        "icon": "icon 2"
+      }
+    },
+    {
+      "id": "3",
+      "type": "inventory_status_items",
+      "attributes": {
+        "status": "status 3",
+        "icon": "icon 3"
+      }
     }
+  ],
+  "links": {
+    "self": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/status_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "first": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/status_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "prev": null,
+    "next": null,
+    "last": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/status_items?page%5Bnumber%5D=1&page%5Bsize%5D=10"
+  }
 }
 ```
 
@@ -51,15 +51,17 @@ This endpoint retrieves status items from specific inventory column, only valid 
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/inventories/<INVENTORY_ID>/columns/<COLUMN_ID>/status_items`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/inventories/<INVENTORY_ID>/columns/<COLUMN_ID>/status_items(?created_at[from]=<FROM>&created_at[to]=<TO>&updated_at[from]=<FROM>&updated_at[to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with status data type) in specified inventory to retrieve status items from
+| Parameter    | Description                                                                                        |
+| ------------ | -------------------------------------------------------------------------------------------------- |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                      |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                                    |
+| COLUMN_ID    | The ID of the column(with status data type) in specified inventory to retrieve status items from   |
+| FROM         | If present will filter inventory column status items corresponding timestamp above or equals value |
+| TO           | If present will filter inventory column status items corresponding timestamp below or equals value |
 
 ## Get Status Item
 
@@ -72,14 +74,14 @@ curl "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/status_items/
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "inventory_status_items",
-        "attributes": {
-            "data": "status 1",
-            "icon": "icon 1"
-        }
+  "data": {
+    "id": "1",
+    "type": "inventory_status_items",
+    "attributes": {
+      "data": "status 1",
+      "icon": "icon 1"
     }
+  }
 }
 ```
 
@@ -91,12 +93,12 @@ This endpoint retrieves specific status item from inventory column, only valid f
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with status data type) in specified inventory to retrieve status items from
-ID | The ID of the status item
+| Parameter    | Description                                                                                      |
+| ------------ | ------------------------------------------------------------------------------------------------ |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                    |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                                  |
+| COLUMN_ID    | The ID of the column(with status data type) in specified inventory to retrieve status items from |
+| ID           | The ID of the status item                                                                        |
 
 ## Create Status Item
 
@@ -120,14 +122,14 @@ curl -X POST \
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "inventory_status_items",
-        "attributes": {
-            "status": "status 1",
-            "icon": "icon"
-        }
+  "data": {
+    "id": "1",
+    "type": "inventory_status_items",
+    "attributes": {
+      "status": "status 1",
+      "icon": "icon"
     }
+  }
 }
 ```
 
@@ -139,11 +141,11 @@ This endpoint creates new status item in selected inventory column, only valid f
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with status data type) in specified inventory to retrieve status items from
+| Parameter    | Description                                                                                      |
+| ------------ | ------------------------------------------------------------------------------------------------ |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                    |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                                  |
+| COLUMN_ID    | The ID of the column(with status data type) in specified inventory to retrieve status items from |
 
 ### Request body
 
@@ -157,10 +159,10 @@ COLUMN_ID | The ID of the column(with status data type) in specified inventory t
     }
 }`
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-status | yes | Name of the status item
-icon   | yes | Icon of the status item
+| Attribute | Mandatory | Description             |
+| --------- | --------- | ----------------------- |
+| status    | yes       | Name of the status item |
+| icon      | yes       | Icon of the status item |
 
 ## Update Status Item
 
@@ -184,14 +186,14 @@ curl -X PATCH \
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "inventory_status_items",
-        "attributes": {
-            "status": "status 2",
-            "icon": "icon"
-        }
+  "data": {
+    "id": "1",
+    "type": "inventory_status_items",
+    "attributes": {
+      "status": "status 2",
+      "icon": "icon"
     }
+  }
 }
 ```
 
@@ -204,12 +206,12 @@ If submitted attributes are the same and no changes are made for the item, serve
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with status data type) in specified inventory to retrieve status items from
-ID | The ID of the status item
+| Parameter    | Description                                                                                      |
+| ------------ | ------------------------------------------------------------------------------------------------ |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                    |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                                  |
+| COLUMN_ID    | The ID of the column(with status data type) in specified inventory to retrieve status items from |
+| ID           | The ID of the status item                                                                        |
 
 ### Request body
 
@@ -223,9 +225,9 @@ ID | The ID of the status item
     }
 }`
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-status | yes | Name of the status item
+| Attribute | Mandatory | Description             |
+| --------- | --------- | ----------------------- |
+| status    | yes       | Name of the status item |
 
 ## Delete Status Item
 
@@ -245,9 +247,9 @@ This endpoint deletes specific status item from inventory column.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with status data type) in specified inventory to retrieve status items from
-ID | The ID of the status item
+| Parameter    | Description                                                                                      |
+| ------------ | ------------------------------------------------------------------------------------------------ |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                    |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                                  |
+| COLUMN_ID    | The ID of the column(with status data type) in specified inventory to retrieve status items from |
+| ID           | The ID of the status item                                                                        |

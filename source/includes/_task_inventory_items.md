@@ -6,24 +6,25 @@
 curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/2/items"
   -H "Authorization: Bearer qwerty123456..."
 ```
+
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "data":[
+  "data": [
     {
       "id": "1",
       "type": "inventory_items",
-      "attributes":{
+      "attributes": {
         "name": "BOX/1",
         "archived": false,
         "created_at": "2021-03-12T19:44:10.627Z",
         "updated_at": "2022-03-24T13:33:21.291Z",
         "stock_consumption": "130.0" // present if item contains a stock cell
       },
-      "relationships":{
-        "inventory_cells":{
-          "data":[
+      "relationships": {
+        "inventory_cells": {
+          "data": [
             {
               "id": "1",
               "type": "inventory_cells"
@@ -34,8 +35,8 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/2/items
             }
           ]
         },
-        "inventory":{
-          "data":{
+        "inventory": {
+          "data": {
             "id": "1",
             "type": "inventories"
           }
@@ -45,12 +46,12 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/2/items
     {
       "id": "2",
       "type": "inventory_items",
-      "attributes":{
+      "attributes": {
         "name": "BOX/2"
       },
-      "relationships":{
-        "inventory_cells":{
-          "data":[
+      "relationships": {
+        "inventory_cells": {
+          "data": [
             {
               "id": "3",
               "type": "inventory_cells"
@@ -61,8 +62,8 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/2/items
             }
           ]
         },
-        "inventory":{
-          "data":{
+        "inventory": {
+          "data": {
             "id": "1",
             "type": "inventories"
           }
@@ -70,7 +71,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/2/items
       }
     }
   ],
-  "links":{
+  "links": {
     "self": "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/2/items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "first": "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/2/items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "prev": null,
@@ -84,16 +85,18 @@ This endpoint retrieves all Inventory Items, that are assigned to the specified 
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/items`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/items(?created_at[from]=<FROM>&created_at[to]=<TO>&updated_at[from]=<FROM>&updated_at[to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve experiment from
-EXPERIMENT_ID | The ID of the experiment to retrieve task from
-TASK_ID | The ID of the task to retrieve inventory items from
+| Parameter     | Description                                                                                        |
+| ------------- | -------------------------------------------------------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from                                                        |
+| PROJECT_ID    | The ID of the project to retrieve experiment from                                                  |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from                                                     |
+| TASK_ID       | The ID of the task to retrieve inventory items from                                                |
+| FROM          | If present will filter task assigned inventory items corresponding timestamp above or equals value |
+| TO            | If present will filter task assigned inventory items corresponding timestamp below or equals value |
 
 ## Get Task Inventory Item
 
@@ -101,23 +104,24 @@ TASK_ID | The ID of the task to retrieve inventory items from
 curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/2/items/1"
   -H "Authorization: Bearer qwerty123456..."
 ```
+
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "data":{
+  "data": {
     "id": "1",
     "type": "inventory_items",
-    "attributes":{
+    "attributes": {
       "name": "BOX/1",
       "archived": false,
       "created_at": "2021-03-12T19:44:10.627Z",
       "updated_at": "2022-03-24T13:33:21.291Z",
       "stock_consumption": "130.0" // present if item contains a stock cell
     },
-    "relationships":{
-      "inventory_cells":{
-        "data":[
+    "relationships": {
+      "inventory_cells": {
+        "data": [
           {
             "id": "1",
             "type": "inventory_cells"
@@ -128,21 +132,21 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/2/items
           }
         ]
       },
-      "inventory":{
-        "data":{
+      "inventory": {
+        "data": {
           "id": "1",
           "type": "inventories"
         }
       }
     }
   },
-  "included":[
+  "included": [
     {
       "id": "1",
       "type": "inventory_cells",
-      "attributes":{
+      "attributes": {
         "value_type": "list",
-        "value":{
+        "value": {
           "inventory_list_item_id": 1,
           "inventory_list_item_name": "Potato leaves"
         },
@@ -152,9 +156,9 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/2/items
     {
       "id": "2",
       "type": "inventory_cells",
-      "attributes":{
+      "attributes": {
         "value_type": "list",
-        "value":{
+        "value": {
           "inventory_list_item_id": 6,
           "inventory_list_item_name": "Seed"
         },
@@ -164,12 +168,12 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/2/items
     {
       "id": "1",
       "type": "inventories",
-      "attributes":{
+      "attributes": {
         "name": "Samples"
       },
-      "relationships":{
-        "created_by":{
-          "data":{
+      "relationships": {
+        "created_by": {
+          "data": {
             "id": "1",
             "type": "users"
           }
@@ -188,13 +192,13 @@ This endpoint retrieves a specific inventory item, that is assigned to the speci
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve experiment from
-EXPERIMENT_ID | The ID of the experiment to retrieve task from
-TASK_ID | The ID of the task to retrieve inventory item from
-ITEM_ID | The ID of the inventory item to retrieve
+| Parameter     | Description                                        |
+| ------------- | -------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from        |
+| PROJECT_ID    | The ID of the project to retrieve experiment from  |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from     |
+| TASK_ID       | The ID of the task to retrieve inventory item from |
+| ITEM_ID       | The ID of the inventory item to retrieve           |
 
 ## Update Task Inventory Item
 
@@ -218,19 +222,19 @@ curl -X POST \
 
 ```json
 {
-  "data":{
+  "data": {
     "id": "1",
     "type": "inventory_items",
-    "attributes":{
+    "attributes": {
       "name": "BOX/1",
       "archived": false,
       "created_at": "2021-03-12T19:44:10.627Z",
       "updated_at": "2022-03-24T13:33:21.291Z",
       "stock_consumption": "100.0"
     },
-    "relationships":{
-      "inventory_cells":{
-        "data":[
+    "relationships": {
+      "inventory_cells": {
+        "data": [
           {
             "id": "1",
             "type": "inventory_cells"
@@ -241,21 +245,21 @@ curl -X POST \
           }
         ]
       },
-      "inventory":{
-        "data":{
+      "inventory": {
+        "data": {
           "id": "1",
           "type": "inventories"
         }
       }
     }
   },
-  "included":[
+  "included": [
     {
       "id": "1",
       "type": "inventory_cells",
-      "attributes":{
+      "attributes": {
         "value_type": "list",
-        "value":{
+        "value": {
           "inventory_list_item_id": 1,
           "inventory_list_item_name": "Potato leaves"
         },
@@ -265,9 +269,9 @@ curl -X POST \
     {
       "id": "2",
       "type": "inventory_cells",
-      "attributes":{
+      "attributes": {
         "value_type": "list",
-        "value":{
+        "value": {
           "inventory_list_item_id": 6,
           "inventory_list_item_name": "Seed"
         },
@@ -277,12 +281,12 @@ curl -X POST \
     {
       "id": "1",
       "type": "inventories",
-      "attributes":{
+      "attributes": {
         "name": "Samples"
       },
-      "relationships":{
-        "created_by":{
-          "data":{
+      "relationships": {
+        "created_by": {
+          "data": {
             "id": "1",
             "type": "users"
           }
@@ -301,31 +305,31 @@ This endpoint updates a specific inventory item, that is assigned to the specifi
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve experiment from
-EXPERIMENT_ID | The ID of the experiment to retrieve task from
-TASK_ID | The ID of the task to retrieve inventory item from
-ITEM_ID | The ID of the inventory item to retrieve
+| Parameter     | Description                                        |
+| ------------- | -------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from        |
+| PROJECT_ID    | The ID of the project to retrieve experiment from  |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from     |
+| TASK_ID       | The ID of the task to retrieve inventory item from |
+| ITEM_ID       | The ID of the inventory item to retrieve           |
 
 > Request body
 
 ```json
 {
   "data": {
-		"type": "inventory_items",
-		"attributes": {
-			"stock_consumption": 100.0,
+    "type": "inventory_items",
+    "attributes": {
+      "stock_consumption": 100.0,
       "stock_consumption_comment": "Some comment"
-		}
-	}
+    }
+  }
 }
 ```
 
 ### Checklist attributes
 
-Attribute                 | Mandatory| Description
-------------------------- | -------- | -----------
-stock_consumption         | yes      | Stock consumption to be set on the item.
-stock_consumption_comment | no       | Stock consumption comment to be set on the item. This will be recorded in the ledger
+| Attribute                 | Mandatory | Description                                                                          |
+| ------------------------- | --------- | ------------------------------------------------------------------------------------ |
+| stock_consumption         | yes       | Stock consumption to be set on the item.                                             |
+| stock_consumption_comment | no        | Stock consumption comment to be set on the item. This will be recorded in the ledger |

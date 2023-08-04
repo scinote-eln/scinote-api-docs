@@ -30,8 +30,12 @@ This endpoint retrieves all wrokflows from instance.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/workflows`
+`GET https://<server-name>/api/v1/workflows(?created_at[from]=<FROM>&created_at[to]=<TO>&updated_at[from]=<FROM>&updated_at[to]=<TO>)`
 
+| Parameter | Description                                                                      |
+| --------- | -------------------------------------------------------------------------------- |
+| FROM      | If present will filter experiments corresponding timestamp above or equals value |
+| TO        | If present will filter experiments corresponding timestamp below or equals value |
 
 ## Get Workflow
 
@@ -65,6 +69,6 @@ curl "http://<server-name>/api/v1/workflows/1"
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-WORKFLOW_ID | The ID of the workflow to retrieve
+| Parameter   | Description                        |
+| ----------- | ---------------------------------- |
+| WORKFLOW_ID | The ID of the workflow to retrieve |

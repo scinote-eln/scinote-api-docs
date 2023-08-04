@@ -6,22 +6,23 @@
 curl "http://<server-name>/api/v1/teams/1/projects/1/experiments"
   -H "Authorization: Bearer qwerty123456..."
 ```
+
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "data":[
+  "data": [
     {
       "id": "1",
       "type": "experiments",
-      "attributes":{
+      "attributes": {
         "name": "My first experiment",
         "description": "This is my very first experiment",
         "archived": false
       }
     }
   ],
-  "links":{
+  "links": {
     "self": "http://<server-name>/api/v1/teams/1/projects/1/experiments?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "first": "http://<server-name>/api/v1/teams/1/projects/1/experiments?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "prev": null,
@@ -35,15 +36,17 @@ This endpoint retrieves all experiments from the specified project.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments(?filter%5Barchived%5D=<ARCHIVED>)`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments(?filter%5Barchived%5D=<ARCHIVED>&created_at[from]=<FROM>&created_at[to]=<TO>&updated_at[from]=<FROM>&updated_at[to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve experiments from
-ARCHIVED | If set to `true` return only archived experiments. If set to `false` return only active experiments.
+| Parameter  | Description                                                                                          |
+| ---------- | ---------------------------------------------------------------------------------------------------- |
+| TEAM_ID    | The ID of the team to retrieve project from                                                          |
+| PROJECT_ID | The ID of the project to retrieve experiments from                                                   |
+| ARCHIVED   | If set to `true` return only archived experiments. If set to `false` return only active experiments. |
+| FROM       | If present will filter experiments corresponding timestamp above or equals value                     |
+| TO         | If present will filter experiments corresponding timestamp below or equals value                     |
 
 ## Get Experiment
 
@@ -56,10 +59,10 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1"
 
 ```json
 {
-  "data":{
+  "data": {
     "id": "1",
     "type": "experiments",
-    "attributes":{
+    "attributes": {
       "name": "My first experiment",
       "description": "This is my very first experiment",
       "archived": false
@@ -76,11 +79,11 @@ This endpoint retrieves a specific experiment from the specified project.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve experiment from
-EXPERIMENT_ID | The ID of the experiment to retrieve
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve              |
 
 ## Create Experiment
 
@@ -102,6 +105,7 @@ curl -X POST \
 ```
 
 > The above command returns JSON structured like this:
+
 ```json
 {
   "data": {
@@ -124,12 +128,13 @@ This endpoint creates a new experiment in the team. Please note that we will cre
 
 ### URL Parameters
 
-Parameter     | Description
-------------- | -----------
-TEAM_ID       | The ID of the team to retrieve projects from
-PROJECT_ID    | The ID of the project to retrieve experiment from
+| Parameter  | Description                                       |
+| ---------- | ------------------------------------------------- |
+| TEAM_ID    | The ID of the team to retrieve projects from      |
+| PROJECT_ID | The ID of the project to retrieve experiment from |
 
 > Request body
+
 ```json
 {
   "data": {
@@ -145,11 +150,11 @@ PROJECT_ID    | The ID of the project to retrieve experiment from
 
 ### Experiment attributes
 
-Attribute   | Mandatory | Description
------------ | --------- | -----------
-name        | yes       | Name of the experiment
-description | no        | Description of the experiment
-archived    | no        | Archived flag
+| Attribute   | Mandatory | Description                   |
+| ----------- | --------- | ----------------------------- |
+| name        | yes       | Name of the experiment        |
+| description | no        | Description of the experiment |
+| archived    | no        | Archived flag                 |
 
 ## Update Experiment
 
@@ -172,17 +177,18 @@ curl -X PATCH \
 ```
 
 > The above command returns JSON structured like this:
+
 ```json
 {
-    "data": {
-      "id": "1",
-      "type": "experiments",
-      "attributes": {
-        "name": "Experiment 2",
-        "description": "New description",
-        "archived": true
-      }
+  "data": {
+    "id": "1",
+    "type": "experiments",
+    "attributes": {
+      "name": "Experiment 2",
+      "description": "New description",
+      "archived": true
     }
+  }
 }
 ```
 
@@ -195,11 +201,11 @@ If submitted attributes are the same and no changes are made for the experiment,
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-ID              | The ID of the experiment
+| Parameter  | Description                                       |
+| ---------- | ------------------------------------------------- |
+| TEAM_ID    | The ID of the team to retrieve project from       |
+| PROJECT_ID | The ID of the project to retrieve experiment from |
+| ID         | The ID of the experiment                          |
 
 ### Request body
 
@@ -219,8 +225,8 @@ ID              | The ID of the experiment
 
 ### Experiment attributes
 
-Attribute   | Mandatory | Description
------------ | --------- | -----------
-name        | yes       | Name of the experiment
-description | no        | Description of the experiment
-archived    | no        | Archived flag
+| Attribute   | Mandatory | Description                   |
+| ----------- | --------- | ----------------------------- |
+| name        | yes       | Name of the experiment        |
+| description | no        | Description of the experiment |
+| archived    | no        | Archived flag                 |

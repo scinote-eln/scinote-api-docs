@@ -11,36 +11,36 @@ curl "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/checklist_ite
 
 ```json
 {
-    "data": [
-        {
-            "id": "1",
-            "type": "inventory_checklist_items",
-            "attributes": {
-                "data": "Item 1"
-            }
-        },
-        {
-            "id": "2",
-            "type": "inventory_checklist_items",
-            "attributes": {
-                "data": "Item 2"
-            }
-        },
-        {
-            "id": "3",
-            "type": "inventory_checklist_items",
-            "attributes": {
-                "data": "Item 3"
-            }
-        }
-    ],
-    "links": {
-        "self": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/checklist_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
-        "first": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/checklist_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
-        "prev": null,
-        "next": null,
-        "last": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/checklist_items?page%5Bnumber%5D=1&page%5Bsize%5D=10"
+  "data": [
+    {
+      "id": "1",
+      "type": "inventory_checklist_items",
+      "attributes": {
+        "data": "Item 1"
+      }
+    },
+    {
+      "id": "2",
+      "type": "inventory_checklist_items",
+      "attributes": {
+        "data": "Item 2"
+      }
+    },
+    {
+      "id": "3",
+      "type": "inventory_checklist_items",
+      "attributes": {
+        "data": "Item 3"
+      }
     }
+  ],
+  "links": {
+    "self": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/checklist_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "first": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/checklist_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "prev": null,
+    "next": null,
+    "last": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/checklist_items?page%5Bnumber%5D=1&page%5Bsize%5D=10"
+  }
 }
 ```
 
@@ -48,15 +48,17 @@ This endpoint retrieves checklist items from specific inventory column, only val
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/inventories/<INVENTORY_ID>/columns/<COLUMN_ID>/checklist_items`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/inventories/<INVENTORY_ID>/columns/<COLUMN_ID>/checklist_items(?created_at[from]=<FROM>&created_at[to]=<TO>&updated_at[from]=<FROM>&updated_at[to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from
+| Parameter    | Description                                                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------------ |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                          |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                                        |
+| COLUMN_ID    | The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from |
+| FROM         | If present will filter inventory column checklist items corresponding timestamp above or equals value  |
+| TO           | If present will filter inventory column checklist items corresponding timestamp below or equals value  |
 
 ## Get Checklist Item
 
@@ -69,13 +71,13 @@ curl "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/checklist_ite
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "inventory_checklist_items",
-        "attributes": {
-            "data": "Item 1"
-        }
+  "data": {
+    "id": "1",
+    "type": "inventory_checklist_items",
+    "attributes": {
+      "data": "Item 1"
     }
+  }
 }
 ```
 
@@ -87,12 +89,12 @@ This endpoint retrieves specific checklist item from inventory column, only vali
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from
-ID | The ID of the checklist item
+| Parameter    | Description                                                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------------ |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                          |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                                        |
+| COLUMN_ID    | The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from |
+| ID           | The ID of the checklist item                                                                           |
 
 ## Create Checklist Item
 
@@ -115,13 +117,13 @@ curl -X POST \
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "inventory_checklist_items",
-        "attributes": {
-            "data": "Item 1"
-        }
+  "data": {
+    "id": "1",
+    "type": "inventory_checklist_items",
+    "attributes": {
+      "data": "Item 1"
     }
+  }
 }
 ```
 
@@ -133,11 +135,11 @@ This endpoint creates new checklist item in selected inventory column, only vali
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from
+| Parameter    | Description                                                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------------ |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                          |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                                        |
+| COLUMN_ID    | The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from |
 
 ### Request body
 
@@ -150,9 +152,9 @@ COLUMN_ID | The ID of the column(with checklist data type) in specified inventor
     }
 }`
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-data | yes | Text value of the checklist item
+| Attribute | Mandatory | Description                      |
+| --------- | --------- | -------------------------------- |
+| data      | yes       | Text value of the checklist item |
 
 ## Update Checklist Item
 
@@ -176,13 +178,13 @@ curl -X PATCH \
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "inventory_checklist_items",
-        "attributes": {
-            "data": "Item 2"
-        }
+  "data": {
+    "id": "1",
+    "type": "inventory_checklist_items",
+    "attributes": {
+      "data": "Item 2"
     }
+  }
 }
 ```
 
@@ -195,12 +197,12 @@ If submitted attributes are the same and no changes are made for the item, serve
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from
-ID | The ID of the checklist item
+| Parameter    | Description                                                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------------ |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                          |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                                        |
+| COLUMN_ID    | The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from |
+| ID           | The ID of the checklist item                                                                           |
 
 ### Request body
 
@@ -214,9 +216,9 @@ ID | The ID of the checklist item
     }
 }`
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-data | yes | Text value of the checklist item
+| Attribute | Mandatory | Description                      |
+| --------- | --------- | -------------------------------- |
+| data      | yes       | Text value of the checklist item |
 
 ## Delete Checklist Item
 
@@ -236,9 +238,9 @@ This endpoint deletes specific checklist item from inventory column.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from
-ID | The ID of the checklist item
+| Parameter    | Description                                                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------------ |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                          |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                                        |
+| COLUMN_ID    | The ID of the column(with checklist data type) in specified inventory to retrieve checklist items from |
+| ID           | The ID of the checklist item                                                                           |

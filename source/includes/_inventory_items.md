@@ -56,15 +56,17 @@ the inventory cells of the items are also included; otherwise, they are ignored.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/inventories/<INVENTORY_ID>/items(?include=<INCLUDE_CELLS>)`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/inventories/<INVENTORY_ID>/items(?include=<INCLUDE_CELLS>&created_at[from]=<FROM>&created_at[to]=<TO>&updated_at[from]=<FROM>&updated_at[to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve items from
-INCLUDE_CELLS | if set to `inventory_cells`, inventory cells of the items are also included
+| Parameter     | Description                                                                          |
+| ------------- | ------------------------------------------------------------------------------------ |
+| TEAM_ID       | The ID of the team to retrieve inventory from                                        |
+| INVENTORY_ID  | The ID of the inventory to retrieve items from                                       |
+| INCLUDE_CELLS | if set to `inventory_cells`, inventory cells of the items are also included          |
+| FROM          | If present will filter inventory items corresponding timestamp above or equals value |
+| TO            | If present will filter inventory items corresponding timestamp below or equals value |
 
 ## Get Item
 
@@ -153,11 +155,11 @@ This endpoint retrieves specific item from the inventory. Cells are included by 
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve item from
-ID | The ID of the item
+| Parameter    | Description                                   |
+| ------------ | --------------------------------------------- |
+| TEAM_ID      | The ID of the team to retrieve inventory from |
+| INVENTORY_ID | The ID of the inventory to retrieve item from |
+| ID           | The ID of the item                            |
 
 ## Create Item
 
@@ -196,52 +198,52 @@ curl -X POST \
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "inventory_items",
-        "attributes": {
-            "name": "POY/3"
-        },
-        "relationships": {
-            "inventory_cells": {
-                "data": [
-                    {
-                        "id": "1",
-                        "type": "inventory_cells"
-                    },
-                    {
-                        "id": "2",
-                        "type": "inventory_cells"
-                    }
-                ]
-            }
-        }
+  "data": {
+    "id": "1",
+    "type": "inventory_items",
+    "attributes": {
+      "name": "POY/3"
     },
-    "included": [
-        {
+    "relationships": {
+      "inventory_cells": {
+        "data": [
+          {
             "id": "1",
-            "type": "inventory_cells",
-            "attributes": {
-                "value_type": "list",
-                "value": {
-                    "inventory_list_item_id": 1,
-                    "inventory_list_item_name": "Potato leaves"
-                },
-                "column_id": 1
-            }
-        },
-        {
+            "type": "inventory_cells"
+          },
+          {
             "id": "2",
-            "type": "inventory_cells",
-            "attributes": {
-                "value_type": "text",
-                "value": {
-                    "text": "#6C159E"
-                },
-                "column_id": 2
-            }
-        }
-    ]
+            "type": "inventory_cells"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "1",
+      "type": "inventory_cells",
+      "attributes": {
+        "value_type": "list",
+        "value": {
+          "inventory_list_item_id": 1,
+          "inventory_list_item_name": "Potato leaves"
+        },
+        "column_id": 1
+      }
+    },
+    {
+      "id": "2",
+      "type": "inventory_cells",
+      "attributes": {
+        "value_type": "text",
+        "value": {
+          "text": "#6C159E"
+        },
+        "column_id": 2
+      }
+    }
+  ]
 }
 ```
 
@@ -253,52 +255,52 @@ This endpoint creates new item in the inventory, cells can be also added in 'inc
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory
+| Parameter    | Description                                   |
+| ------------ | --------------------------------------------- |
+| TEAM_ID      | The ID of the team to retrieve inventory from |
+| INVENTORY_ID | The ID of the inventory                       |
 
 > Request body
 
 ```json
 {
-    "data": {
-        "type": "inventory_items",
-        "attributes": {
-            "name": "POY/3"
-        }
+  "data": {
+    "type": "inventory_items",
+    "attributes": {
+      "name": "POY/3"
+    }
+  },
+  "included": [
+    {
+      "type": "inventory_cells",
+      "attributes": {
+        "value": 1,
+        "column_id": 1
+      }
     },
-    "included": [
-        {
-            "type": "inventory_cells",
-            "attributes": {
-                "value": 1,
-                "column_id": 1
-            }
-        },
-        {
-            "type": "inventory_cells",
-            "attributes": {
-                "value": "#6C159E",
-                "column_id": 2
-            }
-        }
-    ]
+    {
+      "type": "inventory_cells",
+      "attributes": {
+        "value": "#6C159E",
+        "column_id": 2
+      }
+    }
+  ]
 }
 ```
 
 ### Inventory item attributes
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-name | yes | Name of the item
+| Attribute | Mandatory | Description      |
+| --------- | --------- | ---------------- |
+| name      | yes       | Name of the item |
 
 ### Inventory cell attributes
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-value | yes | Content of the cell, depends on column type
-column_id | yes | ID of the column
+| Attribute | Mandatory | Description                                 |
+| --------- | --------- | ------------------------------------------- |
+| value     | yes       | Content of the cell, depends on column type |
+| column_id | yes       | ID of the column                            |
 
 ## Update Item
 
@@ -340,52 +342,52 @@ curl -X PATCH \
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "inventory_items",
-        "attributes": {
-            "name": "POY/4"
-        },
-        "relationships": {
-            "inventory_cells": {
-                "data": [
-                    {
-                        "id": "1",
-                        "type": "inventory_cells"
-                    },
-                    {
-                        "id": "2",
-                        "type": "inventory_cells"
-                    }
-                ]
-            }
-        }
+  "data": {
+    "id": "1",
+    "type": "inventory_items",
+    "attributes": {
+      "name": "POY/4"
     },
-    "included": [
-        {
+    "relationships": {
+      "inventory_cells": {
+        "data": [
+          {
             "id": "1",
-            "type": "inventory_cells",
-            "attributes": {
-                "value_type": "list",
-                "value": {
-                    "inventory_list_item_id": 2,
-                    "inventory_list_item_name": "Tea leaves (1)"
-                },
-                "column_id": 1
-            }
-        },
-        {
+            "type": "inventory_cells"
+          },
+          {
             "id": "2",
-            "type": "inventory_cells",
-            "attributes": {
-                "value_type": "text",
-                "value": {
-                    "text": "#6C159D"
-                },
-                "column_id": 2
-            }
-        }
-    ]
+            "type": "inventory_cells"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "1",
+      "type": "inventory_cells",
+      "attributes": {
+        "value_type": "list",
+        "value": {
+          "inventory_list_item_id": 2,
+          "inventory_list_item_name": "Tea leaves (1)"
+        },
+        "column_id": 1
+      }
+    },
+    {
+      "id": "2",
+      "type": "inventory_cells",
+      "attributes": {
+        "value_type": "text",
+        "value": {
+          "text": "#6C159D"
+        },
+        "column_id": 2
+      }
+    }
+  ]
 }
 ```
 
@@ -399,57 +401,56 @@ If submitted attributes are the same and no changes are made for the item, serve
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve item from
-ID | The ID of the item
+| Parameter    | Description                                   |
+| ------------ | --------------------------------------------- |
+| TEAM_ID      | The ID of the team to retrieve inventory from |
+| INVENTORY_ID | The ID of the inventory to retrieve item from |
+| ID           | The ID of the item                            |
 
 > Request body
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "inventory_items",
-        "attributes": {
-            "name": "POY/4"
-        }
+  "data": {
+    "id": "1",
+    "type": "inventory_items",
+    "attributes": {
+      "name": "POY/4"
+    }
+  },
+  "included": [
+    {
+      "id": "1",
+      "type": "inventory_cells",
+      "attributes": {
+        "value": 2,
+        "column_id": 1
+      }
     },
-    "included": [
-        {
-            "id": "1",
-            "type": "inventory_cells",
-            "attributes": {
-                "value": 2,
-                "column_id": 1
-            }
-        },
-        {
-            "id": "2",
-            "type": "inventory_cells",
-            "attributes": {
-                "value": "#6C159D",
-                "column_id": 2
-            }
-        }
-    ]
+    {
+      "id": "2",
+      "type": "inventory_cells",
+      "attributes": {
+        "value": "#6C159D",
+        "column_id": 2
+      }
+    }
+  ]
 }
 ```
 
 ### Inventory item attributes
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-name | no | Name of the item
+| Attribute | Mandatory | Description      |
+| --------- | --------- | ---------------- |
+| name      | no        | Name of the item |
 
 ### Inventory cell attributes
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-value | yes | Content of the cell, depends on column type
-column_id | yes | ID of the column
-
+| Attribute | Mandatory | Description                                 |
+| --------- | --------- | ------------------------------------------- |
+| value     | yes       | Content of the cell, depends on column type |
+| column_id | yes       | ID of the column                            |
 
 ## Delete Item
 
@@ -469,8 +470,8 @@ This endpoint deletes specific item from the inventory.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve item from
-ID | The ID of the item
+| Parameter    | Description                                   |
+| ------------ | --------------------------------------------- |
+| TEAM_ID      | The ID of the team to retrieve inventory from |
+| INVENTORY_ID | The ID of the inventory to retrieve item from |
+| ID           | The ID of the item                            |

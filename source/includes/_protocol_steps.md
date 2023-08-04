@@ -30,16 +30,16 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
           }
         },
         "assets": {
-            "data": []
+          "data": []
         },
         "checklists": {
-            "data": []
+          "data": []
         },
         "tables": {
-            "data": []
+          "data": []
         },
         "comments": {
-            "data": []
+          "data": []
         }
       }
     },
@@ -60,16 +60,16 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
           }
         },
         "assets": {
-            "data": []
+          "data": []
         },
         "checklists": {
-            "data": []
+          "data": []
         },
         "tables": {
-            "data": []
+          "data": []
         },
         "comments": {
-            "data": []
+          "data": []
         }
       }
     },
@@ -90,16 +90,16 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
           }
         },
         "assets": {
-            "data": []
+          "data": []
         },
         "checklists": {
-            "data": []
+          "data": []
         },
         "tables": {
-            "data": []
+          "data": []
         },
         "comments": {
-            "data": []
+          "data": []
         }
       }
     }
@@ -119,21 +119,25 @@ Optional URL parameter 'render_rte=true' can be added in order to request render
 If `?include=comments` PATH parameter is provided, step comments are also included.
 
 ### NOTE REGARDING STEP DESCRIPTION:
+
 After the step editing revamp, the step description is fetched from, and written to the first step_text element of the protocol step, and as such only exists as a virtual attribute. Usage of the step_texts endpoints should be preferred instead.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps(?include=<INCLUDES>)`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps(?include=<INCLUDES>&created_at[from]=<FROM>&created_at[to]=<TO>&updated_at[from]=<FROM>&updated_at[to]=<TO>)`
+
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-INCLUDES | if set to `comments`, step comments are also included
+| Parameter     | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from                                         |
+| PROJECT_ID    | The ID of the project to retrieve experiment from                                   |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from                                      |
+| TASK_ID       | The ID of the task to retrieve protocol from                                        |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from                                       |
+| INCLUDES      | if set to `comments`, step comments are also included                               |
+| FROM          | If present will filter protocol steps corresponding timestamp above or equals value |
+| TO            | If present will filter protocol steps corresponding timestamp below or equals value |
 
 ## Get Step
 
@@ -165,16 +169,16 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
         }
       },
       "assets": {
-          "data": []
+        "data": []
       },
       "checklists": {
-          "data": []
+        "data": []
       },
       "tables": {
-          "data": []
+        "data": []
       },
       "comments": {
-          "data": []
+        "data": []
       }
     }
   }
@@ -191,15 +195,15 @@ If `?include=comments` PATH parameter is provided, step comments are also includ
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-ID              | The ID of the step
-INCLUDES | if set to `comments`, step comments are also included
+| Parameter     | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from           |
+| PROJECT_ID    | The ID of the project to retrieve experiment from     |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from        |
+| TASK_ID       | The ID of the task to retrieve protocol from          |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from         |
+| ID            | The ID of the step                                    |
+| INCLUDES      | if set to `comments`, step comments are also included |
 
 ## Create Step
 
@@ -240,16 +244,16 @@ curl -X POST \
         }
       },
       "assets": {
-          "data": []
+        "data": []
       },
       "checklists": {
-          "data": []
+        "data": []
       },
       "tables": {
-          "data": []
+        "data": []
       },
       "comments": {
-          "data": []
+        "data": []
       }
     }
   }
@@ -264,13 +268,13 @@ This endpoint creates new step in the protocol.
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
 
 > Request body
 
@@ -288,11 +292,11 @@ PROTOCOL_ID     | The ID of the protocol to retrieve steps from
 
 ### Step attributes
 
-Attribute   | Mandatory| Description
----------   | -------- | -----------
-name        | yes      | Name of the step
-description | no       | Description of the step
-completed   | no       | Step completion flag
+| Attribute   | Mandatory | Description             |
+| ----------- | --------- | ----------------------- |
+| name        | yes       | Name of the step        |
+| description | no        | Description of the step |
+| completed   | no        | Step completion flag    |
 
 ## Update Step
 
@@ -318,37 +322,37 @@ curl -X PATCH \
 
 ```json
 {
-    "data": {
-      "id": "1",
-      "type": "steps",
-      "attributes": {
-          "name": "Step 2",
-          "description": "Step 2 description",
-          "position": 1,
-          "completed": true,
-          "completed_on": "2020-07-06T10:00:18.866Z"
-      },
-      "relationships": {
-        "protocol": {
-          "data": {
-            "id": "1",
-            "type": "protocols"
-          }
-        },
-        "assets": {
-            "data": []
-        },
-        "checklists": {
-            "data": []
-        },
-        "tables": {
-            "data": []
-        },
-        "comments": {
-            "data": []
+  "data": {
+    "id": "1",
+    "type": "steps",
+    "attributes": {
+      "name": "Step 2",
+      "description": "Step 2 description",
+      "position": 1,
+      "completed": true,
+      "completed_on": "2020-07-06T10:00:18.866Z"
+    },
+    "relationships": {
+      "protocol": {
+        "data": {
+          "id": "1",
+          "type": "protocols"
         }
+      },
+      "assets": {
+        "data": []
+      },
+      "checklists": {
+        "data": []
+      },
+      "tables": {
+        "data": []
+      },
+      "comments": {
+        "data": []
       }
     }
+  }
 }
 ```
 
@@ -361,14 +365,14 @@ If submitted attributes are the same and no changes are made for the step, serve
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-ID              | The ID of the step
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| ID            | The ID of the step                                |
 
 ### Request body
 
@@ -388,11 +392,11 @@ ID              | The ID of the step
 
 ### Step attributes
 
-Attribute   | Mandatory| Description
------------ | -------- | -----------
-name        | yes      | Name of the step
-description | no       | Description of the step
-completed   | no       | Step completion flag
+| Attribute   | Mandatory | Description             |
+| ----------- | --------- | ----------------------- |
+| name        | yes       | Name of the step        |
+| description | no        | Description of the step |
+| completed   | no        | Step completion flag    |
 
 ## Delete Step
 
@@ -412,16 +416,17 @@ This endpoint deletes specific step from the protocol.
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-ID              | The ID of the step
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| ID            | The ID of the step                                |
 
 ## Reorder step elements
+
 ```shell
 curl -X POST \
   https://<server-name>/api/service/teams/1/steps/1/reorder_elements \
@@ -441,22 +446,22 @@ curl -X POST \
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
 
 > Request body
 
 ```json
 {
-	"step_element_order": [
-		{ "id": 29570, "position": 0 },
-		{ "id": 29290, "position": 1 }
-	]
+  "step_element_order": [
+    { "id": 29570, "position": 0 },
+    { "id": 29290, "position": 1 }
+  ]
 }
 ```
 
@@ -464,66 +469,67 @@ PROTOCOL_ID     | The ID of the protocol to retrieve steps from
 
 ```json
 {
-	"data": [
-		{
-			"id": "29290",
-			"type": "step_orderable_elements",
-			"attributes": {
-				"position": 1,
-				"element": {
-					"id": 6854,
-					"name": "Checklist 1",
-					"created_at": "2022-05-12T11:58:58.163Z",
-					"updated_at": "2022-05-12T11:58:58.163Z",
-					"checklist_items": [
-						{
-							"id": 26930,
-							"text": "one",
-							"checked": true,
-							"position": 1,
-							"created_at": "2022-05-12T11:59:02.285Z",
-							"updated_at": "2022-05-12T11:59:20.223Z"
-						},
-						{
-							"id": 26931,
-							"text": "two",
-							"checked": true,
-							"position": 2,
-							"created_at": "2022-05-12T11:59:03.042Z",
-							"updated_at": "2022-05-12T11:59:21.131Z"
-						},
-						{
-							"id": 26929,
-							"text": "three",
-							"checked": false,
-							"position": 3,
-							"created_at": "2022-05-12T11:59:01.380Z",
-							"updated_at": "2022-05-12T11:59:01.380Z"
-						}
-					]
-				}
-			}
-		},
-		{
-			"id": "29570",
-			"type": "step_orderable_elements",
-			"attributes": {
-				"position": 0,
-				"element": {
-					"id": 19968,
-					"text": "<div>Some text.</div>",
-					"created_at": "2022-06-27T09:12:36.703Z",
-					"updated_at": "2022-06-27T09:12:45.714Z"
-				}
-			}
-		}
-	]
+  "data": [
+    {
+      "id": "29290",
+      "type": "step_orderable_elements",
+      "attributes": {
+        "position": 1,
+        "element": {
+          "id": 6854,
+          "name": "Checklist 1",
+          "created_at": "2022-05-12T11:58:58.163Z",
+          "updated_at": "2022-05-12T11:58:58.163Z",
+          "checklist_items": [
+            {
+              "id": 26930,
+              "text": "one",
+              "checked": true,
+              "position": 1,
+              "created_at": "2022-05-12T11:59:02.285Z",
+              "updated_at": "2022-05-12T11:59:20.223Z"
+            },
+            {
+              "id": 26931,
+              "text": "two",
+              "checked": true,
+              "position": 2,
+              "created_at": "2022-05-12T11:59:03.042Z",
+              "updated_at": "2022-05-12T11:59:21.131Z"
+            },
+            {
+              "id": 26929,
+              "text": "three",
+              "checked": false,
+              "position": 3,
+              "created_at": "2022-05-12T11:59:01.380Z",
+              "updated_at": "2022-05-12T11:59:01.380Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "29570",
+      "type": "step_orderable_elements",
+      "attributes": {
+        "position": 0,
+        "element": {
+          "id": 19968,
+          "text": "<div>Some text.</div>",
+          "created_at": "2022-06-27T09:12:36.703Z",
+          "updated_at": "2022-06-27T09:12:45.714Z"
+        }
+      }
+    }
+  ]
 }
 ```
 
 This endpoint is used for changing the order of step elements.
 
 ## Reorder steps
+
 ```shell
 curl -X POST \
   https://<server-name>/api/service/teams/1/protocols/1/reorder_steps \
@@ -544,23 +550,23 @@ curl -X POST \
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
 
 > Request body
 
 ```json
 {
-	"step_order": [
-		{ "id": 21803, "position": 1 },
-		{ "id": 21802, "position": 0 },
-		{ "id": 21801, "position": 2 }
-	]
+  "step_order": [
+    { "id": 21803, "position": 1 },
+    { "id": 21802, "position": 0 },
+    { "id": 21801, "position": 2 }
+  ]
 }
 ```
 
@@ -568,150 +574,150 @@ PROTOCOL_ID     | The ID of the protocol to retrieve steps from
 
 ```json
 {
-	"data": [
-		{
-			"id": "21802",
-			"type": "steps",
-			"attributes": {
-				"name": "Step 2",
-				"description": null,
-				"position": 0,
-				"completed": false,
-				"created_at": "2022-05-11T14:21:13.984Z",
-				"updated_at": "2022-05-11T14:21:16.501Z"
-			},
-			"relationships": {
-				"user": {
-					"data": {
-						"id": "9",
-						"type": "users"
-					}
-				},
-				"protocol": {
-					"data": {
-						"id": "11200",
-						"type": "protocols"
-					}
-				},
-				"assets": {
-					"data": []
-				},
-				"checklists": {
-					"data": []
-				},
-				"tables": {
-					"data": []
-				},
-				"step_texts": {
-					"data": []
-				},
-				"comments": {
-					"data": []
-				},
-				"step_elements": {
-					"data": [
-						{
-							"id": "29289",
-							"type": "step_orderable_elements"
-						}
-					]
-				}
-			}
-		},
+  "data": [
     {
-			"id": "21803",
-			"type": "steps",
-			"attributes": {
-				"name": "Step 1",
-				"description": null,
-				"position": 0,
-				"completed": false,
-				"created_at": "2022-05-11T14:21:13.984Z",
-				"updated_at": "2022-05-11T14:21:16.501Z"
-			},
-			"relationships": {
-				"user": {
-					"data": {
-						"id": "9",
-						"type": "users"
-					}
-				},
-				"protocol": {
-					"data": {
-						"id": "11200",
-						"type": "protocols"
-					}
-				},
-				"assets": {
-					"data": []
-				},
-				"checklists": {
-					"data": []
-				},
-				"tables": {
-					"data": []
-				},
-				"step_texts": {
-					"data": []
-				},
-				"comments": {
-					"data": []
-				},
-				"step_elements": {
-					"data": [
-						{
-							"id": "29289",
-							"type": "step_orderable_elements"
-						}
-					]
-				}
-			}
-		},
+      "id": "21802",
+      "type": "steps",
+      "attributes": {
+        "name": "Step 2",
+        "description": null,
+        "position": 0,
+        "completed": false,
+        "created_at": "2022-05-11T14:21:13.984Z",
+        "updated_at": "2022-05-11T14:21:16.501Z"
+      },
+      "relationships": {
+        "user": {
+          "data": {
+            "id": "9",
+            "type": "users"
+          }
+        },
+        "protocol": {
+          "data": {
+            "id": "11200",
+            "type": "protocols"
+          }
+        },
+        "assets": {
+          "data": []
+        },
+        "checklists": {
+          "data": []
+        },
+        "tables": {
+          "data": []
+        },
+        "step_texts": {
+          "data": []
+        },
+        "comments": {
+          "data": []
+        },
+        "step_elements": {
+          "data": [
+            {
+              "id": "29289",
+              "type": "step_orderable_elements"
+            }
+          ]
+        }
+      }
+    },
     {
-			"id": "21801",
-			"type": "steps",
-			"attributes": {
-				"name": "Step 3",
-				"description": null,
-				"position": 0,
-				"completed": false,
-				"created_at": "2022-05-11T14:21:13.984Z",
-				"updated_at": "2022-05-11T14:21:16.501Z"
-			},
-			"relationships": {
-				"user": {
-					"data": {
-						"id": "9",
-						"type": "users"
-					}
-				},
-				"protocol": {
-					"data": {
-						"id": "11200",
-						"type": "protocols"
-					}
-				},
-				"assets": {
-					"data": []
-				},
-				"checklists": {
-					"data": []
-				},
-				"tables": {
-					"data": []
-				},
-				"step_texts": {
-					"data": []
-				},
-				"comments": {
-					"data": []
-				},
-				"step_elements": {
-					"data": []
-				}
-			}
-		}
-	]
+      "id": "21803",
+      "type": "steps",
+      "attributes": {
+        "name": "Step 1",
+        "description": null,
+        "position": 0,
+        "completed": false,
+        "created_at": "2022-05-11T14:21:13.984Z",
+        "updated_at": "2022-05-11T14:21:16.501Z"
+      },
+      "relationships": {
+        "user": {
+          "data": {
+            "id": "9",
+            "type": "users"
+          }
+        },
+        "protocol": {
+          "data": {
+            "id": "11200",
+            "type": "protocols"
+          }
+        },
+        "assets": {
+          "data": []
+        },
+        "checklists": {
+          "data": []
+        },
+        "tables": {
+          "data": []
+        },
+        "step_texts": {
+          "data": []
+        },
+        "comments": {
+          "data": []
+        },
+        "step_elements": {
+          "data": [
+            {
+              "id": "29289",
+              "type": "step_orderable_elements"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "21801",
+      "type": "steps",
+      "attributes": {
+        "name": "Step 3",
+        "description": null,
+        "position": 0,
+        "completed": false,
+        "created_at": "2022-05-11T14:21:13.984Z",
+        "updated_at": "2022-05-11T14:21:16.501Z"
+      },
+      "relationships": {
+        "user": {
+          "data": {
+            "id": "9",
+            "type": "users"
+          }
+        },
+        "protocol": {
+          "data": {
+            "id": "11200",
+            "type": "protocols"
+          }
+        },
+        "assets": {
+          "data": []
+        },
+        "checklists": {
+          "data": []
+        },
+        "tables": {
+          "data": []
+        },
+        "step_texts": {
+          "data": []
+        },
+        "comments": {
+          "data": []
+        },
+        "step_elements": {
+          "data": []
+        }
+      }
+    }
+  ]
 }
 ```
 

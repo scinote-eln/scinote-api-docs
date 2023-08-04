@@ -70,10 +70,12 @@ This endpoint retrieves wrokflow statuses from selected workflow.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/workflows/WORKFLOW_ID/statuses`
+`GET https://<server-name>/api/v1/workflows/WORKFLOW_ID/statuses(?created_at[from]=<FROM>&created_at[to]=<TO>&updated_at[from]=<FROM>&updated_at[to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-WORKFLOW_ID | The ID of the workflow
+| Parameter   | Description                                                                      |
+| ----------- | -------------------------------------------------------------------------------- |
+| WORKFLOW_ID | The ID of the workflow                                                           |
+| FROM        | If present will filter experiments corresponding timestamp above or equals value |
+| TO          | If present will filter experiments corresponding timestamp below or equals value |

@@ -11,36 +11,36 @@ curl "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/list_items"
 
 ```json
 {
-    "data": [
-        {
-            "id": "1",
-            "type": "inventory_list_items",
-            "attributes": {
-                "data": "Item 1"
-            }
-        },
-        {
-            "id": "2",
-            "type": "inventory_list_items",
-            "attributes": {
-                "data": "Item 2"
-            }
-        },
-        {
-            "id": "3",
-            "type": "inventory_list_items",
-            "attributes": {
-                "data": "Item 3"
-            }
-        }
-    ],
-    "links": {
-        "self": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/list_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
-        "first": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/list_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
-        "prev": null,
-        "next": null,
-        "last": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/list_items?page%5Bnumber%5D=1&page%5Bsize%5D=10"
+  "data": [
+    {
+      "id": "1",
+      "type": "inventory_list_items",
+      "attributes": {
+        "data": "Item 1"
+      }
+    },
+    {
+      "id": "2",
+      "type": "inventory_list_items",
+      "attributes": {
+        "data": "Item 2"
+      }
+    },
+    {
+      "id": "3",
+      "type": "inventory_list_items",
+      "attributes": {
+        "data": "Item 3"
+      }
     }
+  ],
+  "links": {
+    "self": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/list_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "first": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/list_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "prev": null,
+    "next": null,
+    "last": "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/list_items?page%5Bnumber%5D=1&page%5Bsize%5D=10"
+  }
 }
 ```
 
@@ -52,11 +52,13 @@ This endpoint retrieves list items from specific inventory column, only valid fo
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with list data type) in specified inventory to retrieve list items from
+| Parameter    | Description                                                                                      |
+| ------------ | ------------------------------------------------------------------------------------------------ |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                    |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                                  |
+| COLUMN_ID    | The ID of the column(with list data type) in specified inventory to retrieve list items from     |
+| FROM         | If present will filter inventory column list items corresponding timestamp above or equals value |
+| TO           | If present will filter inventory column list items corresponding timestamp below or equals value |
 
 ## Get List Item
 
@@ -69,13 +71,13 @@ curl "https://<server-name>/api/v1/teams/1/inventories/1/columns/1/list_items/1"
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "inventory_list_items",
-        "attributes": {
-            "data": "Item 1"
-        }
+  "data": {
+    "id": "1",
+    "type": "inventory_list_items",
+    "attributes": {
+      "data": "Item 1"
     }
+  }
 }
 ```
 
@@ -87,12 +89,12 @@ This endpoint retrieves specific list item from inventory column, only valid for
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with list data type) in specified inventory to retrieve list items from
-ID | The ID of the list item
+| Parameter    | Description                                                                                  |
+| ------------ | -------------------------------------------------------------------------------------------- |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                              |
+| COLUMN_ID    | The ID of the column(with list data type) in specified inventory to retrieve list items from |
+| ID           | The ID of the list item                                                                      |
 
 ## Create List Item
 
@@ -115,13 +117,13 @@ curl -X POST \
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "inventory_list_items",
-        "attributes": {
-            "data": "Item 1"
-        }
+  "data": {
+    "id": "1",
+    "type": "inventory_list_items",
+    "attributes": {
+      "data": "Item 1"
     }
+  }
 }
 ```
 
@@ -133,11 +135,11 @@ This endpoint creates new list item in selected inventory column, only valid for
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with list data type) in specified inventory to retrieve list items from
+| Parameter    | Description                                                                                  |
+| ------------ | -------------------------------------------------------------------------------------------- |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                              |
+| COLUMN_ID    | The ID of the column(with list data type) in specified inventory to retrieve list items from |
 
 ### Request body
 
@@ -150,9 +152,9 @@ COLUMN_ID | The ID of the column(with list data type) in specified inventory to 
     }
 }`
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-data | yes | Text value of the list item
+| Attribute | Mandatory | Description                 |
+| --------- | --------- | --------------------------- |
+| data      | yes       | Text value of the list item |
 
 ## Update List Item
 
@@ -176,13 +178,13 @@ curl -X PATCH \
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "inventory_list_items",
-        "attributes": {
-            "data": "Item 2"
-        }
+  "data": {
+    "id": "1",
+    "type": "inventory_list_items",
+    "attributes": {
+      "data": "Item 2"
     }
+  }
 }
 ```
 
@@ -195,12 +197,12 @@ If submitted attributes are the same and no changes are made for the item, serve
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with list data type) in specified inventory to retrieve list items from
-ID | The ID of the list item
+| Parameter    | Description                                                                                  |
+| ------------ | -------------------------------------------------------------------------------------------- |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                              |
+| COLUMN_ID    | The ID of the column(with list data type) in specified inventory to retrieve list items from |
+| ID           | The ID of the list item                                                                      |
 
 ### Request body
 
@@ -214,9 +216,9 @@ ID | The ID of the list item
     }
 }`
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-data | yes | Text value of the list item
+| Attribute | Mandatory | Description                 |
+| --------- | --------- | --------------------------- |
+| data      | yes       | Text value of the list item |
 
 ## Delete List Item
 
@@ -236,9 +238,9 @@ This endpoint deletes specific list item from inventory column.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve inventory from
-INVENTORY_ID | The ID of the inventory to retrieve column from
-COLUMN_ID | The ID of the column(with list data type) in specified inventory to retrieve list items from
-ID | The ID of the list item
+| Parameter    | Description                                                                                  |
+| ------------ | -------------------------------------------------------------------------------------------- |
+| TEAM_ID      | The ID of the team to retrieve inventory from                                                |
+| INVENTORY_ID | The ID of the inventory to retrieve column from                                              |
+| COLUMN_ID    | The ID of the column(with list data type) in specified inventory to retrieve list items from |
+| ID           | The ID of the list item                                                                      |
