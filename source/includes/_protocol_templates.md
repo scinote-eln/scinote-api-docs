@@ -60,7 +60,7 @@ curl "https://<server-name>/api/v1/teams/1/protocol_templates"
 }
 ```
 
-This endpoint retrieves all protocol templates from the specified team.
+This endpoint retrieves all latest protocol templates versions from the specified team.
 
 ### HTTP Request
 
@@ -124,7 +124,7 @@ curl "https://<server-name>/api/v1/teams/1/protocol_templates/1"
 }
 ```
 
-This endpoint retrieves all protocol templates from the specified team.
+This endpoint retrieves specific protocol template from the specified team.
 
 ### HTTP Request
 
@@ -136,3 +136,5 @@ Parameter | Description
 --------- | -----------
 TEAM_ID | The ID of the team to retrieve project from
 ID      | The ID of the protocol template
+
+Linked tasks are visible in the response only for a specific version of a protocol template. In order to get linked tasks you must use the ID of the version to which the tasks are linked to.
