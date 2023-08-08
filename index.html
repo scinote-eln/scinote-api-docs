@@ -8992,7 +8992,7 @@ Token should be string without special symbols.</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves all protocol templates from the specified team.</p>
+<p>This endpoint retrieves all latest protocol templates versions from the specified team.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/protocol_templates</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
@@ -9054,7 +9054,7 @@ Token should be string without special symbols.</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves all protocol templates from the specified team.</p>
+<p>This endpoint retrieves specific protocol template from the specified team.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/protocol_templates/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
@@ -9073,6 +9073,8 @@ Token should be string without special symbols.</p>
 <td>The ID of the protocol template</td>
 </tr>
 </tbody></table>
+
+<p>Linked tasks are visible in the response only for a specific version of a protocol template. In order to get linked tasks you must use the ID of the version to which the tasks are linked to.</p>
 <h1 id='inventories'>Inventories</h1><h2 id='get-inventories'>Get Inventories</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/inventories"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
