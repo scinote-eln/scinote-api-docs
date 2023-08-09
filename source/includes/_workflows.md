@@ -30,7 +30,7 @@ This endpoint retrieves all wrokflows from instance.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/workflows(?created_at[from]=<FROM>&created_at[to]=<TO>&updated_at[from]=<FROM>&updated_at[to]=<TO>)`
+`GET https://<server-name>/api/v1/workflows(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 | Parameter | Description                                                                      |
 | --------- | -------------------------------------------------------------------------------- |

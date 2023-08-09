@@ -70,7 +70,7 @@ This endpoint retrieves wrokflow statuses from selected workflow.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/workflows/WORKFLOW_ID/statuses(?created_at[from]=<FROM>&created_at[to]=<TO>&updated_at[from]=<FROM>&updated_at[to]=<TO>)`
+`GET https://<server-name>/api/v1/workflows/WORKFLOW_ID/statuses(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 ### URL Parameters
 
