@@ -6,27 +6,28 @@
 curl "https://<server-name>/api/v1/users/1/identities"
   -H "Authorization: Bearer qwerty123456..."
 ```
+
 > The above command returns JSON structured like this:
 
 ```json
 {
-    "data": [
-        {
-            "id": "1",
-            "type": "user_identities",
-            "attributes": {
-                "provider": "sample",
-                "uid": "abcde123"
-            }
-        }
-    ],
-    "links": {
-        "self": "https://<server-name>/api/v1/users/1/identities?page%5Bnumber%5D=1&page%5Bsize%5D=10",
-        "first": "https://<server-name>/api/v1/users/1/identities?page%5Bnumber%5D=1&page%5Bsize%5D=10",
-        "prev": null,
-        "next": null,
-        "last": "https://<server-name>/api/v1/users/1/identities?page%5Bnumber%5D=1&page%5Bsize%5D=10"
+  "data": [
+    {
+      "id": "1",
+      "type": "user_identities",
+      "attributes": {
+        "provider": "sample",
+        "uid": "abcde123"
+      }
     }
+  ],
+  "links": {
+    "self": "https://<server-name>/api/v1/users/1/identities?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "first": "https://<server-name>/api/v1/users/1/identities?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "prev": null,
+    "next": null,
+    "last": "https://<server-name>/api/v1/users/1/identities?page%5Bnumber%5D=1&page%5Bsize%5D=10"
+  }
 }
 ```
 
@@ -34,13 +35,15 @@ This endpoint retrieves all identity mappings for the specified user.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/users/<USER_ID>/identities`
+`GET https://<server-name>/api/v1/users/<USER_ID>/identities(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-USER_ID | The ID of the user to retrieve identities from
+| Parameter | Description                                                                      |
+| --------- | -------------------------------------------------------------------------------- |
+| USER_ID   | The ID of the user to retrieve identities from                                   |
+| FROM      | If present will filter experiments corresponding timestamp above or equals value |
+| TO        | If present will filter experiments corresponding timestamp below or equals value |
 
 ## Get User Identity
 
@@ -53,14 +56,14 @@ curl "https://<server-name>/api/v1/users/1/identities/1"
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "user_identities",
-        "attributes": {
-            "provider": "sample",
-            "uid": "abcde123"
-        }
+  "data": {
+    "id": "1",
+    "type": "user_identities",
+    "attributes": {
+      "provider": "sample",
+      "uid": "abcde123"
     }
+  }
 }
 ```
 
@@ -72,10 +75,10 @@ This endpoint retrieves a specific user identity mapping.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-USER_ID | The ID of the user to retrieve identity from
-ID | The ID of the user identity mapping
+| Parameter | Description                                  |
+| --------- | -------------------------------------------- |
+| USER_ID   | The ID of the user to retrieve identity from |
+| ID        | The ID of the user identity mapping          |
 
 ## Create User Identity
 
@@ -99,14 +102,14 @@ curl -X POST \
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "user_identities",
-        "attributes": {
-            "provider": "sample1",
-            "uid": "abcde123"
-        }
+  "data": {
+    "id": "1",
+    "type": "user_identities",
+    "attributes": {
+      "provider": "sample1",
+      "uid": "abcde123"
     }
+  }
 }
 ```
 
@@ -118,30 +121,30 @@ This endpoint creates new user identity mapping for specific user.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-USER_ID | The ID of the user
+| Parameter | Description        |
+| --------- | ------------------ |
+| USER_ID   | The ID of the user |
 
 > Request body
 
 ```json
 {
-	"data": {
-        "type": "user_identities",
-        "attributes": {
-            "provider": "sample1",
-            "uid": "abcde123"
-        }
-	}
+  "data": {
+    "type": "user_identities",
+    "attributes": {
+      "provider": "sample1",
+      "uid": "abcde123"
+    }
+  }
 }
 ```
 
 ### Identity attributes
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-provider | yes | name of the external identity provider
-uid | yes | uid of the user from external identity provider
+| Attribute | Mandatory | Description                                     |
+| --------- | --------- | ----------------------------------------------- |
+| provider  | yes       | name of the external identity provider          |
+| uid       | yes       | uid of the user from external identity provider |
 
 ## Update User Identity
 
@@ -166,14 +169,14 @@ curl -X PATCH \
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "user_identities",
-        "attributes": {
-            "provider": "sample2",
-            "uid": "abcde1234"
-        }
+  "data": {
+    "id": "1",
+    "type": "user_identities",
+    "attributes": {
+      "provider": "sample2",
+      "uid": "abcde1234"
     }
+  }
 }
 ```
 
@@ -186,33 +189,32 @@ If submitted attributes are the same and no changes are made for the identity ma
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-USER_ID | The ID of the user
-ID | The ID of the user identity mapping
+| Parameter | Description                         |
+| --------- | ----------------------------------- |
+| USER_ID   | The ID of the user                  |
+| ID        | The ID of the user identity mapping |
 
 ### Request body
 
 ```json
 {
-	"data": {
-        "type": "user_identities",
-        "id": "1",
-        "attributes": {
-            "provider": "sample2",
-            "uid": "abcde1234"
-        }
-	}
+  "data": {
+    "type": "user_identities",
+    "id": "1",
+    "attributes": {
+      "provider": "sample2",
+      "uid": "abcde1234"
+    }
+  }
 }
 ```
 
 ### User identity attributes
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-provider | no | name of the external identity provider
-uid | no | uid of the user from external identity provider
-
+| Attribute | Mandatory | Description                                     |
+| --------- | --------- | ----------------------------------------------- |
+| provider  | no        | name of the external identity provider          |
+| uid       | no        | uid of the user from external identity provider |
 
 ## Delete User Identity
 
@@ -232,7 +234,7 @@ This endpoint deletes specific user identity mapping.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-USER_ID | The ID of the user to retrieve identity mapping from
-ID | The ID of the identity mapping
+| Parameter | Description                                          |
+| --------- | ---------------------------------------------------- |
+| USER_ID   | The ID of the user to retrieve identity mapping from |
+| ID        | The ID of the identity mapping                       |

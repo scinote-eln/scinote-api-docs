@@ -11,17 +11,17 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/users"
 
 ```json
 {
-  "data":[
+  "data": [
     {
       "id": "1",
       "type": "user_assignments",
-      "attributes":{
+      "attributes": {
         "created_at": "2021-11-11T13:25:53.910Z",
         "updated_at": "2021-11-15T10:30:33.415Z"
       },
-      "relationships":{
-        "user":{
-          "data":{
+      "relationships": {
+        "user": {
+          "data": {
             "id": "1",
             "type": "users"
           }
@@ -41,7 +41,7 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/users"
       }
     }
   ],
-  "links":{
+  "links": {
     "self": "https://<server-name>/api/v1/teams/1/projects/1/users?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "first": "https://<server-name>/api/v1/teams/1/projects/1/users?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "prev": null,
@@ -55,15 +55,17 @@ This endpoint retrieves all users who are members of the specified project.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/users`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/users(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve users from
-INCLUDES | can include `user`, `user_roles`, and `assignable` (on this endpoint assignable is a project)
+| Parameter  | Description                                                                                   |
+| ---------- | --------------------------------------------------------------------------------------------- |
+| TEAM_ID    | The ID of the team to retrieve project from                                                   |
+| PROJECT_ID | The ID of the project to retrieve users from                                                  |
+| INCLUDES   | can include `user`, `user_roles`, and `assignable` (on this endpoint assignable is a project) |
+| FROM       | If present will filter project members corresponding timestamp above or equals value          |
+| TO         | If present will filter project members corresponding timestamp below or equals value          |
 
 ## Get Project User
 
@@ -76,16 +78,16 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/users/1"
 
 ```json
 {
-  "data":{
+  "data": {
     "id": "1",
     "type": "user_assignments",
-    "attributes":{
+    "attributes": {
       "created_at": "2021-11-11T13:25:53.910Z",
       "updated_at": "2021-11-15T10:30:33.415Z"
     },
-    "relationships":{
-      "user":{
-        "data":{
+    "relationships": {
+      "user": {
+        "data": {
           "id": "1",
           "type": "users"
         }
@@ -115,12 +117,12 @@ This endpoint retrieves a specific user who is a member of the specified project
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve user from
-USER_ASSIGNMENT_ID | The ID of the user assignment to retrieve
-INCLUDES | can include `user`, `user_role`, and `assignable` (on this endpoint assignable is a project)
+| Parameter          | Description                                                                                  |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| TEAM_ID            | The ID of the team to retrieve project from                                                  |
+| PROJECT_ID         | The ID of the project to retrieve user from                                                  |
+| USER_ASSIGNMENT_ID | The ID of the user assignment to retrieve                                                    |
+| INCLUDES           | can include `user`, `user_role`, and `assignable` (on this endpoint assignable is a project) |
 
 ## Create Project User assignment
 
@@ -141,6 +143,7 @@ curl -X POST \
 ```
 
 > The above command returns JSON structured like this:
+
 ```json
 {
   "data": {
@@ -150,9 +153,9 @@ curl -X POST \
       "created_at": "2021-11-11T13:25:53.910Z",
       "updated_at": "2021-11-15T10:30:33.415Z"
     },
-    "relationships":{
-      "user":{
-        "data":{
+    "relationships": {
+      "user": {
+        "data": {
           "id": "1",
           "type": "users"
         }
@@ -173,6 +176,7 @@ curl -X POST \
   }
 }
 ```
+
 This endpoint creates a new user assignment in the project. Please note that we will create the user assignments for the project child experiment and tasks asynchronous.
 
 ### HTTP Request
@@ -181,12 +185,13 @@ This endpoint creates a new user assignment in the project. Please note that we 
 
 ### URL Parameters
 
-Parameter     | Description
-------------- | -----------
-TEAM_ID       | The ID of the team to retrieve project from
-PROJECT_ID    | The ID of the project to assign user to
+| Parameter  | Description                                 |
+| ---------- | ------------------------------------------- |
+| TEAM_ID    | The ID of the team to retrieve project from |
+| PROJECT_ID | The ID of the project to assign user to     |
 
 > Request body
+
 ```json
 {
   "data": {
@@ -198,12 +203,13 @@ PROJECT_ID    | The ID of the project to assign user to
   }
 }
 ```
+
 ### Project User Assignment attributes
 
-Attribute   | Mandatory | Description
------------ | --------- | -----------
-user_id     | yes       | ID of the user
-user_role_id | yes       | ID of the UserRole on the project
+| Attribute    | Mandatory | Description                       |
+| ------------ | --------- | --------------------------------- |
+| user_id      | yes       | ID of the user                    |
+| user_role_id | yes       | ID of the UserRole on the project |
 
 ## Update Project User Assignment attributes
 
@@ -223,6 +229,7 @@ curl -X PATCH \
 ```
 
 > The above command returns JSON structured like this:
+
 ```json
 {
   "data": {
@@ -233,8 +240,8 @@ curl -X PATCH \
       "updated_at": "2021-11-15T10:30:33.415Z"
     },
     "relationships": {
-      "user":{
-        "data":{
+      "user": {
+        "data": {
           "id": "1",
           "type": "users"
         }
@@ -255,6 +262,7 @@ curl -X PATCH \
   }
 }
 ```
+
 This endpoint updates existing user assignment in the project.
 If submitted attributes are the same and no changes are made for the user assignment, server returns empty body with response code 204.
 
@@ -264,11 +272,11 @@ If submitted attributes are the same and no changes are made for the user assign
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve user assignment from
-USER_ASSIGNMENT_ID | The ID of the user assignment
+| Parameter          | Description                                            |
+| ------------------ | ------------------------------------------------------ |
+| TEAM_ID            | The ID of the team to retrieve project from            |
+| PROJECT_ID         | The ID of the project to retrieve user assignment from |
+| USER_ASSIGNMENT_ID | The ID of the user assignment                          |
 
 ### Request body
 
@@ -285,9 +293,9 @@ USER_ASSIGNMENT_ID | The ID of the user assignment
 
 ### Project User Assignments attributes
 
-Attribute   | Mandatory | Description
------------ | --------- | -----------
-user_role_id | yes       | Role on the project
+| Attribute    | Mandatory | Description         |
+| ------------ | --------- | ------------------- |
+| user_role_id | yes       | Role on the project |
 
 ## Delete Project User Assignment
 
@@ -307,8 +315,8 @@ This endpoint deletes specific user assignment from the project. Please note tha
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve user assignment from
-USER_ASSIGNMENT_ID | The ID of the user assignment
+| Parameter          | Description                                            |
+| ------------------ | ------------------------------------------------------ |
+| TEAM_ID            | The ID of the team to retrieve project from            |
+| PROJECT_ID         | The ID of the project to retrieve user assignment from |
+| USER_ASSIGNMENT_ID | The ID of the user assignment                          |

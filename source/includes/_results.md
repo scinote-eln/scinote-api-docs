@@ -125,20 +125,21 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/resu
 This endpoint retrieves all results from the task. Texts, files and tables are included by default.
 If `?include=comments` PATH parameter is provided, result comments are also included.
 
-
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/results(?include=<INCLUDES>)`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/results(?include=<INCLUDES>&filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team
-PROJECT_ID | The ID of the project
-EXPERIMENT_ID | The ID of the experiment
-TASK_ID | The ID of the task
-INCLUDES | if set to `comments`, result comments are also included
+| Parameter     | Description                                                                       |
+| ------------- | --------------------------------------------------------------------------------- |
+| TEAM_ID       | The ID of the team                                                                |
+| PROJECT_ID    | The ID of the project                                                             |
+| EXPERIMENT_ID | The ID of the experiment                                                          |
+| TASK_ID       | The ID of the task                                                                |
+| INCLUDES      | if set to `comments`, result comments are also included                           |
+| FROM          | If present will filter task results corresponding timestamp above or equals value |
+| TO            | If present will filter task results corresponding timestamp below or equals value |
 
 ## Get Result
 
@@ -151,37 +152,37 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/resu
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "results",
-        "attributes": {
-            "name": "Result 1",
-            "archived": false
-        },
-        "relationships": {
-            "user": {
-                "data": {
-                    "id": "1",
-                    "type": "users"
-                }
-            },
-            "text": {
-                "data": {
-                    "id": "1",
-                    "type": "result_texts"
-                }
-            }
-        }
+  "data": {
+    "id": "1",
+    "type": "results",
+    "attributes": {
+      "name": "Result 1",
+      "archived": false
     },
-    "included": [
-        {
-            "id": "1",
-            "type": "result_texts",
-            "attributes": {
-                "text": "Result 1 Text"
-            }
+    "relationships": {
+      "user": {
+        "data": {
+          "id": "1",
+          "type": "users"
         }
-    ]
+      },
+      "text": {
+        "data": {
+          "id": "1",
+          "type": "result_texts"
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "1",
+      "type": "result_texts",
+      "attributes": {
+        "text": "Result 1 Text"
+      }
+    }
+  ]
 }
 ```
 
@@ -194,14 +195,14 @@ If `?include=comments` PATH parameter is provided, result comments are also incl
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team
-PROJECT_ID | The ID of the project
-EXPERIMENT_ID | The ID of the experiment
-TASK_ID | The ID of the task
-ID | The ID of the result
-INCLUDES | if set to `comments`, result comments are also included
+| Parameter     | Description                                             |
+| ------------- | ------------------------------------------------------- |
+| TEAM_ID       | The ID of the team                                      |
+| PROJECT_ID    | The ID of the project                                   |
+| EXPERIMENT_ID | The ID of the experiment                                |
+| TASK_ID       | The ID of the task                                      |
+| ID            | The ID of the result                                    |
+| INCLUDES      | if set to `comments`, result comments are also included |
 
 ## Create Result
 
@@ -241,37 +242,37 @@ curl -X POST \
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "results",
-        "attributes": {
-            "name": "Result 1",
-            "archived": false
-        },
-        "relationships": {
-            "user": {
-                "data": {
-                    "id": "1",
-                    "type": "users"
-                }
-            },
-            "text": {
-                "data": {
-                    "id": "1",
-                    "type": "result_texts"
-                }
-            }
-        }
+  "data": {
+    "id": "1",
+    "type": "results",
+    "attributes": {
+      "name": "Result 1",
+      "archived": false
     },
-    "included": [
-        {
-            "id": "1",
-            "type": "result_texts",
-            "attributes": {
-                "text": "Result [~tiny_mce_id:1]"
-            }
+    "relationships": {
+      "user": {
+        "data": {
+          "id": "1",
+          "type": "users"
         }
-    ]
+      },
+      "text": {
+        "data": {
+          "id": "1",
+          "type": "result_texts"
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "1",
+      "type": "result_texts",
+      "attributes": {
+        "text": "Result [~tiny_mce_id:1]"
+      }
+    }
+  ]
 }
 ```
 
@@ -281,7 +282,6 @@ Images should be base64 encoded in such format: `data:image/png;base64,<FILE_CON
 Token should be string without special symbols.
 
 ### with File Result
-
 
 ```shell
 curl -X POST \
@@ -311,45 +311,44 @@ curl -X POST \
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "results",
-        "attributes": {
-            "name": "My Result",
-            "archived": false
-        },
-        "relationships": {
-            "user": {
-                "data": {
-                    "id": "1",
-                    "type": "users"
-                }
-            },
-            "file": {
-                "data": {
-                    "id": "1",
-                    "type": "result_files"
-                }
-            }
-        }
+  "data": {
+    "id": "1",
+    "type": "results",
+    "attributes": {
+      "name": "My Result",
+      "archived": false
     },
-    "included": [
-        {
-            "id": "1",
-            "type": "result_files",
-            "attributes": {
-                "file_id": "1",
-                "file_name": "my_file.png",
-                "file_size": "4213",
-                "url": "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c7010e1f76e1c0774a9235a2ccbdcb0ca026e58/my_file?disposition=attachment"
-            }
+    "relationships": {
+      "user": {
+        "data": {
+          "id": "1",
+          "type": "users"
         }
-    ]
+      },
+      "file": {
+        "data": {
+          "id": "1",
+          "type": "result_files"
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "1",
+      "type": "result_files",
+      "attributes": {
+        "file_id": "1",
+        "file_name": "my_file.png",
+        "file_size": "4213",
+        "url": "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c7010e1f76e1c0774a9235a2ccbdcb0ca026e58/my_file?disposition=attachment"
+      }
+    }
+  ]
 }
 ```
 
 This endpoint creates new result, also result file can be added inside "included" section in the same request. Please reference to the sample request.
-
 
 ### HTTP Request
 
@@ -357,12 +356,12 @@ This endpoint creates new result, also result file can be added inside "included
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team
-PROJECT_ID | The ID of the project
-EXPERIMENT_ID | The ID of the experiment
-TASK_ID | The ID of the task
+| Parameter     | Description              |
+| ------------- | ------------------------ |
+| TEAM_ID       | The ID of the team       |
+| PROJECT_ID    | The ID of the project    |
+| EXPERIMENT_ID | The ID of the experiment |
+| TASK_ID       | The ID of the task       |
 
 > Request body with ResultText
 
@@ -418,32 +417,31 @@ TASK_ID | The ID of the task
 
 ### Result attributes
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-name | yes | Name of the result
+| Attribute | Mandatory | Description        |
+| --------- | --------- | ------------------ |
+| name      | yes       | Name of the result |
 
 ### Result text attributes
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-text | yes | Text of result
+| Attribute | Mandatory | Description    |
+| --------- | --------- | -------------- |
+| text      | yes       | Text of result |
 
 ### TinyMCE attributes
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-file_data | yes | Image file encoded in the string, "data:image/png;base64,<BASE64_ENCODED_FILE>"
-file_token | yes | Unique token used for referencing inside result text
-file_name | yes | Name of the file
-
+| Attribute  | Mandatory | Description                                                                     |
+| ---------- | --------- | ------------------------------------------------------------------------------- |
+| file_data  | yes       | Image file encoded in the string, "data:image/png;base64,<BASE64_ENCODED_FILE>" |
+| file_token | yes       | Unique token used for referencing inside result text                            |
+| file_name  | yes       | Name of the file                                                                |
 
 ### Result file attributes
 
-Attribute   | Mandatory| Description
----------   | -------- | -----------
-file_name   | yes      | File name
-file_type   | yes      | MIME content type
-file_data   | yes      | Base64 Encoded data
+| Attribute | Mandatory | Description         |
+| --------- | --------- | ------------------- |
+| file_name | yes       | File name           |
+| file_type | yes       | MIME content type   |
+| file_data | yes       | Base64 Encoded data |
 
 ## Update Result
 
@@ -477,45 +475,44 @@ curl -X PUT \
 
 ```json
 {
-    "data": {
-        "id": "1",
-        "type": "results",
-        "attributes": {
-            "name": "Result with new name",
-            "archived": false
-        },
-        "relationships": {
-            "user": {
-                "data": {
-                    "id": "1",
-                    "type": "users"
-                }
-            },
-            "file": {
-                "data": {
-                    "id": "1",
-                    "type": "result_files"
-                }
-            }
-        }
+  "data": {
+    "id": "1",
+    "type": "results",
+    "attributes": {
+      "name": "Result with new name",
+      "archived": false
     },
-    "included": [
-        {
-            "id": "1",
-            "type": "result_files",
-            "attributes": {
-                "file_id": "1",
-                "file_name": "new_file.png",
-                "file_size": "4213",
-                "url": "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c7010e1f76e1c0774a9235a2ccbdcb0ca026e58/my_file?disposition=attachment"
-            }
+    "relationships": {
+      "user": {
+        "data": {
+          "id": "1",
+          "type": "users"
         }
-    ]
+      },
+      "file": {
+        "data": {
+          "id": "1",
+          "type": "result_files"
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "1",
+      "type": "result_files",
+      "attributes": {
+        "file_id": "1",
+        "file_name": "new_file.png",
+        "file_size": "4213",
+        "url": "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c7010e1f76e1c0774a9235a2ccbdcb0ca026e58/my_file?disposition=attachment"
+      }
+    }
+  ]
 }
 ```
 
 This endpoint updates result, also result file can be added inside "included" section in the same request. Please reference to the sample request.
-
 
 ### HTTP Request
 
@@ -523,13 +520,13 @@ This endpoint updates result, also result file can be added inside "included" se
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team
-PROJECT_ID | The ID of the project
-EXPERIMENT_ID | The ID of the experiment
-TASK_ID | The ID of the task
-ID | The ID of the result
+| Parameter     | Description              |
+| ------------- | ------------------------ |
+| TEAM_ID       | The ID of the team       |
+| PROJECT_ID    | The ID of the project    |
+| EXPERIMENT_ID | The ID of the experiment |
+| TASK_ID       | The ID of the task       |
+| ID            | The ID of the result     |
 
 > Request body
 
@@ -556,14 +553,14 @@ ID | The ID of the result
 
 ### Result attributes
 
-Attribute | Mandatory| Description
---------- | -------- | -----------
-name | yes | Name of the result
+| Attribute | Mandatory | Description        |
+| --------- | --------- | ------------------ |
+| name      | yes       | Name of the result |
 
 ### Result file attributes
 
-Attribute   | Mandatory| Description
----------   | -------- | -----------
-file_name   | yes      | File name
-file_type   | yes      | MIME content type
-file_data   | yes      | Base64 Encoded data
+| Attribute | Mandatory | Description         |
+| --------- | --------- | ------------------- |
+| file_name | yes       | File name           |
+| file_type | yes       | MIME content type   |
+| file_data | yes       | Base64 Encoded data |

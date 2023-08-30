@@ -6,15 +6,16 @@
 curl "http://<server-name>/api/v1/teams/1/project_folders"
   -H "Authorization: Bearer qwerty123456..."
 ```
+
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "data":[
+  "data": [
     {
       "id": "1",
       "type": "project_folders",
-      "attributes":{
+      "attributes": {
         "name": "2020 Projects"
       },
       "relationships": {
@@ -36,7 +37,7 @@ curl "http://<server-name>/api/v1/teams/1/project_folders"
       }
     }
   ],
-  "links":{
+  "links": {
     "self": "http://<server-name>/api/v1/teams/1/project_folders/?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "first": "http://<server-name>/api/v1/teams/1/project_folders/?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "prev": null,
@@ -44,20 +45,21 @@ curl "http://<server-name>/api/v1/teams/1/project_folders"
     "last": "http://<server-name>/api/v1/teams/1/project_folders/?page%5Bnumber%5D=1&page%5Bsize%5D=10"
   }
 }
-
 ```
 
 This endpoint retrieves all project folders from the specified team.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/project_folders`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/project_folders(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project folders from
+| Parameter | Description                                                                          |
+| --------- | ------------------------------------------------------------------------------------ |
+| TEAM_ID   | The ID of the team to retrieve project folders from                                  |
+| FROM      | If present will filter project folders corresponding timestamp above or equals value |
+| TO        | If present will filter project folders corresponding timestamp below or equals value |
 
 ## Get Project Folder
 
@@ -73,7 +75,7 @@ curl "http://<server-name>/api/v1/teams/1/project_folders/1"
   "data": {
     "id": "1",
     "type": "project_folders",
-    "attributes":{
+    "attributes": {
       "name": "2020 Projects"
     },
     "relationships": {
@@ -105,10 +107,10 @@ This endpoint retrieves a specific project folder from a specific team.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project folders from
-ID      | The ID of the project folder to retrieve
+| Parameter | Description                                         |
+| --------- | --------------------------------------------------- |
+| TEAM_ID   | The ID of the team to retrieve project folders from |
+| ID        | The ID of the project folder to retrieve            |
 
 ## Create Project Folder
 
@@ -160,7 +162,6 @@ curl -X POST \
     }
   }
 }
-
 ```
 
 This endpoint creates a new project folder in the team.
@@ -171,9 +172,9 @@ This endpoint creates a new project folder in the team.
 
 ### URL Parameters
 
-Parameter     | Description
-------------- | -----------
-TEAM_ID       | The ID of the team to retrieve project folders from
+| Parameter | Description                                         |
+| --------- | --------------------------------------------------- |
+| TEAM_ID   | The ID of the team to retrieve project folders from |
 
 > Request body
 
@@ -191,12 +192,10 @@ TEAM_ID       | The ID of the team to retrieve project folders from
 
 ### Project folder attributes
 
-Attribute   | Mandatory | Description
------------ | --------- | -----------
-name        | yes       | Name of the project folder
-parent_folder_id| no        | Reference to parent folder, if null it is on root level
-
-
+| Attribute        | Mandatory | Description                                             |
+| ---------------- | --------- | ------------------------------------------------------- |
+| name             | yes       | Name of the project folder                              |
+| parent_folder_id | no        | Reference to parent folder, if null it is on root level |
 
 ## Update Project Folder
 
@@ -258,10 +257,10 @@ If submitted attributes are the same and no changes are made for the project, se
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project folder from
-ID              | The ID of the project folder
+| Parameter | Description                                        |
+| --------- | -------------------------------------------------- |
+| TEAM_ID   | The ID of the team to retrieve project folder from |
+| ID        | The ID of the project folder                       |
 
 ### Request body
 
@@ -279,7 +278,7 @@ ID              | The ID of the project folder
 
 ### Project folder attributes
 
-Attribute   | Mandatory | Description
------------ | --------- | -----------
-name        | yes       | Name of the project folder
-parent_folder_id| no        | Reference to parent folder, if null it is on root level
+| Attribute        | Mandatory | Description                                             |
+| ---------------- | --------- | ------------------------------------------------------- |
+| name             | yes       | Name of the project folder                              |
+| parent_folder_id | no        | Reference to parent folder, if null it is on root level |

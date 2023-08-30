@@ -11,11 +11,11 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/reports"
 
 ```json
 {
-  "data":[
+  "data": [
     {
       "id": "1",
       "type": "reports",
-      "attributes":{
+      "attributes": {
         "name": "Report 1",
         "description": "My report",
         "pdf_file_size": 1234,
@@ -23,9 +23,9 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/reports"
         "docx_file_size": 1234,
         "docx_file_url": "http://example.com/report.docx"
       },
-      "relationships":{
-        "user":{
-          "data":{
+      "relationships": {
+        "user": {
+          "data": {
             "id": "1",
             "type": "users"
           }
@@ -33,7 +33,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/reports"
       }
     }
   ],
-  "links":{
+  "links": {
     "self": "http://<server-name>/api/v1/teams/1/projects/1/reports?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "first": "http://<server-name>/api/v1/teams/1/projects/1/reports?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "prev": null,
@@ -47,14 +47,16 @@ This endpoint retrieves reports from specific project. PDF and DOCX attributes w
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/reports`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/reports(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve reports from
+| Parameter  | Description                                                                          |
+| ---------- | ------------------------------------------------------------------------------------ |
+| TEAM_ID    | The ID of the team to retrieve project from                                          |
+| PROJECT_ID | The ID of the project to retrieve reports from                                       |
+| FROM       | If present will filter project reports corresponding timestamp above or equals value |
+| TO         | If present will filter project reports corresponding timestamp below or equals value |
 
 ## Get Report
 
@@ -67,10 +69,10 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/reports/1"
 
 ```json
 {
-  "data":{
+  "data": {
     "id": "1",
     "type": "reports",
-    "attributes":{
+    "attributes": {
       "name": "Report 1",
       "description": "My report",
       "pdf_file_size": 1234,
@@ -78,26 +80,26 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/reports/1"
       "docx_file_size": 1234,
       "docx_file_url": "http://example.com/report.docx"
     },
-    "relationships":{
-      "user":{
-        "data":{
+    "relationships": {
+      "user": {
+        "data": {
           "id": "1",
           "type": "users"
         }
       }
     }
   },
-  "included":[
+  "included": [
     {
       "id": "1",
       "type": "users",
-      "attributes":{
+      "attributes": {
         "full_name": "Admin",
         "initials": "A",
         "email": "admin@scinote.net",
-        "avatar_url" : "http://example.com/avatar.png",
-        "avatar_file_size" : 16181,
-        "avatar_file_name" : "avatar.png"
+        "avatar_url": "http://example.com/avatar.png",
+        "avatar_file_size": 16181,
+        "avatar_file_name": "avatar.png"
       }
     }
   ]
@@ -112,8 +114,8 @@ This endpoint retrieves a specific report from specific project. PDF and DOCX at
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve report from
-REPORT_ID | The ID of the report to retrieve
+| Parameter  | Description                                   |
+| ---------- | --------------------------------------------- |
+| TEAM_ID    | The ID of the team to retrieve project from   |
+| PROJECT_ID | The ID of the project to retrieve report from |
+| REPORT_ID  | The ID of the report to retrieve              |

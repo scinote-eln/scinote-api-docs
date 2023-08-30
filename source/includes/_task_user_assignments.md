@@ -11,17 +11,17 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/user
 
 ```json
 {
-  "data":[
+  "data": [
     {
       "id": "1",
       "type": "user_assignments",
-      "attributes":{
+      "attributes": {
         "created_at": "2021-11-11T13:25:53.910Z",
         "updated_at": "2021-11-15T10:30:33.415Z"
       },
-      "relationships":{
-        "user":{
-          "data":{
+      "relationships": {
+        "user": {
+          "data": {
             "id": "1",
             "type": "users"
           }
@@ -41,7 +41,7 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/user
       }
     }
   ],
-  "links":{
+  "links": {
     "self": "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/user_assignments?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "first": "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/user_assignments?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "prev": null,
@@ -55,17 +55,19 @@ This endpoint retrieves all users who are members of the specified task.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/user_assignments`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/user_assignments(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve users from
-EXPERIMENT_ID | The ID of the experiment to retrieve users from
-TASK_ID | The ID of the task to retrieve users from
-INCLUDES | can include `user`, `user_roles`, and `assignable` (on this endpoint assignable is a task)
+| Parameter     | Description                                                                                |
+| ------------- | ------------------------------------------------------------------------------------------ |
+| TEAM_ID       | The ID of the team to retrieve project from                                                |
+| PROJECT_ID    | The ID of the project to retrieve users from                                               |
+| EXPERIMENT_ID | The ID of the experiment to retrieve users from                                            |
+| TASK_ID       | The ID of the task to retrieve users from                                                  |
+| INCLUDES      | can include `user`, `user_roles`, and `assignable` (on this endpoint assignable is a task) |
+| FROM          | If present will filter task members corresponding timestamp above or equals value          |
+| TO            | If present will filter task members corresponding timestamp below or equals value          |
 
 ## Get Task User Assignment
 
@@ -78,17 +80,17 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/user_assignm
 
 ```json
 {
-  "data":[
+  "data": [
     {
       "id": "1",
       "type": "user_assignments",
-      "attributes":{
+      "attributes": {
         "created_at": "2021-11-11T13:25:53.910Z",
         "updated_at": "2021-11-15T10:30:33.415Z"
       },
-      "relationships":{
-        "user":{
-          "data":{
+      "relationships": {
+        "user": {
+          "data": {
             "id": "1",
             "type": "users"
           }
@@ -107,7 +109,7 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/user_assignm
         }
       }
     }
-  ],
+  ]
 }
 ```
 
@@ -119,14 +121,14 @@ This endpoint retrieves a specific user who is a member of the specified task.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve user from
-EXPERIMENT_ID | The ID of the experiment to retrieve user from
-TASK_ID | The ID of the task to retrieve user from
-USER_ASSIGNMENT_ID | The ID of the user assignment to retrieve
-INCLUDES | can include `user`, `user_roles`, and `assignable` (on this endpoint assignable is a task)
+| Parameter          | Description                                                                                |
+| ------------------ | ------------------------------------------------------------------------------------------ |
+| TEAM_ID            | The ID of the team to retrieve project from                                                |
+| PROJECT_ID         | The ID of the project to retrieve user from                                                |
+| EXPERIMENT_ID      | The ID of the experiment to retrieve user from                                             |
+| TASK_ID            | The ID of the task to retrieve user from                                                   |
+| USER_ASSIGNMENT_ID | The ID of the user assignment to retrieve                                                  |
+| INCLUDES           | can include `user`, `user_roles`, and `assignable` (on this endpoint assignable is a task) |
 
 ## Update Task User Assignment attributes
 
@@ -146,19 +148,20 @@ curl -X PATCH \
 ```
 
 > The above command returns JSON structured like this:
+
 ```json
 {
-  "data":[
+  "data": [
     {
       "id": "1",
       "type": "user_assignments",
-      "attributes":{
+      "attributes": {
         "created_at": "2021-11-11T13:25:53.910Z",
         "updated_at": "2021-11-15T10:30:33.415Z"
       },
-      "relationships":{
-        "user":{
-          "data":{
+      "relationships": {
+        "user": {
+          "data": {
             "id": "1",
             "type": "users"
           }
@@ -177,9 +180,10 @@ curl -X PATCH \
         }
       }
     }
-  ],
+  ]
 }
 ```
+
 This endpoint updates existing user assignment in the task.
 If submitted attributes are the same and no changes are made for the user assignment, server returns empty body with response code 204.
 
@@ -189,13 +193,13 @@ If submitted attributes are the same and no changes are made for the user assign
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve user assignment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve user from
-TASK_ID         | The ID of the task to retrieve
-USER_ASSIGNMENT_ID | The ID of the user assignment
+| Parameter          | Description                                            |
+| ------------------ | ------------------------------------------------------ |
+| TEAM_ID            | The ID of the team to retrieve project from            |
+| PROJECT_ID         | The ID of the project to retrieve user assignment from |
+| EXPERIMENT_ID      | The ID of the experiment to retrieve user from         |
+| TASK_ID            | The ID of the task to retrieve                         |
+| USER_ASSIGNMENT_ID | The ID of the user assignment                          |
 
 ### Request body
 
@@ -212,6 +216,6 @@ USER_ASSIGNMENT_ID | The ID of the user assignment
 
 ### Task User Assignment attributes
 
-Attribute    | Mandatory | Description
------------- | --------- | -----------
-user_role_id | yes       | Role on the task
+| Attribute    | Mandatory | Description      |
+| ------------ | --------- | ---------------- |
+| user_role_id | yes       | Role on the task |

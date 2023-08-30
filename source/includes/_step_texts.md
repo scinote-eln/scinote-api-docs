@@ -16,7 +16,7 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
       "id": "1",
       "type": "step_texts",
       "attributes": {
-        "text":  "<p>Some text.</p>",
+        "text": "<p>Some text.</p>",
         "position": 0
       }
     },
@@ -43,17 +43,20 @@ This endpoint retrieves step_texts from specific step.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/step_texts`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/step_texts(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
+
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve step from
-STEP_ID         | The ID of the step to retrieve step_texts from
+| Parameter     | Description                                                                            |
+| ------------- | -------------------------------------------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from                                            |
+| PROJECT_ID    | The ID of the project to retrieve experiment from                                      |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from                                         |
+| TASK_ID       | The ID of the task to retrieve protocol from                                           |
+| PROTOCOL_ID   | The ID of the protocol to retrieve step from                                           |
+| STEP_ID       | The ID of the step to retrieve step_texts from                                         |
+| FROM          | If present will filter steps' step_text, corresponding timestamp above or equals value |
+| TO            | If present will filter steps' step_text, corresponding timestamp below or equals value |
 
 ## Get step_text
 
@@ -86,15 +89,15 @@ This endpoint retrieves specific step_text from the step.
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to retrieve step_text from
-ID              | The ID of the step_text
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| STEP_ID       | The ID of the step to retrieve step_text from     |
+| ID            | The ID of the step_text                           |
 
 ## Create step_text
 
@@ -136,14 +139,14 @@ This endpoint creates new step_text in the step.
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to create step_text in
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| STEP_ID       | The ID of the step to create step_text in         |
 
 > Request body
 
@@ -160,10 +163,9 @@ STEP_ID         | The ID of the step to create step_text in
 
 ### Step_text attributes
 
-Attribute   | Mandatory| Description
----------   | -------- | -----------
-text    | yes       | String representation of the step_text data
-
+| Attribute | Mandatory | Description                                 |
+| --------- | --------- | ------------------------------------------- |
+| text      | yes       | String representation of the step_text data |
 
 ## Update step_text
 
@@ -187,14 +189,14 @@ curl -X PATCH \
 
 ```json
 {
-    "data": {
-      "id": "1",
-      "type": "step_texts",
-      "attributes": {
-        "text":  "<p>Some text.</p>",
-        "position": 0
-      }
+  "data": {
+    "id": "1",
+    "type": "step_texts",
+    "attributes": {
+      "text": "<p>Some text.</p>",
+      "position": 0
     }
+  }
 }
 ```
 
@@ -207,15 +209,15 @@ If submitted attributes are the same and no changes are made for the step_text, 
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to retrieve step_text from
-ID              | The ID of the step_text
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| STEP_ID       | The ID of the step to retrieve step_text from     |
+| ID            | The ID of the step_text                           |
 
 ### Request body
 
@@ -225,7 +227,7 @@ ID              | The ID of the step_text
     "id": "1",
     "type": "step_texts",
     "attributes": {
-      "text":  "<p>Some text.</p>"
+      "text": "<p>Some text.</p>"
     }
   }
 }
@@ -233,9 +235,9 @@ ID              | The ID of the step_text
 
 ### Step_text attributes
 
-Attribute   | Mandatory| Description
------------ | -------- | -----------
-text    | yes       | String representation of the step_text data
+| Attribute | Mandatory | Description                                 |
+| --------- | --------- | ------------------------------------------- |
+| text      | yes       | String representation of the step_text data |
 
 ## Delete step_text
 
@@ -255,12 +257,12 @@ This endpoint deletes specific step_text from the step.
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to retrieve step_texts from
-ID              | The ID of the step_text
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| STEP_ID       | The ID of the step to retrieve step_texts from    |
+| ID            | The ID of the step_text                           |

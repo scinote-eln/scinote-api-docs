@@ -62,17 +62,20 @@ This endpoint retrieves tables from specific step.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/tables`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/tables(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
+
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve step from
-STEP_ID         | The ID of the step to retrieve tables from
+| Parameter     | Description                                                                      |
+| ------------- | -------------------------------------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from                                      |
+| PROJECT_ID    | The ID of the project to retrieve experiment from                                |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from                                   |
+| TASK_ID       | The ID of the task to retrieve protocol from                                     |
+| PROTOCOL_ID   | The ID of the protocol to retrieve step from                                     |
+| STEP_ID       | The ID of the step to retrieve tables from                                       |
+| FROM          | If present will filter step tables corresponding timestamp above or equals value |
+| TO            | If present will filter step tables corresponding timestamp below or equals value |
 
 ## Get Table
 
@@ -115,15 +118,15 @@ This endpoint retrieves specific table from the step.
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to retrieve table from
-ID              | The ID of the table
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| STEP_ID       | The ID of the step to retrieve table from         |
+| ID            | The ID of the table                               |
 
 ## Create Table
 
@@ -185,14 +188,14 @@ This endpoint creates new table in the step.
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to create table in
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| STEP_ID       | The ID of the step to create table in             |
 
 > Request body
 
@@ -219,12 +222,11 @@ STEP_ID         | The ID of the step to create table in
 
 ### Table attributes
 
-Attribute   | Mandatory| Description
----------   | -------- | -----------
-name        | yes      | Name of the table
-contents    | no       | Serialized JSON representation of the table data
-metadata    | no       | JSON representation of the table metadata. `cells` represent the alignment of the specific table cell. Available `className` are `htCenter`, `htRight`, `htLeft`, `htJustify` for horizontal alignment, and `htTop`, `htMiddle`, `htBottom` for vertical alignment. `plateTemplate` field mark if table is a plate template
-
+| Attribute | Mandatory | Description                                                                                                                                                                                                                                                                                                                 |
+| --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name      | yes       | Name of the table                                                                                                                                                                                                                                                                                                           |
+| contents  | no        | Serialized JSON representation of the table data                                                                                                                                                                                                                                                                            |
+| metadata  | no        | JSON representation of the table metadata. `cells` represent the alignment of the specific table cell. Available `className` are `htCenter`, `htRight`, `htLeft`, `htJustify` for horizontal alignment, and `htTop`, `htMiddle`, `htBottom` for vertical alignment. `plateTemplate` field mark if table is a plate template |
 
 ## Update Table
 
@@ -288,15 +290,15 @@ If submitted attributes are the same and no changes are made for the table, serv
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to retrieve table from
-ID              | The ID of the table
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| STEP_ID       | The ID of the step to retrieve table from         |
+| ID            | The ID of the table                               |
 
 ### Request body
 
@@ -324,11 +326,11 @@ ID              | The ID of the table
 
 ### Table attributes
 
-Attribute   | Mandatory| Description
------------ | -------- | -----------
-name        | no      | Name of the table
-contents    | no       | Serialized JSON representation of the table data
-metadata    | no       | JSON representation of the table metadata. `cells` represent the alignment of the specific table cell. Available `className` are `htCenter`, `htRight`, `htLeft`, `htJustify` for horizontal alignment, and `htTop`, `htMiddle`, `htBottom` for vertical alignment. `plateTemplate` field mark if table is a plate template
+| Attribute | Mandatory | Description                                                                                                                                                                                                                                                                                                                 |
+| --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name      | no        | Name of the table                                                                                                                                                                                                                                                                                                           |
+| contents  | no        | Serialized JSON representation of the table data                                                                                                                                                                                                                                                                            |
+| metadata  | no        | JSON representation of the table metadata. `cells` represent the alignment of the specific table cell. Available `className` are `htCenter`, `htRight`, `htLeft`, `htJustify` for horizontal alignment, and `htTop`, `htMiddle`, `htBottom` for vertical alignment. `plateTemplate` field mark if table is a plate template |
 
 ## Delete Table
 
@@ -348,12 +350,12 @@ This endpoint deletes specific table from the step.
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to retrieve tables from
-ID              | The ID of the table
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| STEP_ID       | The ID of the step to retrieve tables from        |
+| ID            | The ID of the table                               |

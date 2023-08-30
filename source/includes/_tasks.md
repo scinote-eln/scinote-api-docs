@@ -11,11 +11,11 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks"
 
 ```json
 {
-  "data":[
+  "data": [
     {
       "id": "1",
       "type": "tasks",
-      "attributes":{
+      "attributes": {
         "name": "Experiment design",
         "started_on": null,
         "due_date": "2018-10-25T13:30:54.315Z",
@@ -43,7 +43,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks"
     {
       "id": "2",
       "type": "tasks",
-      "attributes":{
+      "attributes": {
         "name": "Sampling biological material",
         "started_on": null,
         "due_date": "2018-11-08T13:30:54.520Z",
@@ -79,7 +79,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks"
     {
       "id": "3",
       "type": "tasks",
-      "attributes":{
+      "attributes": {
         "name": "RNA isolation",
         "started_on": null,
         "due_date": "2018-11-22T13:30:54.594Z",
@@ -105,7 +105,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks"
       }
     }
   ],
-  "links":{
+  "links": {
     "self": "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "first": "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "prev": null,
@@ -121,17 +121,19 @@ If `?include=comments` PATH parameter is provided, task comments are also includ
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks(?include=<INCLUDES>&filter%5Barchived%5D=<ARCHIVED>)`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks(?include=<INCLUDES>&filter%5Barchived%5D=<ARCHIVED>&filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve experiment from
-EXPERIMENT_ID | The ID of the experiment to retrieve tasks from
-INCLUDES | if set to `comments`, task comments are also included
-ARCHIVED | If set to `true` return only archived tasks. If set to `false` return only active tasks. 
+| Parameter     | Description                                                                              |
+| ------------- | ---------------------------------------------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from                                              |
+| PROJECT_ID    | The ID of the project to retrieve experiment from                                        |
+| EXPERIMENT_ID | The ID of the experiment to retrieve tasks from                                          |
+| INCLUDES      | if set to `comments`, task comments are also included                                    |
+| ARCHIVED      | If set to `true` return only archived tasks. If set to `false` return only active tasks. |
+| FROM          | If present will filter experiment tasks corresponding timestamp above or equals value    |
+| TO            | If present will filter experiment tasks corresponding timestamp below or equals value    |
 
 ## Get Task
 
@@ -144,10 +146,10 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1"
 
 ```json
 {
-  "data":{
+  "data": {
     "id": "1",
     "type": "tasks",
-    "attributes":{
+    "attributes": {
       "name": "Experiment design",
       "started_on": null,
       "due_date": "2018-10-25T13:30:54.315Z",
@@ -185,14 +187,13 @@ If `?include=comments` PATH parameter is provided, task comments are also includ
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve experiment from
-EXPERIMENT_ID | The ID of the experiment to retrieve task from.
-TASK_ID | The ID of the task to retrieve
-INCLUDES | if set to `comments`, task comments are also included
-
+| Parameter     | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from           |
+| PROJECT_ID    | The ID of the project to retrieve experiment from     |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from.       |
+| TASK_ID       | The ID of the task to retrieve                        |
+| INCLUDES      | if set to `comments`, task comments are also included |
 
 ## Create Task
 
@@ -239,7 +240,6 @@ curl -X POST \
     }
   }
 }
-
 ```
 
 This endpoint creates new task in the experiment. Please note that we will create the user assignments for this task asynchronous.
@@ -250,11 +250,11 @@ This endpoint creates new task in the experiment. Please note that we will creat
 
 ### URL Parameters
 
-Parameter     | Description
-------------- | -----------
-TEAM_ID       | The ID of the team to retrieve projects from
-PROJECT_ID    | The ID of the project to retrieve experiments from
-EXPERIMENT_ID | The ID of the experiment
+| Parameter     | Description                                        |
+| ------------- | -------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve projects from       |
+| PROJECT_ID    | The ID of the project to retrieve experiments from |
+| EXPERIMENT_ID | The ID of the experiment                           |
 
 > Request body
 
@@ -274,12 +274,12 @@ EXPERIMENT_ID | The ID of the experiment
 
 ### Task attributes
 
-Attribute   | Mandatory | Description
------------ | --------- | -----------
-name        | yes       | Name of the task
-description | no        | Description of the task
-x           | yes       | x position on canvas
-y           | yes       | y position on canvas
+| Attribute   | Mandatory | Description             |
+| ----------- | --------- | ----------------------- |
+| name        | yes       | Name of the task        |
+| description | no        | Description of the task |
+| x           | yes       | x position on canvas    |
+| y           | yes       | y position on canvas    |
 
 ## Update Task
 
@@ -305,32 +305,32 @@ curl -X PATCH \
 
 ```json
 {
-    "data": {
-      "id": "1",
-      "type": "tasks",
-      "attributes": {
-          "name": "Task 2",
-          "started_on": null,
-          "due_date": null,
-          "description": "Task 2 description",
-          "state": "completed",
-          "archived": false,
-          "status_id": 2,
-          "status_name": "in progress",
-          "prev_status_id": 1,
-          "prev_status_name": "backlog",
-          "next_status_id": 3,
-          "next_status_name": "review"
+  "data": {
+    "id": "1",
+    "type": "tasks",
+    "attributes": {
+      "name": "Task 2",
+      "started_on": null,
+      "due_date": null,
+      "description": "Task 2 description",
+      "state": "completed",
+      "archived": false,
+      "status_id": 2,
+      "status_name": "in progress",
+      "prev_status_id": 1,
+      "prev_status_name": "backlog",
+      "next_status_id": 3,
+      "next_status_name": "review"
+    },
+    "relationships": {
+      "outputs": {
+        "data": []
       },
-      "relationships": {
-        "outputs": {
-          "data": []
-        },
-        "inputs": {
-          "data": []
-        }
+      "inputs": {
+        "data": []
       }
     }
+  }
 }
 ```
 
@@ -343,12 +343,12 @@ If submitted attributes are the same and no changes are made for the task, serve
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-ID              | The ID of the task
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| ID            | The ID of the task                                |
 
 ### Request body
 
@@ -368,10 +368,10 @@ ID              | The ID of the task
 
 ### Task attributes
 
-Attribute               | Mandatory | Description
------------------------ | --------- | -----------
-name                    | yes       | Name of the task
-description             | no        | Description of the task
-x                       | no        | x position on canvas
-y                       | no        | y position on canvas
-my_module_status_id     | no        | New status ID
+| Attribute           | Mandatory | Description             |
+| ------------------- | --------- | ----------------------- |
+| name                | yes       | Name of the task        |
+| description         | no        | Description of the task |
+| x                   | no        | x position on canvas    |
+| y                   | no        | y position on canvas    |
+| my_module_status_id | no        | New status ID           |

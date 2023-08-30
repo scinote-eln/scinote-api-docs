@@ -45,19 +45,21 @@ This endpoint retrieves items from the specific checklist.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/checklists/<CHECKLIST_ID>/items`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/checklists/<CHECKLIST_ID>/items(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve step from
-STEP_ID         | The ID of the step to retrieve checklists from
-CHECKLIST_ID    | The ID of the checklist to retrieve items from
+| Parameter     | Description                                                                          |
+| ------------- | ------------------------------------------------------------------------------------ |
+| TEAM_ID       | The ID of the team to retrieve project from                                          |
+| PROJECT_ID    | The ID of the project to retrieve experiment from                                    |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from                                       |
+| TASK_ID       | The ID of the task to retrieve protocol from                                         |
+| PROTOCOL_ID   | The ID of the protocol to retrieve step from                                         |
+| STEP_ID       | The ID of the step to retrieve checklists from                                       |
+| CHECKLIST_ID  | The ID of the checklist to retrieve items from                                       |
+| FROM          | If present will filter checklist items corresponding timestamp above or equals value |
+| TO            | If present will filter checklist items corresponding timestamp below or equals value |
 
 ## Get Checklist Item
 
@@ -91,16 +93,16 @@ This endpoint retrieves specific item from the checklist.
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to retrieve checklist from
-CHECKLIST_ID    | The ID of the checklist to retrieve item from
-ID              | The ID of the checklist
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| STEP_ID       | The ID of the step to retrieve checklist from     |
+| CHECKLIST_ID  | The ID of the checklist to retrieve item from     |
+| ID            | The ID of the checklist                           |
 
 ## Create Checklist Item
 
@@ -145,15 +147,15 @@ This endpoint creates new item in the checklist.
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to retrieve checklist from
-CHECKLIST_ID    | The ID of the checklist to create item in
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| STEP_ID       | The ID of the step to retrieve checklist from     |
+| CHECKLIST_ID  | The ID of the checklist to create item in         |
 
 > Request body
 
@@ -172,11 +174,11 @@ CHECKLIST_ID    | The ID of the checklist to create item in
 
 ### Checklist item attributes
 
-Attribute   | Mandatory| Description
----------   | -------- | -----------
-text        | yes      | Label text of the item
-checked     | no       | Item checked or unchecked
-position    | no       | Position of the item in the checklist
+| Attribute | Mandatory | Description                           |
+| --------- | --------- | ------------------------------------- |
+| text      | yes       | Label text of the item                |
+| checked   | no        | Item checked or unchecked             |
+| position  | no        | Position of the item in the checklist |
 
 ## Update Checklist Item
 
@@ -201,15 +203,15 @@ curl -X PATCH \
 
 ```json
 {
-    "data": {
-      "id": "1",
-      "type": "checklist_items",
-      "attributes": {
-        "text": "Item 2",
-        "checked": true,
-        "position": 0
-      }
+  "data": {
+    "id": "1",
+    "type": "checklist_items",
+    "attributes": {
+      "text": "Item 2",
+      "checked": true,
+      "position": 0
     }
+  }
 }
 ```
 
@@ -222,16 +224,16 @@ If submitted attributes are the same and no changes are made for the item, serve
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to retrieve checklist from
-CHECKLIST_ID    | The ID of the checklist to retrieve item from
-ID              | The ID of the checklist
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| STEP_ID       | The ID of the step to retrieve checklist from     |
+| CHECKLIST_ID  | The ID of the checklist to retrieve item from     |
+| ID            | The ID of the checklist                           |
 
 ### Request body
 
@@ -250,11 +252,11 @@ ID              | The ID of the checklist
 
 ### Checklist item attributes
 
-Attribute   | Mandatory| Description
----------   | -------- | -----------
-text        | no      | Label text of the item
-checked     | no       | Item checked or unchecked
-position    | no       | Position of the item in the checklist
+| Attribute | Mandatory | Description                           |
+| --------- | --------- | ------------------------------------- |
+| text      | no        | Label text of the item                |
+| checked   | no        | Item checked or unchecked             |
+| position  | no        | Position of the item in the checklist |
 
 ## Delete Checklist Item
 
@@ -274,13 +276,13 @@ This endpoint deletes specific item from the checklist.
 
 ### URL Parameters
 
-Parameter       | Description
---------------- | -----------
-TEAM_ID         | The ID of the team to retrieve project from
-PROJECT_ID      | The ID of the project to retrieve experiment from
-EXPERIMENT_ID   | The ID of the experiment to retrieve task from
-TASK_ID         | The ID of the task to retrieve protocol from
-PROTOCOL_ID     | The ID of the protocol to retrieve steps from
-STEP_ID         | The ID of the step to retrieve checklists from
-CHECKLIST_ID    | The ID of the checklist to retrieve items from
-ID              | The ID of the checklist item
+| Parameter     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from       |
+| PROJECT_ID    | The ID of the project to retrieve experiment from |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
+| TASK_ID       | The ID of the task to retrieve protocol from      |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
+| STEP_ID       | The ID of the step to retrieve checklists from    |
+| CHECKLIST_ID  | The ID of the checklist to retrieve items from    |
+| ID            | The ID of the checklist item                      |

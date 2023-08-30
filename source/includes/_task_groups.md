@@ -11,13 +11,13 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/task_groups"
 
 ```json
 {
-  "data":[
+  "data": [
     {
       "id": "1",
       "type": "task_groups",
-      "relationships":{
-        "tasks":{
-          "data":[
+      "relationships": {
+        "tasks": {
+          "data": [
             {
               "id": "1",
               "type": "tasks"
@@ -35,7 +35,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/task_groups"
       }
     }
   ],
-  "links":{
+  "links": {
     "self": "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/task_groups?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "first": "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/task_groups?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "prev": null,
@@ -49,15 +49,17 @@ This endpoint retrieves task groups from specific experiment.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/task_groups`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/task_groups(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve experiment from
-EXPERIMENT_ID | The ID of the experiment to retrieve task groups from
+| Parameter     | Description                                                                      |
+| ------------- | -------------------------------------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from                                      |
+| PROJECT_ID    | The ID of the project to retrieve experiment from                                |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task groups from                            |
+| FROM          | If present will filter task groups corresponding timestamp above or equals value |
+| TO            | If present will filter task groups corresponding timestamp below or equals value |
 
 ## Get Task Group
 
@@ -70,12 +72,12 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/task_groups/1
 
 ```json
 {
-  "data":{
+  "data": {
     "id": "1",
     "type": "task_groups",
-    "relationships":{
-      "tasks":{
-        "data":[
+    "relationships": {
+      "tasks": {
+        "data": [
           {
             "id": "1",
             "type": "tasks"
@@ -88,15 +90,15 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/task_groups/1
             "id": "3",
             "type": "tasks"
           }
-        ]       
+        ]
       }
     }
   },
-  "included":[
+  "included": [
     {
       "id": "1",
       "type": "tasks",
-      "attributes":{
+      "attributes": {
         "name": "Experiment design",
         "due_date": "2018-10-25T13:30:54.315Z",
         "description": null,
@@ -107,7 +109,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/task_groups/1
     {
       "id": "2",
       "type": "tasks",
-      "attributes":{
+      "attributes": {
         "name": "Sampling biological material",
         "due_date": "2018-11-08T13:30:54.520Z",
         "description": null,
@@ -118,7 +120,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/task_groups/1
     {
       "id": "3",
       "type": "tasks",
-      "attributes":{
+      "attributes": {
         "name": "RNA isolation",
         "due_date": "2018-11-22T13:30:54.594Z",
         "description": null,
@@ -138,9 +140,9 @@ This endpoint retrieves a specific task group from a specific experiment.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-TEAM_ID | The ID of the team to retrieve project from
-PROJECT_ID | The ID of the project to retrieve experiment from
-EXPERIMENT_ID | The ID of the experiment to retrieve task group from
-GROUP_ID | The ID of the task group to retrieve
+| Parameter     | Description                                          |
+| ------------- | ---------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from          |
+| PROJECT_ID    | The ID of the project to retrieve experiment from    |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task group from |
+| GROUP_ID      | The ID of the task group to retrieve                 |
