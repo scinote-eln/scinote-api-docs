@@ -1,9 +1,9 @@
-# Attachments
+# Attachments V2
 
 ## Get Attachments
 
 ```shell
-curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments"
+curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments"
   -H "Authorization: Bearer qwerty123456..."
 ```
 
@@ -68,11 +68,11 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
     }
   ],
   "links": {
-    "self": "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments?page%5Bnumber%5D=1&page%5Bsize%5D=10",
-    "first": "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "self": "http://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "first": "http://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "prev": null,
     "next": null,
-    "last": "http://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments?page%5Bnumber%5D=1&page%5Bsize%5D=10"
+    "last": "http://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments?page%5Bnumber%5D=1&page%5Bsize%5D=10"
   }
 }
 ```
@@ -81,7 +81,7 @@ This endpoint retrieves attachments from specific step.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/attachments`
+`GET https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/attachments`
 ### URL Parameters
 
 Parameter       | Description
@@ -96,7 +96,7 @@ STEP_ID         | The ID of the step to retrieve attachments from
 ## Get Attachment
 
 ```shell
-curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments/1"
+curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments/1"
   -H "Authorization: Bearer qwerty123456..."
   
 ```
@@ -130,7 +130,7 @@ This endpoint retrieves specific attachment from the step.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/attachments/<ID>`
+`GET https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/attachments/<ID>`
 
 ### URL Parameters
 
@@ -148,7 +148,7 @@ ID              | The ID of the attachment
 
 ```shell
 curl -X POST \
-  https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments \
+  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments \
   -H 'Authorization: Bearer qwerty123456...' \
   -H 'Content-Type: application/json' \
   -d'{
@@ -193,7 +193,7 @@ This endpoint uploads new attachment to the step.
 
 ### HTTP Request
 
-`POST https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments`
+`POST https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/attachments`
 
 ### URL Parameters
 
