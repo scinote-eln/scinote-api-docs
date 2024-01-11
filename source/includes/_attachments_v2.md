@@ -19,7 +19,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
         "file_name": "my_image1.png",
         "file_size": 132441,
         "file_type": "image/png",
-        "file_url": "http://<server-name>/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c7010e1f76e1c0774a9235a2ccbdcb0ca026e58/my_image1?disposition=attachment"
+        "file_url": "http://<server-name>/rails/active_storage/blobs/<asset_signed_id>/my_image1?disposition=attachment"
       },
       "relationships": {
         "step": {
@@ -37,7 +37,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
         "file_name": "my_image2.png",
         "file_size": 270369,
         "file_type": "image/png",
-        "file_url": "http://<server-name>/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBjUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--88ea367f0aa8633ab4cb8a504839bb782164d89b/my_image2?disposition=attachment"
+        "file_url": "http://<server-name>/rails/active_storage/blobs/<asset_signed_id>/my_image2?disposition=attachment"
       },
       "relationships": {
         "step": {
@@ -55,7 +55,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
         "file_name": "my_image3.png",
         "file_size": 91435,
         "file_type": "image/png",
-        "file_url": "http://<server-name>/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBjQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4b51f1e346342d2bdf9b1b781f5fc8214c5e0994/my_image3?disposition=attachment"
+        "file_url": "http://<server-name>/rails/active_storage/blobs/<asset_signed_id>/my_image3?disposition=attachment"
       },
       "relationships": {
         "step": {
@@ -112,7 +112,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
       "file_name": "my_image1",
       "file_size": 35038,
       "file_type": "image/png",
-      "file_url": "http://<server-name>/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBjUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--88ea367f0aa8633ab4cb8a504839bb782164d89b/my_image1?disposition=attachment"
+      "file_url": "http://<server-name>/rails/active_storage/blobs/<asset_signed_id>/my_image1?disposition=attachment"
     },
     "relationships": {
       "step": {
@@ -156,7 +156,7 @@ curl -X POST \
       "attributes": {
         "file_name": "my_file.png",
         "file_type": "image/png",
-        "file_data": "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAE0lEQVQIHWP8//8/AwMDExADAQAkBgMBOOSShwAAAABJRU5ErkJggg=='\''"
+        "file_data": "Base64EncodedData"
       },
       "type": "attachments"
     }
@@ -174,7 +174,7 @@ curl -X POST \
       "file_name": "my_image1.png",
       "file_size": 35038,
       "file_type": "image/png",
-      "file_url": "http://<server-name>/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBkdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f6847b21ffb44a71c6c88957255f513775da5a82/my_image1.png?disposition=attachment"
+      "file_url": "http://<server-name>/rails/active_storage/blobs/<asset_signed_id>/my_image1.png?disposition=attachment"
     },
     "relationships": {
       "step": {

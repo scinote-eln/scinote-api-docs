@@ -299,7 +299,7 @@ curl -X POST \
         "attributes": {
           "file_name": "my_file.png",
           "file_type": "image/png",
-          "file_data": "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAE0lEQVQIHWP8//8/AwMDExADAQAkBgMBOOSShwAAAABJRU5ErkJggg=='\''"
+          "file_data": "Base64EncodedData"
         },
         "type": "result_files"
       }
@@ -341,7 +341,7 @@ curl -X POST \
         "file_id": "1",
         "file_name": "my_file.png",
         "file_size": "4213",
-        "url": "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c7010e1f76e1c0774a9235a2ccbdcb0ca026e58/my_file?disposition=attachment"
+        "url": "/rails/active_storage/blobs/<asset_signed_id>/my_file?disposition=attachment"
       }
     }
   ]
@@ -463,7 +463,7 @@ curl -X PUT \
           "attributes": {
             "file_name": "new_file.png",
             "file_type": "image/png",
-            "file_data": "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAE0lEQVQIHWP8//8/AwMDExADAQAkBgMBOOSShwAAAABJRU5ErkJggg=='\''"
+            "file_data": "Base64EncodedData"
           },
           "type": "result_files"
         }
@@ -505,7 +505,7 @@ curl -X PUT \
         "file_id": "1",
         "file_name": "new_file.png",
         "file_size": "4213",
-        "url": "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c7010e1f76e1c0774a9235a2ccbdcb0ca026e58/my_file?disposition=attachment"
+        "url": "/rails/active_storage/blobs/<asset_signed_id>/my_file?disposition=attachment"
       }
     }
   ]
