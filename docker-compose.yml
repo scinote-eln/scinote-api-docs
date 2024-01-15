@@ -1,0 +1,18 @@
+services:
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4567:4567"
+    volumes:
+      - .:/srv/slate
+      - slate_development_bundler:/usr/local/bundle/
+    stdin_open: true
+    tty: true 
+    command: >
+      bash -c "(bundle check || bundle install) &&
+               bundle exec middleman server --watcher-force-polling"
+
+volumes:
+  slate_development_bundler:
