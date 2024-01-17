@@ -1,6 +1,6 @@
-# Step step_texts
+# Step texts
 
-## Get step_texts
+## Get step texts
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts"

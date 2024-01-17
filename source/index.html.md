@@ -23,19 +23,25 @@ includes:
   - task_connections
   - tasks
   - task_protocols
-  - protocol_steps
+  - protocol_steps_v1
+  - protocol_steps_v2
   - checklists
   - checklist_items
   - tables
   - step_texts
-  - attachments
+  - attachments_v1
+  - attachments_v2
   - task_users
   - task_activities
   - task_tags
   - task_inventory_items
   - task_user_assignments
   - task_assignments
-  - results
+  - results_v1
+  - results_v2
+  - result_attachments_v2
+  - result_tables_v2
+  - result_texts_v2
   - reports
   - protocol_templates
   - inventories
