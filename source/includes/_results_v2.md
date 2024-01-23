@@ -26,7 +26,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/resu
         "tables": {
           "data": []
         },
-        "texts": {
+        "result_texts": {
           "data": []
         },
         "comments": {
@@ -48,7 +48,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/resu
         "tables": {
           "data": []
         },
-        "texts": {
+        "result_texts": {
           "data": []
         },
         "comments": {
@@ -70,7 +70,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/resu
         "tables": {
           "data": []
         },
-        "texts": {
+        "result_texts": {
           "data": []
         },
         "comments": {
@@ -89,7 +89,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/resu
 }
 ```
 
-This endpoint retrieves results from specific task. It also supports inclusion of these elements: tables, texts, assets, comments.
+This endpoint retrieves results from specific task. It also supports inclusion of these elements: tables, result_texts, assets, comments.
 If `?include=comments` PATH parameter is provided, result comments are also included.
 
 
@@ -135,7 +135,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/resu
       "tables": {
         "data": []
       },
-      "texts": {
+      "result_texts": {
         "data": []
       },
       "comments": {
@@ -146,7 +146,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/resu
 }
 ```
 
-This endpoint retrieves specific result from the task. It also supports inclusion of these elements: tables, texts, assets, comments.
+This endpoint retrieves specific result from the task. It also supports inclusion of these elements: tables, result_texts, assets, comments.
 If `?include=comments` PATH parameter is provided, result comments are also included.
 
 ### HTTP Request
@@ -200,7 +200,7 @@ curl -X POST \
       "tables": {
         "data": []
       },
-      "texts": {
+      "result_texts": {
         "data": []
       },
       "comments": {
@@ -281,7 +281,7 @@ curl -X PATCH \
       "tables": {
         "data": []
       },
-      "texts": {
+      "result_texts": {
         "data": []
       },
       "comments": {
@@ -339,7 +339,7 @@ curl -X DELETE \
 
 > The above command returns empty body with status code 200
 
-This endpoint deletes specific result from the task.
+This endpoint deletes specific result from the task. Only archived results can be deleted.
 
 ### HTTP Request
 
