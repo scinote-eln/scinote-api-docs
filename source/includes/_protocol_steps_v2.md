@@ -37,7 +37,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
         "tables": {
           "data": []
         },
-        "texts": {
+        "step_texts": {
           "data": []
         },
         "comments": {
@@ -69,7 +69,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
         "tables": {
           "data": []
         },
-        "texts": {
+        "step_texts": {
           "data": []
         },
         "comments": {
@@ -101,7 +101,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
         "tables": {
           "data": []
         },
-        "texts": {
+        "step_texts": {
           "data": []
         },
         "comments": {
@@ -120,7 +120,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
 }
 ```
 
-This endpoint retrieves steps from specific protocol. It also supports inclusion of these elements: tables, texts, assets, checklists, checklists.checklist_items, comments.
+This endpoint retrieves steps from specific protocol. It also supports inclusion of these elements: tables, step_texts, assets, checklists, checklists.checklist_items, comments.
 Optional URL parameter 'render_rte=true' can be added in order to request rendering of RTE fields(embedded images, smart annotations).
 If `?include=comments` PATH parameter is provided, step comments are also included.
 
@@ -179,7 +179,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
       "tables": {
         "data": []
       },
-      "texts": {
+      "step_texts": {
         "data": []
       },
       "comments": {
@@ -190,7 +190,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
 }
 ```
 
-This endpoint retrieves specific step from the protocol. It also supports inclusion of these elements: tables, texts, assets, checklists, checklists.checklist_items, comments.
+This endpoint retrieves specific step from the protocol. It also supports inclusion of these elements: tables, step_texts, assets, checklists, checklists.checklist_items, comments.
 Optional URL parameter 'render_rte=true' can be added in order to request rendering of RTE fields(embedded images, smart annotations).
 If `?include=comments` PATH parameter is provided, step comments are also included.
 
@@ -255,7 +255,7 @@ curl -X POST \
       "tables": {
         "data": []
       },
-      "texts": {
+      "step_texts": {
         "data": []
       },
       "comments": {
@@ -350,7 +350,7 @@ curl -X PATCH \
       "tables": {
         "data": []
       },
-      "texts": {
+      "step_texts": {
         "data": []
       },
       "comments": {
@@ -610,7 +610,7 @@ curl -X POST \
         "tables": {
           "data": []
         },
-        "texts": {
+        "step_texts": {
           "data": []
         },
         "comments": {
@@ -658,7 +658,7 @@ curl -X POST \
         "tables": {
           "data": []
         },
-        "texts": {
+        "step_texts": {
           "data": []
         },
         "comments": {
@@ -706,7 +706,7 @@ curl -X POST \
         "tables": {
           "data": []
         },
-        "texts": {
+        "step_texts": {
           "data": []
         },
         "comments": {
