@@ -3,7 +3,7 @@
 ## Get Tables
 
 ```shell
-curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables"
+curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables"
   -H "Authorization: Bearer qwerty123456..."
 ```
 
@@ -49,11 +49,11 @@ curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/prot
     }
   ],
   "links": {
-    "self": "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables?page%5Bnumber%5D=1&page%5Bsize%5D=10",
-    "first": "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "self": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "first": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "prev": null,
     "next": null,
-    "last": "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables?page%5Bnumber%5D=1&page%5Bsize%5D=10"
+    "last": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables?page%5Bnumber%5D=1&page%5Bsize%5D=10"
   }
 }
 ```
@@ -62,7 +62,7 @@ This endpoint retrieves tables from specific step.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/tables(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
+`GET https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/tables(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 ### URL Parameters
 
@@ -80,7 +80,7 @@ This endpoint retrieves tables from specific step.
 ## Get Table
 
 ```shell
-curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables/1"
+curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables/1"
   -H "Authorization: Bearer qwerty123456..."
 
 ```
@@ -114,7 +114,7 @@ This endpoint retrieves specific table from the step.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/tables/<ID>`
+`GET https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/tables/<ID>`
 
 ### URL Parameters
 
@@ -132,7 +132,7 @@ This endpoint retrieves specific table from the step.
 
 ```shell
 curl -X POST \
-  https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables \
+  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables \
   -H 'Authorization: Bearer qwerty123456...' \
   -H 'Content-Type: application/vnd.api+json' \
   -d '{
@@ -184,7 +184,7 @@ This endpoint creates new table in the step.
 
 ### HTTP Request
 
-`POST https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables`
+`POST https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables`
 
 ### URL Parameters
 
@@ -232,7 +232,7 @@ This endpoint creates new table in the step.
 
 ```shell
 curl -X PATCH \
-  https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables/1 \
+  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables/1 \
   -H 'Authorization: Bearer qwerty123456...' \
   -H 'Content-Type: application/vnd.api+json' \
   -d '{
@@ -286,7 +286,7 @@ If submitted attributes are the same and no changes are made for the table, serv
 
 ### HTTP Request
 
-`PATCH https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/tables/<ID>`
+`PATCH https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/tables/<ID>`
 
 ### URL Parameters
 
@@ -336,7 +336,7 @@ If submitted attributes are the same and no changes are made for the table, serv
 
 ```shell
 curl -X DELETE \
-  https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables/1 \
+  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/tables/1 \
   -H "Authorization: Bearer qwerty123456..."
 ```
 
@@ -346,7 +346,7 @@ This endpoint deletes specific table from the step.
 
 ### HTTP Request
 
-`DELETE https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/tables/<ID>`
+`DELETE https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/tables/<ID>`
 
 ### URL Parameters
 
