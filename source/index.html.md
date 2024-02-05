@@ -25,10 +25,14 @@ includes:
   - task_protocols
   - protocol_steps_v1
   - protocol_steps_v2
-  - checklists
-  - checklist_items
-  - tables
-  - step_texts
+  - checklists_v1
+  - checklists_v2
+  - checklist_items_v1
+  - checklist_items_v2
+  - tables_v1
+  - tables_v2
+  - step_texts_v1
+  - step_texts_v2
   - attachments_v1
   - attachments_v2
   - task_users
