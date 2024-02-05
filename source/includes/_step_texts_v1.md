@@ -1,4 +1,4 @@
-# Step texts(Deprecated)
+# Step texts V1(Deprecated)
 
 ## Get step texts
 
