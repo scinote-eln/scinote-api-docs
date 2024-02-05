@@ -51,7 +51,8 @@ includes:
   - inventory_column_checklist_items
   - inventory_column_stock_unit_items
   - inventory_items
-  - inventory_item_relationships
+  - inventory_item_child_relationships
+  - inventory_item_parent_relationships
   - inventory_cells
   - workflows
   - workflow_statuses
