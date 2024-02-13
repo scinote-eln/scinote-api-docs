@@ -1,6 +1,6 @@
 # Step texts V1(Deprecated)
 
-## Get step texts
+## Get step_texts (Deprecated)
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts"
@@ -58,7 +58,7 @@ This endpoint retrieves step_texts from specific step.
 | FROM          | If present will filter steps' step_text, corresponding timestamp above or equals value |
 | TO            | If present will filter steps' step_text, corresponding timestamp below or equals value |
 
-## Get step_text
+## Get step_text (Deprecated)
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts/1"
@@ -99,7 +99,7 @@ This endpoint retrieves specific step_text from the step.
 | STEP_ID       | The ID of the step to retrieve step_text from     |
 | ID            | The ID of the step_text                           |
 
-## Create step_text
+## Create step_text (Deprecated)
 
 ```shell
 curl -X POST \
@@ -167,7 +167,7 @@ This endpoint creates new step_text in the step.
 | --------- | --------- | ------------------------------------------- |
 | text      | yes       | String representation of the step_text data |
 
-## Update step_text
+## Update step_text (Deprecated)
 
 ```shell
 curl -X PATCH \
@@ -239,7 +239,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 | --------- | --------- | ------------------------------------------- |
 | text      | yes       | String representation of the step_text data |
 
-## Delete step_text
+## Delete step_text (Deprecated)
 
 ```shell
 curl -X DELETE \

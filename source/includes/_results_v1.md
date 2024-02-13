@@ -1,6 +1,6 @@
 # Results V1(Deprecated)
 
-## Get Results
+## Get Results (Deprecated)
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/results"
@@ -141,7 +141,7 @@ If `?include=comments` PATH parameter is provided, result comments are also incl
 | FROM          | If present will filter task results corresponding timestamp above or equals value |
 | TO            | If present will filter task results corresponding timestamp below or equals value |
 
-## Get Result
+## Get Result (Deprecated)
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/results/1"
@@ -204,7 +204,7 @@ If `?include=comments` PATH parameter is provided, result comments are also incl
 | ID            | The ID of the result                                    |
 | INCLUDES      | if set to `comments`, result comments are also included |
 
-## Create Result
+## Create Result (Deprecated)
 
 ### with Text Result and TinyMCE images
 
@@ -443,7 +443,7 @@ This endpoint creates new result, also result file can be added inside "included
 | file_type | yes       | MIME content type   |
 | file_data | yes       | Base64 Encoded data |
 
-## Update Result
+## Update Result (Deprecated)
 
 ### with File Result
 

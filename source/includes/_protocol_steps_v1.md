@@ -1,6 +1,6 @@
 # Protocol Steps V1(Deprecated)
 
-## Get Steps
+## Get Steps (Deprecated)
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps"
@@ -139,7 +139,7 @@ After the step editing revamp, the step description is fetched from, and written
 | FROM          | If present will filter protocol steps corresponding timestamp above or equals value |
 | TO            | If present will filter protocol steps corresponding timestamp below or equals value |
 
-## Get Step
+## Get Step (Deprecated)
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1"
@@ -205,7 +205,7 @@ If `?include=comments` PATH parameter is provided, step comments are also includ
 | ID            | The ID of the step                                    |
 | INCLUDES      | if set to `comments`, step comments are also included |
 
-## Create Step
+## Create Step (Deprecated)
 
 ```shell
 curl -X POST \
@@ -298,7 +298,7 @@ This endpoint creates new step in the protocol.
 | description | no        | Description of the step |
 | completed   | no        | Step completion flag    |
 
-## Update Step
+## Update Step (Deprecated)
 
 ```shell
 curl -X PATCH \
@@ -398,7 +398,7 @@ If submitted attributes are the same and no changes are made for the step, serve
 | description | no        | Description of the step |
 | completed   | no        | Step completion flag    |
 
-## Delete Step
+## Delete Step (Deprecated)
 
 ```shell
 curl -X DELETE \
@@ -425,7 +425,7 @@ This endpoint deletes specific step from the protocol.
 | PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
 | ID            | The ID of the step                                |
 
-## Reorder step elements
+## Reorder step elements (Deprecated)
 
 ```shell
 curl -X POST \
@@ -528,7 +528,7 @@ curl -X POST \
 
 This endpoint is used for changing the order of step elements.
 
-## Reorder steps
+## Reorder steps (Deprecated)
 
 ```shell
 curl -X POST \

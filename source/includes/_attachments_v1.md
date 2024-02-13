@@ -1,6 +1,6 @@
 # Attachments V1(Deprecated)
 
-## Get Attachments
+## Get Attachments (Deprecated)
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments"
@@ -93,7 +93,7 @@ TASK_ID         | The ID of the task to retrieve protocol from
 PROTOCOL_ID     | The ID of the protocol to retrieve steps from
 STEP_ID         | The ID of the step to retrieve attachments from
 
-## Get Attachment
+## Get Attachment (Deprecated)
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/attachments/1"
@@ -144,7 +144,7 @@ PROTOCOL_ID     | The ID of the protocol to retrieve steps from
 STEP_ID         | The ID of the step to retrieve attachments from
 ID              | The ID of the attachment
 
-## Create Attachment
+## Create Attachment (Deprecated)
 
 ```shell
 curl -X POST \
