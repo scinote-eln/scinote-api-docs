@@ -1,6 +1,6 @@
-# Step checklists
+# Step checklists V1(Deprecated)
 
-## Get Checklists
+## Get Checklists (Deprecated)
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists"
@@ -68,7 +68,7 @@ This endpoint retrieves checklists from specific step. It also supports inclusio
 | FROM          | If present will filter checklists corresponding timestamp above or equals value |
 | TO            | If present will filter checklists corresponding timestamp below or equals value |
 
-## Get Checklist
+## Get Checklist (Deprecated)
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1"
@@ -114,7 +114,7 @@ This endpoint retrieves specific checklist from the step. It also supports inclu
 | STEP_ID       | The ID of the step to retrieve checklist from     |
 | ID            | The ID of the checklist                           |
 
-## Create Checklist
+## Create Checklist (Deprecated)
 
 ```shell
 curl -X POST \
@@ -188,7 +188,7 @@ This endpoint creates new checklist in the step.
 | --------- | --------- | --------------------- |
 | name      | yes       | Name of the checklist |
 
-## Update Checklist
+## Update Checklist (Deprecated)
 
 ```shell
 curl -X PATCH \
@@ -260,7 +260,7 @@ If submitted attributes are the same and no changes are made for the checklist, 
 | --------- | --------- | --------------------- |
 | name      | yes       | Name of the checklist |
 
-## Delete Checklist
+## Delete Checklist (Deprecated)
 
 ```shell
 curl -X DELETE \

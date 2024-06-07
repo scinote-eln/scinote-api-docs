@@ -1,6 +1,6 @@
-# Results
+# Results V1(Deprecated)
 
-## Get Results
+## Get Results (Deprecated)
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/results"
@@ -141,7 +141,7 @@ If `?include=comments` PATH parameter is provided, result comments are also incl
 | FROM          | If present will filter task results corresponding timestamp above or equals value |
 | TO            | If present will filter task results corresponding timestamp below or equals value |
 
-## Get Result
+## Get Result (Deprecated)
 
 ```shell
 curl "https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks/1/results/1"
@@ -204,7 +204,7 @@ If `?include=comments` PATH parameter is provided, result comments are also incl
 | ID            | The ID of the result                                    |
 | INCLUDES      | if set to `comments`, result comments are also included |
 
-## Create Result
+## Create Result (Deprecated)
 
 ### with Text Result and TinyMCE images
 
@@ -299,7 +299,7 @@ curl -X POST \
         "attributes": {
           "file_name": "my_file.png",
           "file_type": "image/png",
-          "file_data": "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAE0lEQVQIHWP8//8/AwMDExADAQAkBgMBOOSShwAAAABJRU5ErkJggg=='\''"
+          "file_data": "Base64EncodedData"
         },
         "type": "result_files"
       }
@@ -341,7 +341,7 @@ curl -X POST \
         "file_id": "1",
         "file_name": "my_file.png",
         "file_size": "4213",
-        "url": "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c7010e1f76e1c0774a9235a2ccbdcb0ca026e58/my_file?disposition=attachment"
+        "url": "/rails/active_storage/blobs/<asset_signed_id>/my_file?disposition=attachment"
       }
     }
   ]
@@ -443,7 +443,7 @@ This endpoint creates new result, also result file can be added inside "included
 | file_type | yes       | MIME content type   |
 | file_data | yes       | Base64 Encoded data |
 
-## Update Result
+## Update Result (Deprecated)
 
 ### with File Result
 
@@ -463,7 +463,7 @@ curl -X PUT \
           "attributes": {
             "file_name": "new_file.png",
             "file_type": "image/png",
-            "file_data": "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAE0lEQVQIHWP8//8/AwMDExADAQAkBgMBOOSShwAAAABJRU5ErkJggg=='\''"
+            "file_data": "Base64EncodedData"
           },
           "type": "result_files"
         }
@@ -505,7 +505,7 @@ curl -X PUT \
         "file_id": "1",
         "file_name": "new_file.png",
         "file_size": "4213",
-        "url": "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c7010e1f76e1c0774a9235a2ccbdcb0ca026e58/my_file?disposition=attachment"
+        "url": "/rails/active_storage/blobs/<asset_signed_id>/my_file?disposition=attachment"
       }
     }
   ]

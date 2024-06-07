@@ -23,19 +23,29 @@ includes:
   - task_connections
   - tasks
   - task_protocols
-  - protocol_steps
-  - checklists
-  - checklist_items
-  - tables
-  - step_texts
-  - attachments
+  - protocol_steps_v1
+  - protocol_steps_v2
+  - checklists_v1
+  - checklists_v2
+  - checklist_items_v1
+  - checklist_items_v2
+  - tables_v1
+  - tables_v2
+  - step_texts_v1
+  - step_texts_v2
+  - attachments_v1
+  - attachments_v2
   - task_users
   - task_activities
   - task_tags
   - task_inventory_items
   - task_user_assignments
   - task_assignments
-  - results
+  - results_v1
+  - results_v2
+  - result_attachments_v2
+  - result_tables_v2
+  - result_texts_v2
   - reports
   - protocol_templates
   - inventories
@@ -45,6 +55,8 @@ includes:
   - inventory_column_checklist_items
   - inventory_column_stock_unit_items
   - inventory_items
+  - inventory_item_child_relationships
+  - inventory_item_parent_relationships
   - inventory_cells
   - workflows
   - workflow_statuses
