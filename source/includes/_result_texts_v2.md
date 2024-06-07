@@ -129,7 +129,7 @@ This endpoint creates new text in the result.
 
 ### HTTP Request
 
-`POST https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/results/`
+`POST https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/results/<RESULT_ID>/texts/`
 
 ### URL Parameters
 
@@ -139,6 +139,7 @@ This endpoint creates new text in the result.
 | PROJECT_ID    | The ID of the project to retrieve experiment from |
 | EXPERIMENT_ID | The ID of the experiment to retrieve task from    |
 | TASK_ID       | The ID of the task to retrieve protocol from      |
+| RESULT_ID     | The ID of the result to create texts in           |
 
 > Request body
 

@@ -1,6 +1,6 @@
-# Teams
+# User Roles
 
-## Get All User Roles
+## Get User Roles
 
 ```shell
 curl "https://<server-name>/api/v1/user_roles"
@@ -43,37 +43,3 @@ This endpoint retrieves all user roles in the system.
 ### HTTP Request
 
 `GET https://<server-name>/api/v1/user_roles`
-
-## Get a Specific User Role
-
-```shell
-curl "https://<server-name>/api/v1/user_roles/1"
-  -H "Authorization: Bearer qwerty123456..."
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "data": {
-        "id": "1",
-        "type": "user_roles",
-        "attributes": {
-          "name": "Owner",
-          "permissions": ["project_read", "experiment_read", "task_read"]
-        }
-    }
-}
-```
-
-This endpoint retrieves a specific user role.
-
-### HTTP Request
-
-`GET https://<server-name>/api/v1/user_roles/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the user role to retrieve
