@@ -3,7 +3,7 @@
 ## Get step texts
 
 ```shell
-curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts"
+curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts"
   -H "Authorization: Bearer qwerty123456..."
 ```
 
@@ -30,11 +30,11 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
     }
   ],
   "links": {
-    "self": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts?page%5Bnumber%5D=1&page%5Bsize%5D=10",
-    "first": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "self": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "first": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "prev": null,
     "next": null,
-    "last": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts?page%5Bnumber%5D=1&page%5Bsize%5D=10"
+    "last": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts?page%5Bnumber%5D=1&page%5Bsize%5D=10"
   }
 }
 ```
@@ -43,7 +43,7 @@ This endpoint retrieves step_texts from specific step.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/step_texts(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
+`GET https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/texts(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 ### URL Parameters
 
@@ -61,7 +61,7 @@ This endpoint retrieves step_texts from specific step.
 ## Get step_text
 
 ```shell
-curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts/1"
+curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts/1"
   -H "Authorization: Bearer qwerty123456..."
 
 ```
@@ -85,7 +85,7 @@ This endpoint retrieves specific step_text from the step.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/step_texts/<ID>`
+`GET https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/texts/<ID>`
 
 ### URL Parameters
 
@@ -103,7 +103,7 @@ This endpoint retrieves specific step_text from the step.
 
 ```shell
 curl -X POST \
-  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts \
+  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts \
   -H 'Authorization: Bearer qwerty123456...' \
   -H 'Content-Type: application/vnd.api+json' \
   -d '{
@@ -135,7 +135,7 @@ This endpoint creates new step_text in the step.
 
 ### HTTP Request
 
-`POST https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts`
+`POST https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts`
 
 ### URL Parameters
 
@@ -171,7 +171,7 @@ This endpoint creates new step_text in the step.
 
 ```shell
 curl -X PATCH \
-  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts/1 \
+  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts/1 \
   -H 'Authorization: Bearer qwerty123456...' \
   -H 'Content-Type: application/vnd.api+json' \
   -d '{
@@ -205,7 +205,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 
 ### HTTP Request
 
-`PATCH https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/step_texts/<ID>`
+`PATCH https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/texts/<ID>`
 
 ### URL Parameters
 
@@ -243,7 +243,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 
 ```shell
 curl -X DELETE \
-  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts/1 \
+  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts/1 \
   -H "Authorization: Bearer qwerty123456..."
 ```
 
@@ -253,7 +253,7 @@ This endpoint deletes specific step_text from the step.
 
 ### HTTP Request
 
-`DELETE https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/step_texts/<ID>`
+`DELETE https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/texts/<ID>`
 
 ### URL Parameters
 

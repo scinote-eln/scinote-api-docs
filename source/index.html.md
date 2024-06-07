@@ -11,6 +11,7 @@ includes:
   - teams
   - users
   - user_identities
+  - user_roles
   - projects
   - project_user_assignments
   - project_activities

@@ -3,7 +3,7 @@
 ## Get Checklist Items
 
 ```shell
-curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/items"
+curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items"
   -H "Authorization: Bearer qwerty123456..."
 ```
 
@@ -32,11 +32,11 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
     }
   ],
   "links": {
-    "self": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/item?page%5Bnumber%5D=1&page%5Bsize%5D=10",
-    "first": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/item?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "self": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "first": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items?page%5Bnumber%5D=1&page%5Bsize%5D=10",
     "prev": null,
     "next": null,
-    "last": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/items?page%5Bnumber%5D=1&page%5Bsize%5D=10"
+    "last": "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items?page%5Bnumber%5D=1&page%5Bsize%5D=10"
   }
 }
 ```
@@ -45,7 +45,7 @@ This endpoint retrieves items from the specific checklist.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/checklists/<CHECKLIST_ID>/items(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
+`GET https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/checklists/<CHECKLIST_ID>/checklist_items(?filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
 
 ### URL Parameters
 
@@ -64,7 +64,7 @@ This endpoint retrieves items from the specific checklist.
 ## Get Checklist Item
 
 ```shell
-curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/items/1"
+curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items/1"
   -H "Authorization: Bearer qwerty123456..."
 
 ```
@@ -89,7 +89,7 @@ This endpoint retrieves specific item from the checklist.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/checklists/<CHECKLIST_ID>/items/<ID>`
+`GET https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/checklists/<CHECKLIST_ID>/checklist_items/<ID>`
 
 ### URL Parameters
 
@@ -102,13 +102,13 @@ This endpoint retrieves specific item from the checklist.
 | PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
 | STEP_ID       | The ID of the step to retrieve checklist from     |
 | CHECKLIST_ID  | The ID of the checklist to retrieve item from     |
-| ID            | The ID of the checklist                           |
+| ID            | The ID of the checklist item                      |
 
 ## Create Checklist Item
 
 ```shell
 curl -X POST \
-  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/items \
+  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items \
   -H 'Authorization: Bearer qwerty123456...' \
   -H 'Content-Type: application/vnd.api+json' \
   -d '{
@@ -143,7 +143,7 @@ This endpoint creates new item in the checklist.
 
 ### HTTP Request
 
-`POST https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/items`
+`POST https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items`
 
 ### URL Parameters
 
@@ -184,7 +184,7 @@ This endpoint creates new item in the checklist.
 
 ```shell
 curl -X PATCH \
-  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1 \
+  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklist_items/1 \
   -H 'Authorization: Bearer qwerty123456...' \
   -H 'Content-Type: application/vnd.api+json' \
   -d '{
@@ -220,7 +220,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 
 ### HTTP Request
 
-`PATCH https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/checklists/<CHECKLIST_ID>/items/<ID>`
+`PATCH https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/checklists/<CHECKLIST_ID>/checklist_items/<ID>`
 
 ### URL Parameters
 
@@ -233,7 +233,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 | PROTOCOL_ID   | The ID of the protocol to retrieve steps from     |
 | STEP_ID       | The ID of the step to retrieve checklist from     |
 | CHECKLIST_ID  | The ID of the checklist to retrieve item from     |
-| ID            | The ID of the checklist                           |
+| ID            | The ID of the checklist item                      |
 
 ### Request body
 
@@ -262,7 +262,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 
 ```shell
 curl -X DELETE \
-  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/items/1 \
+  https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items/1 \
   -H "Authorization: Bearer qwerty123456..."
 ```
 
@@ -272,7 +272,7 @@ This endpoint deletes specific item from the checklist.
 
 ### HTTP Request
 
-`DELETE https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/checklists/<CHECKLIST_ID>/items/<ID>`
+`DELETE https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/protocols/<PROTOCOL_ID>/steps/<STEP_ID>/checklists/<CHECKLIST_ID>/checklist_items/<ID>`
 
 ### URL Parameters
 
