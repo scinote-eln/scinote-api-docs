@@ -370,6 +370,14 @@
               </ul>
           </li>
           <li>
+            <a href="#user-roles" class="toc-h1 toc-link" data-title="User Roles">User Roles</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-user-roles" class="toc-h2 toc-link" data-title="Get User Roles">Get User Roles</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#projects" class="toc-h1 toc-link" data-title="Projects">Projects</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1816,6 +1824,43 @@ If submitted attributes are the same and no changes are made for the identity ma
 <td>The ID of the identity mapping</td>
 </tr>
 </tbody></table>
+<h1 id='user-roles'>User Roles</h1><h2 id='get-user-roles'>Get User Roles</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/user_roles"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_roles"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Owner"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"project_read"</span><span class="p">,</span><span class="w"> </span><span class="s2">"experiment_read"</span><span class="p">,</span><span class="w"> </span><span class="s2">"task_read"</span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_roles"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"project_read"</span><span class="p">,</span><span class="w"> </span><span class="s2">"experiment_read"</span><span class="p">,</span><span class="w"> </span><span class="s2">"task_read"</span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/user_roles?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/user_roles?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v1/user_roles?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all user roles in the system.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/user_roles</code></p>
 <h1 id='projects'>Projects</h1><h2 id='get-projects'>Get Projects</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
@@ -7490,7 +7535,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 <td>The ID of the checklist item</td>
 </tr>
 </tbody></table>
-<h1 id='step-checklist-items-v2'>Step checklist items V2</h1><h2 id='get-checklist-items'>Get Checklist Items</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/items"</span>
+<h1 id='step-checklist-items-v2'>Step checklist items V2</h1><h2 id='get-checklist-items'>Get Checklist Items</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
 <blockquote>
@@ -7518,17 +7563,17 @@ If submitted attributes are the same and no changes are made for the item, serve
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/item?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/item?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/items?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
+    </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves items from the specific checklist.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/checklists/&lt;CHECKLIST_ID&gt;/items(?filter[created_at][from]=&lt;FROM&gt;&amp;filter[created_at][to]=&lt;TO&gt;&amp;filter[updated_at][from]=&lt;FROM&gt;&amp;filter[updated_at][to]=&lt;TO&gt;)</code></p>
+<p><code>GET https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/checklists/&lt;CHECKLIST_ID&gt;/checklist_items(?filter[created_at][from]=&lt;FROM&gt;&amp;filter[created_at][to]=&lt;TO&gt;&amp;filter[updated_at][from]=&lt;FROM&gt;&amp;filter[updated_at][to]=&lt;TO&gt;)</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -7573,7 +7618,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 <td>If present will filter checklist items corresponding timestamp below or equals value</td>
 </tr>
 </tbody></table>
-<h2 id='get-checklist-item'>Get Checklist Item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/items/1"</span>
+<h2 id='get-checklist-item'>Get Checklist Item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items/1"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 
 </code></pre></div>
@@ -7594,7 +7639,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 </span></code></pre></div>
 <p>This endpoint retrieves specific item from the checklist.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/checklists/&lt;CHECKLIST_ID&gt;/items/&lt;ID&gt;</code></p>
+<p><code>GET https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/checklists/&lt;CHECKLIST_ID&gt;/checklist_items/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -7632,11 +7677,11 @@ If submitted attributes are the same and no changes are made for the item, serve
 </tr>
 <tr>
 <td>ID</td>
-<td>The ID of the checklist</td>
+<td>The ID of the checklist item</td>
 </tr>
 </tbody></table>
 <h2 id='create-checklist-item'>Create Checklist Item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
-  https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/items <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
@@ -7667,7 +7712,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 </span></code></pre></div>
 <p>This endpoint creates new item in the checklist.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/items</code></p>
+<p><code>POST https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -7743,7 +7788,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 </tr>
 </tbody></table>
 <h2 id='update-checklist-item'>Update Checklist Item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
-  https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1 <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklist_items/1 <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
@@ -7775,7 +7820,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 <p>This endpoint updates existing item in the selected checklist.
 If submitted attributes are the same and no changes are made for the item, server returns empty body with response code 204.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PATCH https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/checklists/&lt;CHECKLIST_ID&gt;/items/&lt;ID&gt;</code></p>
+<p><code>PATCH https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/checklists/&lt;CHECKLIST_ID&gt;/checklist_items/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -7813,7 +7858,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 </tr>
 <tr>
 <td>ID</td>
-<td>The ID of the checklist</td>
+<td>The ID of the checklist item</td>
 </tr>
 </tbody></table>
 <h3 id='request-body'>Request body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -7851,7 +7896,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 </tr>
 </tbody></table>
 <h2 id='delete-checklist-item'>Delete Checklist Item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
-  https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/items/1 <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items/1 <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
 <blockquote>
@@ -7860,7 +7905,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 
 <p>This endpoint deletes specific item from the checklist.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>DELETE https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/checklists/&lt;CHECKLIST_ID&gt;/items/&lt;ID&gt;</code></p>
+<p><code>DELETE https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/checklists/&lt;CHECKLIST_ID&gt;/checklist_items/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -9199,7 +9244,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 <td>The ID of the step_text</td>
 </tr>
 </tbody></table>
-<h1 id='step-texts-v2'>Step texts V2</h1><h2 id='get-step-texts'>Get step texts</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts"</span>
+<h1 id='step-texts-v2'>Step texts V2</h1><h2 id='get-step-texts'>Get step texts</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
 <blockquote>
@@ -9225,17 +9270,17 @@ If submitted attributes are the same and no changes are made for the step_text, 
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
+    </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves step_texts from specific step.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/step_texts(?filter[created_at][from]=&lt;FROM&gt;&amp;filter[created_at][to]=&lt;TO&gt;&amp;filter[updated_at][from]=&lt;FROM&gt;&amp;filter[updated_at][to]=&lt;TO&gt;)</code></p>
+<p><code>GET https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/texts(?filter[created_at][from]=&lt;FROM&gt;&amp;filter[created_at][to]=&lt;TO&gt;&amp;filter[updated_at][from]=&lt;FROM&gt;&amp;filter[updated_at][to]=&lt;TO&gt;)</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -9276,7 +9321,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 <td>If present will filter steps&#39; step_text, corresponding timestamp below or equals value</td>
 </tr>
 </tbody></table>
-<h2 id='get-step_text'>Get step_text</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts/1"</span>
+<h2 id='get-step_text'>Get step_text</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts/1"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 
 </code></pre></div>
@@ -9296,7 +9341,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 </span></code></pre></div>
 <p>This endpoint retrieves specific step_text from the step.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/step_texts/&lt;ID&gt;</code></p>
+<p><code>GET https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/texts/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -9334,7 +9379,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 </tr>
 </tbody></table>
 <h2 id='create-step_text'>Create step_text</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
-  https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
@@ -9362,7 +9407,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 </span></code></pre></div>
 <p>This endpoint creates new step_text in the step.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts</code></p>
+<p><code>POST https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -9422,7 +9467,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 </tr>
 </tbody></table>
 <h2 id='update-step_text'>Update step_text</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
-  https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts/1 <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts/1 <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
@@ -9452,7 +9497,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 <p>This endpoint updates existing step_Text in the selected step.
 If submitted attributes are the same and no changes are made for the step_text, server returns empty body with response code 204.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PATCH https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/step_texts/&lt;ID&gt;</code></p>
+<p><code>PATCH https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/texts/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -9513,7 +9558,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 </tr>
 </tbody></table>
 <h2 id='delete-step_text'>Delete step_text</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
-  https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/step_texts/1 <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/texts/1 <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
 <blockquote>
@@ -9522,7 +9567,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 
 <p>This endpoint deletes specific step_text from the step.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>DELETE https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/step_texts/&lt;ID&gt;</code></p>
+<p><code>DELETE https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/protocols/&lt;PROTOCOL_ID&gt;/steps/&lt;STEP_ID&gt;/texts/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -13264,7 +13309,7 @@ If submitted attributes are the same and no changes are made for the table, serv
 </span></code></pre></div>
 <p>This endpoint creates new text in the result.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/results/</code></p>
+<p><code>POST https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;/tasks/&lt;TASK_ID&gt;/results/&lt;RESULT_ID&gt;/texts/</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -13287,6 +13332,10 @@ If submitted attributes are the same and no changes are made for the table, serv
 <tr>
 <td>TASK_ID</td>
 <td>The ID of the task to retrieve protocol from</td>
+</tr>
+<tr>
+<td>RESULT_ID</td>
+<td>The ID of the result to create texts in</td>
 </tr>
 </tbody></table>
 
