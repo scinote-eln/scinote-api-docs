@@ -314,6 +314,9 @@
                   <li>
                     <a href="#jwt-payload-claims" class="toc-h2 toc-link" data-title="JWT payload claims">JWT payload claims</a>
                   </li>
+                  <li>
+                    <a href="#alternative-api-key-authenticaton" class="toc-h2 toc-link" data-title="Alternative: API Key authenticaton">Alternative: API Key authenticaton</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1306,6 +1309,16 @@ You must replace <code>qwerty123456...</code> with your API access token.
 <td>The ID of the current authenticated user</td>
 </tr>
 </tbody></table>
+<h2 id='alternative-api-key-authenticaton'>Alternative: API Key authenticaton</h2>
+<aside class="notice">
+The API key authentication feature needs to be enabled on your instance to use this option.
+</aside>
+
+<p>If your instance has the API key functionality enabled, you can generate the API key in your user profile settings in SciNote (/users/edit). To authenticate via API key, add the following header to all requests:</p>
+
+<p><code>Api-Key: qwerty123456...</code></p>
+
+<p>The API key expires after one year. You can revoke the API key at any time in your user profile settings.</p>
 <h1 id='pagination'>Pagination</h1>
 <p>SciNote API uses pagination as specified here <a href="http://jsonapi.org/format/#fetching-pagination">JSON API</a></p>
 
