@@ -664,19 +664,19 @@
             <a href="#step-checklist-items-v2" class="toc-h1 toc-link" data-title="Step checklist items V2">Step checklist items V2</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-checklist-items" class="toc-h2 toc-link" data-title="Get Checklist Items">Get Checklist Items</a>
+                    <a href="#get-step-checklist-items" class="toc-h2 toc-link" data-title="Get Step Checklist Items">Get Step Checklist Items</a>
                   </li>
                   <li>
-                    <a href="#get-checklist-item" class="toc-h2 toc-link" data-title="Get Checklist Item">Get Checklist Item</a>
+                    <a href="#get-step-checklist-item" class="toc-h2 toc-link" data-title="Get Step Checklist Item">Get Step Checklist Item</a>
                   </li>
                   <li>
-                    <a href="#create-checklist-item" class="toc-h2 toc-link" data-title="Create Checklist Item">Create Checklist Item</a>
+                    <a href="#create-step-checklist-item" class="toc-h2 toc-link" data-title="Create Step Checklist Item">Create Step Checklist Item</a>
                   </li>
                   <li>
-                    <a href="#update-checklist-item" class="toc-h2 toc-link" data-title="Update Checklist Item">Update Checklist Item</a>
+                    <a href="#update-step-checklist-item" class="toc-h2 toc-link" data-title="Update Step Checklist Item">Update Step Checklist Item</a>
                   </li>
                   <li>
-                    <a href="#delete-checklist-item" class="toc-h2 toc-link" data-title="Delete Checklist Item">Delete Checklist Item</a>
+                    <a href="#step-delete-checklist-item" class="toc-h2 toc-link" data-title="Step Delete Checklist Item">Step Delete Checklist Item</a>
                   </li>
               </ul>
           </li>
@@ -7548,7 +7548,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 <td>The ID of the checklist item</td>
 </tr>
 </tbody></table>
-<h1 id='step-checklist-items-v2'>Step checklist items V2</h1><h2 id='get-checklist-items'>Get Checklist Items</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items"</span>
+<h1 id='step-checklist-items-v2'>Step checklist items V2</h1><h2 id='get-step-checklist-items'>Get Step Checklist Items</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
 <blockquote>
@@ -7631,7 +7631,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 <td>If present will filter checklist items corresponding timestamp below or equals value</td>
 </tr>
 </tbody></table>
-<h2 id='get-checklist-item'>Get Checklist Item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items/1"</span>
+<h2 id='get-step-checklist-item'>Get Step Checklist Item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items/1"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 
 </code></pre></div>
@@ -7693,7 +7693,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 <td>The ID of the checklist item</td>
 </tr>
 </tbody></table>
-<h2 id='create-checklist-item'>Create Checklist Item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+<h2 id='create-step-checklist-item'>Create Step Checklist Item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
   https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
@@ -7800,7 +7800,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 <td>Position of the item in the checklist</td>
 </tr>
 </tbody></table>
-<h2 id='update-checklist-item'>Update Checklist Item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
+<h2 id='update-step-checklist-item'>Update Step Checklist Item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
   https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklist_items/1 <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
@@ -7908,7 +7908,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 <td>Position of the item in the checklist</td>
 </tr>
 </tbody></table>
-<h2 id='delete-checklist-item'>Delete Checklist Item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
+<h2 id='step-delete-checklist-item'>Step Delete Checklist Item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
   https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/protocols/1/steps/1/checklists/1/checklist_items/1 <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
