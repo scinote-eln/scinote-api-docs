@@ -1,6 +1,6 @@
 # Result Attachments V2
 
-## Get Attachments
+## Get Result Attachments
 
 ```shell
 curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/attachments"
@@ -92,7 +92,7 @@ EXPERIMENT_ID   | The ID of the experiment to retrieve task from
 TASK_ID         | The ID of the task to retrieve protocol from
 RESULT_ID       | The ID of the result to retrieve attachments from
 
-## Get Attachment
+## Get Result Attachment
 
 ```shell
 curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/attachments/1"
@@ -142,7 +142,7 @@ TASK_ID         | The ID of the task to retrieve protocol from
 RESULT_ID       | The ID of the result to retrieve attachment from
 ID              | The ID of the attachment
 
-## Create Attachment
+## Create Result Attachment
 
 ```shell
 curl -X POST \

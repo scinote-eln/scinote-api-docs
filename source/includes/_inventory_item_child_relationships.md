@@ -251,7 +251,7 @@ This endpoint creates a new child relationship with selected inventory item, ide
  - __403 Forbidden:__ User does not have manage permission.
  - __404 Not Found:__ Specified inventory item not found.
 
-## Delete Inventory Item Relationship
+## Delete Inventory Item Child Relationship
 
 ```shell
 curl -X DELETE \

@@ -1,6 +1,6 @@
 # Result tables V2
 
-## Get Tables
+## Get Result Tables
 
 ```shell
 curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/tables"
@@ -76,7 +76,7 @@ This endpoint retrieves tables from specific result.
 | FROM          | If present will filter result tables corresponding timestamp above or equals value |
 | TO            | If present will filter result tables corresponding timestamp below or equals value |
 
-## Get Table
+## Get Result Table
 
 ```shell
 curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/tables/1"
@@ -126,7 +126,7 @@ This endpoint retrieves specific table from the result.
 | RESULT_ID     | The ID of the result to retrieve table from       |
 | ID            | The ID of the table                               |
 
-## Create Table
+## Create Result Table
 
 ```shell
 curl -X POST \
@@ -225,7 +225,7 @@ This endpoint creates new table in the result.
 | contents  | no        | Serialized JSON representation of the table data                                                                                                                                                                                                                                                                            |
 | metadata  | no        | JSON representation of the table metadata. `cells` represent the alignment of the specific table cell. Available `className` are `htCenter`, `htRight`, `htLeft`, `htJustify` for horizontal alignment, and `htTop`, `htMiddle`, `htBottom` for vertical alignment. `plateTemplate` field mark if table is a plate template |
 
-## Update Table
+## Update Result Table
 
 ```shell
 curl -X PATCH \
@@ -327,7 +327,7 @@ If submitted attributes are the same and no changes are made for the table, serv
 | contents  | no        | Serialized JSON representation of the table data                                                                                                                                                                                                                                                                            |
 | metadata  | no        | JSON representation of the table metadata. `cells` represent the alignment of the specific table cell. Available `className` are `htCenter`, `htRight`, `htLeft`, `htJustify` for horizontal alignment, and `htTop`, `htMiddle`, `htBottom` for vertical alignment. `plateTemplate` field mark if table is a plate template |
 
-## Delete Table
+## Delete Result Table
 
 ```shell
 curl -X DELETE \
