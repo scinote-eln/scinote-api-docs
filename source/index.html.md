@@ -150,18 +150,24 @@ iss | Text identifier of the token issuer
 exp | Token expiration time
 sub | The ID of the current authenticated user
 
-## Alternative: API Key authenticaton
+## Alternative: API Key authentication
 
 <aside class="notice">
 The API key authentication feature needs to be enabled on your instance to use this option.
 </aside>
 
-If your instance has the API key functionality enabled, you can generate the API key in your user profile settings in SciNote (/users/edit). To authenticate via API key, add the following header to all requests:
+If your instance has the API key functionality enabled, you can generate the API key in your user profile settings in SciNote (/users/edit).
 
-`Api-Key: qwerty123456...`
+To authenticate via API key, add the `Api-Key` header to all requests.
 
+```shell
+curl "http://<server-name>/api/v1/teams/1/projects"
+  -H "Api-Key: qwerty123456..."
+```
 
 The API key expires after one year. You can revoke the API key at any time in your user profile settings.
+
+For additional information on how to manage API keys, you can read the following [article](https://knowledgebase.scinote.net/en/knowledge/how-can-i-generate-a-scinote-api-key).
 
 # Pagination
 
