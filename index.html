@@ -315,7 +315,7 @@
                     <a href="#jwt-payload-claims" class="toc-h2 toc-link" data-title="JWT payload claims">JWT payload claims</a>
                   </li>
                   <li>
-                    <a href="#alternative-api-key-authenticaton" class="toc-h2 toc-link" data-title="Alternative: API Key authenticaton">Alternative: API Key authenticaton</a>
+                    <a href="#alternative-api-key-authentication" class="toc-h2 toc-link" data-title="Alternative: API Key authentication">Alternative: API Key authentication</a>
                   </li>
               </ul>
           </li>
@@ -901,13 +901,13 @@
             <a href="#result-attachments-v2" class="toc-h1 toc-link" data-title="Result Attachments V2">Result Attachments V2</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-attachments" class="toc-h2 toc-link" data-title="Get Attachments">Get Attachments</a>
+                    <a href="#get-result-attachments" class="toc-h2 toc-link" data-title="Get Result Attachments">Get Result Attachments</a>
                   </li>
                   <li>
-                    <a href="#get-attachment" class="toc-h2 toc-link" data-title="Get Attachment">Get Attachment</a>
+                    <a href="#get-result-attachment" class="toc-h2 toc-link" data-title="Get Result Attachment">Get Result Attachment</a>
                   </li>
                   <li>
-                    <a href="#create-attachment" class="toc-h2 toc-link" data-title="Create Attachment">Create Attachment</a>
+                    <a href="#create-result-attachment" class="toc-h2 toc-link" data-title="Create Result Attachment">Create Result Attachment</a>
                   </li>
               </ul>
           </li>
@@ -915,19 +915,19 @@
             <a href="#result-tables-v2" class="toc-h1 toc-link" data-title="Result tables V2">Result tables V2</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-tables" class="toc-h2 toc-link" data-title="Get Tables">Get Tables</a>
+                    <a href="#get-result-tables" class="toc-h2 toc-link" data-title="Get Result Tables">Get Result Tables</a>
                   </li>
                   <li>
-                    <a href="#get-table" class="toc-h2 toc-link" data-title="Get Table">Get Table</a>
+                    <a href="#get-result-table" class="toc-h2 toc-link" data-title="Get Result Table">Get Result Table</a>
                   </li>
                   <li>
-                    <a href="#create-table" class="toc-h2 toc-link" data-title="Create Table">Create Table</a>
+                    <a href="#create-result-table" class="toc-h2 toc-link" data-title="Create Result Table">Create Result Table</a>
                   </li>
                   <li>
-                    <a href="#update-table" class="toc-h2 toc-link" data-title="Update Table">Update Table</a>
+                    <a href="#update-result-table" class="toc-h2 toc-link" data-title="Update Result Table">Update Result Table</a>
                   </li>
                   <li>
-                    <a href="#delete-table" class="toc-h2 toc-link" data-title="Delete Table">Delete Table</a>
+                    <a href="#delete-result-table" class="toc-h2 toc-link" data-title="Delete Result Table">Delete Result Table</a>
                   </li>
               </ul>
           </li>
@@ -1126,7 +1126,7 @@
                     <a href="#create-inventory-item-child-relationship" class="toc-h2 toc-link" data-title="Create Inventory Item Child Relationship">Create Inventory Item Child Relationship</a>
                   </li>
                   <li>
-                    <a href="#delete-inventory-item-relationship" class="toc-h2 toc-link" data-title="Delete Inventory Item Relationship">Delete Inventory Item Relationship</a>
+                    <a href="#delete-inventory-item-child-relationship" class="toc-h2 toc-link" data-title="Delete Inventory Item Child Relationship">Delete Inventory Item Child Relationship</a>
                   </li>
               </ul>
           </li>
@@ -1143,7 +1143,7 @@
                     <a href="#create-inventory-item-parent-relationship" class="toc-h2 toc-link" data-title="Create Inventory Item Parent Relationship">Create Inventory Item Parent Relationship</a>
                   </li>
                   <li>
-                    <a href="#delete-inventory-item-relationship" class="toc-h2 toc-link" data-title="Delete Inventory Item Relationship">Delete Inventory Item Relationship</a>
+                    <a href="#delete-inventory-item-parent-relationship" class="toc-h2 toc-link" data-title="Delete Inventory Item Parent Relationship">Delete Inventory Item Parent Relationship</a>
                   </li>
               </ul>
           </li>
@@ -1309,16 +1309,20 @@ You must replace <code>qwerty123456...</code> with your API access token.
 <td>The ID of the current authenticated user</td>
 </tr>
 </tbody></table>
-<h2 id='alternative-api-key-authenticaton'>Alternative: API Key authenticaton</h2>
+<h2 id='alternative-api-key-authentication'>Alternative: API Key authentication</h2>
 <aside class="notice">
 The API key authentication feature needs to be enabled on your instance to use this option.
 </aside>
 
-<p>If your instance has the API key functionality enabled, you can generate the API key in your user profile settings in SciNote (/users/edit). To authenticate via API key, add the following header to all requests:</p>
+<p>If your instance has the API key functionality enabled, you can generate the API key in your user profile settings in SciNote (/users/edit).</p>
 
-<p><code>Api-Key: qwerty123456...</code></p>
-
+<p>To authenticate via API key, add the <code>Api-Key</code> header to all requests.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects"</span>
+  <span class="nt">-H</span> <span class="s2">"Api-Key: qwerty123456..."</span>
+</code></pre></div>
 <p>The API key expires after one year. You can revoke the API key at any time in your user profile settings.</p>
+
+<p>For additional information on how to manage API keys, you can read the following <a href="https://knowledgebase.scinote.net/en/knowledge/how-can-i-generate-a-scinote-api-key">article</a>.</p>
 <h1 id='pagination'>Pagination</h1>
 <p>SciNote API uses pagination as specified here <a href="http://jsonapi.org/format/#fetching-pagination">JSON API</a></p>
 
@@ -12451,7 +12455,7 @@ If submitted attributes are the same and no changes are made for the result, ser
 <td>The ID of the result</td>
 </tr>
 </tbody></table>
-<h1 id='result-attachments-v2'>Result Attachments V2</h1><h2 id='get-attachments'>Get Attachments</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/attachments"</span>
+<h1 id='result-attachments-v2'>Result Attachments V2</h1><h2 id='get-result-attachments'>Get Result Attachments</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/attachments"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
 <blockquote>
@@ -12554,7 +12558,7 @@ If submitted attributes are the same and no changes are made for the result, ser
 <td>The ID of the result to retrieve attachments from</td>
 </tr>
 </tbody></table>
-<h2 id='get-attachment'>Get Attachment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/attachments/1"</span>
+<h2 id='get-result-attachment'>Get Result Attachment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/attachments/1"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 
 </code></pre></div>
@@ -12617,7 +12621,7 @@ If submitted attributes are the same and no changes are made for the result, ser
 <td>The ID of the attachment</td>
 </tr>
 </tbody></table>
-<h2 id='create-attachment'>Create Attachment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+<h2 id='create-result-attachment'>Create Result Attachment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
   https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/attachments <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -12726,7 +12730,7 @@ If submitted attributes are the same and no changes are made for the result, ser
 <td>Base64 Encoded data</td>
 </tr>
 </tbody></table>
-<h1 id='result-tables-v2'>Result tables V2</h1><h2 id='get-tables'>Get Tables</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/tables"</span>
+<h1 id='result-tables-v2'>Result tables V2</h1><h2 id='get-result-tables'>Get Result Tables</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/tables"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
 <blockquote>
@@ -12818,7 +12822,7 @@ If submitted attributes are the same and no changes are made for the result, ser
 <td>If present will filter result tables corresponding timestamp below or equals value</td>
 </tr>
 </tbody></table>
-<h2 id='get-table'>Get Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/tables/1"</span>
+<h2 id='get-result-table'>Get Result Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/tables/1"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 
 </code></pre></div>
@@ -12881,7 +12885,7 @@ If submitted attributes are the same and no changes are made for the result, ser
 <td>The ID of the table</td>
 </tr>
 </tbody></table>
-<h2 id='create-table'>Create Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+<h2 id='create-result-table'>Create Result Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
   https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/tables <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
@@ -13005,7 +13009,7 @@ If submitted attributes are the same and no changes are made for the result, ser
 <td>JSON representation of the table metadata. <code>cells</code> represent the alignment of the specific table cell. Available <code>className</code> are <code>htCenter</code>, <code>htRight</code>, <code>htLeft</code>, <code>htJustify</code> for horizontal alignment, and <code>htTop</code>, <code>htMiddle</code>, <code>htBottom</code> for vertical alignment. <code>plateTemplate</code> field mark if table is a plate template</td>
 </tr>
 </tbody></table>
-<h2 id='update-table'>Update Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
+<h2 id='update-result-table'>Update Result Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
   https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/tables/1 <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
@@ -13128,7 +13132,7 @@ If submitted attributes are the same and no changes are made for the table, serv
 <td>JSON representation of the table metadata. <code>cells</code> represent the alignment of the specific table cell. Available <code>className</code> are <code>htCenter</code>, <code>htRight</code>, <code>htLeft</code>, <code>htJustify</code> for horizontal alignment, and <code>htTop</code>, <code>htMiddle</code>, <code>htBottom</code> for vertical alignment. <code>plateTemplate</code> field mark if table is a plate template</td>
 </tr>
 </tbody></table>
-<h2 id='delete-table'>Delete Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
+<h2 id='delete-result-table'>Delete Result Table</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
   https://&lt;server-name&gt;/api/v2/teams/1/projects/1/experiments/1/tasks/1/results/1/tables/1 <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
@@ -16470,7 +16474,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 <li><strong>403 Forbidden:</strong> User does not have manage permission.</li>
 <li><strong>404 Not Found:</strong> Specified inventory item not found.</li>
 </ul>
-<h2 id='delete-inventory-item-relationship'>Delete Inventory Item Relationship</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
+<h2 id='delete-inventory-item-child-relationship'>Delete Inventory Item Child Relationship</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
   https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/items/&lt;ITEM_ID&gt;/child_relationships/&lt;ID&gt; <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer your_token_here'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
@@ -16777,7 +16781,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 <li><strong>403 Forbidden:</strong> User does not have manage permission.</li>
 <li><strong>404 Not Found:</strong> Specified inventory item not found.</li>
 </ul>
-<h2 id='delete-inventory-item-relationship'>Delete Inventory Item Relationship</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
+<h2 id='delete-inventory-item-parent-relationship'>Delete Inventory Item Parent Relationship</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
   https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/items/&lt;ITEM_ID&gt;/parent_relationships/&lt;ID&gt; <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer your_token_here'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
