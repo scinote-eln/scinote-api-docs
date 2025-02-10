@@ -1,4 +1,4 @@
-# Inventory Item Child Relationships
+# Inventory Item Child Relationships V2
 
 ## Get Inventory Item Child Relationships
 
