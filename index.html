@@ -1120,7 +1120,7 @@
               </ul>
           </li>
           <li>
-            <a href="#inventory-item-child-relationships" class="toc-h1 toc-link" data-title="Inventory Item Child Relationships">Inventory Item Child Relationships</a>
+            <a href="#inventory-item-child-relationships-v2" class="toc-h1 toc-link" data-title="Inventory Item Child Relationships V2">Inventory Item Child Relationships V2</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#get-inventory-item-child-relationships" class="toc-h2 toc-link" data-title="Get Inventory Item Child Relationships">Get Inventory Item Child Relationships</a>
@@ -1137,7 +1137,7 @@
               </ul>
           </li>
           <li>
-            <a href="#inventory-item-parent-relationships" class="toc-h1 toc-link" data-title="Inventory Item Parent Relationships">Inventory Item Parent Relationships</a>
+            <a href="#inventory-item-parent-relationships-v2" class="toc-h1 toc-link" data-title="Inventory Item Parent Relationships V2">Inventory Item Parent Relationships V2</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#get-inventory-item-parent-relationships" class="toc-h2 toc-link" data-title="Get Inventory Item Parent Relationships">Get Inventory Item Parent Relationships</a>
@@ -16397,7 +16397,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 <td>The ID of the item</td>
 </tr>
 </tbody></table>
-<h1 id='inventory-item-child-relationships'>Inventory Item Child Relationships</h1><h2 id='get-inventory-item-child-relationships'>Get Inventory Item Child Relationships</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<h1 id='inventory-item-child-relationships-v2'>Inventory Item Child Relationships V2</h1><h2 id='get-inventory-item-child-relationships'>Get Inventory Item Child Relationships</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
   https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/items/&lt;ITEM_ID&gt;/child_relationships <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer your_token_here'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
@@ -16704,7 +16704,7 @@ If submitted attributes are the same and no changes are made for the item, serve
 </ul>
 
 <p><strong>Note</strong>: Replace <em>server_name</em>, <em>TEAM_ID</em>, <em>INVENTORY_ID</em>, <em>ITEM_ID</em>, <em>CHILD_ID</em>, and <em>ID</em> with actual values.</p>
-<h1 id='inventory-item-parent-relationships'>Inventory Item Parent Relationships</h1><h2 id='get-inventory-item-parent-relationships'>Get Inventory Item Parent Relationships</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<h1 id='inventory-item-parent-relationships-v2'>Inventory Item Parent Relationships V2</h1><h2 id='get-inventory-item-parent-relationships'>Get Inventory Item Parent Relationships</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
   https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/items/&lt;ITEM_ID&gt;/parent_relationships <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer your_token_here'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
