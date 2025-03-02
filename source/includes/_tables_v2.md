@@ -20,13 +20,20 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
         "position": 0,
         "contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}",
         "metadata": {
-          "cells": [{"col": 0, "row": 0, "className": "htCenter"},
-                    {"col": 0, "row": 1, "className": "htRight"},
-                    {"col": 1, "row": 0, "className": "htLeft"},
-                    {"col": 1, "row": 1, "className": "htJustify"}
-                    {"col": 2, "row": 0, "className": "htMiddle htRight"},
-                    {"col": 2, "row": 1, "className": "htBottom"}],
-          "plateTemplate": true
+          "sheet_name": "sheet name",
+          "rows_size": [100, 100],
+          "columns_size": [100, 100, 100],
+          "cells": [{"col": 0, "row": 0},
+                    {"col": 0, "row": 1},
+                    {"col": 1, "row": 0},
+                    {"col": 1, "row": 1}
+                    {"col": 2, "row": 0},
+                    {"col": 2, "row": 1}],
+          "plateTemplate": true,
+          "cells_merge": { "A1": [1, 2]},
+          "cells_style": { "A2": "font-size:120px" },
+          "cells_properties": [{ "x": 0, "y": 0, "properties": { "type": "text", "readOnly": true } } ],
+          "columns_properties": [{ "x": 1, "properties": { "type": "text", "readOnly": true, "title": "title"  }}]
         }
       }
     },
@@ -38,12 +45,20 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
         "position": 1,
         "contents": "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}",
         "metadata": {
-          "cells": [{"col": 0, "row": 0, "className": "htCenter"},
-                    {"col": 0, "row": 1, "className": "htRight"},
-                    {"col": 1, "row": 0, "className": "htLeft"},
-                    {"col": 1, "row": 1, "className": "htJustify"}
-                    {"col": 2, "row": 0, "className": "htMiddle htRight"},
-                    {"col": 2, "row": 1, "className": "htBottom"}]
+          "sheet_name": "sheet name",
+          "rows_size": [100, 100],
+          "columns_size": [100, 100, 100],
+          "cells": [{"col": 0, "row": 0},
+                    {"col": 0, "row": 1},
+                    {"col": 1, "row": 0},
+                    {"col": 1, "row": 1}
+                    {"col": 2, "row": 0},
+                    {"col": 2, "row": 1}],
+          "plateTemplate": true,
+          "cells_merge": { "A1": [1, 2]},
+          "cells_style": { "A2": "font-size:120px" },
+          "cells_properties": [{ "x": 0, "y": 0, "properties": { "type": "text", "readOnly": true } } ],
+          "columns_properties": [{ "x": 1, "properties": { "type": "text", "readOnly": true, "title": "title"  }}]
         }
       }
     }
@@ -97,13 +112,20 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
       "position": 0,
       "contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}",
       "metadata": {
-        "cells": [{"col": 0, "row": 0, "className": "htCenter"},
-                  {"col": 0, "row": 1, "className": "htRight"},
-                  {"col": 1, "row": 0, "className": "htLeft"},
-                  {"col": 1, "row": 1, "className": "htJustify"}
-                  {"col": 2, "row": 0, "className": "htMiddle htRight"},
-                  {"col": 2, "row": 1, "className": "htBottom"}],
-        "plateTemplate": true
+        "sheet_name": "sheet name",
+        "rows_size": [100, 100],
+        "columns_size": [100, 100, 100],
+        "cells": [{"col": 0, "row": 0},
+                  {"col": 0, "row": 1},
+                  {"col": 1, "row": 0},
+                  {"col": 1, "row": 1}
+                  {"col": 2, "row": 0},
+                  {"col": 2, "row": 1}],
+        "plateTemplate": true,
+        "cells_merge": { "A1": [1, 2]},
+        "cells_style": { "A2": "font-size:120px" },
+        "cells_properties": [{ "x": 0, "y": 0, "properties": { "type": "text", "readOnly": true } } ],
+        "columns_properties": [{ "x": 1, "properties": { "type": "text", "readOnly": true, "title": "title"  }}]
       }
     }
   }
@@ -142,13 +164,20 @@ curl -X POST \
 			"name": "New table",
 			"contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}",
       "metadata": {
+        "sheet_name": "sheet name",
         "cells": [{"col": 0, "row": 0, "className": ""},
                   {"col": 0, "row": 1, "className": "htRight"},
                   {"col": 1, "row": 0, "className": ""},
                   {"col": 1, "row": 1, "className": "htJustify"},
                   {"col": 2, "row": 0, "className": "htMiddle htRight"},
                   {"col": 2, "row": 1, "className": "htBottom"}],
-        "plateTemplate": true
+        "plateTemplate": true,
+        "rows_size": [100, 100],
+        "columns_size": [100, 100, 100],
+        "cells_merge": {"A1": [1, 2]},
+        "cells_style": {"A2": "font-size:120px"},
+        "cells_properties": [{"x": 0, "y": 0, "properties": { "readOnly": true, "type": "text" }}],
+        "columns_properties": [{"x": 1, "properties": { "readOnly": true, "type": "text", "title": "title" }}]
       }
 		}
 	}
@@ -167,13 +196,20 @@ curl -X POST \
       "position": 0,
       "contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}",
       "metadata": {
-        "cells": [{"col": 0, "row": 0, "className": ""},
-                  {"col": 0, "row": 1, "className": "htRight"},
-                  {"col": 1, "row": 0, "className": ""},
-                  {"col": 1, "row": 1, "className": "htJustify"}
-                  {"col": 2, "row": 0, "className": "htMiddle htRight"},
-                  {"col": 2, "row": 1, "className": "htBottom"}],
-        "plateTemplate": true
+        "sheet_name": "sheet name",
+        "rows_size": [100, 100],
+        "columns_size": [100, 100, 100],
+        "cells": [{"col": 0, "row": 0},
+                  {"col": 0, "row": 1},
+                  {"col": 1, "row": 0},
+                  {"col": 1, "row": 1}
+                  {"col": 2, "row": 0},
+                  {"col": 2, "row": 1}],
+        "plateTemplate": true,
+        "cells_merge": { "A1": [1, 2]},
+        "cells_style": { "A2": "font-size:120px" },
+        "cells_properties": [{ "x": 0, "y": 0, "properties": { "type": "text", "readOnly": true } } ],
+        "columns_properties": [{ "x": 1, "properties": { "type": "text", "readOnly": true, "title": "title"  }}]
       }
     }
   }
@@ -207,13 +243,20 @@ This endpoint creates new table in the step.
       "name": "New table",
 			"contents":  "{\"data\":[[\"1\",\"2\",\"3\"],[\"4\",\"5\",\"6\"]]}",
       "metadata": {
-        "cells": [{"col": 0, "row": 0, "className": ""},
-                  {"col": 0, "row": 1, "className": "htRight"},
-                  {"col": 1, "row": 0, "className": ""},
-                  {"col": 1, "row": 1, "className": "htJustify"}
-                  {"col": 2, "row": 0, "className": "htMiddle htRight"},
-                  {"col": 2, "row": 1, "className": "htBottom"}],
-        "plateTemplate": true
+        "sheet_name": "sheet name",
+        "rows_size": [100, 100],
+        "columns_size": [100, 100, 100],
+        "cells": [{"col": 0, "row": 0},
+                  {"col": 0, "row": 1},
+                  {"col": 1, "row": 0},
+                  {"col": 1, "row": 1}
+                  {"col": 2, "row": 0},
+                  {"col": 2, "row": 1}],
+        "plateTemplate": true,
+        "cells_merge": { "A1": [1, 2]},
+        "cells_style": { "A2": "font-size:120px" },
+        "cells_properties": [{ "x": 0, "y": 0, "properties": { "type": "text", "readOnly": true } } ],
+        "columns_properties": [{ "x": 1, "properties": { "type": "text", "readOnly": true, "title": "title"  }}]
       }
     }
   }
@@ -226,7 +269,22 @@ This endpoint creates new table in the step.
 | --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name      | yes       | Name of the table                                                                                                                                                                                                                                                                                                           |
 | contents  | no        | Serialized JSON representation of the table data                                                                                                                                                                                                                                                                            |
-| metadata  | no        | JSON representation of the table metadata. `cells` represent the alignment of the specific table cell. Available `className` are `htCenter`, `htRight`, `htLeft`, `htJustify` for horizontal alignment, and `htTop`, `htMiddle`, `htBottom` for vertical alignment. `plateTemplate` field mark if table is a plate template |
+| metadata  | no        | JSON representation of the table metadata. |
+
+
+### Metadata attributes
+
+| Attribute | Description |
+| --------- | --------- | 
+| sheet_name | The name of the table sheet. |
+| cells | Applicable only for the open-source version. Represents the alignment of a specific table cell. Available `className` are `htCenter`, `htRight`, `htLeft`, `htJustify` (horizontal alignment) and `htTop`, `htMiddle`, `htBottom` (vertical alignment).|
+| plateTemplate  | Indicates if the table is a plate template. |
+| rows_size  | The height of each row in the table. |
+| columns_size  | The width of each column in the table. |
+| cells_merge  | Hash of values merge settings: each value is represented as `cell_coordinate` in the format [`number_of_columns`, `number_of_rows`].|
+| cells_style  | A string representing the CSS style properties that define the appearance of a cell. |
+| cells_properties  | Defines properties for each specific cell (`x` and `y`). Available properties are: `readOnly` (if `true`, the cell is locked) and `type` (available value: `text`). |
+| columns_properties  | Defines properties for each column (`x`). Available properties are: `readOnly` (if `true`, the column is locked), `type` (available value: `text`), and `title` (the name of the column). |
 
 ## Update Table
 
@@ -243,13 +301,20 @@ curl -X PATCH \
             "name": "Table 2",
             "contents":  "{\"data\":[[\"6\",\"5\",\"4\"],[\"3\",\"2\",\"1\"]]}",
             "metadata": {
+              "sheet_name": "sheet name",
               "cells": [{"col": 0, "row": 0, "className": ""},
                         {"col": 0, "row": 1, "className": "htRight"},
                         {"col": 1, "row": 0, "className": ""},
-                        {"col": 1, "row": 1, "className": "htJustify"}
+                        {"col": 1, "row": 1, "className": "htJustify"},
                         {"col": 2, "row": 0, "className": "htMiddle htRight"},
                         {"col": 2, "row": 1, "className": "htBottom"}],
-              "plateTemplate": true
+              "plateTemplate": true,
+              "rows_size": [100, 100],
+              "columns_size": [100, 100, 100],
+              "cells_merge": {"A1": [1, 2]},
+              "cells_style": {"A2": "font-size:120px"},
+              "cells_properties": [{"x": 0, "y": 0, "properties": { "readOnly": true, "type": "text" }}],
+              "columns_properties": [{"x": 1, "properties": { "readOnly": true, "type": "text", "title": "title" }}]
             }
           }
       }
@@ -268,13 +333,20 @@ curl -X PATCH \
         "position": 0,
         "contents":  "{\"data\":[[\"6\",\"5\",\"4\"],[\"3\",\"2\",\"1\"]]}",
         "metadata": {
-          "cells": [{"col": 0, "row": 0, "className": ""},
-                    {"col": 0, "row": 1, "className": "htRight"},
-                    {"col": 1, "row": 0, "className": ""},
-                    {"col": 1, "row": 1, "className": "htJustify"}
-                    {"col": 2, "row": 0, "className": "htMiddle htRight"},
-                    {"col": 2, "row": 1, "className": "htBottom"}],
-          "plateTemplate": true
+          "sheet_name": "sheet name",
+          "rows_size": [100, 100],
+          "columns_size": [100, 100, 100],
+          "cells": [{"col": 0, "row": 0},
+                    {"col": 0, "row": 1},
+                    {"col": 1, "row": 0},
+                    {"col": 1, "row": 1}
+                    {"col": 2, "row": 0},
+                    {"col": 2, "row": 1}],
+          "plateTemplate": true,
+          "cells_merge": { "A1": [1, 2]},
+          "cells_style": { "A2": "font-size:120px" },
+          "cells_properties": [{ "x": 0, "y": 0, "properties": { "type": "text", "readOnly": true } } ],
+          "columns_properties": [{ "x": 1, "properties": { "type": "text", "readOnly": true, "title": "title"  }}]
         }
       }
     }
@@ -311,13 +383,20 @@ If submitted attributes are the same and no changes are made for the table, serv
       "name": "Table 2",
       "contents":  "{\"data\":[[\"6\",\"5\",\"4\"],[\"3\",\"2\",\"1\"]]}",
       "metadata": {
-        "cells": [{"col": 0, "row": 0, "className": ""},
-                  {"col": 0, "row": 1, "className": "htRight"},
-                  {"col": 1, "row": 0, "className": ""},
-                  {"col": 1, "row": 1, "className": "htJustify"}
-                  {"col": 2, "row": 0, "className": "htMiddle htRight"},
-                  {"col": 2, "row": 1, "className": "htBottom"}],
-        "plateTemplate": true
+        "sheet_name": "sheet name",
+        "rows_size": [100, 100],
+        "columns_size": [100, 100, 100],
+        "cells": [{"col": 0, "row": 0},
+                  {"col": 0, "row": 1},
+                  {"col": 1, "row": 0},
+                  {"col": 1, "row": 1}
+                  {"col": 2, "row": 0},
+                  {"col": 2, "row": 1}],
+        "plateTemplate": true,
+        "cells_merge": { "A1": [1, 2]},
+        "cells_style": { "A2": "font-size:120px" },
+        "cells_properties": [{ "x": 0, "y": 0, "properties": { "type": "text", "readOnly": true } } ],
+        "columns_properties": [{ "x": 1, "properties": { "type": "text", "readOnly": true, "title": "title"  }}]
       }
     }
   }
@@ -330,7 +409,22 @@ If submitted attributes are the same and no changes are made for the table, serv
 | --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name      | no        | Name of the table                                                                                                                                                                                                                                                                                                           |
 | contents  | no        | Serialized JSON representation of the table data                                                                                                                                                                                                                                                                            |
-| metadata  | no        | JSON representation of the table metadata. `cells` represent the alignment of the specific table cell. Available `className` are `htCenter`, `htRight`, `htLeft`, `htJustify` for horizontal alignment, and `htTop`, `htMiddle`, `htBottom` for vertical alignment. `plateTemplate` field mark if table is a plate template |
+| metadata  | no        | JSON representation of the table metadata. |
+
+
+### Metadata attributes
+
+| Attribute | Description |
+| --------- | --------- | 
+| sheet_name | The name of the table sheet. |
+| cells | Applicable only for the open-source version. Represents the alignment of a specific table cell. Available `className` are `htCenter`, `htRight`, `htLeft`, `htJustify` (horizontal alignment) and `htTop`, `htMiddle`, `htBottom` (vertical alignment).|
+| plateTemplate  | Indicates if the table is a plate template. |
+| rows_size  | The height of each row in the table. |
+| columns_size  | The width of each column in the table. |
+| cells_merge  | Hash of values merge settings: each value is represented as `cell_coordinate` in the format [`number_of_columns`, `number_of_rows`].|
+| cells_style  | A string representing the CSS style properties that define the appearance of a cell. |
+| cells_properties  | Defines properties for each specific cell (`x` and `y`). Available properties are: `readOnly` (if `true`, the cell is locked) and `type` (available value: `text`). |
+| columns_properties  | Defines properties for each column (`x`). Available properties are: `readOnly` (if `true`, the column is locked), `type` (available value: `text`), and `title` (the name of the column). |
 
 ## Delete Table
 

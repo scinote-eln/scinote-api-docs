@@ -294,7 +294,7 @@ This endpoint assign inventory item to the specified task.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/items(?include=<INCLUDES>)`
+`POST https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/items(?include=<INCLUDES>)`
 
 ### URL Parameters
 
