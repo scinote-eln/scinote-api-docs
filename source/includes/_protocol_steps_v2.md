@@ -42,6 +42,9 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
         },
         "comments": {
           "data": []
+        },
+        "form_responses": {
+          "data": []
         }
       }
     },
@@ -73,6 +76,9 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
           "data": []
         },
         "comments": {
+          "data": []
+        },
+        "form_responses": {
           "data": []
         }
       }
@@ -106,6 +112,9 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
         },
         "comments": {
           "data": []
+        },
+        "form_responses": {
+          "data": []
         }
       }
     }
@@ -131,16 +140,16 @@ If `?include=comments` PATH parameter is provided, step comments are also includ
 
 ### URL Parameters
 
-| Parameter     | Description                                                                         |
-| ------------- | ----------------------------------------------------------------------------------- |
-| TEAM_ID       | The ID of the team to retrieve project from                                         |
-| PROJECT_ID    | The ID of the project to retrieve experiment from                                   |
-| EXPERIMENT_ID | The ID of the experiment to retrieve task from                                      |
-| TASK_ID       | The ID of the task to retrieve protocol from                                        |
-| PROTOCOL_ID   | The ID of the protocol to retrieve steps from                                       |
-| INCLUDES      | if set to `comments`, step comments are also included                               |
-| FROM          | If present will filter protocol steps corresponding timestamp above or equals value |
-| TO            | If present will filter protocol steps corresponding timestamp below or equals value |
+| Parameter     | Description                                                                                  |
+| ------------- | -------------------------------------------------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from                                                  |
+| PROJECT_ID    | The ID of the project to retrieve experiment from                                            |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from                                               |
+| TASK_ID       | The ID of the task to retrieve protocol from                                                 |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from                                                |
+| INCLUDES      | can include assets checklists checklists.checklist_items comments form_responses tables user |
+| FROM          | If present will filter protocol steps corresponding timestamp above or equals value          |
+| TO            | If present will filter protocol steps corresponding timestamp below or equals value          |
 
 ## Get Step
 
@@ -184,6 +193,9 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
       },
       "comments": {
         "data": []
+      },
+      "form_responses": {
+        "data": []
       }
     }
   }
@@ -200,15 +212,15 @@ If `?include=comments` PATH parameter is provided, step comments are also includ
 
 ### URL Parameters
 
-| Parameter     | Description                                           |
-| ------------- | ----------------------------------------------------- |
-| TEAM_ID       | The ID of the team to retrieve project from           |
-| PROJECT_ID    | The ID of the project to retrieve experiment from     |
-| EXPERIMENT_ID | The ID of the experiment to retrieve task from        |
-| TASK_ID       | The ID of the task to retrieve protocol from          |
-| PROTOCOL_ID   | The ID of the protocol to retrieve steps from         |
-| ID            | The ID of the step                                    |
-| INCLUDES      | if set to `comments`, step comments are also included |
+| Parameter     | Description                                                                                  |
+| ------------- | -------------------------------------------------------------------------------------------- |
+| TEAM_ID       | The ID of the team to retrieve project from                                                  |
+| PROJECT_ID    | The ID of the project to retrieve experiment from                                            |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from                                               |
+| TASK_ID       | The ID of the task to retrieve protocol from                                                 |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from                                                |
+| ID            | The ID of the step                                                                           |
+| INCLUDES      | can include assets checklists checklists.checklist_items comments form_responses tables user |
 
 ## Create Step
 
@@ -259,6 +271,9 @@ curl -X POST \
         "data": []
       },
       "comments": {
+        "data": []
+      },
+      "form_responses": {
         "data": []
       }
     }
@@ -354,6 +369,9 @@ curl -X PATCH \
         "data": []
       },
       "comments": {
+        "data": []
+      },
+      "form_responses": {
         "data": []
       }
     }
@@ -616,6 +634,9 @@ curl -X POST \
         "comments": {
           "data": []
         },
+        "form_responses": {
+          "data": []
+        },
         "step_elements": {
           "data": [
             {
@@ -664,6 +685,9 @@ curl -X POST \
         "comments": {
           "data": []
         },
+        "form_responses": {
+          "data": []
+        },
         "step_elements": {
           "data": [
             {
@@ -710,6 +734,9 @@ curl -X POST \
           "data": []
         },
         "comments": {
+          "data": []
+        },
+        "form_responses": {
           "data": []
         },
         "step_elements": {

@@ -36,6 +36,7 @@ includes:
   - step_texts_v2
   - attachments_v1
   - attachments_v2
+  - step_form_responses
   - task_users
   - task_activities
   - task_tags
