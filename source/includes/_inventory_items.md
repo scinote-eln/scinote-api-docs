@@ -51,12 +51,12 @@ curl "https://<server-name>/api/v1/teams/1/inventories/1/items"
 }
 ```
 
-This endpoint retrieves **active** items from specific inventory. If `?include=inventory_cells` PATH parameter is provided,
+This endpoint retrieves **active** items from specific inventory. To return only **archived** items, set the `?filter[archived]=true` PATH parameter. If `?include=inventory_cells` PATH parameter is provided,
 the inventory cells of the items are also included; otherwise, they are ignored.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/inventories/<INVENTORY_ID>/items(?include=<INCLUDE_CELLS>&filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/inventories/<INVENTORY_ID>/items(?include=<INCLUDE_CELLS>&filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>&filter[archived]=<ARCHIVED>)`
 
 ### URL Parameters
 
@@ -67,6 +67,7 @@ the inventory cells of the items are also included; otherwise, they are ignored.
 | INCLUDE_CELLS | if set to `inventory_cells`, inventory cells of the items are also included          |
 | FROM          | If present will filter inventory items corresponding timestamp above or equals value |
 | TO            | If present will filter inventory items corresponding timestamp below or equals value |
+| ARCHIVED      | If set to `true` return only archived inventory items. If set to `false` return only active inventory items |
 
 ## Get Item
 
