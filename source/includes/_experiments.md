@@ -114,6 +114,11 @@ curl -X POST \
     "attributes": {
       "name": "My first experiment",
       "description": "This is my very first experiment",
+      "status": "completed",
+      "due_date": "2025-11-11T13:25:53.910Z",
+      "start_on": "2025-12-11T13:25:53.910Z",
+      "started_at": "2025-12-11T13:25:53.910Z",
+      "completed_at": "2025-12-17T13:25:53.910Z",
       "archived": false
     }
   }
@@ -150,11 +155,16 @@ This endpoint creates a new experiment in the team. Please note that we will cre
 
 ### Experiment attributes
 
-| Attribute   | Mandatory | Description                   |
-| ----------- | --------- | ----------------------------- |
-| name        | yes       | Name of the experiment        |
-| description | no        | Description of the experiment |
-| archived    | no        | Archived flag                 |
+| Attribute   | Mandatory | Description                                            |
+| ----------- | --------- | ------------------------------------------------------ |
+| name        | yes       | Name of the experiment                                 |
+| description | no        | Description of the experiment                          |
+| archived    | no        | Archived flag                                          |
+| status      | no        | Status of experiment (not_started, started, completed) |
+| description | no        | Description of the experiment                          |
+| due_date    | no        | Due date of experiment                                 |
+| start_on    | no        | Planned start date of experiment                       |
+| archived    | no        | Archived flag                                          |
 
 ## Update Experiment
 
@@ -225,8 +235,13 @@ If submitted attributes are the same and no changes are made for the experiment,
 
 ### Experiment attributes
 
-| Attribute   | Mandatory | Description                   |
-| ----------- | --------- | ----------------------------- |
-| name        | yes       | Name of the experiment        |
-| description | no        | Description of the experiment |
-| archived    | no        | Archived flag                 |
+| Attribute   | Mandatory | Description                                            |
+| ----------- | --------- | ------------------------------------------------------ |
+| name        | yes       | Name of the experiment                                 |
+| description | no        | Description of the experiment                          |
+| archived    | no        | Archived flag                                          |
+| status      | no        | Status of experiment (not_started, started, completed) |
+| description | no        | Description of the experiment                          |
+| due_date    | no        | Due date of experiment                                 |
+| start_on    | no        | Planned start date of experiment                       |
+| archived    | no        | Archived flag                                          |
