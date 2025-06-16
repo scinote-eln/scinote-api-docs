@@ -2,14 +2,14 @@
 
 ## Get Experiments
 
-```shell
+shell
 curl "http://<server-name>/api/v1/teams/1/projects/1/experiments"
   -H "Authorization: Bearer qwerty123456..."
-```
+
 
 > The above command returns JSON structured like this:
 
-```json
+json
 {
   "data": [
     {
@@ -30,7 +30,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments"
     "last": "http://<server-name>/api/v1/teams/1/projects/1/experiments?page%5Bnumber%5D=1&page%5Bsize%5D=10"
   }
 }
-```
+
 
 This endpoint retrieves all experiments from the specified project.
 
@@ -50,14 +50,14 @@ This endpoint retrieves all experiments from the specified project.
 
 ## Get Experiment
 
-```shell
+shell
 curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1"
   -H "Authorization: Bearer qwerty123456..."
-```
+
 
 > The above command returns JSON structured like this:
 
-```json
+json
 {
   "data": {
     "id": "1",
@@ -69,7 +69,7 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1"
     }
   }
 }
-```
+
 
 This endpoint retrieves a specific experiment from the specified project.
 
@@ -87,7 +87,7 @@ This endpoint retrieves a specific experiment from the specified project.
 
 ## Create Experiment
 
-```shell
+shell
 curl -X POST \
   https://<server-name>/api/v1/teams/1/projects/1/experiments \
   -H 'Authorization: Bearer qwerty123456...' \
@@ -102,11 +102,11 @@ curl -X POST \
       }
     }
   }'
-```
+
 
 > The above command returns JSON structured like this:
 
-```json
+json
 {
   "data": {
     "id": "1",
@@ -123,7 +123,7 @@ curl -X POST \
     }
   }
 }
-```
+
 
 This endpoint creates a new experiment in the team. Please note that we will create the user assignments for this experiment asynchronous.
 
@@ -140,7 +140,7 @@ This endpoint creates a new experiment in the team. Please note that we will cre
 
 > Request body
 
-```json
+json
 {
   "data": {
     "type": "experiments",
@@ -151,7 +151,7 @@ This endpoint creates a new experiment in the team. Please note that we will cre
     }
   }
 }
-```
+
 
 ### Experiment attributes
 
@@ -168,7 +168,7 @@ This endpoint creates a new experiment in the team. Please note that we will cre
 
 ## Update Experiment
 
-```shell
+shell
 curl -X PATCH \
   https://<server-name>/api/v1/teams/1/projects/1/experiments/1 \
   -H 'Authorization: Bearer qwerty123456...' \
@@ -184,11 +184,11 @@ curl -X PATCH \
           }
       }
   }'
-```
+
 
 > The above command returns JSON structured like this:
 
-```json
+json
 {
   "data": {
     "id": "1",
@@ -200,7 +200,7 @@ curl -X PATCH \
     }
   }
 }
-```
+
 
 This endpoint updates existing experiment in the selected project.
 If submitted attributes are the same and no changes are made for the experiment, server returns empty body with response code 204.
@@ -218,7 +218,6 @@ If submitted attributes are the same and no changes are made for the experiment,
 | ID         | The ID of the experiment                          |
 
 ### Request body
-
 ```json
 {
   "data": {
@@ -227,7 +226,10 @@ If submitted attributes are the same and no changes are made for the experiment,
     "attributes": {
       "name": "Experiment 2",
       "description": "New description",
-      "archived": true
+      "archived": true,
+      "metadata": {
+        "status": "processing"
+      }
     }
   }
 }
@@ -247,41 +249,34 @@ If submitted attributes are the same and no changes are made for the experiment,
 | archived    | no        | Archived flag                                             |
 | matadata    | no        | A JSON format metadata object, for storing arbitrary data |
 
-### Filtering and Including Metadata Fields
+## Experiment Metadata
 
-This API supports advanced filtering using metadata fields embedded in each project record. These metadata fields can be used as dynamic filters via the filter[metadata] parameter in the query string. Additionally, metadata can be explicitly returned in API responses by using the query parameter with-metadata=true.
+This API supports advanced filtering using metadata fields embedded in each experiment record. These metadata fields can be used as dynamic filters via the filter[metadata] parameter in the query string. Additionally, metadata can be explicitly returned in API responses by using the query parameter with-metadata=true.
 
-#### Filtering Experiments by Metadata
+### Filtering Experiments by Metadata
 
 You can filter experiments using custom metadata key-value pairs by including them in the filter[metadata] query parameter. The value should be a JSON object encoded in the query string.
 
 Note: All metadata keys and values must be strings.
 
-#### Example HTTP Request
+### Example HTTP Request
 
-Example filtering experiments where metadata contains key status with the value processing:
+Example filtering experiments where metadata contains key status with the value processin
 
-```
-GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][status]=processing
-```
+`GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][status]=processing`
 
-You can also include multiple metadata key-value pairs:
+You can also include multiple metadata key-value pair
 
-```
-GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][status]=processing&filter[metadata][external_id]=P1337
-```
+`GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][status]=processing&filter[metadata][external_id]=E1337`
 
 This will return experiments where metadata includes both "status": "processing" and "external_id": "P1337".
 Including Metadata in the Response
+To include the metadata field in the JSON response, use the query parameter
+`with-metadata=true`
 
-To include the metadata field in the JSON response, use the query parameter:
-```
-with-metadata=true
-```
+### Combined Example
 
-#### Combined Example
-
-GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][priority]=high&with-metadata=true
+`GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][priority]=high&with-metadata=true`
 
 This will return all experiments that contain metadata with key priority set to high, and also include the metadata field in the experiment response.
 
