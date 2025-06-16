@@ -235,13 +235,54 @@ If submitted attributes are the same and no changes are made for the experiment,
 
 ### Experiment attributes
 
-| Attribute   | Mandatory | Description                                            |
-| ----------- | --------- | ------------------------------------------------------ |
-| name        | yes       | Name of the experiment                                 |
-| description | no        | Description of the experiment                          |
-| archived    | no        | Archived flag                                          |
-| status      | no        | Status of experiment (not_started, started, completed) |
-| description | no        | Description of the experiment                          |
-| due_date    | no        | Due date of experiment                                 |
-| start_on    | no        | Planned start date of experiment                       |
-| archived    | no        | Archived flag                                          |
+| Attribute   | Mandatory | Description                                               |
+| ----------- | --------- | --------------------------------------------------------- |
+| name        | yes       | Name of the experiment                                    |
+| description | no        | Description of the experiment                             |
+| archived    | no        | Archived flag                                             |
+| status      | no        | Status of experiment (not_started, started, completed)    |
+| description | no        | Description of the experiment                             |
+| due_date    | no        | Due date of experiment                                    |
+| start_on    | no        | Planned start date of experiment                          |
+| archived    | no        | Archived flag                                             |
+| matadata    | no        | A JSON format metadata object, for storing arbitrary data |
+
+### Filtering and Including Metadata Fields
+
+This API supports advanced filtering using metadata fields embedded in each project record. These metadata fields can be used as dynamic filters via the filter[metadata] parameter in the query string. Additionally, metadata can be explicitly returned in API responses by using the query parameter with-metadata=true.
+
+#### Filtering Experiments by Metadata
+
+You can filter experiments using custom metadata key-value pairs by including them in the filter[metadata] query parameter. The value should be a JSON object encoded in the query string.
+
+Note: All metadata keys and values must be strings.
+
+#### Example HTTP Request
+
+Example filtering experiments where metadata contains key status with the value processing:
+
+```
+GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][status]=processing
+```
+
+You can also include multiple metadata key-value pairs:
+
+```
+GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][status]=processing&filter[metadata][external_id]=P1337
+```
+
+This will return experiments where metadata includes both "status": "processing" and "external_id": "P1337".
+Including Metadata in the Response
+
+To include the metadata field in the JSON response, use the query parameter:
+```
+with-metadata=true
+```
+
+#### Combined Example
+
+GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][priority]=high&with-metadata=true
+
+This will return all experiments that contain metadata with key priority set to high, and also include the metadata field in the experiment response.
+
+If with-metadata is not set to true, metadata fields will not be shown in the response, even if data exists.

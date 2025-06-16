@@ -287,13 +287,55 @@ If submitted attributes are the same and no changes are made for the project, se
 
 ### Project attributes
 
-| Attribute         | Mandatory | Description                                              |
-| ----------------- | --------- | -------------------------------------------------------- |
-| name              | yes       | Name of the project                                      |
-| visibility        | no        | Visibility of the project                                |
-| archived          | no        | Archived flag                                            |
-| status            | no        | Status of project (not_started, started, completed)      |
-| description       | no        | Description of the project                               |
-| due_date          | no        | Due date of project                                      |
-| start_on          | no        | Planned start date of project                            |
-| project_folder_id | no        | Reference to project folder, if null it is on root level |
+| Attribute         | Mandatory | Description                                               |
+| ----------------- | --------- | --------------------------------------------------------- |
+| name              | yes       | Name of the project                                       |
+| visibility        | no        | Visibility of the project                                 |
+| archived          | no        | Archived flag                                             |
+| status            | no        | Status of project (not_started, started, completed)       |
+| description       | no        | Description of the project                                |
+| due_date          | no        | Due date of project                                       |
+| start_on          | no        | Planned start date of project                             |
+| project_folder_id | no        | Reference to project folder, if null it is on root level  |
+| matadata          | no        | A JSON format metadata object, for storing arbitrary data |
+
+
+### Filtering and Including Metadata Fields
+
+This API supports advanced filtering using metadata fields embedded in each project record. These metadata fields can be used as dynamic filters via the filter[metadata] parameter in the query string. Additionally, metadata can be explicitly returned in API responses by using the query parameter with-metadata=true.
+
+#### Filtering Projects by Metadata
+
+You can filter projects using custom metadata key-value pairs by including them in the filter[metadata] query parameter. The value should be a JSON object encoded in the query string.
+
+Note: All metadata keys and values must be strings.
+
+#### Example HTTP Request
+
+Example filtering projects where metadata contains key status with the value processing:
+
+```
+GET https://<server-name>/api/v1/teams/1/projects?filter[metadata][status]=processing
+```
+
+You can also include multiple metadata key-value pairs:
+
+```
+GET https://<server-name>/api/v1/teams/1/projects?filter[metadata][status]=processing&filter[metadata][external_id]=P1337
+```
+
+This will return projects where metadata includes both "status": "processing" and "external_id": "P1337".
+Including Metadata in the Response
+
+To include the metadata field in the JSON response, use the query parameter:
+```
+with-metadata=true
+```
+
+#### Combined Example
+
+GET https://<server-name>/api/v1/teams/1/projects?filter[metadata][priority]=high&with-metadata=true
+
+This will return all projects that contain metadata with key priority set to high, and also include the metadata field in the project response.
+
+If with-metadata is not set to true, metadata fields will not be shown in the response, even if data exists.
