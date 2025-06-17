@@ -1,4 +1,3 @@
-```
 # Inventory Items
 
 ## Get Items
@@ -477,20 +476,15 @@ This endpoint deletes specific item from the inventory.
 | TEAM_ID      | The ID of the team to retrieve inventory from |
 | INVENTORY_ID | The ID of the inventory to retrieve item from |
 | ID           | The ID of the item                            |
-```
-
 
 #### Filtering Inventory Items by Column Data
 
 The `/items` endpoint supports filtering capabilities based on inventory column values. This enables users to retrieve data more precisely, using column-specific conditions related to different data types (e.g., text, number, list, file, etc.).
 
-## Basic Filter Structure
+## Filter Items by column values
 
 To filter by column data:
-```
-/items?filter[inventory_column][id]=<COLUMN_ID>&filter[inventory_column][value][operator]=<OPERATOR>&filter[inventory_column][value][<PARAMETER>]=<VALUE>
-```
-
+`/items?filter[inventory_column][id]=<COLUMN_ID>&filter[inventory_column][value][operator]=<OPERATOR>&filter[inventory_column][value][<PARAMETER>]=<VALUE>`
 
 - `filter[inventory_column][id]`: The ID of the inventory column you wish to filter on.
 - `filter[inventory_column][value][operator]`: Filtering logic operator (depends on column type).
@@ -517,11 +511,7 @@ Filter Parameter: text
 | doesnt_contain   | Excludes items containing text|
 
 Example:
-```
-filter[inventory_column][id]=12345
-&filter[inventory_column][value][operator]=contains
-&filter[inventory_column][value][text]=book
-```
+filter[inventory_column][id]=12345&filter[inventory_column][value][operator]=contains&filter[inventory_column][value][text]=book`
 
 
 ---
@@ -541,12 +531,7 @@ Filter Parameter(s): number or from / to
 | between                  | Between a number range (requires from & to)  |
 
 Example:
-```
-filter[inventory_column][id]=9923
-&filter[inventory_column][value][operator]=between
-&filter[inventory_column][value][from]=10
-&filter[inventory_column][value][to]=100
-```
+`filter[inventory_column][id]=9923&filter[inventory_column][value][operator]=between&filter[inventory_column][value][from]=10&filter[inventory_column][value][to]=100`
 
 
 ---
@@ -562,11 +547,7 @@ Filter Parameter: text
 
 Example:
 
-```
-filter[inventory_column][id]=200
-&filter[inventory_column][value][operator]=file_contains
-&filter[inventory_column][value][text]=book
-```
+`filter[inventory_column][id]=200&filter[inventory_column][value][operator]=file_contains&filter[inventory_column][value][text]=book`
 
 
 ---
@@ -583,12 +564,7 @@ Filter Parameter: item_ids (array)
 
 Example:
 
-```
-filter[inventory_column][id]=4576
-&filter[inventory_column][value][operator]=any_of
-&filter[inventory_column][value][item_ids][]=12
-&filter[inventory_column][value][item_ids][]=23
-```
+`filter[inventory_column][id]=4576&filter[inventory_column][value][operator]=any_of&filter[inventory_column][value][item_ids][]=12&filter[inventory_column][value][item_ids][]=23`
 
 
 
@@ -610,12 +586,7 @@ Filter Parameters: `date`, or `start_date` / `end_date`
 
 Example:
 
-```
-filter[inventory_column][id]=5591
-&filter[inventory_column][value][operator]=between
-&filter[inventory_column][value][start_date]=2024-01-01
-&filter[inventory_column][value][end_date]=2024-03-31
-```
+`filter[inventory_column][id]=5591&filter[inventory_column][value][operator]=between&filter[inventory_column][value][start_date]=2024-01-01&filter[inventory_column][value][end_date]=2024-03-31`
 
 
 
@@ -629,11 +600,7 @@ Similar operators apply as with date columns.
 
 Example:
 
-```
-filter[inventory_column][id]=9191
-&filter[inventory_column][value][operator]=greater_than
-&filter[inventory_column][value][time]=13:00
-```
+`filter[inventory_column][id]=9191&filter[inventory_column][value][operator]=greater_than&filter[inventory_column][value][time]=13:00`
 
 
 ---
@@ -651,12 +618,7 @@ Filter Parameters: `datetime` or `start_datetime` / `end_datetime`
 
 Example:
 
-```
-filter[inventory_column][id]=331
-&filter[inventory_column][value][operator]=between
-&filter[inventory_column][value][start_datetime]=2024-04-01T09:00:00Z
-&filter[inventory_column][value][end_datetime]=2024-05-01T17:00:00Z
-```
+`filter[inventory_column][id]=331&filter[inventory_column][value][operator]=between&filter[inventory_column][value][start_datetime]=2024-04-01T09:00:00Z&filter[inventory_column][value][end_datetime]=2024-05-01T17:00:00Z`
 
 
 ---
@@ -673,12 +635,7 @@ Filter Parameter: item_ids (array)
 
 Example:
 
-```
-filter[inventory_column][id]=8844
-&filter[inventory_column][value][operator]=any_of
-&filter[inventory_column][value][item_ids][]=1001
-&filter[inventory_column][value][item_ids][]=1002
-```
+`filter[inventory_column][id]=8844&filter[inventory_column][value][operator]=any_of&filter[inventory_column][value][item_ids][]=1001&filter[inventory_column][value][item_ids][]=1002`
 
 
 ---
@@ -695,11 +652,7 @@ Filter Parameter(s): value, from, to
 
 Example:
 
-```
-filter[inventory_column][id]=777
-&filter[inventory_column][value][operator]=greater_than
-&filter[inventory_column][value][value]=500
-```
+`filter[inventory_column][id]=777&filter[inventory_column][value][operator]=greater_than&filter[inventory_column][value][value]=500`
 
 ---
 
