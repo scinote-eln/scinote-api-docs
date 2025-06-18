@@ -3208,37 +3208,33 @@ If submitted attributes are the same and no changes are made for the project, se
 <td>Reference to parent folder, if null it is on root level</td>
 </tr>
 </tbody></table>
-<h1 id='experiments'>Experiments</h1><h2 id='get-experiments'>Get Experiments</h2>
-<p>shell
-curl &quot;http://<server-name>/api/v1/teams/1/projects/1/experiments&quot;
-  -H &quot;Authorization: Bearer qwerty123456...&quot;</p>
-
+<h1 id='experiments'>Experiments</h1><h2 id='get-experiments'>Get Experiments</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-
-<p>json
-{
-  &quot;data&quot;: [
-    {
-      &quot;id&quot;: &quot;1&quot;,
-      &quot;type&quot;: &quot;experiments&quot;,
-      &quot;attributes&quot;: {
-        &quot;name&quot;: &quot;My first experiment&quot;,
-        &quot;description&quot;: &quot;This is my very first experiment&quot;,
-        &quot;archived&quot;: false
-      }
-    }
-  ],
-  &quot;links&quot;: {
-    &quot;self&quot;: &quot;http://<server-name>/api/v1/teams/1/projects/1/experiments?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10&quot;,
-    &quot;first&quot;: &quot;http://<server-name>/api/v1/teams/1/projects/1/experiments?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10&quot;,
-    &quot;prev&quot;: null,
-    &quot;next&quot;: null,
-    &quot;last&quot;: &quot;http://<server-name>/api/v1/teams/1/projects/1/experiments?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10&quot;
-  }
-}</p>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"experiments"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My first experiment"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is my very first experiment"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments?page%5Bnumber%5D=1&amp;page%5Bsize%5D=10"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p>This endpoint retrieves all experiments from the specified project.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments(?filter%5Barchived%5D=&lt;ARCHIVED&gt;&amp;filter[created_at][from]=&lt;FROM&gt;&amp;filter[created_at][to]=&lt;TO&gt;&amp;filter[updated_at][from]=&lt;FROM&gt;&amp;filter[updated_at][to]=&lt;TO&gt;)</code></p>
@@ -3270,28 +3266,24 @@ curl &quot;http://<server-name>/api/v1/teams/1/projects/1/experiments&quot;
 <td>If present will filter experiments corresponding timestamp below or equals value</td>
 </tr>
 </tbody></table>
-<h2 id='get-experiment'>Get Experiment</h2>
-<p>shell
-curl &quot;http://<server-name>/api/v1/teams/1/projects/1/experiments/1&quot;
-  -H &quot;Authorization: Bearer qwerty123456...&quot;</p>
-
+<h2 id='get-experiment'>Get Experiment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-
-<p>json
-{
-  &quot;data&quot;: {
-    &quot;id&quot;: &quot;1&quot;,
-    &quot;type&quot;: &quot;experiments&quot;,
-    &quot;attributes&quot;: {
-      &quot;name&quot;: &quot;My first experiment&quot;,
-      &quot;description&quot;: &quot;This is my very first experiment&quot;,
-      &quot;archived&quot;: false
-    }
-  }
-}</p>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"experiments"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My first experiment"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is my very first experiment"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p>This endpoint retrieves a specific experiment from the specified project.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET http://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments/&lt;EXPERIMENT_ID&gt;</code></p>
@@ -3315,45 +3307,41 @@ curl &quot;http://<server-name>/api/v1/teams/1/projects/1/experiments/1&quot;
 <td>The ID of the experiment to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='create-experiment'>Create Experiment</h2>
-<p>shell
-curl -X POST \
-  https://<server-name>/api/v1/teams/1/projects/1/experiments \
-  -H &#39;Authorization: Bearer qwerty123456...&#39; \
-  -H &#39;Content-Type: application/vnd.api+json&#39; \
-  -d &#39;{
-    &quot;data&quot;: {
-      &quot;type&quot;: &quot;experiments&quot;,
-      &quot;attributes&quot;: {
-        &quot;name&quot;: &quot;My experiment 1&quot;,
-        &quot;description&quot;: &quot;This is my very first experiment&quot;,
-        &quot;archived&quot;: false
+<h2 id='create-experiment'>Create Experiment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "data": {
+      "type": "experiments",
+      "attributes": {
+        "name": "My experiment 1",
+        "description": "This is my very first experiment",
+        "archived": false
       }
     }
-  }&#39;</p>
-
+  }'</span>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-
-<p>json
-{
-  &quot;data&quot;: {
-    &quot;id&quot;: &quot;1&quot;,
-    &quot;type&quot;: &quot;experiments&quot;,
-    &quot;attributes&quot;: {
-      &quot;name&quot;: &quot;My first experiment&quot;,
-      &quot;description&quot;: &quot;This is my very first experiment&quot;,
-      &quot;status&quot;: &quot;completed&quot;,
-      &quot;due_date&quot;: &quot;2025-11-11T13:25:53.910Z&quot;,
-      &quot;start_date&quot;: &quot;2025-12-11&quot;,
-      &quot;started_at&quot;: &quot;2025-12-11T13:25:53.910Z&quot;,
-      &quot;completed_at&quot;: &quot;2025-12-17T13:25:53.910Z&quot;,
-      &quot;archived&quot;: false
-    }
-  }
-}</p>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"experiments"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My first experiment"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is my very first experiment"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-11T13:25:53.910Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-11"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-11T13:25:53.910Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-17T13:25:53.910Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p>This endpoint creates a new experiment in the team. Please note that we will create the user assignments for this experiment asynchronous.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://&lt;server-name&gt;/api/v1/teams/&lt;TEAM_ID&gt;/projects/&lt;PROJECT_ID&gt;/experiments</code></p>
@@ -3377,19 +3365,17 @@ curl -X POST \
 <blockquote>
 <p>Request body</p>
 </blockquote>
-
-<p>json
-{
-  &quot;data&quot;: {
-    &quot;type&quot;: &quot;experiments&quot;,
-    &quot;attributes&quot;: {
-      &quot;name&quot;: &quot;My first experiment&quot;,
-      &quot;description&quot;: &quot;This is my very first experiment&quot;,
-      &quot;archived&quot;: false
-    }
-  }
-}</p>
-<h3 id='experiment-attributes'>Experiment attributes</h3>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"experiments"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My first experiment"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is my very first experiment"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='experiment-attributes'>Experiment attributes</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -3438,41 +3424,37 @@ curl -X POST \
 <td>Archived flag</td>
 </tr>
 </tbody></table>
-<h2 id='update-experiment'>Update Experiment</h2>
-<p>shell
-curl -X PATCH \
-  https://<server-name>/api/v1/teams/1/projects/1/experiments/1 \
-  -H &#39;Authorization: Bearer qwerty123456...&#39; \
-  -H &#39;Content-Type: application/vnd.api+json&#39; \
-  -d &#39;{
-        &quot;data&quot;: {
-          &quot;id&quot;: &quot;1&quot;,
-          &quot;type&quot;: &quot;experiments&quot;,
-          &quot;attributes&quot;: {
-            &quot;name&quot;: &quot;Experiment 2&quot;,
-            &quot;description&quot;: &quot;New description&quot;,
-            &quot;archived&quot;: true
+<h2 id='update-experiment'>Update Experiment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="se">\</span>
+  https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1 <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer qwerty123456...'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+        "data": {
+          "id": "1",
+          "type": "experiments",
+          "attributes": {
+            "name": "Experiment 2",
+            "description": "New description",
+            "archived": true
           }
       }
-  }&#39;</p>
-
+  }'</span>
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-
-<p>json
-{
-  &quot;data&quot;: {
-    &quot;id&quot;: &quot;1&quot;,
-    &quot;type&quot;: &quot;experiments&quot;,
-    &quot;attributes&quot;: {
-      &quot;name&quot;: &quot;Experiment 2&quot;,
-      &quot;description&quot;: &quot;New description&quot;,
-      &quot;archived&quot;: true
-    }
-  }
-}</p>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"experiments"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Experiment 2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New description"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p>This endpoint updates existing experiment in the selected project.
 If submitted attributes are the same and no changes are made for the experiment, server returns empty body with response code 204.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
