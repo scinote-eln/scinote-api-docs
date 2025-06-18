@@ -1,15 +1,14 @@
 # Experiments
 
 ## Get Experiments
-
-shell
+```shell
 curl "http://<server-name>/api/v1/teams/1/projects/1/experiments"
   -H "Authorization: Bearer qwerty123456..."
-
+```
 
 > The above command returns JSON structured like this:
 
-json
+```json
 {
   "data": [
     {
@@ -30,7 +29,7 @@ json
     "last": "http://<server-name>/api/v1/teams/1/projects/1/experiments?page%5Bnumber%5D=1&page%5Bsize%5D=10"
   }
 }
-
+```
 
 This endpoint retrieves all experiments from the specified project.
 
@@ -50,14 +49,14 @@ This endpoint retrieves all experiments from the specified project.
 
 ## Get Experiment
 
-shell
+```shell
 curl "http://<server-name>/api/v1/teams/1/projects/1/experiments/1"
   -H "Authorization: Bearer qwerty123456..."
-
+```
 
 > The above command returns JSON structured like this:
 
-json
+```json
 {
   "data": {
     "id": "1",
@@ -69,7 +68,7 @@ json
     }
   }
 }
-
+```
 
 This endpoint retrieves a specific experiment from the specified project.
 
@@ -87,7 +86,7 @@ This endpoint retrieves a specific experiment from the specified project.
 
 ## Create Experiment
 
-shell
+```shell
 curl -X POST \
   https://<server-name>/api/v1/teams/1/projects/1/experiments \
   -H 'Authorization: Bearer qwerty123456...' \
@@ -102,11 +101,11 @@ curl -X POST \
       }
     }
   }'
-
+```
 
 > The above command returns JSON structured like this:
 
-json
+```json
 {
   "data": {
     "id": "1",
@@ -123,7 +122,7 @@ json
     }
   }
 }
-
+```
 
 This endpoint creates a new experiment in the team. Please note that we will create the user assignments for this experiment asynchronous.
 
@@ -140,7 +139,7 @@ This endpoint creates a new experiment in the team. Please note that we will cre
 
 > Request body
 
-json
+```json
 {
   "data": {
     "type": "experiments",
@@ -151,7 +150,7 @@ json
     }
   }
 }
-
+```
 
 ### Experiment attributes
 
@@ -168,7 +167,7 @@ json
 
 ## Update Experiment
 
-shell
+```shell
 curl -X PATCH \
   https://<server-name>/api/v1/teams/1/projects/1/experiments/1 \
   -H 'Authorization: Bearer qwerty123456...' \
@@ -184,11 +183,11 @@ curl -X PATCH \
           }
       }
   }'
-
+```
 
 > The above command returns JSON structured like this:
 
-json
+```json
 {
   "data": {
     "id": "1",
@@ -200,7 +199,7 @@ json
     }
   }
 }
-
+```
 
 This endpoint updates existing experiment in the selected project.
 If submitted attributes are the same and no changes are made for the experiment, server returns empty body with response code 204.
