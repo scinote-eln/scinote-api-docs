@@ -16,14 +16,18 @@ curl "https://<server-name>/api/v1/teams/1/inventories/1/items"
             "id": "1",
             "type": "inventory_items",
             "attributes": {
-                "name": "Item 1"
+                "name": "Item 1",
+                "archived": false,
+                "archived_on": null
             }
         },
         {
             "id": "2",
             "type": "inventory_items",
             "attributes": {
-                "name": "Item 2"
+                "name": "Item 2",
+                "archived": false,
+                "archived_on": null
             },
             "relationships": {
                 "inventory_cells": {
@@ -84,7 +88,9 @@ curl "https://<server-name>/api/v1/teams/1/inventories/1/items/1"
         "id": "1",
         "type": "inventory_items",
         "attributes": {
-            "name": "POY/3"
+            "name": "POY/3",
+            "archived": false,
+            "archived_on": null
         },
         "relationships": {
             "inventory_cells": {
@@ -203,7 +209,9 @@ curl -X POST \
     "id": "1",
     "type": "inventory_items",
     "attributes": {
-      "name": "POY/3"
+      "name": "POY/3",
+      "archived": false,
+      "archived_on": null
     },
     "relationships": {
       "inventory_cells": {
@@ -268,7 +276,9 @@ This endpoint creates new item in the inventory, cells can be also added in 'inc
   "data": {
     "type": "inventory_items",
     "attributes": {
-      "name": "POY/3"
+      "name": "POY/3",
+      "archived": false,
+      "archived_on": null
     }
   },
   "included": [
@@ -315,7 +325,8 @@ curl -X PATCH \
         "id": "1",
         "type": "inventory_items",
         "attributes": {
-            "name": "POY/4"
+            "name": "POY/4",
+            "archived": true
         }
     },
     "included": [
@@ -347,7 +358,9 @@ curl -X PATCH \
     "id": "1",
     "type": "inventory_items",
     "attributes": {
-      "name": "POY/4"
+      "name": "POY/4",
+      "archived": true,
+      "archived_on": "2025-12-11T13:25:53.910Z"
     },
     "relationships": {
       "inventory_cells": {
@@ -442,9 +455,10 @@ If submitted attributes are the same and no changes are made for the item, serve
 
 ### Inventory item attributes
 
-| Attribute | Mandatory | Description      |
-| --------- | --------- | ---------------- |
-| name      | no        | Name of the item |
+| Attribute | Mandatory | Description                                    |
+| --------- | --------- | ---------------------------------------------- |
+| name      | no        | Name of the item                               |
+| archived  | no        | true/false, set the archived state of the item |
 
 ### Inventory cell attributes
 
@@ -511,7 +525,7 @@ Filter Parameter: text
 | doesnt_contain   | Excludes items containing text|
 
 Example:
-filter[inventory_column][id]=12345&filter[inventory_column][value][operator]=contains&filter[inventory_column][value][text]=book`
+`filter[inventory_column][id]=12345&filter[inventory_column][value][operator]=contains&filter[inventory_column][value][text]=book`
 
 
 ---
