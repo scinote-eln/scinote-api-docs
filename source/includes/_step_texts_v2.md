@@ -16,6 +16,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
       "id": "1",
       "type": "step_texts",
       "attributes": {
+        "title": "Text title",
         "text": "<p>Some text.</p>",
         "position": 0
       }
@@ -24,6 +25,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
       "id": "2",
       "type": "step_texts",
       "attributes": {
+        "title": "Text title",
         "text": "<p>Some text.</p>",
         "position": 1
       }
@@ -74,6 +76,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
     "id": "1",
     "type": "step_texts",
     "attributes": {
+      "title": "Text title",
       "text": "<p>Some text.</p>",
       "position": 0
     }
@@ -110,6 +113,7 @@ curl -X POST \
 	"data": {
 		"type": "step_texts",
 		"attributes": {
+      "title": "Text title",
 			"text": "<p>Some text.</p>"
 		}
 	}
@@ -124,6 +128,7 @@ curl -X POST \
     "id": "3",
     "type": "step_texts",
     "attributes": {
+      "title": "Text title",
       "text": "<p>Some text.</p>",
       "position": 0
     }
@@ -155,6 +160,7 @@ This endpoint creates new step_text in the step.
   "data": {
     "type": "step_texts",
     "attributes": {
+      "title": "Text title",
       "text": "<p>Some text.</p>"
     }
   }
@@ -179,6 +185,7 @@ curl -X PATCH \
           "id": "1",
           "type": "step_texts",
           "attributes": {
+            "title": "Text title",
             "text":  "<p>Some text.</p>"
           }
       }
@@ -193,6 +200,7 @@ curl -X PATCH \
     "id": "1",
     "type": "step_texts",
     "attributes": {
+      "title": "Text title",
       "text": "<p>Some text.</p>",
       "position": 0
     }
@@ -227,6 +235,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
     "id": "1",
     "type": "step_texts",
     "attributes": {
+      "title": "Text title",
       "text": "<p>Some text.</p>"
     }
   }
@@ -238,6 +247,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 | Attribute | Mandatory | Description                                 |
 | --------- | --------- | ------------------------------------------- |
 | text      | yes       | String representation of the step_text data |
+| title     | no        | Text title                                  |
 
 ## Delete step_text
 

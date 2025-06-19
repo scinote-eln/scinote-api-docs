@@ -19,7 +19,11 @@ curl "http://<server-name>/api/v1/teams/1/projects"
         "name": "Demo project - qPCR",
         "visibility": "hidden",
         "start_date": null,
-        "archived": false
+        "status": "completed",
+        "due_date": "2025-11-11",
+        "start_date": "2025-12-11",
+        "started_at": "2025-12-11T13:25:53.910Z",
+        "completed_at": "2025-12-17T13:25:53.910Z",
       },
       "relationships": {
         "project_folder": {
@@ -50,7 +54,7 @@ the project comments are also included.
 | Parameter | Description                                                                                    |
 | --------- | ---------------------------------------------------------------------------------------------- |
 | TEAM_ID   | The ID of the team to retrieve projects from                                                   |
-| INCLUDES  | if set to `comments`, project comments are also included                                       |
+| INCLUDES  | if set to `comments` or `supervised_by`, project comments and/or supervisor are also included  |
 | ARCHIVED  | If set to `true` return only archived projects. If set to `false` return only active projects. |
 
 ## Get Project
@@ -71,6 +75,11 @@ curl "http://<server-name>/api/v1/teams/1/projects/1"
       "name": "Demo project - qPCR",
       "visibility": "hidden",
       "start_date": null,
+      "status": "completed",
+      "due_date": "2025-11-11",
+      "start_date": "2025-12-11",
+      "started_at": "2025-12-11T13:25:53.910Z",
+      "completed_at": "2025-12-17T13:25:53.910Z",
       "archived": false
     },
     "relationships": {
@@ -129,7 +138,11 @@ curl -X POST \
     "attributes": {
       "name": "My project 1",
       "visibility": "visible",
-      "start_date": "01/01/2020 10:30",
+      "status": "completed",
+      "due_date": "2025-11-11",
+      "start_date": "2025-12-11",
+      "started_at": "2025-12-11T13:25:53.910Z",
+      "completed_at": "2025-12-17T13:25:53.910Z",
       "archived": false
     },
     "relationships": {
@@ -183,6 +196,10 @@ This endpoint creates a new project in the team.
 | name              | yes       | Name of the project                                      |
 | visibility        | no        | Visibility of the project                                |
 | archived          | no        | Archived flag                                            |
+| status            | no        | Status of project (not_started, started, completed)      |
+| description       | no        | Description of the project                               |
+| due_date          | no        | Due date of project                                      |
+| start_date        | no        | Planned start date of project                            |
 | project_folder_id | no        | Reference to project folder, if null it is on root level |
 
 ## Update Project
@@ -216,7 +233,11 @@ curl -X PATCH \
     "attributes": {
       "name": "Project 2",
       "visibility": "hidden",
-      "start_date": "01/01/2020 10:30",
+      "status": "completed",
+      "due_date": "2025-11-11",
+      "start_date": "2025-12-11",
+      "started_at": "2025-12-11T13:25:53.910Z",
+      "completed_at": "2025-12-17T13:25:53.910Z",
       "archived": true
     },
     "relationships": {
@@ -256,7 +277,10 @@ If submitted attributes are the same and no changes are made for the project, se
       "name": "Project 2",
       "visibility": "hidden",
       "archived": true,
-      "project_folder_id": 5
+      "project_folder_id": 5,
+      "metadata": {
+        "status": "processing"
+      }
     }
   }
 }
@@ -264,9 +288,50 @@ If submitted attributes are the same and no changes are made for the project, se
 
 ### Project attributes
 
-| Attribute         | Mandatory | Description                                              |
-| ----------------- | --------- | -------------------------------------------------------- |
-| name              | yes       | Name of the project                                      |
-| visibility        | no        | Visibility of the project                                |
-| archived          | no        | Archived flag                                            |
-| project_folder_id | no        | Reference to project folder, if null it is on root level |
+| Attribute         | Mandatory | Description                                               |
+| ----------------- | --------- | --------------------------------------------------------- |
+| name              | yes       | Name of the project                                       |
+| visibility        | no        | Visibility of the project                                 |
+| archived          | no        | Archived flag                                             |
+| status            | no        | Status of project (not_started, started, completed)       |
+| description       | no        | Description of the project                                |
+| due_date          | no        | Due date of project                                       |
+| start_date        | no        | Planned start date of project                             |
+| project_folder_id | no        | Reference to project folder, if null it is on root level  |
+| matadata          | no        | A JSON format metadata object, for storing arbitrary data |
+
+
+## Project Metadata
+
+This API supports advanced filtering using metadata fields embedded in each project record. These metadata fields can be used as dynamic filters via the filter[metadata] parameter in the query string. Additionally, metadata can be explicitly returned in API responses by using the query parameter with-metadata=true.
+
+### Filtering Projects by Metadata
+
+You can filter projects using custom metadata key-value pairs by including them in the `filter[metadata]` query parameter. The value should be a JSON object encoded in the query string.
+
+Note: All metadata keys and values must be strings.
+
+### Example HTTP Request
+
+Example filtering projects where metadata contains key status with the value processing:
+
+`GET https://<server-name>/api/v1/teams/1/projects?filter[metadata][status]=processing`
+
+You can also include multiple metadata key-value pairs:
+
+`GET https://<server-name>/api/v1/teams/1/projects?filter[metadata][status]=processing&filter[metadata][external_id]=P1337`
+
+This will return projects where metadata includes both "status": "processing" and "external_id": "P1337".
+Including Metadata in the Response
+
+To include the metadata field in the JSON response, use the query parameter:
+
+`with-metadata=true`
+
+### Combined Example
+
+`GET https://<server-name>/api/v1/teams/1/projects?filter[metadata][priority]=high&with-metadata=true`
+
+This will return all projects that contain metadata with key priority set to high, and also include the metadata field in the project response.
+
+If with-metadata is not set to true, metadata fields will not be shown in the response, even if data exists.

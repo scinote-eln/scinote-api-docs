@@ -1,7 +1,7 @@
 # Webhooks
 
 ### NOTE
-Webhooks are currently in the testing phase. If you would like to enable them, add ENABLE_WEBHOOKS=true to your environment variables, or, if using our cloud setup, ask SciNote support to enable it for you.
+If you would like to enable them in a local install, add ENABLE_WEBHOOKS=true to your environment variables.
 
 ## Setup
 
@@ -12,7 +12,7 @@ Next, you will need to set up a webhook, by going to the Webhooks section in Set
 - method (*GET*/*POST*/*PATCH*)
 - URL
 - Secret key (optional secret key for verifying the request on your end)
-
+- Include serialized subject (optional, will include the activity subject serialized in the same format as in the API)
 
 
 After setting up the webhook, it will be triggered for any activity matching the saved activity filter.

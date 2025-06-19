@@ -1,7 +1,6 @@
 # Experiments
 
 ## Get Experiments
-
 ```shell
 curl "http://<server-name>/api/v1/teams/1/projects/1/experiments"
   -H "Authorization: Bearer qwerty123456..."
@@ -114,6 +113,11 @@ curl -X POST \
     "attributes": {
       "name": "My first experiment",
       "description": "This is my very first experiment",
+      "status": "completed",
+      "due_date": "2025-11-11T13:25:53.910Z",
+      "start_date": "2025-12-11",
+      "started_at": "2025-12-11T13:25:53.910Z",
+      "completed_at": "2025-12-17T13:25:53.910Z",
       "archived": false
     }
   }
@@ -150,11 +154,16 @@ This endpoint creates a new experiment in the team. Please note that we will cre
 
 ### Experiment attributes
 
-| Attribute   | Mandatory | Description                   |
-| ----------- | --------- | ----------------------------- |
-| name        | yes       | Name of the experiment        |
-| description | no        | Description of the experiment |
-| archived    | no        | Archived flag                 |
+| Attribute   | Mandatory | Description                                            |
+| ----------- | --------- | ------------------------------------------------------ |
+| name        | yes       | Name of the experiment                                 |
+| description | no        | Description of the experiment                          |
+| archived    | no        | Archived flag                                          |
+| status      | no        | Status of experiment (not_started, started, completed) |
+| description | no        | Description of the experiment                          |
+| due_date    | no        | Due date of experiment                                 |
+| start_date  | no        | Planned start date of experiment                       |
+| archived    | no        | Archived flag                                          |
 
 ## Update Experiment
 
@@ -208,7 +217,6 @@ If submitted attributes are the same and no changes are made for the experiment,
 | ID         | The ID of the experiment                          |
 
 ### Request body
-
 ```json
 {
   "data": {
@@ -217,7 +225,10 @@ If submitted attributes are the same and no changes are made for the experiment,
     "attributes": {
       "name": "Experiment 2",
       "description": "New description",
-      "archived": true
+      "archived": true,
+      "metadata": {
+        "status": "processing"
+      }
     }
   }
 }
@@ -225,8 +236,47 @@ If submitted attributes are the same and no changes are made for the experiment,
 
 ### Experiment attributes
 
-| Attribute   | Mandatory | Description                   |
-| ----------- | --------- | ----------------------------- |
-| name        | yes       | Name of the experiment        |
-| description | no        | Description of the experiment |
-| archived    | no        | Archived flag                 |
+| Attribute   | Mandatory | Description                                               |
+| ----------- | --------- | --------------------------------------------------------- |
+| name        | yes       | Name of the experiment                                    |
+| description | no        | Description of the experiment                             |
+| archived    | no        | Archived flag                                             |
+| status      | no        | Status of experiment (not_started, started, completed)    |
+| description | no        | Description of the experiment                             |
+| due_date    | no        | Due date of experiment                                    |
+| start_date  | no        | Planned start date of experiment                          |
+| archived    | no        | Archived flag                                             |
+| matadata    | no        | A JSON format metadata object, for storing arbitrary data |
+
+## Experiment Metadata
+
+This API supports advanced filtering using metadata fields embedded in each experiment record. These metadata fields can be used as dynamic filters via the filter[metadata] parameter in the query string. Additionally, metadata can be explicitly returned in API responses by using the query parameter with-metadata=true.
+
+### Filtering Experiments by Metadata
+
+You can filter experiments using custom metadata key-value pairs by including them in the filter[metadata] query parameter. The value should be a JSON object encoded in the query string.
+
+Note: All metadata keys and values must be strings.
+
+### Example HTTP Request
+
+Example filtering experiments where metadata contains key status with the value processin
+
+`GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][status]=processing`
+
+You can also include multiple metadata key-value pair
+
+`GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][status]=processing&filter[metadata][external_id]=E1337`
+
+This will return experiments where metadata includes both "status": "processing" and "external_id": "P1337".
+Including Metadata in the Response
+To include the metadata field in the JSON response, use the query parameter
+`with-metadata=true`
+
+### Combined Example
+
+`GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][priority]=high&with-metadata=true`
+
+This will return all experiments that contain metadata with key priority set to high, and also include the metadata field in the experiment response.
+
+If with-metadata is not set to true, metadata fields will not be shown in the response, even if data exists.
