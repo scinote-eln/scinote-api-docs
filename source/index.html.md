@@ -79,6 +79,9 @@ This API documentation page was created with [Slate](https://github.com/lord/sla
 
 _By accessing or using SciNote API, you agree to [SciNote API Terms](https://www.scinote.net/legal/api-terms/)._
 
+# Release notes link
+<a href="https://www.scinote.net/release-notes/" target="_blank" rel="noopener">SciNote release notes</a>
+
 # Authentication
 
 SciNote uses JWT tokens to allow access to the API and OAuth 2 protocol for token generation using authorization code flow.
