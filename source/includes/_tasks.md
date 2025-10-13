@@ -360,7 +360,10 @@ If submitted attributes are the same and no changes are made for the task, serve
     "attributes": {
       "name": "Task 2",
       "description": "Task 2 description",
-      "my_module_status_id": "2"
+      "my_module_status_id": "2",
+      "metadata": {
+        "status": "processing"
+      }
     }
   }
 }
@@ -368,10 +371,45 @@ If submitted attributes are the same and no changes are made for the task, serve
 
 ### Task attributes
 
-| Attribute           | Mandatory | Description             |
-| ------------------- | --------- | ----------------------- |
-| name                | yes       | Name of the task        |
-| description         | no        | Description of the task |
-| x                   | no        | x position on canvas    |
-| y                   | no        | y position on canvas    |
-| my_module_status_id | no        | New status ID           |
+| Attribute           | Mandatory | Description                                               |
+| ------------------- | --------- | --------------------------------------------------------- |
+| name                | yes       | Name of the task                                          |
+| description         | no        | Description of the task                                   |
+| x                   | no        | x position on canvas                                      |
+| y                   | no        | y position on canvas                                      |
+| my_module_status_id | no        | New status ID                                             |
+| matadata            | no        | A JSON format metadata object, for storing arbitrary data |
+
+## Task Metadata
+
+This API supports advanced filtering using metadata fields embedded in each task record. These metadata fields can be used as dynamic filters via the filter[metadata] parameter in the query string. Additionally, metadata can be explicitly returned in API responses by using the query parameter with-metadata=true.
+
+### Filtering Tasks by Metadata
+
+You can filter tasks using custom metadata key-value pairs by including them in the filter[metadata] query parameter. The value should be a JSON object encoded in the query string.
+
+Note: All metadata keys and values must be strings.
+
+### Example HTTP Request
+
+Example filtering tasks where metadata contains key status with the value processing:
+
+`GET https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks?filter[metadata][status]=processing`
+
+You can also include multiple metadata key-value pairs:
+
+`GET https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks?filter[metadata][status]=processing&filter[metadata][external_id]=T1337`
+
+This will return tasks where metadata includes both "status": "processing" and "external_id": "T1337".
+Including Metadata in the Response
+
+To include the metadata field in the JSON response, use the query parameter:
+`with-metadata=true`
+
+### Combined Example
+
+`GET https://<server-name>/api/v1/teams/1/projects/1/experiments/1/tasks?filter[metadata][priority]=high&with-metadata=true`
+
+This will return all tasks that contain metadata with key priority set to high, and also include the metadata field in the task response.
+
+If with-metadata is not set to true, metadata fields will not be shown in the response, even if data exists.
