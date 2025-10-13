@@ -398,6 +398,9 @@
                   <li>
                     <a href="#update-project" class="toc-h2 toc-link" data-title="Update Project">Update Project</a>
                   </li>
+                  <li>
+                    <a href="#project-metadata" class="toc-h2 toc-link" data-title="Project Metadata">Project Metadata</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -471,6 +474,9 @@
                   <li>
                     <a href="#update-experiment" class="toc-h2 toc-link" data-title="Update Experiment">Update Experiment</a>
                   </li>
+                  <li>
+                    <a href="#experiment-metadata" class="toc-h2 toc-link" data-title="Experiment Metadata">Experiment Metadata</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -540,6 +546,9 @@
                   </li>
                   <li>
                     <a href="#update-task" class="toc-h2 toc-link" data-title="Update Task">Update Task</a>
+                  </li>
+                  <li>
+                    <a href="#task-metadata" class="toc-h2 toc-link" data-title="Task Metadata">Task Metadata</a>
                   </li>
               </ul>
           </li>
@@ -1130,6 +1139,9 @@
                   </li>
                   <li>
                     <a href="#delete-item" class="toc-h2 toc-link" data-title="Delete Item">Delete Item</a>
+                  </li>
+                  <li>
+                    <a href="#filter-items-by-column-values" class="toc-h2 toc-link" data-title="Filter Items by column values">Filter Items by column values</a>
                   </li>
               </ul>
           </li>
@@ -1915,7 +1927,11 @@ If submitted attributes are the same and no changes are made for the identity ma
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Demo project - qPCR"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-11"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-11"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-11T13:25:53.910Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-17T13:25:53.910Z"</span><span class="p">,</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"project_folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1950,7 +1966,7 @@ the project comments are also included.</p>
 </tr>
 <tr>
 <td>INCLUDES</td>
-<td>if set to <code>comments</code>, project comments are also included</td>
+<td>if set to <code>comments</code> or <code>supervised_by</code>, project comments and/or supervisor are also included</td>
 </tr>
 <tr>
 <td>ARCHIVED</td>
@@ -1971,6 +1987,11 @@ the project comments are also included.</p>
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Demo project - qPCR"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-11"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-11"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-11T13:25:53.910Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-17T13:25:53.910Z"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2039,7 +2060,11 @@ the project comments are also included.</p>
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My project 1"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2020 10:30"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-11"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-11"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-11T13:25:53.910Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-17T13:25:53.910Z"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2111,6 +2136,26 @@ the project comments are also included.</p>
 <td>Archived flag</td>
 </tr>
 <tr>
+<td>status</td>
+<td>no</td>
+<td>Status of project (not_started, started, completed)</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Description of the project</td>
+</tr>
+<tr>
+<td>due_date</td>
+<td>no</td>
+<td>Due date of project</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>no</td>
+<td>Planned start date of project</td>
+</tr>
+<tr>
 <td>project_folder_id</td>
 <td>no</td>
 <td>Reference to project folder, if null it is on root level</td>
@@ -2143,7 +2188,11 @@ the project comments are also included.</p>
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project 2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2020 10:30"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-11"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-11"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-11T13:25:53.910Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-17T13:25:53.910Z"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2185,7 +2234,10 @@ If submitted attributes are the same and no changes are made for the project, se
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project 2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"project_folder_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+      </span><span class="nl">"project_folder_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"processing"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2213,11 +2265,63 @@ If submitted attributes are the same and no changes are made for the project, se
 <td>Archived flag</td>
 </tr>
 <tr>
+<td>status</td>
+<td>no</td>
+<td>Status of project (not_started, started, completed)</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Description of the project</td>
+</tr>
+<tr>
+<td>due_date</td>
+<td>no</td>
+<td>Due date of project</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>no</td>
+<td>Planned start date of project</td>
+</tr>
+<tr>
 <td>project_folder_id</td>
 <td>no</td>
 <td>Reference to project folder, if null it is on root level</td>
 </tr>
+<tr>
+<td>matadata</td>
+<td>no</td>
+<td>A JSON format metadata object, for storing arbitrary data</td>
+</tr>
 </tbody></table>
+<h2 id='project-metadata'>Project Metadata</h2>
+<p>This API supports advanced filtering using metadata fields embedded in each project record. These metadata fields can be used as dynamic filters via the filter[metadata] parameter in the query string. Additionally, metadata can be explicitly returned in API responses by using the query parameter with-metadata=true.</p>
+<h3 id='filtering-projects-by-metadata'>Filtering Projects by Metadata</h3>
+<p>You can filter projects using custom metadata key-value pairs by including them in the <code>filter[metadata]</code> query parameter. The value should be a JSON object encoded in the query string.</p>
+
+<p>Note: All metadata keys and values must be strings.</p>
+<h3 id='example-http-request'>Example HTTP Request</h3>
+<p>Example filtering projects where metadata contains key status with the value processing:</p>
+
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/1/projects?filter[metadata][status]=processing</code></p>
+
+<p>You can also include multiple metadata key-value pairs:</p>
+
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/1/projects?filter[metadata][status]=processing&amp;filter[metadata][external_id]=P1337</code></p>
+
+<p>This will return projects where metadata includes both &quot;status&quot;: &quot;processing&quot; and &quot;external_id&quot;: &quot;P1337&quot;.
+Including Metadata in the Response</p>
+
+<p>To include the metadata field in the JSON response, use the query parameter:</p>
+
+<p><code>with-metadata=true</code></p>
+<h3 id='combined-example'>Combined Example</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/1/projects?filter[metadata][priority]=high&amp;with-metadata=true</code></p>
+
+<p>This will return all projects that contain metadata with key priority set to high, and also include the metadata field in the project response.</p>
+
+<p>If with-metadata is not set to true, metadata fields will not be shown in the response, even if data exists.</p>
 <h1 id='project-users-assignments'>Project Users Assignments</h1><h2 id='get-project-user-assignments'>Get Project User Assignments</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/users"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
@@ -3233,6 +3337,11 @@ If submitted attributes are the same and no changes are made for the project, se
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My first experiment"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is my very first experiment"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-11T13:25:53.910Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-11"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-11T13:25:53.910Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-17T13:25:53.910Z"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -3288,6 +3397,31 @@ If submitted attributes are the same and no changes are made for the project, se
 <td>description</td>
 <td>no</td>
 <td>Description of the experiment</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>no</td>
+<td>Archived flag</td>
+</tr>
+<tr>
+<td>status</td>
+<td>no</td>
+<td>Status of experiment (not_started, started, completed)</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Description of the experiment</td>
+</tr>
+<tr>
+<td>due_date</td>
+<td>no</td>
+<td>Due date of experiment</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>no</td>
+<td>Planned start date of experiment</td>
 </tr>
 <tr>
 <td>archived</td>
@@ -3357,7 +3491,10 @@ If submitted attributes are the same and no changes are made for the experiment,
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Experiment 2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New description"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"processing"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3384,7 +3521,62 @@ If submitted attributes are the same and no changes are made for the experiment,
 <td>no</td>
 <td>Archived flag</td>
 </tr>
+<tr>
+<td>status</td>
+<td>no</td>
+<td>Status of experiment (not_started, started, completed)</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Description of the experiment</td>
+</tr>
+<tr>
+<td>due_date</td>
+<td>no</td>
+<td>Due date of experiment</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>no</td>
+<td>Planned start date of experiment</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>no</td>
+<td>Archived flag</td>
+</tr>
+<tr>
+<td>matadata</td>
+<td>no</td>
+<td>A JSON format metadata object, for storing arbitrary data</td>
+</tr>
 </tbody></table>
+<h2 id='experiment-metadata'>Experiment Metadata</h2>
+<p>This API supports advanced filtering using metadata fields embedded in each experiment record. These metadata fields can be used as dynamic filters via the filter[metadata] parameter in the query string. Additionally, metadata can be explicitly returned in API responses by using the query parameter with-metadata=true.</p>
+<h3 id='filtering-experiments-by-metadata'>Filtering Experiments by Metadata</h3>
+<p>You can filter experiments using custom metadata key-value pairs by including them in the filter[metadata] query parameter. The value should be a JSON object encoded in the query string.</p>
+
+<p>Note: All metadata keys and values must be strings.</p>
+<h3 id='example-http-request'>Example HTTP Request</h3>
+<p>Example filtering experiments where metadata contains key status with the value processin</p>
+
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments?filter[metadata][status]=processing</code></p>
+
+<p>You can also include multiple metadata key-value pair</p>
+
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments?filter[metadata][status]=processing&amp;filter[metadata][external_id]=E1337</code></p>
+
+<p>This will return experiments where metadata includes both &quot;status&quot;: &quot;processing&quot; and &quot;external_id&quot;: &quot;P1337&quot;.
+Including Metadata in the Response
+To include the metadata field in the JSON response, use the query parameter
+<code>with-metadata=true</code></p>
+<h3 id='combined-example'>Combined Example</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments?filter[metadata][priority]=high&amp;with-metadata=true</code></p>
+
+<p>This will return all experiments that contain metadata with key priority set to high, and also include the metadata field in the experiment response.</p>
+
+<p>If with-metadata is not set to true, metadata fields will not be shown in the response, even if data exists.</p>
 <h1 id='experiment-users-assignments'>Experiment Users Assignments</h1><h2 id='get-experiment-user-assignments'>Get Experiment User Assignments</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/user_assignments"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
@@ -4629,7 +4821,10 @@ If submitted attributes are the same and no changes are made for the task, serve
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task 2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task 2 description"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"my_module_status_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+      </span><span class="nl">"my_module_status_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"processing"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4666,7 +4861,38 @@ If submitted attributes are the same and no changes are made for the task, serve
 <td>no</td>
 <td>New status ID</td>
 </tr>
+<tr>
+<td>matadata</td>
+<td>no</td>
+<td>A JSON format metadata object, for storing arbitrary data</td>
+</tr>
 </tbody></table>
+<h2 id='task-metadata'>Task Metadata</h2>
+<p>This API supports advanced filtering using metadata fields embedded in each task record. These metadata fields can be used as dynamic filters via the filter[metadata] parameter in the query string. Additionally, metadata can be explicitly returned in API responses by using the query parameter with-metadata=true.</p>
+<h3 id='filtering-tasks-by-metadata'>Filtering Tasks by Metadata</h3>
+<p>You can filter tasks using custom metadata key-value pairs by including them in the filter[metadata] query parameter. The value should be a JSON object encoded in the query string.</p>
+
+<p>Note: All metadata keys and values must be strings.</p>
+<h3 id='example-http-request'>Example HTTP Request</h3>
+<p>Example filtering tasks where metadata contains key status with the value processing:</p>
+
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks?filter[metadata][status]=processing</code></p>
+
+<p>You can also include multiple metadata key-value pairs:</p>
+
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks?filter[metadata][status]=processing&amp;filter[metadata][external_id]=T1337</code></p>
+
+<p>This will return tasks where metadata includes both &quot;status&quot;: &quot;processing&quot; and &quot;external_id&quot;: &quot;T1337&quot;.
+Including Metadata in the Response</p>
+
+<p>To include the metadata field in the JSON response, use the query parameter:
+<code>with-metadata=true</code></p>
+<h3 id='combined-example'>Combined Example</h3>
+<p><code>GET https://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks?filter[metadata][priority]=high&amp;with-metadata=true</code></p>
+
+<p>This will return all tasks that contain metadata with key priority set to high, and also include the metadata field in the task response.</p>
+
+<p>If with-metadata is not set to true, metadata fields will not be shown in the response, even if data exists.</p>
 <h1 id='protocols'>Protocols</h1><h2 id='get-protocols'>Get Protocols</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://&lt;server-name&gt;/api/v1/teams/1/projects/1/experiments/1/tasks/1/protocols"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer qwerty123456..."</span>
 </code></pre></div>
@@ -9474,6 +9700,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text title"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Some text.&lt;/p&gt;"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -9482,6 +9709,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text title"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Some text.&lt;/p&gt;"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -9551,6 +9779,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text title"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Some text.&lt;/p&gt;"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -9604,6 +9833,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
     "data": {
         "type": "step_texts",
         "attributes": {
+      "title": "Text title",
             "text": "&lt;p&gt;Some text.&lt;/p&gt;"
         }
     }
@@ -9617,6 +9847,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text title"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Some text.&lt;/p&gt;"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -9666,6 +9897,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text title"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Some text.&lt;/p&gt;"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -9693,6 +9925,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
           "id": "1",
           "type": "step_texts",
           "attributes": {
+            "title": "Text title",
             "text":  "&lt;p&gt;Some text.&lt;/p&gt;"
           }
       }
@@ -9706,6 +9939,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text title"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Some text.&lt;/p&gt;"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -9757,6 +9991,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"step_texts"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text title"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Some text.&lt;/p&gt;"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -9773,6 +10008,11 @@ If submitted attributes are the same and no changes are made for the step_text, 
 <td>text</td>
 <td>yes</td>
 <td>String representation of the step_text data</td>
+</tr>
+<tr>
+<td>title</td>
+<td>no</td>
+<td>Text title</td>
 </tr>
 </tbody></table>
 <h2 id='delete-step_text'>Delete step_text</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="se">\</span>
@@ -16423,14 +16663,18 @@ If submitted attributes are the same and no changes are made for the item, serve
             </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_items"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item 1"</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item 1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"archived_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_items"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item 2"</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item 2"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"archived_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"inventory_cells"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -16504,7 +16748,9 @@ the inventory cells of the items are also included; otherwise, they are ignored.
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_items"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POY/3"</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POY/3"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"archived_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"inventory_cells"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -16627,7 +16873,9 @@ the inventory cells of the items are also included; otherwise, they are ignored.
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_items"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POY/3"</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POY/3"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"inventory_cells"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -16698,7 +16946,9 @@ the inventory cells of the items are also included; otherwise, they are ignored.
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_items"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POY/3"</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POY/3"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -16760,7 +17010,8 @@ the inventory cells of the items are also included; otherwise, they are ignored.
         "id": "1",
         "type": "inventory_items",
         "attributes": {
-            "name": "POY/4"
+            "name": "POY/4",
+            "archived": true
         }
     },
     "included": [
@@ -16791,7 +17042,9 @@ the inventory cells of the items are also included; otherwise, they are ignored.
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventory_items"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POY/4"</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POY/4"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-11T13:25:53.910Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"inventory_cells"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -16904,6 +17157,11 @@ If submitted attributes are the same and no changes are made for the item, serve
 <td>no</td>
 <td>Name of the item</td>
 </tr>
+<tr>
+<td>archived</td>
+<td>no</td>
+<td>true/false, set the archived state of the item</td>
+</tr>
 </tbody></table>
 <h3 id='inventory-cell-attributes-2'>Inventory cell attributes</h3>
 <table><thead>
@@ -16955,6 +17213,293 @@ If submitted attributes are the same and no changes are made for the item, serve
 <td>The ID of the item</td>
 </tr>
 </tbody></table>
+<h4 id='filtering-inventory-items-by-column-data'>Filtering Inventory Items by Column Data</h4>
+<p>The <code>/items</code> endpoint supports filtering capabilities based on inventory column values. This enables users to retrieve data more precisely, using column-specific conditions related to different data types (e.g., text, number, list, file, etc.).</p>
+<h2 id='filter-items-by-column-values'>Filter Items by column values</h2>
+<p>To filter by column data:
+<code>/items?filter[inventory_column][id]=&lt;COLUMN_ID&gt;&amp;filter[inventory_column][value][operator]=&lt;OPERATOR&gt;&amp;filter[inventory_column][value][&lt;PARAMETER&gt;]=&lt;VALUE&gt;</code></p>
+
+<ul>
+<li><code>filter[inventory_column][id]</code>: The ID of the inventory column you wish to filter on.</li>
+<li><code>filter[inventory_column][value][operator]</code>: Filtering logic operator (depends on column type).</li>
+<li><code>filter[inventory_column][value][&lt;PARAMETER&gt;]</code>: The actual data you&#39;re filtering by (text, number, item_ids, dates, etc.).</li>
+</ul>
+
+<blockquote>
+<p>You can apply multiple column filters by repeating the structure with different keys:
+<code>filter[inventory_column_1]...</code>, <code>filter[inventory_column_2]...</code> etc.</p>
+</blockquote>
+
+<hr>
+<h4 id='filter-options-by-column-type'>Filter Options by Column Type</h4>
+<p>Different column types support specific operators and value parameters, as detailed below:</p>
+
+<hr>
+<h4 id='text-column'>Text Column</h4>
+<p>Filter Parameter: text</p>
+
+<table><thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contains</td>
+<td>Matches items containing text</td>
+</tr>
+<tr>
+<td>doesnt_contain</td>
+<td>Excludes items containing text</td>
+</tr>
+</tbody></table>
+
+<p>Example:
+<code>filter[inventory_column][id]=12345&amp;filter[inventory_column][value][operator]=contains&amp;filter[inventory_column][value][text]=book</code></p>
+
+<hr>
+<h4 id='number-column'>Number Column</h4>
+<p>Filter Parameter(s): number or from / to</p>
+
+<table><thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>equal_to</td>
+<td>Exact match</td>
+</tr>
+<tr>
+<td>unequal_to</td>
+<td>Not equal</td>
+</tr>
+<tr>
+<td>greater_than</td>
+<td>Greater than</td>
+</tr>
+<tr>
+<td>greater_than_or_equal_to</td>
+<td>Greater or equal</td>
+</tr>
+<tr>
+<td>less_than</td>
+<td>Less than</td>
+</tr>
+<tr>
+<td>less_than_or_equal_to</td>
+<td>Less than or equal</td>
+</tr>
+<tr>
+<td>between</td>
+<td>Between a number range (requires from &amp; to)</td>
+</tr>
+</tbody></table>
+
+<p>Example:
+<code>filter[inventory_column][id]=9923&amp;filter[inventory_column][value][operator]=between&amp;filter[inventory_column][value][from]=10&amp;filter[inventory_column][value][to]=100</code></p>
+
+<hr>
+<h4 id='file-column'>File Column</h4>
+<p>Filter Parameter: text</p>
+
+<table><thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file_contains</td>
+<td>Matches file name or metadata</td>
+</tr>
+<tr>
+<td>file_attached</td>
+<td>Checks that a file is attached</td>
+</tr>
+</tbody></table>
+
+<p>Example:</p>
+
+<p><code>filter[inventory_column][id]=200&amp;filter[inventory_column][value][operator]=file_contains&amp;filter[inventory_column][value][text]=book</code></p>
+
+<hr>
+<h4 id='checklist-column'>Checklist Column</h4>
+<p>Filter Parameter: item_ids (array)</p>
+
+<table><thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>any_of</td>
+<td>Items that contain ANY of the given checklist items</td>
+</tr>
+<tr>
+<td>all_of</td>
+<td>Items that contain ALL of the given checklist items</td>
+</tr>
+<tr>
+<td>none_of</td>
+<td>Items that contain NONE of the given checklist items</td>
+</tr>
+</tbody></table>
+
+<p>Example:</p>
+
+<p><code>filter[inventory_column][id]=4576&amp;filter[inventory_column][value][operator]=any_of&amp;filter[inventory_column][value][item_ids][]=12&amp;filter[inventory_column][value][item_ids][]=23</code></p>
+
+<hr>
+<h4 id='date-column'>Date Column</h4>
+<p>Filter Parameters: <code>date</code>, or <code>start_date</code> / <code>end_date</code></p>
+
+<table><thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>today</td>
+<td>Items with today&#39;s date</td>
+</tr>
+<tr>
+<td>yesterday</td>
+<td>Items matching yesterday</td>
+</tr>
+<tr>
+<td>this_month</td>
+<td>Items created this month</td>
+</tr>
+<tr>
+<td>last_year</td>
+<td>Last calendar year</td>
+</tr>
+<tr>
+<td>equal_to</td>
+<td>Exact date match</td>
+</tr>
+<tr>
+<td>greater_than</td>
+<td>After date</td>
+</tr>
+<tr>
+<td>between</td>
+<td>Between two given dates</td>
+</tr>
+</tbody></table>
+
+<p>Example:</p>
+
+<p><code>filter[inventory_column][id]=5591&amp;filter[inventory_column][value][operator]=between&amp;filter[inventory_column][value][start_date]=2024-01-01&amp;filter[inventory_column][value][end_date]=2024-03-31</code></p>
+
+<hr>
+<h4 id='time-column'>Time Column</h4>
+<p>Filter Parameters: <code>time</code>, or <code>start_time</code> / <code>end_time</code></p>
+
+<p>Similar operators apply as with date columns.</p>
+
+<p>Example:</p>
+
+<p><code>filter[inventory_column][id]=9191&amp;filter[inventory_column][value][operator]=greater_than&amp;filter[inventory_column][value][time]=13:00</code></p>
+
+<hr>
+<h4 id='datetime-datetime-range-columns'>DateTime / DateTime Range Columns</h4>
+<p>Filter Parameters: <code>datetime</code> or <code>start_datetime</code> / <code>end_datetime</code></p>
+
+<table><thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>today</td>
+<td>Items posted today</td>
+</tr>
+<tr>
+<td>last_week</td>
+<td>Items from last week</td>
+</tr>
+<tr>
+<td>equal_to</td>
+<td>Exact datetime match</td>
+</tr>
+<tr>
+<td>between</td>
+<td>Between two datetime ranges</td>
+</tr>
+</tbody></table>
+
+<p>Example:</p>
+
+<p><code>filter[inventory_column][id]=331&amp;filter[inventory_column][value][operator]=between&amp;filter[inventory_column][value][start_datetime]=2024-04-01T09:00:00Z&amp;filter[inventory_column][value][end_datetime]=2024-05-01T17:00:00Z</code></p>
+
+<hr>
+<h4 id='list-status-columns'>List, Status Columns</h4>
+<p>Filter Parameter: item_ids (array)</p>
+
+<table><thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>any_of</td>
+<td>Includes at least one selected item</td>
+</tr>
+<tr>
+<td>none_of</td>
+<td>Excludes all selected items</td>
+</tr>
+<tr>
+<td>all_of</td>
+<td>Includes all listed items (Status only)</td>
+</tr>
+</tbody></table>
+
+<p>Example:</p>
+
+<p><code>filter[inventory_column][id]=8844&amp;filter[inventory_column][value][operator]=any_of&amp;filter[inventory_column][value][item_ids][]=1001&amp;filter[inventory_column][value][item_ids][]=1002</code></p>
+
+<hr>
+<h4 id='stock-column'>Stock Column</h4>
+<p>Filter Parameter(s): value, from, to</p>
+
+<table><thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>equal_to</td>
+<td>Exact stock quantity</td>
+</tr>
+<tr>
+<td>greater_than</td>
+<td>Stock above a value</td>
+</tr>
+<tr>
+<td>between</td>
+<td>Between a stock range (requires from &amp; to)</td>
+</tr>
+</tbody></table>
+
+<p>Example:</p>
+
+<p><code>filter[inventory_column][id]=777&amp;filter[inventory_column][value][operator]=greater_than&amp;filter[inventory_column][value][value]=500</code></p>
+
+<hr>
+<h4 id='notes'>Notes</h4>
+<ul>
+<li>All filter values must match the expected type (string, number, dates, arrays).</li>
+<li>All dates and datetimes must be in ISO 8601 format (e.g., 2024-01-01 or 2024-06-05T14:00:00Z).</li>
+</ul>
 <h1 id='inventory-item-child-relationships-v2'>Inventory Item Child Relationships V2</h1><h2 id='get-inventory-item-child-relationships'>Get Inventory Item Child Relationships</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
   https://&lt;server-name&gt;/api/v2/teams/&lt;TEAM_ID&gt;/inventories/&lt;INVENTORY_ID&gt;/items/&lt;ITEM_ID&gt;/child_relationships <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer your_token_here'</span> <span class="se">\</span>
@@ -18182,7 +18727,7 @@ If submitted attributes are the same and no changes are made for the cell, serve
 </tr>
 </tbody></table>
 <h1 id='webhooks'>Webhooks</h1><h3 id='note'>NOTE</h3>
-<p>Webhooks are currently in the testing phase. If you would like to enable them, add ENABLE_WEBHOOKS=true to your environment variables, or, if using our cloud setup, ask SciNote support to enable it for you.</p>
+<p>If you would like to enable them in a local install, add ENABLE_WEBHOOKS=true to your environment variables.</p>
 <h2 id='setup'>Setup</h2>
 <p>For integration purposes, SciNote offers setting up webhooks, which get triggered by certain activities. The first step is setting up an <strong>activity filter</strong> available at the global activities view (https://[YOUR-DOMAN].scinote.net/global_activities), where you need to save a filter by clicking the <em>Save filter</em> button in the top right corner.</p>
 
@@ -18192,6 +18737,7 @@ If submitted attributes are the same and no changes are made for the cell, serve
 <li>method (<em>GET</em>/<em>POST</em>/<em>PATCH</em>)</li>
 <li>URL</li>
 <li>Secret key (optional secret key for verifying the request on your end)</li>
+<li>Include serialized subject (optional, will include the activity subject serialized in the same format as in the API)</li>
 </ul>
 
 <p>After setting up the webhook, it will be triggered for any activity matching the saved activity filter.</p>
