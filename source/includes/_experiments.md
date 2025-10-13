@@ -113,11 +113,11 @@ curl -X POST \
     "attributes": {
       "name": "My first experiment",
       "description": "This is my very first experiment",
-      "status": "completed",
+      "status": "done",
       "due_date": "2025-11-11T13:25:53.910Z",
       "start_date": "2025-12-11",
       "started_at": "2025-12-11T13:25:53.910Z",
-      "completed_at": "2025-12-17T13:25:53.910Z",
+      "done_at": "2025-12-17T13:25:53.910Z",
       "archived": false
     }
   }
@@ -159,7 +159,7 @@ This endpoint creates a new experiment in the team. Please note that we will cre
 | name        | yes       | Name of the experiment                                 |
 | description | no        | Description of the experiment                          |
 | archived    | no        | Archived flag                                          |
-| status      | no        | Status of experiment (not_started, started, completed) |
+| status      | no        | Status of experiment (not_started, started, done)      |
 | description | no        | Description of the experiment                          |
 | due_date    | no        | Due date of experiment                                 |
 | start_date  | no        | Planned start date of experiment                       |
@@ -241,7 +241,7 @@ If submitted attributes are the same and no changes are made for the experiment,
 | name        | yes       | Name of the experiment                                    |
 | description | no        | Description of the experiment                             |
 | archived    | no        | Archived flag                                             |
-| status      | no        | Status of experiment (not_started, started, completed)    |
+| status      | no        | Status of experiment (not_started, started, done)         |
 | description | no        | Description of the experiment                             |
 | due_date    | no        | Due date of experiment                                    |
 | start_date  | no        | Planned start date of experiment                          |

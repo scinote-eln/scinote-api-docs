@@ -17,13 +17,15 @@ curl "http://<server-name>/api/v1/teams/1/projects"
       "type": "projects",
       "attributes": {
         "name": "Demo project - qPCR",
+        "description": "This is my project",
         "visibility": "hidden",
         "start_date": null,
-        "status": "completed",
+        "status": "done",
         "due_date": "2025-11-11",
         "start_date": "2025-12-11",
         "started_at": "2025-12-11T13:25:53.910Z",
-        "completed_at": "2025-12-17T13:25:53.910Z",
+        "done_at": "2025-12-17T13:25:53.910Z",
+        "archived": false
       },
       "relationships": {
         "project_folder": {
@@ -63,7 +65,6 @@ the project comments are also included.
 curl "http://<server-name>/api/v1/teams/1/projects/1"
   -H "Authorization: Bearer qwerty123456..."
 ```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -73,13 +74,14 @@ curl "http://<server-name>/api/v1/teams/1/projects/1"
     "type": "projects",
     "attributes": {
       "name": "Demo project - qPCR",
+      "description": "This is my project",
       "visibility": "hidden",
       "start_date": null,
-      "status": "completed",
+      "status": "done",
       "due_date": "2025-11-11",
       "start_date": "2025-12-11",
       "started_at": "2025-12-11T13:25:53.910Z",
-      "completed_at": "2025-12-17T13:25:53.910Z",
+      "done_at": "2025-12-17T13:25:53.910Z",
       "archived": false
     },
     "relationships": {
@@ -137,12 +139,13 @@ curl -X POST \
     "type": "projects",
     "attributes": {
       "name": "My project 1",
+      "description": "This is my project",
       "visibility": "visible",
-      "status": "completed",
+      "status": "done",
       "due_date": "2025-11-11",
       "start_date": "2025-12-11",
       "started_at": "2025-12-11T13:25:53.910Z",
-      "completed_at": "2025-12-17T13:25:53.910Z",
+      "done_at": "2025-12-17T13:25:53.910Z",
       "archived": false
     },
     "relationships": {
@@ -196,7 +199,7 @@ This endpoint creates a new project in the team.
 | name              | yes       | Name of the project                                      |
 | visibility        | no        | Visibility of the project                                |
 | archived          | no        | Archived flag                                            |
-| status            | no        | Status of project (not_started, started, completed)      |
+| status            | no        | Status of project (not_started, started, done)           |
 | description       | no        | Description of the project                               |
 | due_date          | no        | Due date of project                                      |
 | start_date        | no        | Planned start date of project                            |
@@ -232,12 +235,13 @@ curl -X PATCH \
     "type": "projects",
     "attributes": {
       "name": "Project 2",
+      "description": "This is my project",
       "visibility": "hidden",
-      "status": "completed",
+      "status": "done",
       "due_date": "2025-11-11",
       "start_date": "2025-12-11",
       "started_at": "2025-12-11T13:25:53.910Z",
-      "completed_at": "2025-12-17T13:25:53.910Z",
+      "done_at": "2025-12-17T13:25:53.910Z",
       "archived": true
     },
     "relationships": {
@@ -293,7 +297,7 @@ If submitted attributes are the same and no changes are made for the project, se
 | name              | yes       | Name of the project                                       |
 | visibility        | no        | Visibility of the project                                 |
 | archived          | no        | Archived flag                                             |
-| status            | no        | Status of project (not_started, started, completed)       |
+| status            | no        | Status of project (not_started, started, done)            |
 | description       | no        | Description of the project                                |
 | due_date          | no        | Due date of project                                       |
 | start_date        | no        | Planned start date of project                             |
