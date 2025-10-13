@@ -302,7 +302,7 @@ If submitted attributes are the same and no changes are made for the project, se
 | due_date          | no        | Due date of project                                       |
 | start_date        | no        | Planned start date of project                             |
 | project_folder_id | no        | Reference to project folder, if null it is on root level  |
-| matadata          | no        | A JSON format metadata object, for storing arbitrary data |
+| metadata          | no        | A JSON format metadata object, for storing arbitrary data |
 
 
 ## Project Metadata
