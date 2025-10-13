@@ -378,7 +378,7 @@ If submitted attributes are the same and no changes are made for the task, serve
 | x                   | no        | x position on canvas                                      |
 | y                   | no        | y position on canvas                                      |
 | my_module_status_id | no        | New status ID                                             |
-| matadata            | no        | A JSON format metadata object, for storing arbitrary data |
+| metadata            | no        | A JSON format metadata object, for storing arbitrary data |
 
 ## Task Metadata
 
