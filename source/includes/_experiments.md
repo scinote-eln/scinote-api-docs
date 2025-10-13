@@ -17,6 +17,11 @@ curl "http://<server-name>/api/v1/teams/1/projects/1/experiments"
       "attributes": {
         "name": "My first experiment",
         "description": "This is my very first experiment",
+        "status": "done",
+        "due_date": "2025-11-11",
+        "start_date": "2025-12-11",
+        "started_at": "2025-12-11T13:25:53.910Z",
+        "done_at": "2025-12-17T13:25:53.910Z",
         "archived": false
       }
     }
