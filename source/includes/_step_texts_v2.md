@@ -16,7 +16,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
       "id": "1",
       "type": "step_texts",
       "attributes": {
-        "title": "Text title",
+        "name": "Text title",
         "text": "<p>Some text.</p>",
         "position": 0
       }
@@ -25,7 +25,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
       "id": "2",
       "type": "step_texts",
       "attributes": {
-        "title": "Text title",
+        "name": "Text title",
         "text": "<p>Some text.</p>",
         "position": 1
       }
@@ -76,7 +76,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
     "id": "1",
     "type": "step_texts",
     "attributes": {
-      "title": "Text title",
+      "name": "Text title",
       "text": "<p>Some text.</p>",
       "position": 0
     }
@@ -113,7 +113,7 @@ curl -X POST \
 	"data": {
 		"type": "step_texts",
 		"attributes": {
-      "title": "Text title",
+      "name": "Text title",
 			"text": "<p>Some text.</p>"
 		}
 	}
@@ -128,7 +128,7 @@ curl -X POST \
     "id": "3",
     "type": "step_texts",
     "attributes": {
-      "title": "Text title",
+      "name": "Text title",
       "text": "<p>Some text.</p>",
       "position": 0
     }
@@ -137,6 +137,9 @@ curl -X POST \
 ```
 
 This endpoint creates new step_text in the step.
+
+You can embed images directly into the text field by providing them as Base64-encoded data URLs. The required format is: `data:image/png;base64,<FILE_CONTENT>`. Images supplied in this format are automatically converted into TinyMCE images. The maximum allowable image size is limited by the browser’s request size constraints.
+
 
 ### HTTP Request
 
@@ -160,7 +163,7 @@ This endpoint creates new step_text in the step.
   "data": {
     "type": "step_texts",
     "attributes": {
-      "title": "Text title",
+      "name": "Text title",
       "text": "<p>Some text.</p>"
     }
   }
@@ -185,7 +188,7 @@ curl -X PATCH \
           "id": "1",
           "type": "step_texts",
           "attributes": {
-            "title": "Text title",
+            "name": "Text title",
             "text":  "<p>Some text.</p>"
           }
       }
@@ -200,7 +203,7 @@ curl -X PATCH \
     "id": "1",
     "type": "step_texts",
     "attributes": {
-      "title": "Text title",
+      "name": "Text title",
       "text": "<p>Some text.</p>",
       "position": 0
     }
@@ -210,6 +213,8 @@ curl -X PATCH \
 
 This endpoint updates existing step_Text in the selected step.
 If submitted attributes are the same and no changes are made for the step_text, server returns empty body with response code 204.
+
+You can embed images directly into the text field by providing them as Base64-encoded data URLs. The required format is: `data:image/png;base64,<FILE_CONTENT>`. Images supplied in this format are automatically converted into TinyMCE images. The maximum allowable image size is limited by the browser’s request size constraints.
 
 ### HTTP Request
 
@@ -235,7 +240,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
     "id": "1",
     "type": "step_texts",
     "attributes": {
-      "title": "Text title",
+      "name": "Text title",
       "text": "<p>Some text.</p>"
     }
   }
@@ -247,7 +252,7 @@ If submitted attributes are the same and no changes are made for the step_text, 
 | Attribute | Mandatory | Description                                 |
 | --------- | --------- | ------------------------------------------- |
 | text      | yes       | String representation of the step_text data |
-| title     | no        | Text title                                  |
+| name     | no        | Text title                                  |
 
 ## Delete step_text
 
