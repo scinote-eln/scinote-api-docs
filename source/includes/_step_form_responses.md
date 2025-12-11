@@ -91,6 +91,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
 
 This endpoint retrieves form_responses from specific step.
 If `?include=form_field_values` PATH parameter is provided, form field values are also included.
+If `?include=form_field_values.form_field` PATH parameter is provided, form field is also included.
 
 ### HTTP Request
 
@@ -106,7 +107,7 @@ If `?include=form_field_values` PATH parameter is provided, form field values ar
 | TASK_ID       | The ID of the task to retrieve protocol from                                               |
 | PROTOCOL_ID   | The ID of the protocol to retrieve step from                                               |
 | STEP_ID       | The ID of the step to retrieve form_responses from                                         |
-| INCLUDES      | if set to `form_field_values`, form field values are also included                         |
+| INCLUDES      | Can include if set to `form_field_values`, `form_field_values.form_field`                  |
 | FROM          | If present will filter steps' form_response, corresponding timestamp above or equals value |
 | TO            | If present will filter steps' form_response, corresponding timestamp below or equals value |
 
@@ -160,6 +161,7 @@ curl "https://<server-name>/api/v2/teams/1/projects/1/experiments/1/tasks/1/prot
 
 This endpoint retrieves specific form_response from the step.
 If `?include=form_field_values` PATH parameter is provided, form field values are also included.
+If `?include=form_field_values.form_field` PATH parameter is provided, form field is also included.
 
 ### HTTP Request
 
@@ -167,13 +169,13 @@ If `?include=form_field_values` PATH parameter is provided, form field values ar
 
 ### URL Parameters
 
-| Parameter     | Description                                                        |
-| ------------- | -------------------------------------------------------------------|
-| TEAM_ID       | The ID of the team to retrieve project from                        |
-| PROJECT_ID    | The ID of the project to retrieve experiment from                  |
-| EXPERIMENT_ID | The ID of the experiment to retrieve task from                     |
-| TASK_ID       | The ID of the task to retrieve protocol from                       |
-| PROTOCOL_ID   | The ID of the protocol to retrieve steps from                      |
-| STEP_ID       | The ID of the step to retrieve form_response from                  |
-| ID            | The ID of the form_response                                        |
-| INCLUDES      | if set to `form_field_values`, form field values are also included |
+| Parameter     | Description                                                                         |
+| ------------- | ------------------------------------------------------------------------------------|
+| TEAM_ID       | The ID of the team to retrieve project from                                         |
+| PROJECT_ID    | The ID of the project to retrieve experiment from                                   |
+| EXPERIMENT_ID | The ID of the experiment to retrieve task from                                      |
+| TASK_ID       | The ID of the task to retrieve protocol from                                        |
+| PROTOCOL_ID   | The ID of the protocol to retrieve steps from                                       |
+| STEP_ID       | The ID of the step to retrieve form_response from                                   |
+| ID            | The ID of the form_response                                                         |
+| INCLUDES      | Can include if set to `form_field_values`, `form_field_values.form_field`           |
