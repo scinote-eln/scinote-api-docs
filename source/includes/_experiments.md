@@ -156,7 +156,10 @@ This endpoint creates a new experiment in the team. Please note that we will cre
     "attributes": {
       "name": "My first experiment",
       "description": "This is my very first experiment",
-      "archived": false
+      "archived": false,
+      "metadata": {
+        "status": "processing"
+      }
     }
   }
 }
@@ -164,16 +167,17 @@ This endpoint creates a new experiment in the team. Please note that we will cre
 
 ### Experiment attributes
 
-| Attribute   | Mandatory | Description                                            |
-| ----------- | --------- | ------------------------------------------------------ |
-| name        | yes       | Name of the experiment                                 |
-| description | no        | Description of the experiment                          |
-| archived    | no        | Archived flag                                          |
-| status      | no        | Status of experiment (not_started, started, done)      |
-| description | no        | Description of the experiment                          |
-| due_date    | no        | Due date of experiment                                 |
-| start_date  | no        | Planned start date of experiment                       |
-| archived    | no        | Archived flag                                          |
+| Attribute   | Mandatory | Description                                               |
+| ----------- | --------- | --------------------------------------------------------- |
+| name        | yes       | Name of the experiment                                    |
+| description | no        | Description of the experiment                             |
+| archived    | no        | Archived flag                                             |
+| status      | no        | Status of experiment (not_started, started, done)         |
+| description | no        | Description of the experiment                             |
+| due_date    | no        | Due date of experiment                                    |
+| start_date  | no        | Planned start date of experiment                          |
+| archived    | no        | Archived flag                                             |
+| metadata    | no        | A JSON format metadata object, for storing arbitrary data |
 
 ## Update Experiment
 
