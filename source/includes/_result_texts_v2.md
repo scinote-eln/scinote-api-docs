@@ -127,6 +127,8 @@ curl -X POST \
 
 This endpoint creates new text in the result.
 
+You can embed images directly into the text field by providing them as Base64-encoded data URLs. The required format is: `data:image/png;base64,<FILE_CONTENT>`. Images supplied in this format are automatically converted into TinyMCE images. The maximum allowable image size is limited by the browser’s request size constraints.
+
 ### HTTP Request
 
 `POST https://<server-name>/api/v2/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks/<TASK_ID>/results/<RESULT_ID>/texts/`
@@ -194,6 +196,8 @@ curl -X PATCH \
 
 This endpoint updates existing Text in the selected result.
 If submitted attributes are the same and no changes are made for the text, server returns empty body with response code 204.
+
+You can embed images directly into the text field by providing them as Base64-encoded data URLs. The required format is: `data:image/png;base64,<FILE_CONTENT>`. Images supplied in this format are automatically converted into TinyMCE images. The maximum allowable image size is limited by the browser’s request size constraints.
 
 ### HTTP Request
 
