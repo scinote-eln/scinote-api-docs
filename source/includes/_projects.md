@@ -186,7 +186,10 @@ This endpoint creates a new project in the team.
       "name": "My project 1",
       "visibility": "visible",
       "archived": false,
-      "project_folder_id": 1
+      "project_folder_id": 1,
+      "metadata": {
+        "status": "processing"
+      }
     }
   }
 }
@@ -194,16 +197,17 @@ This endpoint creates a new project in the team.
 
 ### Project attributes
 
-| Attribute         | Mandatory | Description                                              |
-| ----------------- | --------- | -------------------------------------------------------- |
-| name              | yes       | Name of the project                                      |
-| visibility        | no        | Visibility of the project                                |
-| archived          | no        | Archived flag                                            |
-| status            | no        | Status of project (not_started, started, done)           |
-| description       | no        | Description of the project                               |
-| due_date          | no        | Due date of project                                      |
-| start_date        | no        | Planned start date of project                            |
-| project_folder_id | no        | Reference to project folder, if null it is on root level |
+| Attribute         | Mandatory | Description                                               |
+| ----------------- | --------- | --------------------------------------------------------- |
+| name              | yes       | Name of the project                                       |
+| visibility        | no        | Visibility of the project                                 |
+| archived          | no        | Archived flag                                             |
+| status            | no        | Status of project (not_started, started, done)            |
+| description       | no        | Description of the project                                |
+| due_date          | no        | Due date of project                                       |
+| start_date        | no        | Planned start date of project                             |
+| project_folder_id | no        | Reference to project folder, if null it is on root level  |
+| metadata          | no        | A JSON format metadata object, for storing arbitrary data |
 
 ## Update Project
 

@@ -266,7 +266,10 @@ This endpoint creates new task in the experiment. Please note that we will creat
       "name": "My task 1",
       "description": "Description of the task",
       "x": 1,
-      "y": 8
+      "y": 8,
+      "metadata": {
+        "status": "processing"
+      }
     }
   }
 }
@@ -274,12 +277,13 @@ This endpoint creates new task in the experiment. Please note that we will creat
 
 ### Task attributes
 
-| Attribute   | Mandatory | Description             |
-| ----------- | --------- | ----------------------- |
-| name        | yes       | Name of the task        |
-| description | no        | Description of the task |
-| x           | yes       | x position on canvas    |
-| y           | yes       | y position on canvas    |
+| Attribute   | Mandatory | Description                                               |
+| ----------- | --------- | --------------------------------------------------------- |
+| name        | yes       | Name of the task                                          |
+| description | no        | Description of the task                                   |
+| x           | yes       | x position on canvas                                      |
+| y           | yes       | y position on canvas                                      |
+| metadata    | no        | A JSON format metadata object, for storing arbitrary data |
 
 ## Update Task
 
