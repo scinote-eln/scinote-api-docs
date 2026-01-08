@@ -172,7 +172,7 @@ This endpoint creates a new experiment in the team. Please note that we will cre
 | name        | yes       | Name of the experiment                                    |
 | description | no        | Description of the experiment                             |
 | archived    | no        | Archived flag                                             |
-| status      | no        | Status of experiment (not_started, started, done)         |
+| status      | no        | Status of experiment (not_started, in_progress, done)     |
 | description | no        | Description of the experiment                             |
 | due_date    | no        | Due date of experiment                                    |
 | start_date  | no        | Planned start date of experiment                          |
@@ -260,7 +260,7 @@ If submitted attributes are the same and no changes are made for the experiment,
 | name        | yes       | Name of the experiment                                    |
 | description | no        | Description of the experiment                             |
 | archived    | no        | Archived flag                                             |
-| status      | no        | Status of experiment (not_started, started, done)         |
+| status      | no        | Status of experiment (not_started, in_progress, done)     |
 | description | no        | Description of the experiment                             |
 | due_date    | no        | Due date of experiment                                    |
 | start_date  | no        | Planned start date of experiment                          |

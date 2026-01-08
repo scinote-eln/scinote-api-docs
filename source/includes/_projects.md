@@ -202,7 +202,7 @@ This endpoint creates a new project in the team.
 | name              | yes       | Name of the project                                       |
 | visibility        | no        | Visibility of the project                                 |
 | archived          | no        | Archived flag                                             |
-| status            | no        | Status of project (not_started, started, done)            |
+| status            | no        | Status of project (not_started, in_progress, done)        |
 | description       | no        | Description of the project                                |
 | due_date          | no        | Due date of project                                       |
 | start_date        | no        | Planned start date of project                             |
@@ -301,7 +301,7 @@ If submitted attributes are the same and no changes are made for the project, se
 | name              | yes       | Name of the project                                       |
 | visibility        | no        | Visibility of the project                                 |
 | archived          | no        | Archived flag                                             |
-| status            | no        | Status of project (not_started, started, done)            |
+| status            | no        | Status of project (not_started, in_progress, done)        |
 | description       | no        | Description of the project                                |
 | due_date          | no        | Due date of project                                       |
 | start_date        | no        | Planned start date of project                             |
