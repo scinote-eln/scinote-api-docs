@@ -65,6 +65,7 @@ includes:
   - webhooks
   - errors
   - status
+  - direct_file_uploads
 
 search: true
 
