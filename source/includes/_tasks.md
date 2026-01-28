@@ -121,7 +121,7 @@ If `?include=comments` PATH parameter is provided, task comments are also includ
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks(?include=<INCLUDES>&filter%5Barchived%5D=<ARCHIVED>&filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments/<EXPERIMENT_ID>/tasks(?include=<INCLUDES>&filter%5Barchived%5D=<ARCHIVED>&filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>&filter[name]=<NAME>)`
 
 ### URL Parameters
 
@@ -134,6 +134,7 @@ If `?include=comments` PATH parameter is provided, task comments are also includ
 | ARCHIVED      | If set to `true` return only archived tasks. If set to `false` return only active tasks. |
 | FROM          | If present will filter experiment tasks corresponding timestamp above or equals value    |
 | TO            | If present will filter experiment tasks corresponding timestamp below or equals value    |
+| NAME          | If present will filter experiment tasks whose name contains the value                    |
 
 ## Get Task
 

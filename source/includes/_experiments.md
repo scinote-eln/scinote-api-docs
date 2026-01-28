@@ -40,7 +40,7 @@ This endpoint retrieves all experiments from the specified project.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments(?filter%5Barchived%5D=<ARCHIVED>&filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>)`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>/experiments(?filter%5Barchived%5D=<ARCHIVED>&filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>&filter[name]=<NAME>)`
 
 ### URL Parameters
 
@@ -51,6 +51,7 @@ This endpoint retrieves all experiments from the specified project.
 | ARCHIVED   | If set to `true` return only archived experiments. If set to `false` return only active experiments. |
 | FROM       | If present will filter experiments corresponding timestamp above or equals value                     |
 | TO         | If present will filter experiments corresponding timestamp below or equals value                     |
+| NAME       | If present will filter experiments whose name contains the value                                     |
 
 ## Get Experiment
 
@@ -283,7 +284,7 @@ Example filtering experiments where metadata contains key status with the value 
 
 `GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][status]=processing`
 
-You can also include multiple metadata key-value pair
+You can also include multiple metadata key-value pairs:
 
 `GET https://<server-name>/api/v1/teams/1/projects/1/experiments?filter[metadata][status]=processing&filter[metadata][external_id]=E1337`
 
