@@ -49,7 +49,7 @@ the project comments are also included.
 
 ### HTTP Request
 
-`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects(?include=<INCLUDES>&filter%5Barchived%5D=<ARCHIVED>)`
+`GET https://<server-name>/api/v1/teams/<TEAM_ID>/projects(?include=<INCLUDES>&filter%5Barchived%5D=<ARCHIVED>&filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>&filter[name]=<NAME>)`
 
 ### URL Parameters
 
@@ -58,6 +58,9 @@ the project comments are also included.
 | TEAM_ID   | The ID of the team to retrieve projects from                                                   |
 | INCLUDES  | if set to `comments` or `supervised_by`, project comments and/or supervisor are also included  |
 | ARCHIVED  | If set to `true` return only archived projects. If set to `false` return only active projects. |
+| FROM       | If present will filter projects corresponding timestamp above or equals value                 |
+| TO         | If present will filter projects corresponding timestamp below or equals value                 |
+| NAME       | If present will filter projects whose name contains the value                                 |
 
 ## Get Project
 
@@ -98,7 +101,7 @@ the project comments are also included.
 
 ### HTTP Request
 
-`GET http://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>(?include=<INCLUDES>&filter[created_at][from]=<FROM>&filter[created_at][to]=<TO>&filter[updated_at][from]=<FROM>&filter[updated_at][to]=<TO>&filter[name]=<NAME>)`
+`GET http://<server-name>/api/v1/teams/<TEAM_ID>/projects/<PROJECT_ID>(?include=<INCLUDES>)`
 
 ### URL Parameters
 
@@ -107,9 +110,6 @@ the project comments are also included.
 | TEAM_ID    | The ID of the team to retrieve project from                                   |
 | PROJECT_ID | The ID of the project to retrieve                                             |
 | INCLUDES   | if set to `comments`, project comments are also included                      |
-| FROM       | If present will filter projects corresponding timestamp above or equals value |
-| TO         | If present will filter projects corresponding timestamp below or equals value |
-| NAME       | If present will filter projects whose name contains the value                 |
 
 ## Create Project
 
