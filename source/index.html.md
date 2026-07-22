@@ -12,6 +12,7 @@ includes:
   - users
   - user_identities
   - user_roles
+  - api_keys
   - projects
   - project_user_assignments
   - project_activities
@@ -63,6 +64,7 @@ includes:
   - workflows
   - workflow_statuses
   - webhooks
+  - service_api
   - errors
   - status
   - direct_file_uploads
