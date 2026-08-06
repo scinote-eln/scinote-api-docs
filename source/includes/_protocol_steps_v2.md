@@ -315,7 +315,6 @@ This endpoint creates new step in the protocol.
 | Attribute   | Mandatory | Description             |
 | ----------- | --------- | ----------------------- |
 | name        | yes       | Name of the step        |
-| completed   | no        | Step completion flag    |
 
 ## Update Step
 
@@ -414,10 +413,10 @@ If submitted attributes are the same and no changes are made for the step, serve
 
 ### Step attributes
 
-| Attribute   | Mandatory | Description             |
-| ----------- | --------- | ----------------------- |
-| name        | yes       | Name of the step        |
-| completed   | no        | Step completion flag    |
+| Attribute   | Mandatory | Description                                                                                                                                    |
+| ----------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| name        | yes       | Name of the step                                                                                                                               |
+| completed   | no        | Step completion flag indicates the status of a task step and can be `true` for completed, `false` for not completed, or `skipped` for skipped. |
 
 ## Delete Step
 

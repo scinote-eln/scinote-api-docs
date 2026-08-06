@@ -296,7 +296,6 @@ This endpoint creates new step in the protocol.
 | ----------- | --------- | ----------------------- |
 | name        | yes       | Name of the step        |
 | description | no        | Description of the step |
-| completed   | no        | Step completion flag    |
 
 ## Update Step (Deprecated)
 
