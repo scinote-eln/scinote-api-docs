@@ -12,13 +12,18 @@ includes:
   - users
   - user_identities
   - user_roles
+  - user_groups
   - projects
   - project_user_assignments
+  - project_team_assignments
+  - project_user_group_assignments
   - project_activities
   - project_comments
   - project_folders
   - experiments
   - experiment_user_assignments
+  - experiment_team_assignments
+  - experiment_user_group_assignments
   - connections
   - task_groups
   - task_connections
@@ -42,6 +47,8 @@ includes:
   - task_tags
   - task_inventory_items
   - task_user_assignments
+  - task_team_assignments
+  - task_user_group_assignments
   - task_assignments
   - results_v1
   - results_v2
