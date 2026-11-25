@@ -140,6 +140,7 @@ curl -X POST \
 ```
 
 This endpoint creates new cell in the inventory item.
+In a text column that enforces [unique values](#unique-text-values), a value that already exists is rejected with status code 400 and detail `Validation failed: Data An item with this value already exists`.
 
 ### HTTP Request
 
@@ -231,6 +232,7 @@ curl -X PATCH \
 
 This endpoint updates existing cell in selected inventory item.
 If submitted attributes are the same and no changes are made for the cell, server returns empty body with response code 204.
+In a text column that enforces [unique values](#unique-text-values), a value that already exists is rejected with status code 400.
 
 ### HTTP Request
 
@@ -296,6 +298,21 @@ curl -X DELETE \
 > The above command returns empty body with status code 200
 
 This endpoint deletes specific cell from the inventory item.
+
+A cell of a [mandatory column](#mandatory-columns) cannot be deleted. The server returns status code 400 and the cell is kept:
+
+```json
+{
+  "errors": [
+    {
+      "id": "1a2b3c4d-...",
+      "status": 400,
+      "title": "Mandatory inventory column",
+      "detail": "Batch number column with id 3 is mandatory"
+    }
+  ]
+}
+```
 
 ### HTTP Request
 
