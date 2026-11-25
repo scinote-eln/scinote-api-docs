@@ -82,7 +82,10 @@ curl "https://<server-name>/api/v1/teams/1/inventories/1"
         "id": "1",
         "type": "inventories",
         "attributes": {
-            "name": "Inventory 1"
+            "name": "Inventory 1",
+            "archived": false,
+            "enforce_unique_item_names": true,
+            "unique_item_names_case_sensitive": false
         },
         "relationships": {
             "created_by": {
@@ -107,6 +110,8 @@ curl "https://<server-name>/api/v1/teams/1/inventories/1"
 
 This endpoint retrieves a specific inventory.
 
+The `enforce_unique_item_names` and `unique_item_names_case_sensitive` attributes are returned only when mandatory columns and unique entries are enabled on the SciNote instance. They are also returned by the other inventory endpoints.
+
 ### HTTP Request
 
 `GET https://<server-name>/api/v1/teams/<TEAM_ID>/inventories/<ID>`
@@ -129,7 +134,9 @@ curl -X POST \
     "data": {
         "type": "inventories",
         "attributes": {
-            "name": "Samples"
+            "name": "Samples",
+            "enforce_unique_item_names": true,
+            "unique_item_names_case_sensitive": false
         }
     }
   }'
@@ -184,9 +191,11 @@ This endpoint creates new inventory in the team.
 
 ### Inventory attributes
 
-| Attribute | Mandatory | Description        |
-| --------- | --------- | ------------------ |
-| name      | yes       | Name of the column |
+| Attribute                        | Mandatory | Description                                                                                                                                                                  |
+| -------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name                             | yes       | Name of the column                                                                                                                                                           |
+| enforce_unique_item_names        | no        | true/false, item names must be unique within the inventory. Defaults to false. See [Unique item names](#unique-item-names)                                                   |
+| unique_item_names_case_sensitive | no        | true/false, true: names are compared case sensitive (Text ≠ text), false: case insensitive (Text = text). Defaults to false. Only applies when `enforce_unique_item_names` is true |
 
 ## Update Inventory
 
@@ -258,9 +267,17 @@ If submitted attributes are the same and no changes are made for the inventory, 
 
 ### Inventory attributes
 
-| Attribute | Mandatory | Description           |
-| --------- | --------- | --------------------- |
-| name      | yes       | Name of the inventory |
+| Attribute                        | Mandatory | Description                                                                                                                                       |
+| -------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name                             | yes       | Name of the inventory                                                                                                                             |
+| enforce_unique_item_names        | no        | true/false, item names must be unique within the inventory. See [Unique item names](#unique-item-names)                                           |
+| unique_item_names_case_sensitive | no        | true/false, true: names are compared case sensitive (Text ≠ text), false: case insensitive (Text = text). Only applies when `enforce_unique_item_names` is true |
+
+### Unique item names
+
+The `enforce_unique_item_names` and `unique_item_names_case_sensitive` attributes are accepted only when mandatory columns and unique entries are enabled on the SciNote instance; otherwise they are ignored. Send them as JSON booleans (`true` / `false`).
+
+When `enforce_unique_item_names` is true, creating or renaming an item to a name that already exists in the inventory is rejected with status code 400 (see [Create Item](#create-item)). Leading and trailing whitespace is ignored, archived items count as existing names, and the comparison follows `unique_item_names_case_sensitive`.
 
 ## Delete Inventory
 

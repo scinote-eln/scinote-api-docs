@@ -258,6 +258,38 @@ curl -X POST \
 
 This endpoint creates new item in the inventory, cells can be also added in 'included' section.
 
+If the inventory has [mandatory columns](#mandatory-columns), the 'included' section must contain a cell for each of them. Otherwise the item is not created and the server returns status code 400 with one error per missing column:
+
+```json
+{
+  "errors": [
+    {
+      "id": "1a2b3c4d-...",
+      "status": 400,
+      "title": "Mandatory inventory column",
+      "detail": "Batch number column with id 3 is mandatory"
+    }
+  ]
+}
+```
+
+If the inventory enforces [unique item names](#unique-item-names) or a text column enforces [unique values](#unique-text-values), a name or value that already exists is rejected with status code 400 and the item is not created:
+
+```json
+{
+  "errors": [
+    {
+      "id": "1a2b3c4d-...",
+      "status": 400,
+      "title": "Validation error",
+      "detail": "Validation failed: Name An item with this name already exists"
+    }
+  ]
+}
+```
+
+A duplicate value in a unique text column returns the detail `Validation failed: Data An item with this value already exists`.
+
 ### HTTP Request
 
 `POST https://<server-name>/api/v1/teams/<TEAM_ID>/inventories/<INVENTORY_ID>/items`
@@ -408,6 +440,7 @@ curl -X PATCH \
 This endpoint updates existing item in selected inventory.
 Also existing cells can be updated by adding them to 'included' section.
 If submitted attributes are the same and no changes are made for the item, server returns empty body with response code 204.
+Renaming the item to a name that already exists, or setting a cell of a unique text column to a value that already exists, is rejected with status code 400, the same as in [Create Item](#create-item).
 
 ### HTTP Request
 
